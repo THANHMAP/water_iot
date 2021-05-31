@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:water_iot/constants.dart';
+import 'package:water_iot/screen/login/login.dart';
 import 'package:water_iot/screen/login/login_screen.dart';
 import 'screen/splash/splash_screen.dart';
 
@@ -15,10 +16,29 @@ class MyApp extends StatelessWidget {
       title: 'Phúc Thịnh',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        scaffoldBackgroundColor: mBackgroundColor,
-        primarySwatch: Colors.blue,
+        fontFamily: 'Poppins',
+        primaryColor: Colors.white,
+        floatingActionButtonTheme: FloatingActionButtonThemeData(
+          elevation: 0,
+          foregroundColor: Colors.white,
+        ),
+        accentColor: Colors.redAccent,
+        textTheme: TextTheme(
+          headline1: TextStyle(fontSize: 22.0, color: Colors.redAccent),
+          headline2: TextStyle(
+            fontSize: 24.0,
+            fontWeight: FontWeight.w700,
+            color: Colors.redAccent,
+          ),
+          bodyText1: TextStyle(
+            fontSize: 14.0,
+            fontWeight: FontWeight.w400,
+            color: Colors.blueAccent,
+          ),
+        ),
       ),
-      home: SplashScreen(),
+      // home: SplashScreen(),
+      home: LoginPage(),
     );
   }
 }

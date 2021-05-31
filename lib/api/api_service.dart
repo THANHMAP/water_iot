@@ -5,7 +5,7 @@ import 'package:water_iot/model/login_model.dart';
 
 class APIService {
   Future<LoginResponseModel> login(LoginRequestModel requestModel) async {
-    String url = AppUrl.baseURL + AppUrl.login;
+    String url = AppUrl.login;
 
     final response =
         await http.post(Uri.parse(url), body: requestModel.toJson());

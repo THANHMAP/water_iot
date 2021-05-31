@@ -15,15 +15,15 @@ class _SplashScreenState extends State<SplashScreen> {
     // delayed 3 seconds to next page
     Future.delayed(d, () {
       // to next page and close this page
-      Navigator.pushAndRemoveUntil(
-        context,
-        MaterialPageRoute(
-          builder: (context) {
-            return LoginScreen();
-          },
-        ),
-            (route) => false,
-      );
+      // Navigator.pushAndRemoveUntil(
+      //   context,
+      //   MaterialPageRoute(
+      //     builder: (context) {
+      //       return LoginScreen();
+      //     },
+      //   ),
+      //       (route) => false,
+      // );
     });
 
     super.initState();
@@ -35,13 +35,13 @@ class _SplashScreenState extends State<SplashScreen> {
       body: Container(
         decoration: BoxDecoration(
           image: DecorationImage(
-            image: AssetImage("assets/images/bg.png"),
-            fit: BoxFit.cover,
+            image: AssetImage("assets/images/splash_bg.png"),
+            fit: BoxFit.fill,
           ),
         ),
-        child: Center(
-          child: SvgPicture.asset("assets/images/logo.svg"),
-        ),
+        // child: Center(
+        //   child: SvgPicture.asset("assets/images/logo.svg"),
+        // ),
       ),
     );
   }

@@ -14,6 +14,14 @@ Color mFacebookColor = Color(0xFF4277BC);
 
 Color mTitleTextColor = Color(0xFF2D140D);
 
+Color mTexHeadLoginColor = Color(0xFF0204E8);
+
+Color borderEdittextColor = Color(0xFF4D4D4D);
+
+Color borderFocusEdittextColor = Color(0xFF0000FF);
+
+Color loginButtonColor = Color(0xFF556DD3);
+
 List<String> coffeeNames = [
   'Espresso','Cappuccino','Macciato','Mocha','Latte',
 ];

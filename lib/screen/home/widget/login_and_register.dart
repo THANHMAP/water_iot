@@ -46,7 +46,7 @@ class LoginAndRegister extends StatelessWidget {
                   context,
                   MaterialPageRoute(
                     builder: (context) {
-                      return LoginScreen();
+                      return LoginScreen1();
                     },
                   ),
                 );
