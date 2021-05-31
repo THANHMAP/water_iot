@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:water_iot/api/api_service.dart';
 import 'package:water_iot/model/login_model.dart';
+import 'package:water_iot/screen/main/main.dart';
 
 import '../../ProgressHUD.dart';
 import '../../constants.dart';
@@ -18,7 +19,6 @@ class _LoginPageState extends State<LoginPage> {
   LoginRequestModel loginRequestModel;
   final scaffoldKey = GlobalKey<ScaffoldState>();
   FocusNode _focusIpNode, _focusUserNode, _focusPasswordNode;
-
 
   @override
   void initState() {
@@ -55,7 +55,6 @@ class _LoginPageState extends State<LoginPage> {
                   children: <Widget>[
                     Container(
                       width: double.infinity,
-
                       margin:
                           EdgeInsets.symmetric(vertical: 60, horizontal: 20),
                       child: Column(
@@ -77,8 +76,7 @@ class _LoginPageState extends State<LoginPage> {
                       width: double.infinity,
                       padding:
                           EdgeInsets.symmetric(vertical: 20, horizontal: 20),
-                      margin:
-                          EdgeInsets.symmetric(vertical: 0, horizontal: 20),
+                      margin: EdgeInsets.symmetric(vertical: 0, horizontal: 20),
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(20),
                         color: Theme.of(context).primaryColor,
@@ -131,8 +129,10 @@ class _LoginPageState extends State<LoginPage> {
                                   : null,
                               decoration: new InputDecoration(
                                 hintText: "IP nhà máy",
-                                hintStyle:
-                                    TextStyle(color: _focusIpNode.hasFocus ? borderFocusEdittextColor : borderEdittextColor),
+                                hintStyle: TextStyle(
+                                    color: _focusIpNode.hasFocus
+                                        ? borderFocusEdittextColor
+                                        : borderEdittextColor),
                                 enabledBorder: UnderlineInputBorder(
                                     borderSide:
                                         BorderSide(color: borderEdittextColor)),
@@ -158,8 +158,10 @@ class _LoginPageState extends State<LoginPage> {
                                   : null,
                               decoration: new InputDecoration(
                                 hintText: "Tên đăng nhập",
-                                hintStyle:
-                                TextStyle(color: _focusUserNode.hasFocus ? borderFocusEdittextColor : borderEdittextColor),
+                                hintStyle: TextStyle(
+                                    color: _focusUserNode.hasFocus
+                                        ? borderFocusEdittextColor
+                                        : borderEdittextColor),
                                 enabledBorder: UnderlineInputBorder(
                                     borderSide:
                                         BorderSide(color: borderEdittextColor)),
@@ -182,8 +184,10 @@ class _LoginPageState extends State<LoginPage> {
                               obscureText: hidePassword,
                               decoration: new InputDecoration(
                                 hintText: "Password",
-                                hintStyle:
-                                TextStyle(color: _focusPasswordNode.hasFocus ? borderFocusEdittextColor : borderEdittextColor),
+                                hintStyle: TextStyle(
+                                    color: _focusPasswordNode.hasFocus
+                                        ? borderFocusEdittextColor
+                                        : borderEdittextColor),
                                 enabledBorder: UnderlineInputBorder(
                                     borderSide:
                                         BorderSide(color: borderEdittextColor)),
@@ -198,36 +202,45 @@ class _LoginPageState extends State<LoginPage> {
                               padding: EdgeInsets.symmetric(
                                   vertical: 17, horizontal: 110),
                               onPressed: () {
-                                if (validateAndSave()) {
-                                  print(loginRequestModel.toJson());
-
-                                  setState(() {
-                                    isApiCallProcess = true;
-                                  });
-
-                                  APIService apiService = new APIService();
-                                  apiService
-                                      .login(loginRequestModel)
-                                      .then((value) {
-                                    if (value != null) {
-                                      setState(() {
-                                        isApiCallProcess = false;
-                                      });
-
-                                      if (value.data.accessToken.isNotEmpty) {
-                                        final snackBar = SnackBar(
-                                            content: Text("Login Successful"));
-                                        scaffoldKey.currentState
-                                            .showSnackBar(snackBar);
-                                      } else {
-                                        final snackBar = SnackBar(
-                                            content: Text(value.message));
-                                        scaffoldKey.currentState
-                                            .showSnackBar(snackBar);
-                                      }
-                                    }
-                                  });
-                                }
+                                // if (validateAndSave()) {
+                                //   print(loginRequestModel.toJson());
+                                //
+                                //   setState(() {
+                                //     isApiCallProcess = true;
+                                //   });
+                                //
+                                //   APIService apiService = new APIService();
+                                //   apiService
+                                //       .login(loginRequestModel)
+                                //       .then((value) {
+                                //     if (value != null) {
+                                //       setState(() {
+                                //         isApiCallProcess = false;
+                                //       });
+                                //
+                                //       if (value.data.accessToken.isNotEmpty) {
+                                //         final snackBar = SnackBar(
+                                //             content: Text("Login Successful"));
+                                //         scaffoldKey.currentState
+                                //             .showSnackBar(snackBar);
+                                //       } else {
+                                //         final snackBar = SnackBar(
+                                //             content: Text(value.message));
+                                //         scaffoldKey.currentState
+                                //             .showSnackBar(snackBar);
+                                //       }
+                                //     }
+                                //   });
+                                // }
+                                Navigator.pushAndRemoveUntil(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) {
+                                      return MainPage();
+                                    },
+                                  ),
+                                  (route) => false,
+                                );
                               },
                               child: Text(
                                 "LOGIN",
@@ -251,19 +264,19 @@ class _LoginPageState extends State<LoginPage> {
         ));
   }
 
-  void _requestIpFocus(){
+  void _requestIpFocus() {
     setState(() {
       FocusScope.of(context).requestFocus(_focusIpNode);
     });
   }
 
-  void _requestUserFocus(){
+  void _requestUserFocus() {
     setState(() {
       FocusScope.of(context).requestFocus(_focusUserNode);
     });
   }
 
-  void _requestPasswordFocus(){
+  void _requestPasswordFocus() {
     setState(() {
       FocusScope.of(context).requestFocus(_focusPasswordNode);
     });
@@ -275,7 +288,6 @@ class _LoginPageState extends State<LoginPage> {
     _focusIpNode.dispose();
     _focusUserNode.dispose();
     _focusPasswordNode.dispose();
-
 
     super.dispose();
   }
