@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:water_iot/screen/main/dashboard.dart';
 import 'package:water_iot/screen/main/home.dart';
 import 'package:water_iot/screen/main/setting.dart';
@@ -29,8 +30,8 @@ class _MainPageState extends State<MainPage> {
         type: BottomNavigationBarType.fixed,
         currentIndex: _currentIndex,
         backgroundColor: colorScheme.surface,
-        selectedItemColor: shrineErrorRed,
-        // unselectedItemColor: colorScheme.onSurface.withOpacity(.60),
+        selectedItemColor: Color(0xFF556DD3),
+        unselectedItemColor: colorScheme.onSurface.withOpacity(.60),
         selectedLabelStyle: textTheme.caption,
         unselectedLabelStyle: textTheme.caption,
         onTap: (value) {
@@ -39,16 +40,46 @@ class _MainPageState extends State<MainPage> {
         },
         items: [
           BottomNavigationBarItem(
-            label: 'Favorites',
-            icon: Icon(Icons.favorite),
+            label: 'Tổng quan',
+            icon: SvgPicture.asset(
+              "assets/images/ic_dashboard.svg",
+              width: 20,
+              height: 30,
+            ),
+            activeIcon: SvgPicture.asset(
+              "assets/images/ic_dashboard.svg",
+              color: Color(0xFF556DD3),
+              width: 20,
+              height: 30,
+            ),
           ),
           BottomNavigationBarItem(
-            label: 'Music',
-            icon: Icon(Icons.music_note),
+            label: 'Trang chủ',
+            icon: SvgPicture.asset(
+              "assets/images/ic_home.svg",
+              width: 20,
+              height: 30,
+            ),
+            activeIcon: SvgPicture.asset(
+              "assets/images/ic_home.svg",
+              color: Color(0xFF556DD3),
+              width: 20,
+              height: 30,
+            ),
           ),
           BottomNavigationBarItem(
-            label: 'Places',
-            icon: Icon(Icons.location_on),
+            label: 'Thông tin cá nhân',
+            icon: SvgPicture.asset(
+              "assets/images/ic_setting.svg",
+              width: 20,
+              height: 30,
+            ),
+            activeIcon: SvgPicture.asset(
+              "assets/images/ic_setting.svg",
+              color: Color(0xFF556DD3),
+              width: 20,
+              height: 30,
+            ),
           ),
         ],
       ),

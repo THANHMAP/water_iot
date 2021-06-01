@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 
 import '../../ProgressHUD.dart';
 import '../../constants.dart';
@@ -30,10 +31,18 @@ class _DashBoardPageState extends State<DashBoardPage> {
     precacheImage(AssetImage("assets/images/bg_app.png"), context);
     return Scaffold(
         appBar: AppBar(
-            title: Text("DashBoard"),
+            title: Text(
+              "DashBoard",
+              style: TextStyle(color: Color(0xFF556DD3)),
+            ),
             centerTitle: true,
             leading: IconButton(
-                icon: Icon(Icons.notifications_active),
+                icon: SvgPicture.asset(
+                  'assets/images/ic_back.svg',
+                  height: 20.0,
+                  width: 20.0,
+                  allowDrawingOutsideViewBox: true,
+                ),
                 onPressed: () {
                   // Do something.
                 })),
@@ -51,63 +60,417 @@ class _DashBoardPageState extends State<DashBoardPage> {
               child: new Container(
                 margin: EdgeInsets.symmetric(vertical: 20, horizontal: 10),
                 child: new Column(
-                  children: const <Widget>[
-                    Card(
-                      child: ListTile(
-                        leading: FlutterLogo(size: 56.0),
-                        title: Text('Two-line ListTile'),
-                        subtitle: Text('Here is a second line'),
-                        trailing: Icon(Icons.more_vert),
+                  children: <Widget>[
+                    Container(
+                      width: double.infinity,
+                      height: 95,
+                      padding:
+                          EdgeInsets.symmetric(vertical: 20, horizontal: 20),
+                      margin: EdgeInsets.symmetric(vertical: 0, horizontal: 10),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
+                        color: Theme.of(context).primaryColor,
+                        boxShadow: [
+                          BoxShadow(
+                              color:
+                                  Theme.of(context).hintColor.withOpacity(0.2),
+                              offset: Offset(0, 10),
+                              blurRadius: 20)
+                        ],
+                      ),
+                      child: Column(
+                        children: <Widget>[
+                          new Row(
+                            children: <Widget>[
+                              Expanded(
+                                flex: 10,
+                                child: Image.asset(
+                                  "assets/images/ic_factory.png",
+                                  fit: BoxFit.contain,
+                                ),
+                              ),
+                              Expanded(
+                                flex: 40,
+                                child: Container(
+                                  child: Center(
+                                    child: Text(
+                                      'Factory',
+                                      style: TextStyle(
+                                        color: mTexHeadLoginColor,
+                                        fontFamily: 'OpenSans',
+                                        fontSize: 18.0,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              Expanded(
+                                flex: 3,
+                                child: Image.asset(
+                                  "assets/images/ic_arrow.png",
+                                  fit: BoxFit.contain,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
                       ),
                     ),
-                    Card(
-                      child: ListTile(
-                        leading: FlutterLogo(size: 56.0),
-                        title: Text('Two-line ListTile'),
-                        subtitle: Text('Here is a second line'),
-                        trailing: Icon(Icons.more_vert),
+
+                    SizedBox(height: 13),
+                    Container(
+                      width: double.infinity,
+                      height: 95,
+                      padding:
+                      EdgeInsets.symmetric(vertical: 20, horizontal: 20),
+                      margin: EdgeInsets.symmetric(vertical: 0, horizontal: 10),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
+                        color: Theme.of(context).primaryColor,
+                        boxShadow: [
+                          BoxShadow(
+                              color:
+                              Theme.of(context).hintColor.withOpacity(0.2),
+                              offset: Offset(0, 10),
+                              blurRadius: 20)
+                        ],
+                      ),
+                      child: Column(
+                        children: <Widget>[
+                          new Row(
+                            children: <Widget>[
+                              Expanded(
+                                flex: 10,
+                                child: Image.asset(
+                                  "assets/images/ic_factory.png",
+                                  fit: BoxFit.contain,
+                                ),
+                              ),
+                              Expanded(
+                                flex: 40,
+                                child: Container(
+                                  child: Center(
+                                    child: Text(
+                                      'Factory',
+                                      style: TextStyle(
+                                        color: mTexHeadLoginColor,
+                                        fontFamily: 'OpenSans',
+                                        fontSize: 18.0,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              Expanded(
+                                flex: 3,
+                                child: Image.asset(
+                                  "assets/images/ic_arrow.png",
+                                  fit: BoxFit.contain,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
                       ),
                     ),
-                    Card(
-                      child: ListTile(
-                        leading: FlutterLogo(size: 56.0),
-                        title: Text('Two-line ListTile'),
-                        subtitle: Text('Here is a second line'),
-                        trailing: Icon(Icons.more_vert),
+
+                    SizedBox(height: 13),
+                    Container(
+                      width: double.infinity,
+                      height: 95,
+                      padding:
+                      EdgeInsets.symmetric(vertical: 20, horizontal: 20),
+                      margin: EdgeInsets.symmetric(vertical: 0, horizontal: 10),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
+                        color: Theme.of(context).primaryColor,
+                        boxShadow: [
+                          BoxShadow(
+                              color:
+                              Theme.of(context).hintColor.withOpacity(0.2),
+                              offset: Offset(0, 10),
+                              blurRadius: 20)
+                        ],
+                      ),
+                      child: Column(
+                        children: <Widget>[
+                          new Row(
+                            children: <Widget>[
+                              Expanded(
+                                flex: 10,
+                                child: Image.asset(
+                                  "assets/images/ic_factory.png",
+                                  fit: BoxFit.contain,
+                                ),
+                              ),
+                              Expanded(
+                                flex: 40,
+                                child: Container(
+                                  child: Center(
+                                    child: Text(
+                                      'Factory',
+                                      style: TextStyle(
+                                        color: mTexHeadLoginColor,
+                                        fontFamily: 'OpenSans',
+                                        fontSize: 18.0,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              Expanded(
+                                flex: 3,
+                                child: Image.asset(
+                                  "assets/images/ic_arrow.png",
+                                  fit: BoxFit.contain,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
                       ),
                     ),
-                    Card(
-                      child: ListTile(
-                        leading: FlutterLogo(size: 56.0),
-                        title: Text('Two-line ListTile'),
-                        subtitle: Text('Here is a second line'),
-                        trailing: Icon(Icons.more_vert),
+
+                    SizedBox(height: 13),
+                    Container(
+                      width: double.infinity,
+                      height: 95,
+                      padding:
+                      EdgeInsets.symmetric(vertical: 20, horizontal: 20),
+                      margin: EdgeInsets.symmetric(vertical: 0, horizontal: 10),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
+                        color: Theme.of(context).primaryColor,
+                        boxShadow: [
+                          BoxShadow(
+                              color:
+                              Theme.of(context).hintColor.withOpacity(0.2),
+                              offset: Offset(0, 10),
+                              blurRadius: 20)
+                        ],
+                      ),
+                      child: Column(
+                        children: <Widget>[
+                          new Row(
+                            children: <Widget>[
+                              Expanded(
+                                flex: 10,
+                                child: Image.asset(
+                                  "assets/images/ic_factory.png",
+                                  fit: BoxFit.contain,
+                                ),
+                              ),
+                              Expanded(
+                                flex: 40,
+                                child: Container(
+                                  child: Center(
+                                    child: Text(
+                                      'Factory',
+                                      style: TextStyle(
+                                        color: mTexHeadLoginColor,
+                                        fontFamily: 'OpenSans',
+                                        fontSize: 18.0,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              Expanded(
+                                flex: 3,
+                                child: Image.asset(
+                                  "assets/images/ic_arrow.png",
+                                  fit: BoxFit.contain,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
                       ),
                     ),
-                    Card(
-                      child: ListTile(
-                        leading: FlutterLogo(size: 56.0),
-                        title: Text('Two-line ListTile'),
-                        subtitle: Text('Here is a second line'),
-                        trailing: Icon(Icons.more_vert),
+
+
+                    SizedBox(height: 13),
+                    Container(
+                      width: double.infinity,
+                      height: 95,
+                      padding:
+                      EdgeInsets.symmetric(vertical: 20, horizontal: 20),
+                      margin: EdgeInsets.symmetric(vertical: 0, horizontal: 10),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
+                        color: Theme.of(context).primaryColor,
+                        boxShadow: [
+                          BoxShadow(
+                              color:
+                              Theme.of(context).hintColor.withOpacity(0.2),
+                              offset: Offset(0, 10),
+                              blurRadius: 20)
+                        ],
+                      ),
+                      child: Column(
+                        children: <Widget>[
+                          new Row(
+                            children: <Widget>[
+                              Expanded(
+                                flex: 10,
+                                child: Image.asset(
+                                  "assets/images/ic_factory.png",
+                                  fit: BoxFit.contain,
+                                ),
+                              ),
+                              Expanded(
+                                flex: 40,
+                                child: Container(
+                                  child: Center(
+                                    child: Text(
+                                      'Factory',
+                                      style: TextStyle(
+                                        color: mTexHeadLoginColor,
+                                        fontFamily: 'OpenSans',
+                                        fontSize: 18.0,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              Expanded(
+                                flex: 3,
+                                child: Image.asset(
+                                  "assets/images/ic_arrow.png",
+                                  fit: BoxFit.contain,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
                       ),
                     ),
-                    Card(
-                      child: ListTile(
-                        leading: FlutterLogo(size: 56.0),
-                        title: Text('Two-line ListTile'),
-                        subtitle: Text('Here is a second line'),
-                        trailing: Icon(Icons.more_vert),
+
+
+                    SizedBox(height: 13),
+                    Container(
+                      width: double.infinity,
+                      height: 95,
+                      padding:
+                      EdgeInsets.symmetric(vertical: 20, horizontal: 20),
+                      margin: EdgeInsets.symmetric(vertical: 0, horizontal: 10),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
+                        color: Theme.of(context).primaryColor,
+                        boxShadow: [
+                          BoxShadow(
+                              color:
+                              Theme.of(context).hintColor.withOpacity(0.2),
+                              offset: Offset(0, 10),
+                              blurRadius: 20)
+                        ],
+                      ),
+                      child: Column(
+                        children: <Widget>[
+                          new Row(
+                            children: <Widget>[
+                              Expanded(
+                                flex: 10,
+                                child: Image.asset(
+                                  "assets/images/ic_factory.png",
+                                  fit: BoxFit.contain,
+                                ),
+                              ),
+                              Expanded(
+                                flex: 40,
+                                child: Container(
+                                  child: Center(
+                                    child: Text(
+                                      'Factory',
+                                      style: TextStyle(
+                                        color: mTexHeadLoginColor,
+                                        fontFamily: 'OpenSans',
+                                        fontSize: 18.0,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              Expanded(
+                                flex: 3,
+                                child: Image.asset(
+                                  "assets/images/ic_arrow.png",
+                                  fit: BoxFit.contain,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
                       ),
                     ),
-                    Card(
-                      child: ListTile(
-                        leading: FlutterLogo(size: 56.0),
-                        title: Text('Two-line ListTile'),
-                        subtitle: Text('Here is a second line'),
-                        trailing: Icon(Icons.more_vert),
-                      ),
-                    ),
+
+
+                    // Card(
+                    //   child: ListTile(
+                    //     leading: FlutterLogo(size: 56.0),
+                    //     title: Text('Two-line ListTile'),
+                    //     subtitle: Text('Here is a second line'),
+                    //     trailing: IconButton(
+                    //         icon: new Image.asset("assets/img/ic_arrow.png"),
+                    //         onPressed: () {
+                    //           // Do something.
+                    //         }),
+                    //   ),
+                    // ),
+                    // Card(
+                    //   child: ListTile(
+                    //     leading: FlutterLogo(size: 56.0),
+                    //     title: Text('Two-line ListTile'),
+                    //     subtitle: Text('Here is a second line'),
+                    //     trailing: Icon(Icons.more_vert),
+                    //   ),
+                    // ),
+                    // Card(
+                    //   child: ListTile(
+                    //     leading: FlutterLogo(size: 56.0),
+                    //     title: Text('Two-line ListTile'),
+                    //     subtitle: Text('Here is a second line'),
+                    //     trailing: Icon(Icons.more_vert),
+                    //   ),
+                    // ),
+                    // Card(
+                    //   child: ListTile(
+                    //     leading: FlutterLogo(size: 56.0),
+                    //     title: Text('Two-line ListTile'),
+                    //     subtitle: Text('Here is a second line'),
+                    //     trailing: Icon(Icons.more_vert),
+                    //   ),
+                    // ),
+                    // Card(
+                    //   child: ListTile(
+                    //     leading: FlutterLogo(size: 56.0),
+                    //     title: Text('Two-line ListTile'),
+                    //     subtitle: Text('Here is a second line'),
+                    //     trailing: Icon(Icons.more_vert),
+                    //   ),
+                    // ),
+                    // Card(
+                    //   child: ListTile(
+                    //     leading: FlutterLogo(size: 56.0),
+                    //     title: Text('Two-line ListTile'),
+                    //     subtitle: Text('Here is a second line'),
+                    //     trailing: Icon(Icons.more_vert),
+                    //   ),
+                    // ),
+                    // Card(
+                    //   child: ListTile(
+                    //     leading: FlutterLogo(size: 56.0),
+                    //     title: Text('Two-line ListTile'),
+                    //     subtitle: Text('Here is a second line'),
+                    //     trailing: Icon(Icons.more_vert),
+                    //   ),
+                    // ),
                   ],
                 ),
               ),
