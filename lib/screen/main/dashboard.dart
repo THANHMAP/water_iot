@@ -27,7 +27,7 @@ class _DashBoardPageState extends State<DashBoardPage> {
   }
 
   Widget _uiSetup(BuildContext context) {
-    // precacheImage(AssetImage("assets/images/bg_app.png"), context);
+    precacheImage(AssetImage("assets/images/bg_app.png"), context);
     return Scaffold(
         appBar: AppBar(
             title: Text("DashBoard"),
