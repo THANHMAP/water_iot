@@ -45,9 +45,11 @@ class _LoginPageState extends State<LoginPage> {
           children: <Widget>[
             new Container(
               decoration: new BoxDecoration(
-                  image: new DecorationImage(
-                      image: new AssetImage("assets/images/bg_app.png"),
-                      fit: BoxFit.fill)),
+                image: new DecorationImage(
+                  image: new AssetImage("assets/images/bg_app.png"),
+                  fit: BoxFit.cover,
+                ),
+              ),
             ),
             SingleChildScrollView(
               child: new Container(

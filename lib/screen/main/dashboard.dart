@@ -27,69 +27,92 @@ class _DashBoardPageState extends State<DashBoardPage> {
   }
 
   Widget _uiSetup(BuildContext context) {
+    // precacheImage(AssetImage("assets/images/bg_app.png"), context);
     return Scaffold(
+        appBar: AppBar(
+            title: Text("DashBoard"),
+            centerTitle: true,
+            leading: IconButton(
+                icon: Icon(Icons.notifications_active),
+                onPressed: () {
+                  // Do something.
+                })),
         body: Stack(
-      children: <Widget>[
-        new Container(
-          decoration: new BoxDecoration(
-              image: new DecorationImage(
+          children: <Widget>[
+            new Container(
+              decoration: new BoxDecoration(
+                image: new DecorationImage(
                   image: new AssetImage("assets/images/bg_app.png"),
-                  fit: BoxFit.fill)),
-        ),
-        SingleChildScrollView(
-          child: new Container(
-            child: new Column(
-              children: <Widget>[
-                Container(
-                  width: double.infinity,
-                  height: 70,
-                  padding: EdgeInsets.symmetric(vertical: 20, horizontal: 20),
-                  margin: EdgeInsets.symmetric(vertical: 30, horizontal: 20),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
-                    color: Theme.of(context).primaryColor,
-                    boxShadow: [
-                      BoxShadow(
-                          color: Theme.of(context).hintColor.withOpacity(0.2),
-                          offset: Offset(0, 10),
-                          blurRadius: 30)
-                    ],
-                  ),
-                  child: Column(
-                    children: <Widget>[
-                      new Row(
-                        children: <Widget>[
-                          // SizedBox(width: 5),
-                          // Image.asset(
-                          //   "assets/images/logo.png",
-                          //   height: 50,
-                          //   width: 50,
-                          //   fit: BoxFit.cover,
-                          // ),
-                          // SizedBox(width: 15),
-                          Expanded(
-                            child: Container(
-                              child: Text(
-                                'login to accesss dasboard',
-                                style: TextStyle(
-                                  color: mTexHeadLoginColor,
-                                  fontFamily: 'OpenSans',
-                                  fontSize: 18.0,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
+                  fit: BoxFit.cover,
                 ),
-              ],
+              ),
             ),
-          ),
-        ),
-      ],
-    ));
+            new SingleChildScrollView(
+              child: new Container(
+                margin: EdgeInsets.symmetric(vertical: 20, horizontal: 10),
+                child: new Column(
+                  children: const <Widget>[
+                    Card(
+                      child: ListTile(
+                        leading: FlutterLogo(size: 56.0),
+                        title: Text('Two-line ListTile'),
+                        subtitle: Text('Here is a second line'),
+                        trailing: Icon(Icons.more_vert),
+                      ),
+                    ),
+                    Card(
+                      child: ListTile(
+                        leading: FlutterLogo(size: 56.0),
+                        title: Text('Two-line ListTile'),
+                        subtitle: Text('Here is a second line'),
+                        trailing: Icon(Icons.more_vert),
+                      ),
+                    ),
+                    Card(
+                      child: ListTile(
+                        leading: FlutterLogo(size: 56.0),
+                        title: Text('Two-line ListTile'),
+                        subtitle: Text('Here is a second line'),
+                        trailing: Icon(Icons.more_vert),
+                      ),
+                    ),
+                    Card(
+                      child: ListTile(
+                        leading: FlutterLogo(size: 56.0),
+                        title: Text('Two-line ListTile'),
+                        subtitle: Text('Here is a second line'),
+                        trailing: Icon(Icons.more_vert),
+                      ),
+                    ),
+                    Card(
+                      child: ListTile(
+                        leading: FlutterLogo(size: 56.0),
+                        title: Text('Two-line ListTile'),
+                        subtitle: Text('Here is a second line'),
+                        trailing: Icon(Icons.more_vert),
+                      ),
+                    ),
+                    Card(
+                      child: ListTile(
+                        leading: FlutterLogo(size: 56.0),
+                        title: Text('Two-line ListTile'),
+                        subtitle: Text('Here is a second line'),
+                        trailing: Icon(Icons.more_vert),
+                      ),
+                    ),
+                    Card(
+                      child: ListTile(
+                        leading: FlutterLogo(size: 56.0),
+                        title: Text('Two-line ListTile'),
+                        subtitle: Text('Here is a second line'),
+                        trailing: Icon(Icons.more_vert),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ],
+        ));
   }
 }
