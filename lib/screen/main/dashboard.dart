@@ -63,9 +63,9 @@ class _DashBoardPageState extends State<DashBoardPage> {
                   children: <Widget>[
                     Container(
                       width: double.infinity,
-                      height: 95,
+                      height: 70,
                       padding:
-                          EdgeInsets.symmetric(vertical: 20, horizontal: 20),
+                          EdgeInsets.symmetric(vertical: 10, horizontal: 20),
                       margin: EdgeInsets.symmetric(vertical: 0, horizontal: 10),
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10),
@@ -90,19 +90,21 @@ class _DashBoardPageState extends State<DashBoardPage> {
                                 ),
                               ),
                               Expanded(
-                                flex: 40,
+                                flex: 50,
                                 child: Container(
-                                  child: Center(
-                                    child: Text(
-                                      'Factory',
-                                      style: TextStyle(
-                                        color: mTexHeadLoginColor,
-                                        fontFamily: 'OpenSans',
-                                        fontSize: 18.0,
-                                        fontWeight: FontWeight.bold,
-                                      ),
+                                  child: Text(
+                                    'Factory',
+                                    textAlign: TextAlign.center,
+                                    style: TextStyle(
+                                      color: mTexHeadLoginColor,
+                                      fontFamily: 'OpenSans',
+                                      fontSize: 18.0,
+                                      fontWeight: FontWeight.bold,
                                     ),
                                   ),
+                                  // child: Center(
+                                  //
+                                  // ),
                                 ),
                               ),
                               Expanded(
@@ -411,66 +413,66 @@ class _DashBoardPageState extends State<DashBoardPage> {
                     ),
 
 
-                    // Card(
-                    //   child: ListTile(
-                    //     leading: FlutterLogo(size: 56.0),
-                    //     title: Text('Two-line ListTile'),
-                    //     subtitle: Text('Here is a second line'),
-                    //     trailing: IconButton(
-                    //         icon: new Image.asset("assets/img/ic_arrow.png"),
-                    //         onPressed: () {
-                    //           // Do something.
-                    //         }),
-                    //   ),
-                    // ),
-                    // Card(
-                    //   child: ListTile(
-                    //     leading: FlutterLogo(size: 56.0),
-                    //     title: Text('Two-line ListTile'),
-                    //     subtitle: Text('Here is a second line'),
-                    //     trailing: Icon(Icons.more_vert),
-                    //   ),
-                    // ),
-                    // Card(
-                    //   child: ListTile(
-                    //     leading: FlutterLogo(size: 56.0),
-                    //     title: Text('Two-line ListTile'),
-                    //     subtitle: Text('Here is a second line'),
-                    //     trailing: Icon(Icons.more_vert),
-                    //   ),
-                    // ),
-                    // Card(
-                    //   child: ListTile(
-                    //     leading: FlutterLogo(size: 56.0),
-                    //     title: Text('Two-line ListTile'),
-                    //     subtitle: Text('Here is a second line'),
-                    //     trailing: Icon(Icons.more_vert),
-                    //   ),
-                    // ),
-                    // Card(
-                    //   child: ListTile(
-                    //     leading: FlutterLogo(size: 56.0),
-                    //     title: Text('Two-line ListTile'),
-                    //     subtitle: Text('Here is a second line'),
-                    //     trailing: Icon(Icons.more_vert),
-                    //   ),
-                    // ),
-                    // Card(
-                    //   child: ListTile(
-                    //     leading: FlutterLogo(size: 56.0),
-                    //     title: Text('Two-line ListTile'),
-                    //     subtitle: Text('Here is a second line'),
-                    //     trailing: Icon(Icons.more_vert),
-                    //   ),
-                    // ),
-                    // Card(
-                    //   child: ListTile(
-                    //     leading: FlutterLogo(size: 56.0),
-                    //     title: Text('Two-line ListTile'),
-                    //     subtitle: Text('Here is a second line'),
-                    //     trailing: Icon(Icons.more_vert),
-                    //   ),
-                    // ),
+                    Card(
+                      child: ListTile(
+                        leading: FlutterLogo(size: 56.0),
+                        title: Text('Two-line ListTile'),
+                        subtitle: Text('Here is a second line'),
+                        trailing: IconButton(
+                            icon: new Image.asset("assets/img/ic_arrow.png"),
+                            onPressed: () {
+                              // Do something.
+                            }),
+                      ),
+                    ),
+                    Card(
+                      child: ListTile(
+                        leading: FlutterLogo(size: 56.0),
+                        title: Text('Two-line ListTile'),
+                        subtitle: Text('Here is a second line'),
+                        trailing: Icon(Icons.more_vert),
+                      ),
+                    ),
+                    Card(
+                      child: ListTile(
+                        leading: FlutterLogo(size: 56.0),
+                        title: Text('Two-line ListTile'),
+                        subtitle: Text('Here is a second line'),
+                        trailing: Icon(Icons.more_vert),
+                      ),
+                    ),
+                    Card(
+                      child: ListTile(
+                        leading: FlutterLogo(size: 56.0),
+                        title: Text('Two-line ListTile'),
+                        subtitle: Text('Here is a second line'),
+                        trailing: Icon(Icons.more_vert),
+                      ),
+                    ),
+                    Card(
+                      child: ListTile(
+                        leading: FlutterLogo(size: 56.0),
+                        title: Text('Two-line ListTile'),
+                        subtitle: Text('Here is a second line'),
+                        trailing: Icon(Icons.more_vert),
+                      ),
+                    ),
+                    Card(
+                      child: ListTile(
+                        leading: FlutterLogo(size: 56.0),
+                        title: Text('Two-line ListTile'),
+                        subtitle: Text('Here is a second line'),
+                        trailing: Icon(Icons.more_vert),
+                      ),
+                    ),
+                    Card(
+                      child: ListTile(
+                        leading: FlutterLogo(size: 56.0),
+                        title: Text('Two-line ListTile'),
+                        subtitle: Text('Here is a second line'),
+                        trailing: Icon(Icons.more_vert),
+                      ),
+                    ),
                   ],
                 ),
               ),
