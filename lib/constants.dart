@@ -22,6 +22,10 @@ Color borderFocusEdittextColor = Color(0xFF0000FF);
 
 Color loginButtonColor = Color(0xFF556DD3);
 
+Color textDashboardColor = Color(0xFF333333);
+
+
+
 List<String> coffeeNames = [
   'Espresso','Cappuccino','Macciato','Mocha','Latte',
 ];
