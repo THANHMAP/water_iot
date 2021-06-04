@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:water_iot/screen/factory/factory.dart';
 
 import '../../ProgressHUD.dart';
 import '../../constants.dart';
@@ -61,9 +62,79 @@ class _DashBoardPageState extends State<DashBoardPage> {
                 margin: EdgeInsets.symmetric(vertical: 20, horizontal: 10),
                 child: new Column(
                   children: <Widget>[
+                    InkWell(
+                      child: Container(
+                        width: double.infinity,
+                        height: 73,
+                        padding:
+                            EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+                        margin:
+                            EdgeInsets.symmetric(vertical: 0, horizontal: 10),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10),
+                          color: Theme.of(context).primaryColor,
+                          boxShadow: [
+                            BoxShadow(
+                                color: Theme.of(context)
+                                    .hintColor
+                                    .withOpacity(0.2),
+                                offset: Offset(0, 10),
+                                blurRadius: 20)
+                          ],
+                        ),
+                        child: Column(
+                          children: <Widget>[
+                            new Row(
+                              children: <Widget>[
+                                Expanded(
+                                  flex: 10,
+                                  child: Image.asset(
+                                    "assets/images/ic_factory.png",
+                                    fit: BoxFit.contain,
+                                  ),
+                                ),
+                                Expanded(
+                                  flex: 50,
+                                  child: Container(
+                                    margin: new EdgeInsets.symmetric(
+                                        horizontal: 50.0),
+                                    child: Text(
+                                      'Factory',
+                                      style: TextStyle(
+                                        color: textDashboardColor,
+                                        fontFamily: 'OpenSans',
+                                        fontSize: 20.0,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                    // child: Center(
+                                    //
+                                    // ),
+                                  ),
+                                ),
+                                Expanded(
+                                  flex: 3,
+                                  child: Image.asset(
+                                    "assets/images/ic_arrow.png",
+                                    fit: BoxFit.contain,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
+                      ),
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => Factory()),
+                        );
+                      },
+                    ),
+                    SizedBox(height: 13),
                     Container(
                       width: double.infinity,
-                      height: 70,
+                      height: 73,
                       padding:
                           EdgeInsets.symmetric(vertical: 10, horizontal: 20),
                       margin: EdgeInsets.symmetric(vertical: 0, horizontal: 10),
@@ -74,68 +145,6 @@ class _DashBoardPageState extends State<DashBoardPage> {
                           BoxShadow(
                               color:
                                   Theme.of(context).hintColor.withOpacity(0.2),
-                              offset: Offset(0, 10),
-                              blurRadius: 20)
-                        ],
-                      ),
-                      child: Column(
-                        children: <Widget>[
-                          new Row(
-                            children: <Widget>[
-                              Expanded(
-                                flex: 10,
-                                child: Image.asset(
-                                  "assets/images/ic_factory.png",
-                                  fit: BoxFit.contain,
-                                ),
-                              ),
-                              Expanded(
-                                flex: 50,
-                                child: Container(
-                                  margin: new EdgeInsets.symmetric(
-                                      horizontal: 50.0),
-                                  child: Text(
-                                    'Factory',
-                                    style: TextStyle(
-                                      color: textDashboardColor,
-                                      fontFamily: 'OpenSans',
-                                      fontSize: 20.0,
-                                      fontWeight: FontWeight.bold,
-                                    ),
-                                  ),
-                                  // child: Center(
-                                  //
-                                  // ),
-                                ),
-                              ),
-                              Expanded(
-                                flex: 3,
-                                child: Image.asset(
-                                  "assets/images/ic_arrow.png",
-                                  fit: BoxFit.contain,
-                                ),
-                              ),
-                            ],
-                          ),
-                        ],
-                      ),
-                    ),
-                    SizedBox(height: 13),
-
-
-                    Container(
-                      width: double.infinity,
-                      height: 70,
-                      padding:
-                      EdgeInsets.symmetric(vertical: 10, horizontal: 20),
-                      margin: EdgeInsets.symmetric(vertical: 0, horizontal: 10),
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10),
-                        color: Theme.of(context).primaryColor,
-                        boxShadow: [
-                          BoxShadow(
-                              color:
-                              Theme.of(context).hintColor.withOpacity(0.2),
                               offset: Offset(0, 10),
                               blurRadius: 20)
                         ],
@@ -183,13 +192,11 @@ class _DashBoardPageState extends State<DashBoardPage> {
                       ),
                     ),
                     SizedBox(height: 13),
-
-
                     Container(
                       width: double.infinity,
                       height: 70,
                       padding:
-                      EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+                          EdgeInsets.symmetric(vertical: 10, horizontal: 20),
                       margin: EdgeInsets.symmetric(vertical: 0, horizontal: 10),
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10),
@@ -197,7 +204,7 @@ class _DashBoardPageState extends State<DashBoardPage> {
                         boxShadow: [
                           BoxShadow(
                               color:
-                              Theme.of(context).hintColor.withOpacity(0.2),
+                                  Theme.of(context).hintColor.withOpacity(0.2),
                               offset: Offset(0, 10),
                               blurRadius: 20)
                         ],
@@ -245,13 +252,11 @@ class _DashBoardPageState extends State<DashBoardPage> {
                       ),
                     ),
                     SizedBox(height: 13),
-
-
                     Container(
                       width: double.infinity,
                       height: 70,
                       padding:
-                      EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+                          EdgeInsets.symmetric(vertical: 10, horizontal: 20),
                       margin: EdgeInsets.symmetric(vertical: 0, horizontal: 10),
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10),
@@ -259,7 +264,7 @@ class _DashBoardPageState extends State<DashBoardPage> {
                         boxShadow: [
                           BoxShadow(
                               color:
-                              Theme.of(context).hintColor.withOpacity(0.2),
+                                  Theme.of(context).hintColor.withOpacity(0.2),
                               offset: Offset(0, 10),
                               blurRadius: 20)
                         ],
@@ -307,14 +312,11 @@ class _DashBoardPageState extends State<DashBoardPage> {
                       ),
                     ),
                     SizedBox(height: 13),
-
-
-
                     Container(
                       width: double.infinity,
-                      height: 70,
+                      height: 73,
                       padding:
-                      EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+                          EdgeInsets.symmetric(vertical: 10, horizontal: 20),
                       margin: EdgeInsets.symmetric(vertical: 0, horizontal: 10),
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10),
@@ -322,7 +324,7 @@ class _DashBoardPageState extends State<DashBoardPage> {
                         boxShadow: [
                           BoxShadow(
                               color:
-                              Theme.of(context).hintColor.withOpacity(0.2),
+                                  Theme.of(context).hintColor.withOpacity(0.2),
                               offset: Offset(0, 10),
                               blurRadius: 20)
                         ],
@@ -370,14 +372,11 @@ class _DashBoardPageState extends State<DashBoardPage> {
                       ),
                     ),
                     SizedBox(height: 13),
-
-
-
                     Container(
                       width: double.infinity,
                       height: 70,
                       padding:
-                      EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+                          EdgeInsets.symmetric(vertical: 10, horizontal: 20),
                       margin: EdgeInsets.symmetric(vertical: 0, horizontal: 10),
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10),
@@ -385,7 +384,7 @@ class _DashBoardPageState extends State<DashBoardPage> {
                         boxShadow: [
                           BoxShadow(
                               color:
-                              Theme.of(context).hintColor.withOpacity(0.2),
+                                  Theme.of(context).hintColor.withOpacity(0.2),
                               offset: Offset(0, 10),
                               blurRadius: 20)
                         ],
@@ -433,15 +432,11 @@ class _DashBoardPageState extends State<DashBoardPage> {
                       ),
                     ),
                     SizedBox(height: 13),
-
-
-
-
                     Container(
                       width: double.infinity,
-                      height: 70,
+                      height: 73,
                       padding:
-                      EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+                          EdgeInsets.symmetric(vertical: 10, horizontal: 20),
                       margin: EdgeInsets.symmetric(vertical: 0, horizontal: 10),
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10),
@@ -449,7 +444,7 @@ class _DashBoardPageState extends State<DashBoardPage> {
                         boxShadow: [
                           BoxShadow(
                               color:
-                              Theme.of(context).hintColor.withOpacity(0.2),
+                                  Theme.of(context).hintColor.withOpacity(0.2),
                               offset: Offset(0, 10),
                               blurRadius: 20)
                         ],

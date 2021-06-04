@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:water_iot/constants.dart';
+import 'package:water_iot/screen/factory/factory.dart';
 import 'package:water_iot/screen/login/login.dart';
 import 'package:water_iot/screen/login/login_screen.dart';
 import 'package:water_iot/screen/main/main.dart';
@@ -40,6 +41,7 @@ class MyApp extends StatelessWidget {
       ),
       // home: SplashScreen(),
       home: MainPage(),
+      // home:Factory()
     );
   }
 }
