@@ -29,7 +29,7 @@ class _SettingPageState extends State<SettingPage> {
       decoration: BoxDecoration(
         image: DecorationImage(
           image: AssetImage('assets/images/img_setting.jpg'),
-          fit: BoxFit.contain,
+          fit: BoxFit.fitWidth,
         ),
       ),
     );
@@ -117,19 +117,253 @@ class _SettingPageState extends State<SettingPage> {
     );
   }
 
-  Widget _buildStatContainer() {
+  Widget _buildStatContainerInfoTinh() {
     return Container(
-      height: 60.0,
-      margin: EdgeInsets.only(top: 8.0),
-      decoration: BoxDecoration(
-        color: Color(0xFFEFF4F7),
+      height: 40.0,
+      // margin: EdgeInsets.only(top: 8.0),
+      decoration: const BoxDecoration(
+        border: Border(
+          top: BorderSide(width: 0.5, color: Color(0xFFB3B3B3)),
+          // left: BorderSide(width: 1.0, color: Color(0xFFFFFFFF)),
+          // right: BorderSide(width: 1.0, color: Color(0xFF000000)),
+          bottom: BorderSide(width: 0.5, color: Color(0xFFB3B3B3)),
+        ),
       ),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
-          _buildStatItem("Followers", _followers),
-          _buildStatItem("Posts", _posts),
-          _buildStatItem("Scores", _scores),
+          new Row(
+            // mainAxisAlignment: MainAxisAlignment.center,
+            // crossAxisAlignment: CrossAxisAlignment.center,
+            children: <Widget>[
+              Expanded(
+                flex: 10,
+                child: SvgPicture.asset(
+                  "assets/images/ic_tinh.svg",
+                  width: 20,
+                  height: 30,
+                ),
+              ),
+              Expanded(
+                flex: 50,
+                child: Container(
+                  margin: new EdgeInsets.symmetric(horizontal: 50.0),
+                  child: Text(
+                    'Thông tin tỉnh',
+                    style: TextStyle(
+                      color: textDashboardColor,
+                      fontFamily: 'OpenSans',
+                      fontSize: 16.0,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  // child: Center(
+                  //
+                  // ),
+                ),
+              ),
+              Expanded(
+                flex: 10,
+                child: Padding(
+                  padding: const EdgeInsets.only(right: 40.0),
+                  child: Image.asset(
+                    "assets/images/ic_arrow.png",
+                    fit: BoxFit.contain,
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildStatContainerInfoPerson() {
+    return Container(
+      height: 40.0,
+      // margin: EdgeInsets.only(top: 8.0),
+      decoration: const BoxDecoration(
+        border: Border(
+          top: BorderSide(width: 0.5, color: Color(0xFFB3B3B3)),
+          // left: BorderSide(width: 1.0, color: Color(0xFFFFFFFF)),
+          // right: BorderSide(width: 1.0, color: Color(0xFF000000)),
+          bottom: BorderSide(width: 0.5, color: Color(0xFFB3B3B3)),
+        ),
+      ),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: <Widget>[
+          new Row(
+            // mainAxisAlignment: MainAxisAlignment.center,
+            // crossAxisAlignment: CrossAxisAlignment.center,
+            children: <Widget>[
+              Expanded(
+                flex: 10,
+                child: SvgPicture.asset(
+                  "assets/images/ic_setting.svg",
+                  width: 20,
+                  height: 30,
+                ),
+              ),
+              Expanded(
+                flex: 50,
+                child: Container(
+                  margin: new EdgeInsets.symmetric(horizontal: 50.0),
+                  child: Text(
+                    'Thông tin cá nhân',
+                    style: TextStyle(
+                      color: textDashboardColor,
+                      fontFamily: 'OpenSans',
+                      fontSize: 16.0,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  // child: Center(
+                  //
+                  // ),
+                ),
+              ),
+              Expanded(
+                flex: 10,
+                child: Padding(
+                  padding: const EdgeInsets.only(right: 40.0),
+                  child: Image.asset(
+                    "assets/images/ic_arrow.png",
+                    fit: BoxFit.contain,
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildStatContainerChangePass() {
+    return Container(
+      height: 40.0,
+      // margin: EdgeInsets.only(top: 8.0),
+      decoration: const BoxDecoration(
+        border: Border(
+          top: BorderSide(width: 0.5, color: Color(0xFFB3B3B3)),
+          // left: BorderSide(width: 1.0, color: Color(0xFFFFFFFF)),
+          // right: BorderSide(width: 1.0, color: Color(0xFF000000)),
+          bottom: BorderSide(width: 0.5, color: Color(0xFFB3B3B3)),
+        ),
+      ),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: <Widget>[
+          new Row(
+            // mainAxisAlignment: MainAxisAlignment.center,
+            // crossAxisAlignment: CrossAxisAlignment.center,
+            children: <Widget>[
+              Expanded(
+                flex: 10,
+                child: SvgPicture.asset(
+                  "assets/images/ic_change_pass.svg",
+                  width: 20,
+                  height: 30,
+                ),
+              ),
+              Expanded(
+                flex: 50,
+                child: Container(
+                  margin: new EdgeInsets.symmetric(horizontal: 50.0),
+                  child: Text(
+                    'Đổi mật khẩu',
+                    style: TextStyle(
+                      color: textDashboardColor,
+                      fontFamily: 'OpenSans',
+                      fontSize: 16.0,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  // child: Center(
+                  //
+                  // ),
+                ),
+              ),
+              Expanded(
+                flex: 10,
+                child: Padding(
+                  padding: const EdgeInsets.only(right: 40.0),
+                  child: Image.asset(
+                    "assets/images/ic_arrow.png",
+                    fit: BoxFit.contain,
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildStatContainerLogout() {
+    return Container(
+      height: 40.0,
+      // margin: EdgeInsets.only(top: 8.0),
+      decoration: const BoxDecoration(
+        border: Border(
+          top: BorderSide(width: 0.5, color: Color(0xFFB3B3B3)),
+          // left: BorderSide(width: 1.0, color: Color(0xFFFFFFFF)),
+          // right: BorderSide(width: 1.0, color: Color(0xFF000000)),
+          bottom: BorderSide(width: 0.5, color: Color(0xFFB3B3B3)),
+        ),
+      ),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: <Widget>[
+          new Row(
+            // mainAxisAlignment: MainAxisAlignment.center,
+            // crossAxisAlignment: CrossAxisAlignment.center,
+            children: <Widget>[
+              Expanded(
+                flex: 10,
+                child: SvgPicture.asset(
+                  "assets/images/ic_logout.svg",
+                  width: 20,
+                  height: 30,
+                ),
+              ),
+              Expanded(
+                flex: 50,
+                child: Container(
+                  margin: new EdgeInsets.symmetric(horizontal: 50.0),
+                  child: Text(
+                    'Đăng xuất',
+                    style: TextStyle(
+                      color: textDashboardColor,
+                      fontFamily: 'OpenSans',
+                      fontSize: 16.0,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  // child: Center(
+                  //
+                  // ),
+                ),
+              ),
+              Expanded(
+                flex: 10,
+                child: Padding(
+                  padding: const EdgeInsets.only(right: 40.0),
+                  child: Image.asset(
+                    "assets/images/ic_arrow.png",
+                    fit: BoxFit.contain,
+                  ),
+                ),
+              ),
+            ],
+          ),
         ],
       ),
     );
@@ -247,19 +481,24 @@ class _SettingPageState extends State<SettingPage> {
             SafeArea(
               child: SingleChildScrollView(
                 child: Column(
-                    children: <Widget>[
-                      SizedBox(height: 50),
-                      _buildProfileImage(),
-                      _buildFullName(),
-                      _buildStatus(context),
-                      _buildStatContainer(),
-                      _buildBio(context),
-                      _buildSeparator(screenSize),
-                      SizedBox(height: 10.0),
-                      _buildGetInTouch(context),
-                      SizedBox(height: 8.0),
-                      _buildButtons(),
-                    ],
+                  children: <Widget>[
+                    SizedBox(height: 50),
+                    _buildProfileImage(),
+                    _buildFullName(),
+                    _buildStatus(context),
+                    SizedBox(height: 60.0),
+                    _buildStatContainerInfoTinh(),
+                    _buildStatContainerInfoPerson(),
+                    _buildStatContainerChangePass(),
+                    _buildStatContainerLogout(),
+                    // _buildStatContainer(),
+                    // _buildBio(context),
+                    // _buildSeparator(screenSize),
+                    // SizedBox(height: 10.0),
+                    // _buildGetInTouch(context),
+                    // SizedBox(height: 8.0),
+                    // _buildButtons(),
+                  ],
                 ),
               ),
             ),
