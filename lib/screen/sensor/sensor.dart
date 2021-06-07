@@ -35,9 +35,13 @@ class _SensorState extends State<SensorPage> {
               })),
       body: Stack(
         children: <Widget>[
-          ListView(
-            children: <Widget>[_buildCardPUMP(), _buildCardProcess(), _buildCardChemical(), _buildCardSupply()],
-          ),
+          Container(
+            padding: EdgeInsets.symmetric(vertical: 40, horizontal: 0),
+            child: ListView(
+              children: <Widget>[_buildCardPUMP(), _buildCardProcess(), _buildCardChemical(), _buildCardSupply()],
+            ),
+          )
+
         ],
       ),
     );
@@ -271,8 +275,6 @@ class _SensorState extends State<SensorPage> {
                                   Expanded(
                                     child: Container(
                                       alignment: Alignment.center,
-                                      // color: Colors.amber,
-
                                       child: Text(
                                         "PROCESS STATION",
                                         textAlign: TextAlign.center,
@@ -304,87 +306,11 @@ class _SensorState extends State<SensorPage> {
                         Container(
                           // color: Colors.blue,
                           height: 100,
-                          width: 30,
+                          width: 40,
                         ),
 
-                        // Expanded(
-                        //   child: Container(
-                        //     child: SvgPicture.asset(
-                        //       "assets/images/ic_pump.svg",
-                        //       color: Color(0xFFF4F5F8),
-                        //       height: 70,
-                        //     ),
-                        //   ),
-                        // ),
-                        // Expanded(
-                        //   child: Container(
-                        //     color: Colors.amber,
-                        //     child: Text(
-                        //       "Truy cập",
-                        //       style: TextStyle(color: Colors.white,
-                        //           fontSize: 20),
-                        //     ),
-                        //   ),
-                        // ),
-                        // Flexible(
-                        //   child: Image.asset(
-                        //     "assets/images/header.png",
-                        //   ),
-                        //   // child: Ink.image(
-                        //   //   image: AssetImage("assets/images/header.png"),
-                        //   //   fit: BoxFit.fitWidth,
-                        //   //   height: 190,
-                        //   // ),
-                        // ),
                       ],
                     ),
-                    // ListTile(
-                    //   title: Text('The Enchanted Nightingale'),
-                    //   subtitle:
-                    //   Text('Music by Julie Gable. Lyrics by Sidney Stein.'),
-                    // ),
-                    // Row(
-                    //   mainAxisAlignment: MainAxisAlignment.start,
-                    //   children: <Widget>[
-                    //     FlatButton(
-                    //       padding: EdgeInsets.symmetric(
-                    //           vertical: 17, horizontal: 60),
-                    //       onPressed: () {
-                    //         Navigator.pushAndRemoveUntil(
-                    //           context,
-                    //           MaterialPageRoute(
-                    //             builder: (context) {
-                    //               return MainPage();
-                    //             },
-                    //           ),
-                    //               (route) => false,
-                    //         );
-                    //       },
-                    //       child: Text(
-                    //         "Truy cập",
-                    //         style: TextStyle(color: Colors.white),
-                    //       ),
-                    //       color: loginButtonColor,
-                    //       shape: RoundedRectangleBorder(
-                    //         borderRadius: BorderRadius.circular(10.0),
-                    //       ),
-                    //     ),
-                    //     // TextButton(
-                    //     //   child: const Text('BUY TICKETS'),
-                    //     //   onPressed: () {
-                    //     //     /* ... */
-                    //     //   },
-                    //     // ),
-                    //     // const SizedBox(width: 8),
-                    //     // TextButton(
-                    //     //   child: const Text('LISTEN'),
-                    //     //   onPressed: () {
-                    //     //     /* ... */
-                    //     //   },
-                    //     // ),
-                    //     // const SizedBox(width: 8),
-                    //   ],
-                    // ),
                   ],
                 ),
               ),
@@ -626,9 +552,11 @@ class _SensorState extends State<SensorPage> {
                                 children: [
                                   Expanded(
                                     child: Container(
+                                      padding:
+                                      EdgeInsets.symmetric(vertical: 0, horizontal: 20),
                                       alignment: Alignment.center,
                                       // color: Colors.amber,
-
+                                      // width: 100,
                                       child: Text(
                                         "SUPPLY STATION",
                                         textAlign: TextAlign.center,

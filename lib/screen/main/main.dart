@@ -13,7 +13,7 @@ class MainPage extends StatefulWidget {
 class _MainPageState extends State<MainPage> {
   int _currentIndex = 0;
 
-  final _pageOptions = [DashBoardPage(), HomePage(), SettingPage()];
+  final _pageOptions = [HomePage(), DashBoardPage(), SettingPage()];
 
   @override
   void initState() {

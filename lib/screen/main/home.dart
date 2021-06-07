@@ -29,8 +29,8 @@ class _HomePageState extends State<HomePage> {
             new Container(
               decoration: new BoxDecoration(
                 image: new DecorationImage(
-                  image: new AssetImage("assets/images/bg_app.png"),
-                  fit: BoxFit.cover,
+                  image: new AssetImage("assets/images/overview.png"),
+                  fit: BoxFit.contain,
                 ),
               ),
             ),
