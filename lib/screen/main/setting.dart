@@ -470,11 +470,12 @@ class _SettingPageState extends State<SettingPage> {
         appBar: AppBar(
             title: Text("Setting"),
             centerTitle: true,
-            leading: IconButton(
-                icon: Icon(Icons.notifications_active),
-                onPressed: () {
-                  // Do something.
-                })),
+            // leading: IconButton(
+            //     icon: Icon(Icons.notifications_active),
+            //     onPressed: () {
+            //       // Do something.
+            //     })
+        ),
         body: Stack(
           children: <Widget>[
             _buildCoverImage(screenSize),

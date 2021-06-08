@@ -19,11 +19,12 @@ class _HomePageState extends State<HomePage> {
         appBar: AppBar(
             title: Text("Home"),
             centerTitle: true,
-            leading: IconButton(
-                icon: Icon(Icons.notifications_active),
-                onPressed: () {
-                  // Do something.
-                })),
+            // leading: IconButton(
+            //     icon: Icon(Icons.notifications_active),
+            //     onPressed: () {
+            //       // Do something.
+            //     })
+        ),
         body: Stack(
           children: <Widget>[
             new Container(
