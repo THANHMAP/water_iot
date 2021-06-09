@@ -41,16 +41,30 @@ class _DashBoardPageState extends State<DashBoardPage> {
               style: TextStyle(color: mTexHeadLoginColor),
             ),
             centerTitle: true,
-            // leading: IconButton(
-            //     icon: SvgPicture.asset(
-            //       'assets/images/ic_back.svg',
-            //       height: 20.0,
-            //       width: 20.0,
-            //       allowDrawingOutsideViewBox: true,
-            //     ),
-            //     onPressed: () {
-            //       // Do something.
-            //     })
+            actions: <Widget>[
+              IconButton(
+                icon: SvgPicture.asset(
+                  'assets/images/ic_notification.svg',
+                  height: 20.0,
+                  width: 20.0,
+                  allowDrawingOutsideViewBox: true,
+                ),
+                onPressed: () {
+                  // ScaffoldMessenger.of(context).showSnackBar(
+                  //     const SnackBar(content: Text('This is a snackbar')));
+                },
+              ),
+              ],
+            leading: IconButton(
+                icon: SvgPicture.asset(
+                  'assets/images/ic_back.svg',
+                  height: 20.0,
+                  width: 20.0,
+                  allowDrawingOutsideViewBox: true,
+                ),
+                onPressed: () {
+                  // Do something.
+                }),
         ),
         body: Stack(
           children: <Widget>[

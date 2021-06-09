@@ -15,11 +15,24 @@ class _OverViewState extends State<OverViewPage> {
 
   @override
   Widget build(BuildContext context) {
-    precacheImage(AssetImage("assets/images/bg_app.png"), context);
     return Scaffold(
         appBar: AppBar(
             title: Text("OverView"),
             centerTitle: true,
+            actions: <Widget>[
+              IconButton(
+                icon: SvgPicture.asset(
+                  'assets/images/ic_notification.svg',
+                  height: 20.0,
+                  width: 20.0,
+                  allowDrawingOutsideViewBox: true,
+                ),
+                onPressed: () {
+                  // ScaffoldMessenger.of(context).showSnackBar(
+                  //     const SnackBar(content: Text('This is a snackbar')));
+                },
+              ),
+            ],
             leading: IconButton(
                 icon: SvgPicture.asset(
                   'assets/images/ic_back.svg',
@@ -35,10 +48,13 @@ class _OverViewState extends State<OverViewPage> {
             new Container(child: InteractiveViewer(
               panEnabled: false, // Set it to false
 
-              child: Image.asset(
-                'assets/images/overview.png',
-                fit: BoxFit.fill,
-              ),
+              child: AspectRatio(
+                aspectRatio: 1,
+                child: Image.asset(
+                  'assets/images/overview.png',
+                  fit: BoxFit.fill,
+                ),
+              )
             ),
                 // decoration: new BoxDecoration(
                 //   image: new DecorationImage(
