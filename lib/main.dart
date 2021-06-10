@@ -39,7 +39,8 @@ class MyApp extends StatelessWidget {
           ),
         ),
       ),
-      home: SplashScreen(),
+      // home: SplashScreen(),
+      home: LoginPage(),
       // home: MainPage(),
       // home:Factory()
     );

@@ -30,6 +30,20 @@ class _ScatterChartPageState extends State {
             style: TextStyle(color: mTexHeadLoginColor),
           ),
           centerTitle: true,
+          actions: <Widget>[
+            IconButton(
+              icon: SvgPicture.asset(
+                'assets/images/ic_notification.svg',
+                height: 20.0,
+                width: 20.0,
+                allowDrawingOutsideViewBox: true,
+              ),
+              onPressed: () {
+                // ScaffoldMessenger.of(context).showSnackBar(
+                //     const SnackBar(content: Text('This is a snackbar')));
+              },
+            ),
+          ],
           leading: IconButton(
               icon: SvgPicture.asset(
                 'assets/images/ic_back.svg',
@@ -134,80 +148,80 @@ class _ScatterChartPageState extends State {
                     ),
                   ),
                 ),
-                new AspectRatio(
-                  aspectRatio: 1.23,
-                  child: Container(
-                    decoration: const BoxDecoration(
-                      borderRadius: BorderRadius.all(Radius.circular(18)),
-                      gradient: LinearGradient(
-                        colors: [
-                          Color(0xff2c274c),
-                          Color(0xff46426c),
-                        ],
-                        begin: Alignment.bottomCenter,
-                        end: Alignment.topCenter,
-                      ),
-                    ),
-                    child: Stack(
-                      children: <Widget>[
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.stretch,
-                          children: <Widget>[
-                            const SizedBox(
-                              height: 37,
-                            ),
-                            const Text(
-                              'Unfold Shop 2018',
-                              style: TextStyle(
-                                color: Color(0xff827daa),
-                                fontSize: 16,
-                              ),
-                              textAlign: TextAlign.center,
-                            ),
-                            const SizedBox(
-                              height: 4,
-                            ),
-                            const Text(
-                              'Monthly Sales',
-                              style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 32,
-                                  fontWeight: FontWeight.bold,
-                                  letterSpacing: 2),
-                              textAlign: TextAlign.center,
-                            ),
-                            const SizedBox(
-                              height: 37,
-                            ),
-                            Expanded(
-                              child: Padding(
-                                padding: const EdgeInsets.only(right: 16.0, left: 6.0),
-                                child: LineChart(
-                                  sampleData2(),
-                                  swapAnimationDuration: const Duration(milliseconds: 250),
-                                ),
-                              ),
-                            ),
-                            const SizedBox(
-                              height: 10,
-                            ),
-                          ],
-                        ),
-                        // IconButton(
-                        //   icon: Icon(
-                        //     Icons.refresh,
-                        //     color: Colors.white.withOpacity(isShowingMainData ? 1.0 : 0.5),
-                        //   ),
-                        //   onPressed: () {
-                        //     setState(() {
-                        //       isShowingMainData = !isShowingMainData;
-                        //     });
-                        //   },
-                        // )
-                      ],
-                    ),
-                  ),
-                ),
+                // new AspectRatio(
+                //   aspectRatio: 1.23,
+                //   child: Container(
+                //     decoration: const BoxDecoration(
+                //       borderRadius: BorderRadius.all(Radius.circular(18)),
+                //       gradient: LinearGradient(
+                //         colors: [
+                //           Color(0xff2c274c),
+                //           Color(0xff46426c),
+                //         ],
+                //         begin: Alignment.bottomCenter,
+                //         end: Alignment.topCenter,
+                //       ),
+                //     ),
+                //     child: Stack(
+                //       children: <Widget>[
+                //         Column(
+                //           crossAxisAlignment: CrossAxisAlignment.stretch,
+                //           children: <Widget>[
+                //             const SizedBox(
+                //               height: 37,
+                //             ),
+                //             const Text(
+                //               'Unfold Shop 2018',
+                //               style: TextStyle(
+                //                 color: Color(0xff827daa),
+                //                 fontSize: 16,
+                //               ),
+                //               textAlign: TextAlign.center,
+                //             ),
+                //             const SizedBox(
+                //               height: 4,
+                //             ),
+                //             const Text(
+                //               'Monthly Sales',
+                //               style: TextStyle(
+                //                   color: Colors.white,
+                //                   fontSize: 32,
+                //                   fontWeight: FontWeight.bold,
+                //                   letterSpacing: 2),
+                //               textAlign: TextAlign.center,
+                //             ),
+                //             const SizedBox(
+                //               height: 37,
+                //             ),
+                //             // Expanded(
+                //             //   child: Padding(
+                //             //     padding: const EdgeInsets.only(right: 16.0, left: 6.0),
+                //             //     child: LineChart(
+                //             //       sampleData2(),
+                //             //       swapAnimationDuration: const Duration(milliseconds: 250),
+                //             //     ),
+                //             //   ),
+                //             // ),
+                //             const SizedBox(
+                //               height: 10,
+                //             ),
+                //           ],
+                //         ),
+                //         // IconButton(
+                //         //   icon: Icon(
+                //         //     Icons.refresh,
+                //         //     color: Colors.white.withOpacity(isShowingMainData ? 1.0 : 0.5),
+                //         //   ),
+                //         //   onPressed: () {
+                //         //     setState(() {
+                //         //       isShowingMainData = !isShowingMainData;
+                //         //     });
+                //         //   },
+                //         // )
+                //       ],
+                //     ),
+                //   ),
+                // ),
               ],
             ),
           )

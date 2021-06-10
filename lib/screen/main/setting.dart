@@ -42,7 +42,7 @@ class _SettingPageState extends State<SettingPage> {
         height: 140.0,
         decoration: BoxDecoration(
           image: DecorationImage(
-            image: AssetImage('assets/images/ic_device.png'),
+            image: AssetImage('assets/images/test.jpg'),
             fit: BoxFit.cover,
           ),
           borderRadius: BorderRadius.circular(80.0),
@@ -77,7 +77,26 @@ class _SettingPageState extends State<SettingPage> {
         borderRadius: BorderRadius.circular(4.0),
       ),
       child: Text(
-        _status,
+        "Lần truy cập gần nhất:",
+        style: TextStyle(
+          fontFamily: 'Spectral',
+          color: Colors.black,
+          fontSize: 20.0,
+          fontWeight: FontWeight.w300,
+        ),
+      ),
+    );
+  }
+
+  Widget _buildStatusLogin(BuildContext context) {
+    return Container(
+      padding: EdgeInsets.symmetric(vertical: 4.0, horizontal: 6.0),
+      decoration: BoxDecoration(
+        color: Theme.of(context).scaffoldBackgroundColor,
+        borderRadius: BorderRadius.circular(4.0),
+      ),
+      child: Text(
+        "1:11, 03/05/2021",
         style: TextStyle(
           fontFamily: 'Spectral',
           color: Colors.black,
@@ -150,7 +169,7 @@ class _SettingPageState extends State<SettingPage> {
                 child: Container(
                   margin: new EdgeInsets.symmetric(horizontal: 50.0),
                   child: Text(
-                    'Thông tin tỉnh',
+                    'Thông tin chung',
                     style: TextStyle(
                       color: textDashboardColor,
                       fontFamily: 'OpenSans',
@@ -412,21 +431,22 @@ class _SettingPageState extends State<SettingPage> {
 
   Widget _buildButtons() {
     return Padding(
-      padding: EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0),
+      padding: EdgeInsets.symmetric(
+          vertical: 17, horizontal: 110),
       child: Row(
         children: <Widget>[
           Expanded(
             child: InkWell(
               onTap: () => print("followed"),
               child: Container(
-                height: 40.0,
+                height: 30.0,
                 decoration: BoxDecoration(
                   border: Border.all(),
-                  color: Color(0xFF404A5C),
+                  color: Color(0xFF556DD3),
                 ),
                 child: Center(
                   child: Text(
-                    "FOLLOW",
+                    "Cập nhật ảnh đại diện.",
                     style: TextStyle(
                       color: Colors.white,
                       fontWeight: FontWeight.w600,
@@ -436,27 +456,27 @@ class _SettingPageState extends State<SettingPage> {
               ),
             ),
           ),
-          SizedBox(width: 10.0),
-          Expanded(
-            child: InkWell(
-              onTap: () => print("Message"),
-              child: Container(
-                height: 40.0,
-                decoration: BoxDecoration(
-                  border: Border.all(),
-                ),
-                child: Center(
-                  child: Padding(
-                    padding: EdgeInsets.all(10.0),
-                    child: Text(
-                      "MESSAGE",
-                      style: TextStyle(fontWeight: FontWeight.w600),
-                    ),
-                  ),
-                ),
-              ),
-            ),
-          ),
+          // SizedBox(width: 50.0),
+          // Expanded(
+          //   child: InkWell(
+          //     onTap: () => print("Message"),
+          //     child: Container(
+          //       height: 40.0,
+          //       decoration: BoxDecoration(
+          //         border: Border.all(),
+          //       ),
+          //       child: Center(
+          //         child: Padding(
+          //           padding: EdgeInsets.all(10.0),
+          //           child: Text(
+          //             "MESSAGE",
+          //             style: TextStyle(fontWeight: FontWeight.w600),
+          //           ),
+          //         ),
+          //       ),
+          //     ),
+          //   ),
+          // ),
         ],
       ),
     );
@@ -486,7 +506,9 @@ class _SettingPageState extends State<SettingPage> {
                     SizedBox(height: 50),
                     _buildProfileImage(),
                     _buildFullName(),
+                    _buildButtons(),
                     _buildStatus(context),
+                    _buildStatusLogin(context),
                     SizedBox(height: 60.0),
                     _buildStatContainerInfoTinh(),
                     _buildStatContainerInfoPerson(),
@@ -498,7 +520,7 @@ class _SettingPageState extends State<SettingPage> {
                     // SizedBox(height: 10.0),
                     // _buildGetInTouch(context),
                     // SizedBox(height: 8.0),
-                    // _buildButtons(),
+
                   ],
                 ),
               ),
