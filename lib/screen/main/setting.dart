@@ -81,8 +81,8 @@ class _SettingPageState extends State<SettingPage> {
         style: TextStyle(
           fontFamily: 'Spectral',
           color: Colors.black,
-          fontSize: 20.0,
-          fontWeight: FontWeight.w300,
+          fontSize: 16.0,
+          fontWeight: FontWeight.normal,
         ),
       ),
     );
@@ -100,8 +100,8 @@ class _SettingPageState extends State<SettingPage> {
         style: TextStyle(
           fontFamily: 'Spectral',
           color: Colors.black,
-          fontSize: 20.0,
-          fontWeight: FontWeight.w300,
+          fontSize: 15.0,
+          fontWeight: FontWeight.normal,
         ),
       ),
     );
@@ -431,53 +431,68 @@ class _SettingPageState extends State<SettingPage> {
 
   Widget _buildButtons() {
     return Padding(
-      padding: EdgeInsets.symmetric(
-          vertical: 17, horizontal: 110),
-      child: Row(
-        children: <Widget>[
-          Expanded(
-            child: InkWell(
-              onTap: () => print("followed"),
+      padding: EdgeInsets.symmetric(vertical: 17, horizontal: 100),
+      child: Container(
+        height: 30.0,
+        decoration: BoxDecoration(
+          border: Border.all(),
+          color: Color(0xFF556DD3),
+          borderRadius: BorderRadius.circular(10),
+        ),
+        child: Row(
+          children: <Widget>[
+            Expanded(
               child: Container(
-                height: 30.0,
-                decoration: BoxDecoration(
-                  border: Border.all(),
-                  color: Color(0xFF556DD3),
+                child: Align(
+                  alignment: Alignment.centerRight,
+                  child: Image.asset(
+                    'assets/images/img_camera.png',
+                    height: 20.0,
+                    width: 20.0,
+                  ),
                 ),
-                child: Center(
-                  child: Text(
-                    "Cập nhật ảnh đại diện.",
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontWeight: FontWeight.w600,
+              ),
+            ),
+            Expanded(
+              flex: 3,
+              child: InkWell(
+                onTap: () => print("followed"),
+                child: Container(
+                  child: Center(
+                    child: Text(
+                      "Cập nhật ảnh đại diện.",
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.w600,
+                      ),
                     ),
                   ),
                 ),
               ),
             ),
-          ),
-          // SizedBox(width: 50.0),
-          // Expanded(
-          //   child: InkWell(
-          //     onTap: () => print("Message"),
-          //     child: Container(
-          //       height: 40.0,
-          //       decoration: BoxDecoration(
-          //         border: Border.all(),
-          //       ),
-          //       child: Center(
-          //         child: Padding(
-          //           padding: EdgeInsets.all(10.0),
-          //           child: Text(
-          //             "MESSAGE",
-          //             style: TextStyle(fontWeight: FontWeight.w600),
-          //           ),
-          //         ),
-          //       ),
-          //     ),
-          //   ),
-          // ),
-        ],
+            // SizedBox(width: 50.0),
+            // Expanded(
+            //   child: InkWell(
+            //     onTap: () => print("Message"),
+            //     child: Container(
+            //       height: 40.0,
+            //       decoration: BoxDecoration(
+            //         border: Border.all(),
+            //       ),
+            //       child: Center(
+            //         child: Padding(
+            //           padding: EdgeInsets.all(10.0),
+            //           child: Text(
+            //             "MESSAGE",
+            //             style: TextStyle(fontWeight: FontWeight.w600),
+            //           ),
+            //         ),
+            //       ),
+            //     ),
+            //   ),
+            // ),
+          ],
+        ),
       ),
     );
   }
@@ -488,13 +503,27 @@ class _SettingPageState extends State<SettingPage> {
     return Scaffold(
         backgroundColor: Color(0xFFF5F6FA),
         appBar: AppBar(
-            title: Text("Setting"),
-            centerTitle: true,
-            // leading: IconButton(
-            //     icon: Icon(Icons.notifications_active),
-            //     onPressed: () {
-            //       // Do something.
-            //     })
+          title: Text("Setting"),
+          centerTitle: true,
+          actions: <Widget>[
+            IconButton(
+              icon: SvgPicture.asset(
+                'assets/images/ic_notification.svg',
+                height: 20.0,
+                width: 20.0,
+                allowDrawingOutsideViewBox: true,
+              ),
+              onPressed: () {
+                // ScaffoldMessenger.of(context).showSnackBar(
+                //     const SnackBar(content: Text('This is a snackbar')));
+              },
+            ),
+          ],
+          // leading: IconButton(
+          //     icon: Icon(Icons.notifications_active),
+          //     onPressed: () {
+          //       // Do something.
+          //     })
         ),
         body: Stack(
           children: <Widget>[
@@ -520,7 +549,6 @@ class _SettingPageState extends State<SettingPage> {
                     // SizedBox(height: 10.0),
                     // _buildGetInTouch(context),
                     // SizedBox(height: 8.0),
-
                   ],
                 ),
               ),

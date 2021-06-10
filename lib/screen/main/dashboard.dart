@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:water_iot/screen/chart/chart.dart';
+import 'package:water_iot/screen/device/device.dart';
 import 'package:water_iot/screen/factory/factory.dart';
 import 'package:water_iot/screen/map/map.dart';
 import 'package:water_iot/screen/overview/overview.dart';
@@ -55,16 +56,16 @@ class _DashBoardPageState extends State<DashBoardPage> {
               },
             ),
           ],
-          leading: IconButton(
-              icon: SvgPicture.asset(
-                'assets/images/ic_back.svg',
-                height: 20.0,
-                width: 20.0,
-                allowDrawingOutsideViewBox: true,
-              ),
-              onPressed: () {
-                // Do something.
-              }),
+          // leading: IconButton(
+          //     icon: SvgPicture.asset(
+          //       'assets/images/ic_back.svg',
+          //       height: 20.0,
+          //       width: 20.0,
+          //       allowDrawingOutsideViewBox: true,
+          //     ),
+          //     onPressed: () {
+          //       // Do something.
+          //     }),
         ),
         body: Container(
           decoration: new BoxDecoration(
@@ -292,67 +293,77 @@ class _DashBoardPageState extends State<DashBoardPage> {
                         },
                       ),
                       SizedBox(height: 13),
-                      Container(
-                        width: double.infinity,
-                        height: 65,
-                        padding:
-                            EdgeInsets.symmetric(vertical: 10, horizontal: 20),
-                        margin:
-                            EdgeInsets.symmetric(vertical: 0, horizontal: 10),
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10),
-                          color: Theme.of(context).primaryColor,
-                          boxShadow: [
-                            BoxShadow(
-                                color: Theme.of(context)
-                                    .hintColor
-                                    .withOpacity(0.2),
-                                offset: Offset(0, 10),
-                                blurRadius: 20)
-                          ],
-                        ),
-                        child: Column(
-                          children: <Widget>[
-                            new Row(
-                              children: <Widget>[
-                                Expanded(
-                                  flex: 9,
-                                  child: Image.asset(
-                                    "assets/images/ic_device.png",
-                                    fit: BoxFit.contain,
-                                  ),
-                                ),
-                                Expanded(
-                                  flex: 50,
-                                  child: Container(
-                                    margin: new EdgeInsets.symmetric(
-                                        horizontal: 50.0),
-                                    child: Text(
-                                      'Device',
-                                      style: TextStyle(
-                                        color: textDashboardColor,
-                                        fontFamily: 'OpenSans',
-                                        fontSize: 20.0,
-                                        fontWeight: FontWeight.bold,
-                                      ),
+                      InkWell(
+                        child: Container(
+                          width: double.infinity,
+                          height: 65,
+                          padding:
+                          EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+                          margin:
+                          EdgeInsets.symmetric(vertical: 0, horizontal: 10),
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10),
+                            color: Theme.of(context).primaryColor,
+                            boxShadow: [
+                              BoxShadow(
+                                  color: Theme.of(context)
+                                      .hintColor
+                                      .withOpacity(0.2),
+                                  offset: Offset(0, 10),
+                                  blurRadius: 20)
+                            ],
+                          ),
+                          child: Column(
+                            children: <Widget>[
+                              new Row(
+                                children: <Widget>[
+                                  Expanded(
+                                    flex: 9,
+                                    child: Image.asset(
+                                      "assets/images/ic_device.png",
+                                      fit: BoxFit.contain,
                                     ),
-                                    // child: Center(
-                                    //
-                                    // ),
                                   ),
-                                ),
-                                Expanded(
-                                  flex: 3,
-                                  child: Image.asset(
-                                    "assets/images/ic_arrow.png",
-                                    fit: BoxFit.contain,
+                                  Expanded(
+                                    flex: 50,
+                                    child: Container(
+                                      margin: new EdgeInsets.symmetric(
+                                          horizontal: 50.0),
+                                      child: Text(
+                                        'Device',
+                                        style: TextStyle(
+                                          color: textDashboardColor,
+                                          fontFamily: 'OpenSans',
+                                          fontSize: 20.0,
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                      ),
+                                      // child: Center(
+                                      //
+                                      // ),
+                                    ),
                                   ),
-                                ),
-                              ],
-                            ),
-                          ],
+                                  Expanded(
+                                    flex: 3,
+                                    child: Image.asset(
+                                      "assets/images/ic_arrow.png",
+                                      fit: BoxFit.contain,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
                         ),
+                        onTap: (){
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => DevicePage()),
+                          );
+                        },
                       ),
+
                       SizedBox(height: 13),
                       InkWell(
                         child: Container(

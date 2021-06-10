@@ -55,8 +55,32 @@ class _ScatterChartPageState extends State {
                 Navigator.pop(context);
                 // Do something.
               })),
-      body: Stack(
+      body: Column(
         children: <Widget>[
+          Container(
+            padding: EdgeInsets.all(10),
+            height: 250,
+            width: double.infinity,
+            child: LineChart(LineChartData(
+                borderData: FlBorderData(show: false),
+                lineBarsData: [
+                  LineChartBarData(
+                      spots: [
+                        FlSpot(0, 1),
+                        FlSpot(1, 3),
+                        FlSpot(2, 10),
+                        FlSpot(3, 7),
+                        FlSpot(4, 12),
+                        FlSpot(5, 13),
+                        FlSpot(6, 17),
+                        FlSpot(7, 15),
+                        FlSpot(8, 20)
+                      ]
+                  )
+                ]
+            ),
+            ),
+          ),
           Container(
             padding: EdgeInsets.symmetric(vertical: 40, horizontal: 0),
             child: Column(
