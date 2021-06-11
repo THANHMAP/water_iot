@@ -77,7 +77,7 @@ class _SettingPageState extends State<SettingPage> {
         borderRadius: BorderRadius.circular(4.0),
       ),
       child: Text(
-        "Lần truy cập gần nhất:",
+        "Nearest access:",
         style: TextStyle(
           fontFamily: 'Spectral',
           color: Colors.black,
@@ -169,7 +169,7 @@ class _SettingPageState extends State<SettingPage> {
                 child: Container(
                   margin: new EdgeInsets.symmetric(horizontal: 50.0),
                   child: Text(
-                    'Thông tin chung',
+                    'General information',
                     style: TextStyle(
                       color: textDashboardColor,
                       fontFamily: 'OpenSans',
@@ -232,7 +232,7 @@ class _SettingPageState extends State<SettingPage> {
                 child: Container(
                   margin: new EdgeInsets.symmetric(horizontal: 50.0),
                   child: Text(
-                    'Thông tin cá nhân',
+                    'Personal Information',
                     style: TextStyle(
                       color: textDashboardColor,
                       fontFamily: 'OpenSans',
@@ -295,7 +295,7 @@ class _SettingPageState extends State<SettingPage> {
                 child: Container(
                   margin: new EdgeInsets.symmetric(horizontal: 50.0),
                   child: Text(
-                    'Đổi mật khẩu',
+                    'Change Password',
                     style: TextStyle(
                       color: textDashboardColor,
                       fontFamily: 'OpenSans',
@@ -358,7 +358,7 @@ class _SettingPageState extends State<SettingPage> {
                 child: Container(
                   margin: new EdgeInsets.symmetric(horizontal: 50.0),
                   child: Text(
-                    'Đăng xuất',
+                    'Log out',
                     style: TextStyle(
                       color: textDashboardColor,
                       fontFamily: 'OpenSans',
@@ -460,7 +460,7 @@ class _SettingPageState extends State<SettingPage> {
                 child: Container(
                   child: Center(
                     child: Text(
-                      "Cập nhật ảnh đại diện.",
+                      "Update Infomation",
                       style: TextStyle(
                         color: Colors.white,
                         fontWeight: FontWeight.w600,
@@ -503,7 +503,7 @@ class _SettingPageState extends State<SettingPage> {
     return Scaffold(
         backgroundColor: Color(0xFFF5F6FA),
         appBar: AppBar(
-          title: Text("Setting"),
+          title: Text("Account Information"),
           centerTitle: true,
           actions: <Widget>[
             IconButton(

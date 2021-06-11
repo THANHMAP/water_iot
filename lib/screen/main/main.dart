@@ -40,7 +40,7 @@ class _MainPageState extends State<MainPage> {
         },
         items: [
           BottomNavigationBarItem(
-            label: 'Tổng quan',
+            label: 'OverView',
             icon: SvgPicture.asset(
               "assets/images/ic_dashboard.svg",
               width: 20,
@@ -54,7 +54,7 @@ class _MainPageState extends State<MainPage> {
             ),
           ),
           BottomNavigationBarItem(
-            label: 'Trang chủ',
+            label: 'DashBoard',
             icon: SvgPicture.asset(
               "assets/images/ic_home.svg",
               width: 20,
@@ -68,7 +68,7 @@ class _MainPageState extends State<MainPage> {
             ),
           ),
           BottomNavigationBarItem(
-            label: 'Thông tin cá nhân',
+            label: 'Account Information',
             icon: SvgPicture.asset(
               "assets/images/ic_setting.svg",
               width: 20,

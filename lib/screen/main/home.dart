@@ -18,7 +18,7 @@ class _HomePageState extends State<HomePage> {
     precacheImage(AssetImage("assets/images/bg_app.png"), context);
     return Scaffold(
         appBar: AppBar(
-            title: Text("Home"),
+            title: Text("OverView"),
             centerTitle: true,
           actions: <Widget>[
             IconButton(
