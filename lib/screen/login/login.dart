@@ -108,7 +108,7 @@ class _LoginPageState extends State<LoginPage> {
                                     Expanded(
                                       child: Container(
                                         child: Text(
-                                          'Login to accesss dasboard',
+                                          'Login To Accesss Dasboard',
                                           style: TextStyle(
                                             color: mTexHeadLoginColor,
                                             fontFamily: 'OpenSans',
