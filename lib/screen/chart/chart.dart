@@ -14,6 +14,7 @@ class ScatterChartPage extends StatefulWidget {
 class _ScatterChartPageState extends State {
   int touchedIndex = -1;
   bool isShowingMainData = false;
+
   @override
   void initState() {
     super.initState();
@@ -58,27 +59,28 @@ class _ScatterChartPageState extends State {
       body: Column(
         children: <Widget>[
           Container(
-            padding: EdgeInsets.all(10),
+            alignment: Alignment.center,
+            padding: EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+            margin: EdgeInsets.symmetric(
+                vertical: 10, horizontal: 10),
             height: 250,
             width: double.infinity,
-            child: LineChart(LineChartData(
-                borderData: FlBorderData(show: false),
-                lineBarsData: [
-                  LineChartBarData(
-                      spots: [
-                        FlSpot(0, 1),
-                        FlSpot(1, 3),
-                        FlSpot(2, 10),
-                        FlSpot(3, 7),
-                        FlSpot(4, 12),
-                        FlSpot(5, 13),
-                        FlSpot(6, 17),
-                        FlSpot(7, 15),
-                        FlSpot(8, 20)
-                      ]
-                  )
-                ]
-            ),
+            child: LineChart(
+              LineChartData(
+                  borderData: FlBorderData(show: false),
+                  lineBarsData: [
+                    LineChartBarData(spots: [
+                      FlSpot(0, 1),
+                      FlSpot(1, 3),
+                      FlSpot(2, 10),
+                      FlSpot(3, 7),
+                      FlSpot(4, 12),
+                      FlSpot(5, 13),
+                      FlSpot(6, 17),
+                      FlSpot(7, 15),
+                      FlSpot(8, 20)
+                    ])
+                  ]),
             ),
           ),
           Container(
@@ -99,14 +101,14 @@ class _ScatterChartPageState extends State {
                             aspectRatio: 1,
                             child: PieChart(
                               PieChartData(
-                                  pieTouchData:
-                                  PieTouchData(touchCallback: (pieTouchResponse) {
+                                  pieTouchData: PieTouchData(
+                                      touchCallback: (pieTouchResponse) {
                                     setState(() {
-                                      final desiredTouch = pieTouchResponse
-                                          .touchInput
-                                      is! PointerExitEvent &&
-                                          pieTouchResponse
-                                              .touchInput is! PointerUpEvent;
+                                      final desiredTouch =
+                                          pieTouchResponse.touchInput
+                                                  is! PointerExitEvent &&
+                                              pieTouchResponse.touchInput
+                                                  is! PointerUpEvent;
                                       if (desiredTouch &&
                                           pieTouchResponse.touchedSection !=
                                               null) {
