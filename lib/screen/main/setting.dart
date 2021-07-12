@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:water_iot/SharedPref.dart';
 import 'package:water_iot/screen/login/login.dart';
+import 'package:water_iot/screen/user/change_password.dart';
 
 import '../../constants.dart';
 
@@ -266,66 +267,74 @@ class _SettingPageState extends State<SettingPage> {
   }
 
   Widget _buildStatContainerChangePass() {
-    return Container(
-      height: 40.0,
-      // margin: EdgeInsets.only(top: 8.0),
-      decoration: const BoxDecoration(
-        border: Border(
-          top: BorderSide(width: 0.5, color: Color(0xFFB3B3B3)),
-          // left: BorderSide(width: 1.0, color: Color(0xFFFFFFFF)),
-          // right: BorderSide(width: 1.0, color: Color(0xFF000000)),
-          bottom: BorderSide(width: 0.5, color: Color(0xFFB3B3B3)),
+    return InkWell(
+      child:Container(
+        height: 40.0,
+        // margin: EdgeInsets.only(top: 8.0),
+        decoration: const BoxDecoration(
+          border: Border(
+            top: BorderSide(width: 0.5, color: Color(0xFFB3B3B3)),
+            // left: BorderSide(width: 1.0, color: Color(0xFFFFFFFF)),
+            // right: BorderSide(width: 1.0, color: Color(0xFF000000)),
+            bottom: BorderSide(width: 0.5, color: Color(0xFFB3B3B3)),
+          ),
         ),
-      ),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: <Widget>[
-          new Row(
-            // mainAxisAlignment: MainAxisAlignment.center,
-            // crossAxisAlignment: CrossAxisAlignment.center,
-            children: <Widget>[
-              Expanded(
-                flex: 10,
-                child: SvgPicture.asset(
-                  "assets/images/ic_change_pass.svg",
-                  width: 20,
-                  height: 30,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: <Widget>[
+            new Row(
+              // mainAxisAlignment: MainAxisAlignment.center,
+              // crossAxisAlignment: CrossAxisAlignment.center,
+              children: <Widget>[
+                Expanded(
+                  flex: 10,
+                  child: SvgPicture.asset(
+                    "assets/images/ic_change_pass.svg",
+                    width: 20,
+                    height: 30,
+                  ),
                 ),
-              ),
-              Expanded(
-                flex: 50,
-                child: Container(
-                  margin: new EdgeInsets.symmetric(horizontal: 50.0),
-                  child: Text(
-                    'Change Password',
-                    style: TextStyle(
-                      color: textDashboardColor,
-                      fontFamily: 'OpenSans',
-                      fontSize: 16.0,
-                      fontWeight: FontWeight.bold,
+                Expanded(
+                  flex: 50,
+                  child: Container(
+                    margin: new EdgeInsets.symmetric(horizontal: 50.0),
+                    child: Text(
+                      'Change Password',
+                      style: TextStyle(
+                        color: textDashboardColor,
+                        fontFamily: 'OpenSans',
+                        fontSize: 16.0,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    // child: Center(
+                    //
+                    // ),
+                  ),
+                ),
+                Expanded(
+                  flex: 10,
+                  child: Padding(
+                    padding: const EdgeInsets.only(right: 40.0),
+                    child: Image.asset(
+                      "assets/images/ic_arrow.png",
+                      fit: BoxFit.contain,
                     ),
                   ),
-                  // child: Center(
-                  //
-                  // ),
                 ),
-              ),
-              Expanded(
-                flex: 10,
-                child: Padding(
-                  padding: const EdgeInsets.only(right: 40.0),
-                  child: Image.asset(
-                    "assets/images/ic_arrow.png",
-                    fit: BoxFit.contain,
-                  ),
-                ),
-              ),
-            ],
-          ),
-        ],
+              ],
+            ),
+          ],
+        ),
       ),
-    );
+      onTap: (){
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => ChangePasswordPage()),
+        );
+      },
+    ) ;
   }
 
   Widget _buildStatContainerLogout() {

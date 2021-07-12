@@ -190,20 +190,6 @@ class _FactoryState extends State<FactoryAminPage> {
                             borderRadius: BorderRadius.circular(10.0),
                           ),
                         ),
-                        // TextButton(
-                        //   child: const Text('BUY TICKETS'),
-                        //   onPressed: () {
-                        //     /* ... */
-                        //   },
-                        // ),
-                        // const SizedBox(width: 8),
-                        // TextButton(
-                        //   child: const Text('LISTEN'),
-                        //   onPressed: () {
-                        //     /* ... */
-                        //   },
-                        // ),
-                        // const SizedBox(width: 8),
                       ],
                     ),
                   ],
