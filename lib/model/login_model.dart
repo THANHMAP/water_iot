@@ -51,7 +51,10 @@ class Data {
   String name;
   String username;
   String email;
-  int factoryId;
+  Factory factory;
+  String phone;
+  String address;
+  String birthday;
   List<Group> group;
   String lastLogin;
   String createdAt;
@@ -60,22 +63,29 @@ class Data {
 
   Data(
       {this.id,
-      this.name,
-      this.username,
-      this.email,
-      this.factoryId,
-      this.group,
-      this.lastLogin,
-      this.createdAt,
-      this.updatedAt,
-      this.accessToken});
+        this.name,
+        this.username,
+        this.email,
+        this.factory,
+        this.phone,
+        this.address,
+        this.birthday,
+        this.group,
+        this.lastLogin,
+        this.createdAt,
+        this.updatedAt,
+        this.accessToken});
 
   Data.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     name = json['name'];
     username = json['username'];
     email = json['email'];
-    factoryId = json['factory_id'];
+    factory =
+    json['factory'] != null ? new Factory.fromJson(json['factory']) : null;
+    phone = json['phone'];
+    address = json['address'];
+    birthday = json['birthday'];
     if (json['group'] != null) {
       group = new List<Group>();
       json['group'].forEach((v) {
@@ -94,7 +104,12 @@ class Data {
     data['name'] = this.name;
     data['username'] = this.username;
     data['email'] = this.email;
-    data['factory_id'] = this.factoryId;
+    if (this.factory != null) {
+      data['factory'] = this.factory.toJson();
+    }
+    data['phone'] = this.phone;
+    data['address'] = this.address;
+    data['birthday'] = this.birthday;
     if (this.group != null) {
       data['group'] = this.group.map((v) => v.toJson()).toList();
     }
@@ -102,6 +117,47 @@ class Data {
     data['createdAt'] = this.createdAt;
     data['updatedAt'] = this.updatedAt;
     data['access_token'] = this.accessToken;
+    return data;
+  }
+}
+
+class Factory {
+  int id;
+  String name;
+  String thumbnail;
+  String overview;
+  int factoryId;
+  String address;
+  String ip;
+
+  Factory(
+      {this.id,
+        this.name,
+        this.thumbnail,
+        this.overview,
+        this.factoryId,
+        this.address,
+        this.ip});
+
+  Factory.fromJson(Map<String, dynamic> json) {
+    id = json['id'];
+    name = json['name'];
+    thumbnail = json['thumbnail'];
+    overview = json['overview'];
+    factoryId = json['factory_id'];
+    address = json['address'];
+    ip = json['ip'];
+  }
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    data['id'] = this.id;
+    data['name'] = this.name;
+    data['thumbnail'] = this.thumbnail;
+    data['overview'] = this.overview;
+    data['factory_id'] = this.factoryId;
+    data['address'] = this.address;
+    data['ip'] = this.ip;
     return data;
   }
 }
@@ -127,3 +183,4 @@ class Group {
     return data;
   }
 }
+

@@ -4,14 +4,16 @@ import 'package:flutter_svg/svg.dart';
 import 'package:water_iot/screen/main/dashboard.dart';
 import 'package:water_iot/screen/main/home.dart';
 import 'package:water_iot/screen/main/setting.dart';
+import 'package:water_iot/screen/overview/overview.dart';
 
 class MainPage extends StatefulWidget {
+  int _currentIndex;
+  MainPage(this._currentIndex, {Key key}): super(key: key);
   @override
   _MainPageState createState() => _MainPageState();
 }
 
 class _MainPageState extends State<MainPage> {
-  int _currentIndex = 1;
 
   final _pageOptions = [HomePage(), DashBoardPage(), SettingPage()];
 
@@ -20,15 +22,17 @@ class _MainPageState extends State<MainPage> {
     super.initState();
   }
 
+
   @override
   Widget build(BuildContext context) {
     final colorScheme = Theme.of(context).colorScheme;
     final textTheme = Theme.of(context).textTheme;
+
     return Scaffold(
-      body: _pageOptions[_currentIndex],
+      body: _pageOptions[widget._currentIndex],
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
-        currentIndex: _currentIndex,
+        currentIndex: widget._currentIndex,
         backgroundColor: colorScheme.surface,
         selectedItemColor: Color(0xFF556DD3),
         unselectedItemColor: colorScheme.onSurface.withOpacity(.60),
@@ -36,7 +40,7 @@ class _MainPageState extends State<MainPage> {
         unselectedLabelStyle: textTheme.caption,
         onTap: (value) {
           // Respond to item press.
-          setState(() => _currentIndex = value);
+          setState(() => widget._currentIndex = value);
         },
         items: [
           BottomNavigationBarItem(

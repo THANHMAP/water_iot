@@ -1,6 +1,11 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:water_iot/SharedPref.dart';
+import 'package:water_iot/model/login_model.dart';
+
+import '../../constants.dart';
 
 class OverViewPage extends StatefulWidget {
   @override
@@ -8,6 +13,7 @@ class OverViewPage extends StatefulWidget {
 }
 
 class _OverViewState extends State<OverViewPage> {
+
   @override
   void initState() {
     super.initState();
@@ -43,27 +49,81 @@ class _OverViewState extends State<OverViewPage> {
                 onPressed: () {
                   Navigator.pop(context);
                 })),
-        body: Stack(
-          children: <Widget>[
-            new Container(child: InteractiveViewer(
-              panEnabled: false, // Set it to false
+      body: Container(
+        child: Container(
+          child: SingleChildScrollView(
+            child: new Container(
+              child: new Column(
+                children: <Widget>[
+                  Container(
+                    width: double.infinity,
+                    margin: EdgeInsets.symmetric(vertical: 20, horizontal: 20),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        Center(
+                          child: Text(
+                            userLocal.factory.name,
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              color: borderEdittextColor,
+                              fontFamily: 'OpenSans',
+                              fontSize: 18.0,
+                              fontWeight: FontWeight.normal,
+                            ),
+                          ),
+                        ),
+                        SizedBox(height: 20),
+                        // Center(
+                        //   child: Text(
+                        //     'MONITORING & SCALLING SENSOR',
+                        //     textAlign: TextAlign.center,
+                        //     style: TextStyle(
+                        //       color: Color(0xFF00B500),
+                        //       fontFamily: 'OpenSans',
+                        //       fontSize: 18.0,
+                        //       fontWeight: FontWeight.normal,
+                        //     ),
+                        //   ),
+                        // ),
+                        // SizedBox(height: 20),
+                        Container(
+                          child: Column(children: <Widget>[
+                            new Container(
+                              child: InteractiveViewer(
+                                  panEnabled: false, // Set it to false
 
-              child: AspectRatio(
-                aspectRatio: 1,
-                child: Image.asset(
-                  'assets/images/overview.png',
-                  fit: BoxFit.fill,
-                ),
-              )
+                                  child: AspectRatio(
+                                    aspectRatio: 1,
+                                    child: Column(
+                                      children: [
+                                        new CachedNetworkImage(
+                                          imageUrl: imgOverViewUrl,
+                                          placeholder: (context, url) =>
+                                          new CircularProgressIndicator(),
+                                          errorWidget: (context, url, error) =>
+                                          new Icon(Icons.error),
+                                          fadeOutDuration:
+                                          new Duration(seconds: 1),
+                                          fadeInDuration:
+                                          new Duration(seconds: 3),
+                                        ),
+                                      ],
+                                    ),
+                                  )),
+                            )
+                          ]),
+                        )
+                      ],
+                    ),
+                  ),
+                ],
+              ),
             ),
-                // decoration: new BoxDecoration(
-                //   image: new DecorationImage(
-                //     image: new AssetImage("assets/images/overview.png"),
-                //     fit: BoxFit.contain,
-                //   ),
-                // ),
-                ),
-          ],
-        ));
+          ),
+        ),
+      ),
+    );
   }
+
 }

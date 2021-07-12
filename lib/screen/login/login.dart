@@ -1,10 +1,18 @@
+import 'dart:convert';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:water_iot/api/api_service.dart';
 import 'package:water_iot/model/login_model.dart';
+import 'package:water_iot/screen/factory/factory.dart';
+import 'package:water_iot/screen/factory/factory_admin.dart';
 import 'package:water_iot/screen/main/main.dart';
 
 import '../../ProgressHUD.dart';
+import '../../SharedPref.dart';
 import '../../constants.dart';
 
 class LoginPage extends StatefulWidget {
@@ -27,6 +35,7 @@ class _LoginPageState extends State<LoginPage> {
     _focusIpNode = new FocusNode();
     _focusUserNode = new FocusNode();
     _focusPasswordNode = new FocusNode();
+    deleteUserInfo();
   }
 
   @override
@@ -124,6 +133,7 @@ class _LoginPageState extends State<LoginPage> {
                                 new TextFormField(
                                   onTap: _requestIpFocus,
                                   focusNode: _focusIpNode,
+                                  initialValue: "197.168.0.12",
                                   style: TextStyle(
                                       color: borderFocusEdittextColor),
                                   keyboardType: TextInputType.text,
@@ -154,6 +164,7 @@ class _LoginPageState extends State<LoginPage> {
                                 new TextFormField(
                                   onTap: _requestUserFocus,
                                   focusNode: _focusUserNode,
+                                  initialValue: "phucthinh@gmail.com",
                                   style: TextStyle(
                                       color: borderFocusEdittextColor),
                                   keyboardType: TextInputType.emailAddress,
@@ -180,6 +191,7 @@ class _LoginPageState extends State<LoginPage> {
                                 new TextFormField(
                                   onTap: _requestPasswordFocus,
                                   focusNode: _focusPasswordNode,
+                                  initialValue: "123456789",
                                   style: TextStyle(
                                       color: borderFocusEdittextColor),
                                   keyboardType: TextInputType.text,
@@ -219,45 +231,63 @@ class _LoginPageState extends State<LoginPage> {
                                   padding: EdgeInsets.symmetric(
                                       vertical: 17, horizontal: 110),
                                   onPressed: () {
-                                    // if (validateAndSave()) {
-                                    //   print(loginRequestModel.toJson());
-                                    //
-                                    //   setState(() {
-                                    //     isApiCallProcess = true;
-                                    //   });
-                                    //
-                                    //   APIService apiService = new APIService();
-                                    //   apiService
-                                    //       .login(loginRequestModel)
-                                    //       .then((value) {
-                                    //     if (value != null) {
-                                    //       setState(() {
-                                    //         isApiCallProcess = false;
-                                    //       });
-                                    //
-                                    //       if (value.data.accessToken.isNotEmpty) {
-                                    //         final snackBar = SnackBar(
-                                    //             content: Text("Login Successful"));
-                                    //         scaffoldKey.currentState
-                                    //             .showSnackBar(snackBar);
-                                    //       } else {
-                                    //         final snackBar = SnackBar(
-                                    //             content: Text(value.message));
-                                    //         scaffoldKey.currentState
-                                    //             .showSnackBar(snackBar);
-                                    //       }
-                                    //     }
-                                    //   });
-                                    // }
-                                    Navigator.pushAndRemoveUntil(
-                                      context,
-                                      MaterialPageRoute(
-                                        builder: (context) {
-                                          return MainPage();
-                                        },
-                                      ),
-                                      (route) => false,
-                                    );
+                                    FocusScope.of(context)
+                                        .requestFocus(FocusNode());
+                                    if (validateAndSave()) {
+                                      print(loginRequestModel.toJson());
+
+                                      setState(() {
+                                        isApiCallProcess = true;
+                                      });
+
+                                      APIService apiService = new APIService();
+                                      apiService
+                                          .login(loginRequestModel)
+                                          .then((value) {
+                                        if (value != null) {
+                                          setState(() {
+                                            isApiCallProcess = false;
+                                          });
+
+                                          if (value.statusCode == 200) {
+                                            saveUserInfo(value.data);
+                                            if (value.data.accessToken != null) {
+                                              var screen ;
+                                              Group group = value.data.group.first;
+                                              if(group.code == "super_admin_app"){
+                                                screen = FactoryAminPage();
+                                              }else if(group.code == "admin"){
+                                                screen = MainPage(1);
+                                              }else if(group.code == "viewer"){
+                                                screen = MainPage(1);
+                                              }
+                                              Navigator.pushAndRemoveUntil(
+                                                context,
+                                                MaterialPageRoute(
+                                                  builder: (context) {
+                                                    return screen;
+                                                  },
+                                                ),
+                                                (route) => false,
+                                              );
+                                              final snackBar = SnackBar(
+                                                  content: Text("Login Successful"));
+                                              scaffoldKey.currentState
+                                                  .showSnackBar(snackBar);
+                                            }
+                                          } else {
+                                            final snackBar = SnackBar(
+                                                content: Text(value.message));
+                                            scaffoldKey.currentState
+                                                .showSnackBar(snackBar);
+                                          }
+                                        } else {
+                                          setState(() {
+                                            isApiCallProcess = false;
+                                          });
+                                        }
+                                      });
+                                    }
                                   },
                                   child: Text(
                                     "LOGIN",
@@ -308,6 +338,18 @@ class _LoginPageState extends State<LoginPage> {
     setState(() {
       FocusScope.of(context).requestFocus(_focusPasswordNode);
     });
+  }
+
+  Future<void> saveUserInfo(Data data) async {
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
+    bool result = await prefs.setString('InfoUser', jsonEncode(data));
+    print(result);
+  }
+
+  Future<void> deleteUserInfo() async {
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
+    bool result = await prefs.remove('InfoUser');
+    print(result);
   }
 
   @override

@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:water_iot/SharedPref.dart';
+import 'package:water_iot/screen/login/login.dart';
 
 import '../../constants.dart';
 
@@ -10,7 +12,8 @@ class SettingPage extends StatefulWidget {
 }
 
 class _SettingPageState extends State<SettingPage> {
-  final String _fullName = "Nick Frost";
+  final String _fullName = userLocal.name;
+  final String _lastLoginGin = userLocal.lastLogin;
   final String _status = "Software Developer";
   final String _bio =
       "\"Hi, I am a Freelance developer working for hourly basis. If you wants to contact me to build your product leave a message.\"";
@@ -96,7 +99,7 @@ class _SettingPageState extends State<SettingPage> {
         borderRadius: BorderRadius.circular(4.0),
       ),
       child: Text(
-        "1:11, 03/05/2021",
+        _lastLoginGin,
         style: TextStyle(
           fontFamily: 'Spectral',
           color: Colors.black,
@@ -326,65 +329,70 @@ class _SettingPageState extends State<SettingPage> {
   }
 
   Widget _buildStatContainerLogout() {
-    return Container(
-      height: 40.0,
-      // margin: EdgeInsets.only(top: 8.0),
-      decoration: const BoxDecoration(
-        border: Border(
-          top: BorderSide(width: 0.5, color: Color(0xFFB3B3B3)),
-          // left: BorderSide(width: 1.0, color: Color(0xFFFFFFFF)),
-          // right: BorderSide(width: 1.0, color: Color(0xFF000000)),
-          bottom: BorderSide(width: 0.5, color: Color(0xFFB3B3B3)),
-        ),
-      ),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: <Widget>[
-          new Row(
-            // mainAxisAlignment: MainAxisAlignment.center,
-            // crossAxisAlignment: CrossAxisAlignment.center,
+    return InkWell(
+       child: Container(
+          height: 40.0,
+          // margin: EdgeInsets.only(top: 8.0),
+          decoration: const BoxDecoration(
+            border: Border(
+              top: BorderSide(width: 0.5, color: Color(0xFFB3B3B3)),
+              // left: BorderSide(width: 1.0, color: Color(0xFFFFFFFF)),
+              // right: BorderSide(width: 1.0, color: Color(0xFF000000)),
+              bottom: BorderSide(width: 0.5, color: Color(0xFFB3B3B3)),
+            ),
+          ),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
-              Expanded(
-                flex: 10,
-                child: SvgPicture.asset(
-                  "assets/images/ic_logout.svg",
-                  width: 20,
-                  height: 30,
-                ),
-              ),
-              Expanded(
-                flex: 50,
-                child: Container(
-                  margin: new EdgeInsets.symmetric(horizontal: 50.0),
-                  child: Text(
-                    'Log out',
-                    style: TextStyle(
-                      color: textDashboardColor,
-                      fontFamily: 'OpenSans',
-                      fontSize: 16.0,
-                      fontWeight: FontWeight.bold,
+              new Row(
+                // mainAxisAlignment: MainAxisAlignment.center,
+                // crossAxisAlignment: CrossAxisAlignment.center,
+                children: <Widget>[
+                  Expanded(
+                    flex: 10,
+                    child: SvgPicture.asset(
+                      "assets/images/ic_logout.svg",
+                      width: 20,
+                      height: 30,
                     ),
                   ),
-                  // child: Center(
-                  //
-                  // ),
-                ),
-              ),
-              Expanded(
-                flex: 10,
-                child: Padding(
-                  padding: const EdgeInsets.only(right: 40.0),
-                  child: Image.asset(
-                    "assets/images/ic_arrow.png",
-                    fit: BoxFit.contain,
+                  Expanded(
+                    flex: 50,
+                    child: Container(
+                      margin: new EdgeInsets.symmetric(horizontal: 50.0),
+                      child: Text(
+                        'Log out',
+                        style: TextStyle(
+                          color: textDashboardColor,
+                          fontFamily: 'OpenSans',
+                          fontSize: 16.0,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      // child: Center(
+                      //
+                      // ),
+                    ),
                   ),
-                ),
+                  Expanded(
+                    flex: 10,
+                    child: Padding(
+                      padding: const EdgeInsets.only(right: 40.0),
+                      child: Image.asset(
+                        "assets/images/ic_arrow.png",
+                        fit: BoxFit.contain,
+                      ),
+                    ),
+                  ),
+                ],
               ),
             ],
           ),
-        ],
-      ),
+        ),
+      onTap: () {
+        logOut();
+      },
     );
   }
 
@@ -421,7 +429,7 @@ class _SettingPageState extends State<SettingPage> {
   Widget _buildGetInTouch(BuildContext context) {
     return Container(
       color: Theme.of(context).scaffoldBackgroundColor,
-      padding: EdgeInsets.only(top: 8.0),
+      padding: EdgeInsets.only(top: 10.0),
       child: Text(
         "Get in Touch with ${_fullName.split(" ")[0]},",
         style: TextStyle(fontFamily: 'Roboto', fontSize: 16.0),
@@ -534,6 +542,7 @@ class _SettingPageState extends State<SettingPage> {
                   children: <Widget>[
                     SizedBox(height: 50),
                     _buildProfileImage(),
+                    SizedBox(height: 8),
                     _buildFullName(),
                     _buildButtons(),
                     _buildStatus(context),
@@ -555,5 +564,18 @@ class _SettingPageState extends State<SettingPage> {
             ),
           ],
         ));
+  }
+
+  logOut(){
+    deleteUserInfo();
+    Navigator.pushAndRemoveUntil(
+      context,
+      MaterialPageRoute(
+        builder: (context) {
+          return LoginPage();
+        },
+      ),
+          (route) => false,
+    );
   }
 }

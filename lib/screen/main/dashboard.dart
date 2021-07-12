@@ -146,7 +146,7 @@ class _DashBoardPageState extends State<DashBoardPage> {
                         onTap: () {
                           Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (context) => Factory()),
+                            MaterialPageRoute(builder: (context) => FactoryPage()),
                           );
                         },
                       ),

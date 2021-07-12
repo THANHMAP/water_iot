@@ -17,12 +17,12 @@ import '../../ProgressHUD.dart';
 import '../../SharedPref.dart';
 import '../../constants.dart';
 
-class FactoryPage extends StatefulWidget {
+class FactoryAminPage extends StatefulWidget {
   @override
   _FactoryState createState() => _FactoryState();
 }
 
-class _FactoryState extends State<FactoryPage> {
+class _FactoryState extends State<FactoryAminPage> {
   bool isApiCallProcess = false;
   final scaffoldKey = GlobalKey<ScaffoldState>();
   List<DataFactory> _factory;
@@ -51,32 +51,7 @@ class _FactoryState extends State<FactoryPage> {
             "FACTORY",
             style: TextStyle(color: mTexHeadLoginColor),
           ),
-          centerTitle: true,
-          actions: <Widget>[
-            IconButton(
-              icon: SvgPicture.asset(
-                'assets/images/ic_notification.svg',
-                height: 20.0,
-                width: 20.0,
-                allowDrawingOutsideViewBox: true,
-              ),
-              onPressed: () {
-                // ScaffoldMessenger.of(context).showSnackBar(
-                //     const SnackBar(content: Text('This is a snackbar')));
-              },
-            ),
-          ],
-          leading: IconButton(
-              icon: SvgPicture.asset(
-                'assets/images/ic_back.svg',
-                height: 20.0,
-                width: 20.0,
-                allowDrawingOutsideViewBox: true,
-              ),
-              onPressed: () {
-                Navigator.pop(context);
-                // Do something.
-              })),
+          centerTitle: true),
       body: Stack(
         children: <Widget>[
           _buildListView(),
@@ -110,11 +85,9 @@ class _FactoryState extends State<FactoryPage> {
             Navigator.pushAndRemoveUntil(
               context,
               MaterialPageRoute(
-                builder: (context) {
-                  return MainPage(0);
-                },
+                builder: (context) => MainPage(0),
               ),
-                  (route) => false,
+              (route) => false,
             );
           },
           child: Column(
@@ -132,7 +105,7 @@ class _FactoryState extends State<FactoryPage> {
                       children: [
                         Flexible(
                           child: CachedNetworkImage(
-                            imageUrl:  item.thumbnail,
+                            imageUrl: item.thumbnail,
                             placeholder: (context, url) =>
                                 new CircularProgressIndicator(),
                             errorWidget: (context, url, error) =>
@@ -205,7 +178,7 @@ class _FactoryState extends State<FactoryPage> {
                                   return MainPage(0);
                                 },
                               ),
-                              (route) => false,
+                                  (route) => false,
                             );
                           },
                           child: Text(
@@ -247,7 +220,6 @@ class _FactoryState extends State<FactoryPage> {
     );
   }
 
-
   loadFactory() async {
     setState(() {
       isApiCallProcess = true;
@@ -277,11 +249,6 @@ class _FactoryState extends State<FactoryPage> {
             }
           }
         }
-      });
-    } else {
-      _factory = listFactoryLocal;
-      setState(() {
-        isApiCallProcess = false;
       });
     }
   }
