@@ -36,6 +36,7 @@ dependencies:
   google_maps_flutter: ^2.0.6
   shared_preferences: any
   cached_network_image: ^3.0.0
+  grouped_buttons: ^1.0.4
 
 dev_dependencies:
   flutter_test:

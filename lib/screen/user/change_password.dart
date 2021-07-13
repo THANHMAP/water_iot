@@ -1,7 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:water_iot/SharedPref.dart';
+import 'package:water_iot/api/api_service.dart';
 import 'package:water_iot/model/change_password_model.dart';
+import 'package:water_iot/screen/login/login.dart';
 
 import '../../ProgressHUD.dart';
 import '../../constants.dart';
@@ -17,7 +20,9 @@ class _ChangePasswordPageState extends State<ChangePasswordPage> {
   FocusNode _focusPassword, _focusPasswordRetype;
   ChangePasswordRequestModel _changePasswordRequestModel;
   final TextEditingController _controllerPassword = new TextEditingController();
-  final TextEditingController _controllerConfigPassword = new TextEditingController();
+  final TextEditingController _controllerConfigPassword =
+      new TextEditingController();
+
   @override
   void initState() {
     super.initState();
@@ -80,18 +85,18 @@ class _ChangePasswordPageState extends State<ChangePasswordPage> {
                                       color: borderFocusEdittextColor),
                                   keyboardType: TextInputType.text,
                                   onSaved: (input) =>
-                                  _changePasswordRequestModel.newPassword = input,
+                                      _changePasswordRequestModel.newPassword =
+                                          input,
                                   validator: (input) => input.isEmpty
                                       ? "Mật khẩu không được để trống"
                                       : null,
                                   obscureText: true,
                                   decoration: new InputDecoration(
                                     hintText: "Mật khảu mới",
-                                    hintStyle:
-                                        TextStyle(
-                                            color: _focusPassword.hasFocus
-                                                ? borderFocusEdittextColor
-                                                : borderEdittextColor),
+                                    hintStyle: TextStyle(
+                                        color: _focusPassword.hasFocus
+                                            ? borderFocusEdittextColor
+                                            : borderEdittextColor),
                                     enabledBorder: UnderlineInputBorder(
                                         borderSide: BorderSide(
                                             color: borderEdittextColor)),
@@ -113,18 +118,18 @@ class _ChangePasswordPageState extends State<ChangePasswordPage> {
                                       color: borderFocusEdittextColor),
                                   keyboardType: TextInputType.text,
                                   onSaved: (input) =>
-                                  _changePasswordRequestModel.confirmPassword = input,
+                                      _changePasswordRequestModel
+                                          .confirmPassword = input,
                                   validator: (input) => input.isEmpty
                                       ? "Mật khẩu không được để trống"
                                       : null,
                                   obscureText: true,
                                   decoration: new InputDecoration(
                                     hintText: "Nhập lại mật khẩu",
-                                    hintStyle:
-                                        TextStyle(
-                                            color: _focusPasswordRetype.hasFocus
-                                                ? borderFocusEdittextColor
-                                                : borderEdittextColor),
+                                    hintStyle: TextStyle(
+                                        color: _focusPasswordRetype.hasFocus
+                                            ? borderFocusEdittextColor
+                                            : borderEdittextColor),
                                     enabledBorder: UnderlineInputBorder(
                                         borderSide: BorderSide(
                                             color: borderEdittextColor)),
@@ -148,27 +153,79 @@ class _ChangePasswordPageState extends State<ChangePasswordPage> {
                                             padding: EdgeInsets.symmetric(
                                                 vertical: 17, horizontal: 0),
                                             onPressed: () {
-                                              if(_changePasswordRequestModel.newPassword != _changePasswordRequestModel.confirmPassword){
-
-                                              }else{
-                                                showDialog<String>(
-                                                  context: context,
-                                                    builder: (BuildContext context) => AlertDialog(
-                                                      title: const Text('AlertDialog Title'),
-                                                      content: const Text('AlertDialog description'),
-                                                      actions: <Widget>[
-                                                        TextButton(
-                                                          onPressed: () => Navigator.pop(context, 'Cancel'),
-                                                          child: const Text('Cancel'),
+                                              if (validateAndSave()) {
+                                                if (_changePasswordRequestModel
+                                                    .newPassword ==
+                                                    _changePasswordRequestModel
+                                                        .confirmPassword) {
+                                                  setState(() {
+                                                    isApiCallProcess = true;
+                                                  });
+                                                  APIService apiService =
+                                                  new APIService();
+                                                  apiService
+                                                      .changePassword(
+                                                      userLocal.accessToken,
+                                                      _changePasswordRequestModel)
+                                                      .then((value) {
+                                                    setState(() {
+                                                      isApiCallProcess = false;
+                                                    });
+                                                    if (value.statusCode == 200) {
+                                                      showDialog<String>(
+                                                        context: context,
+                                                        builder: (BuildContext
+                                                        context) =>
+                                                            AlertDialog(
+                                                              title: const Text(
+                                                                  'Thành công'),
+                                                              content: const Text(
+                                                                  'Thay đổi mật khẩu thành công. Bạn phải đăng nhập lại'),
+                                                              actions: <Widget>[
+                                                                TextButton(
+                                                                  onPressed: () {
+                                                                    logOut();
+                                                                  },
+                                                                  child: const Text(
+                                                                      'OK'),
+                                                                ),
+                                                              ],
+                                                            ),
+                                                      );
+                                                    } else if (value.statusCode ==
+                                                        500) {
+                                                    } else {}
+                                                  });
+                                                } else {
+                                                  showDialog<String>(
+                                                    context: context,
+                                                    builder:
+                                                        (BuildContext context) =>
+                                                        AlertDialog(
+                                                          title: const Text('Lỗi'),
+                                                          content: const Text(
+                                                              'Mật khẩu không trùng khớp'),
+                                                          actions: <Widget>[
+                                                            TextButton(
+                                                              onPressed: () =>
+                                                                  Navigator.pop(
+                                                                      context,
+                                                                      'Cancel'),
+                                                              child: const Text(
+                                                                  'Cancel'),
+                                                            ),
+                                                            TextButton(
+                                                              onPressed: () =>
+                                                                  Navigator.pop(
+                                                                      context, 'OK'),
+                                                              child: const Text('OK'),
+                                                            ),
+                                                          ],
                                                         ),
-                                                        TextButton(
-                                                          onPressed: () => Navigator.pop(context, 'OK'),
-                                                          child: const Text('OK'),
-                                                        ),
-                                                      ],
-                                                    ),
-                                                );
+                                                  );
+                                                }
                                               }
+
                                             },
                                             child: Text(
                                               "Cập nhật",
@@ -235,5 +292,27 @@ class _ChangePasswordPageState extends State<ChangePasswordPage> {
     setState(() {
       FocusScope.of(context).requestFocus(_focusPasswordRetype);
     });
+  }
+
+  logOut() {
+    deleteUserInfo();
+    Navigator.pushAndRemoveUntil(
+      context,
+      MaterialPageRoute(
+        builder: (context) {
+          return LoginPage();
+        },
+      ),
+      (route) => false,
+    );
+  }
+
+  bool validateAndSave() {
+    final form = globalFormKey.currentState;
+    if (form.validate()) {
+      form.save();
+      return true;
+    }
+    return false;
   }
 }

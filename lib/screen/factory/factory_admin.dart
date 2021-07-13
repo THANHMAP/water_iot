@@ -174,9 +174,7 @@ class _FactoryState extends State<FactoryAminPage> {
                             Navigator.pushAndRemoveUntil(
                               context,
                               MaterialPageRoute(
-                                builder: (context) {
-                                  return MainPage(0);
-                                },
+                                builder: (context) => MainPage(0),
                               ),
                                   (route) => false,
                             );

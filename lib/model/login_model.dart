@@ -19,6 +19,35 @@ class LoginRequestModel {
   }
 }
 
+class UpdateInfoRequestModel {
+  String name;
+  String gender;
+  String email;
+  String birthday;
+  String phone;
+  String address;
+
+  UpdateInfoRequestModel(
+      {this.name,
+      this.gender,
+      this.email,
+      this.birthday,
+      this.phone,
+      this.address});
+
+  Map<String, dynamic> toJson() {
+    Map<String, dynamic> map = {
+      'name': name.trim(),
+      'gender': gender.trim(),
+      'email': email.trim(),
+      'birthday': birthday.trim(),
+      'phone': phone.trim(),
+      'address': address.trim(),
+    };
+    return map;
+  }
+}
+
 class LoginResponseModel {
   bool status;
   int statusCode;
@@ -55,6 +84,7 @@ class Data {
   String phone;
   String address;
   String birthday;
+  String gender;
   List<Group> group;
   String lastLogin;
   String createdAt;
@@ -63,18 +93,19 @@ class Data {
 
   Data(
       {this.id,
-        this.name,
-        this.username,
-        this.email,
-        this.factory,
-        this.phone,
-        this.address,
-        this.birthday,
-        this.group,
-        this.lastLogin,
-        this.createdAt,
-        this.updatedAt,
-        this.accessToken});
+      this.name,
+      this.username,
+      this.email,
+      this.factory,
+      this.phone,
+      this.address,
+      this.birthday,
+      this.gender,
+      this.group,
+      this.lastLogin,
+      this.createdAt,
+      this.updatedAt,
+      this.accessToken});
 
   Data.fromJson(Map<String, dynamic> json) {
     id = json['id'];
@@ -82,10 +113,11 @@ class Data {
     username = json['username'];
     email = json['email'];
     factory =
-    json['factory'] != null ? new Factory.fromJson(json['factory']) : null;
+        json['factory'] != null ? new Factory.fromJson(json['factory']) : null;
     phone = json['phone'];
     address = json['address'];
     birthday = json['birthday'];
+    gender = json['gender'];
     if (json['group'] != null) {
       group = new List<Group>();
       json['group'].forEach((v) {
@@ -110,6 +142,7 @@ class Data {
     data['phone'] = this.phone;
     data['address'] = this.address;
     data['birthday'] = this.birthday;
+    data['gender'] = this.gender;
     if (this.group != null) {
       data['group'] = this.group.map((v) => v.toJson()).toList();
     }
@@ -132,12 +165,12 @@ class Factory {
 
   Factory(
       {this.id,
-        this.name,
-        this.thumbnail,
-        this.overview,
-        this.factoryId,
-        this.address,
-        this.ip});
+      this.name,
+      this.thumbnail,
+      this.overview,
+      this.factoryId,
+      this.address,
+      this.ip});
 
   Factory.fromJson(Map<String, dynamic> json) {
     id = json['id'];
@@ -183,4 +216,3 @@ class Group {
     return data;
   }
 }
-

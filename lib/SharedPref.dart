@@ -44,3 +44,11 @@ Future<void> deleteUserInfo() async {
   bool result = await prefs.remove('InfoUser');
   print(result);
 }
+
+Future<void> saveUserInfo(Data data) async {
+  final SharedPreferences prefs = await SharedPreferences.getInstance();
+  bool result = await prefs.setString('InfoUser', jsonEncode(data));
+  print(result);
+}
+
+
