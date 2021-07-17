@@ -25,7 +25,8 @@ class _PersonalInfoState extends State<PersonalInfoPage> {
   final TextEditingController _controllerPhone = new TextEditingController();
   final TextEditingController _controllerAddress = new TextEditingController();
   String gender;
-
+  int _value = 1;
+  final List<String> list_items = <String>["Nam", "Nữ"];
   @override
   void initState() {
     super.initState();
@@ -98,32 +99,31 @@ class _PersonalInfoState extends State<PersonalInfoPage> {
                                 SizedBox(height: 30),
                                 new TextFormField(
                                   controller: _controllerName,
-                                  initialValue: userLocal.name != null
-                                      ? null
-                                      : "",
+                                  initialValue:
+                                      userLocal.name != null ? null : "",
                                   onTap: _requestNameFocus,
                                   focusNode: _focusName,
                                   style: TextStyle(
                                       color: borderFocusEdittextColor),
                                   keyboardType: TextInputType.text,
                                   onSaved: (input) =>
-                                  _infoRequestModel.name = input,
-                                  validator: (input) =>
-                                  input.isEmpty
+                                      _infoRequestModel.name = input,
+                                  validator: (input) => input.isEmpty
                                       ? "Vui lòng nhập họ và tên"
                                       : null,
                                   decoration: new InputDecoration(
                                     hintText: "Họ & tên",
-                                    hintStyle: TextStyle(
-                                        color: _focusName.hasFocus
-                                            ? borderFocusEdittextColor
-                                            : borderEdittextColor),
-                                    enabledBorder: UnderlineInputBorder(
-                                        borderSide: BorderSide(
-                                            color: borderEdittextColor)),
-                                    focusedBorder: UnderlineInputBorder(
-                                        borderSide: BorderSide(
-                                            color: borderFocusEdittextColor)),
+                                    border: OutlineInputBorder(),
+                                    // hintStyle: TextStyle(
+                                    //     color: _focusName.hasFocus
+                                    //         ? borderFocusEdittextColor
+                                    //         : borderEdittextColor),
+                                    // enabledBorder: UnderlineInputBorder(
+                                    //     borderSide: BorderSide(
+                                    //         color: borderEdittextColor)),
+                                    // focusedBorder: UnderlineInputBorder(
+                                    //     borderSide: BorderSide(
+                                    //         color: borderFocusEdittextColor)),
                                     // prefixIcon: Icon(
                                     //   Icons.email,
                                     //   color: Theme.of(context).accentColor,
@@ -139,23 +139,23 @@ class _PersonalInfoState extends State<PersonalInfoPage> {
                                       color: borderFocusEdittextColor),
                                   keyboardType: TextInputType.text,
                                   onSaved: (input) =>
-                                  _infoRequestModel.phone = input,
-                                  validator: (input) =>
-                                  input.isEmpty
+                                      _infoRequestModel.phone = input,
+                                  validator: (input) => input.isEmpty
                                       ? "Vui lòng nhập số điện thoại"
                                       : null,
                                   decoration: new InputDecoration(
                                     hintText: "Số điện thoại",
-                                    hintStyle: TextStyle(
-                                        color: _focusPhone.hasFocus
-                                            ? borderFocusEdittextColor
-                                            : borderEdittextColor),
-                                    enabledBorder: UnderlineInputBorder(
-                                        borderSide: BorderSide(
-                                            color: borderEdittextColor)),
-                                    focusedBorder: UnderlineInputBorder(
-                                        borderSide: BorderSide(
-                                            color: borderFocusEdittextColor)),
+                                    border: OutlineInputBorder(),
+                                    // hintStyle: TextStyle(
+                                    //     color: _focusPhone.hasFocus
+                                    //         ? borderFocusEdittextColor
+                                    //         : borderEdittextColor),
+                                    // enabledBorder: UnderlineInputBorder(
+                                    //     borderSide: BorderSide(
+                                    //         color: borderEdittextColor)),
+                                    // focusedBorder: UnderlineInputBorder(
+                                    //     borderSide: BorderSide(
+                                    //         color: borderFocusEdittextColor)),
                                     // prefixIcon: Icon(
                                     //   Icons.email,
                                     //   color: Theme.of(context).accentColor,
@@ -171,23 +171,23 @@ class _PersonalInfoState extends State<PersonalInfoPage> {
                                       color: borderFocusEdittextColor),
                                   keyboardType: TextInputType.text,
                                   onSaved: (input) =>
-                                  _infoRequestModel.email = input,
-                                  validator: (input) =>
-                                  input.isEmpty
+                                      _infoRequestModel.email = input,
+                                  validator: (input) => input.isEmpty
                                       ? "Vui lòng nhập email"
                                       : null,
                                   decoration: new InputDecoration(
                                     hintText: "E-mail",
-                                    hintStyle: TextStyle(
-                                        color: _focusMail.hasFocus
-                                            ? borderFocusEdittextColor
-                                            : borderEdittextColor),
-                                    enabledBorder: UnderlineInputBorder(
-                                        borderSide: BorderSide(
-                                            color: borderEdittextColor)),
-                                    focusedBorder: UnderlineInputBorder(
-                                        borderSide: BorderSide(
-                                            color: borderFocusEdittextColor)),
+                                    border: OutlineInputBorder(),
+                                    // hintStyle: TextStyle(
+                                    //     color: _focusMail.hasFocus
+                                    //         ? borderFocusEdittextColor
+                                    //         : borderEdittextColor),
+                                    // enabledBorder: UnderlineInputBorder(
+                                    //     borderSide: BorderSide(
+                                    //         color: borderEdittextColor)),
+                                    // focusedBorder: UnderlineInputBorder(
+                                    //     borderSide: BorderSide(
+                                    //         color: borderFocusEdittextColor)),
                                     // prefixIcon: Icon(
                                     //   Icons.email,
                                     //   color: Theme.of(context).accentColor,
@@ -196,6 +196,7 @@ class _PersonalInfoState extends State<PersonalInfoPage> {
                                 ),
                                 SizedBox(height: 20),
                                 new TextFormField(
+                                  maxLength: 20,
                                   controller: _controllerAddress,
                                   onTap: _requestAddressFocus,
                                   focusNode: _focusAddress,
@@ -203,23 +204,23 @@ class _PersonalInfoState extends State<PersonalInfoPage> {
                                       color: borderFocusEdittextColor),
                                   keyboardType: TextInputType.text,
                                   onSaved: (input) =>
-                                  _infoRequestModel.address = input,
-                                  validator: (input) =>
-                                  input.isEmpty
+                                      _infoRequestModel.address = input,
+                                  validator: (input) => input.isEmpty
                                       ? "Vui lòng nhập địa chỉ"
                                       : null,
                                   decoration: new InputDecoration(
                                     hintText: "Địa chỉ",
-                                    hintStyle: TextStyle(
-                                        color: _focusAddress.hasFocus
-                                            ? borderFocusEdittextColor
-                                            : borderEdittextColor),
-                                    enabledBorder: UnderlineInputBorder(
-                                        borderSide: BorderSide(
-                                            color: borderEdittextColor)),
-                                    focusedBorder: UnderlineInputBorder(
-                                        borderSide: BorderSide(
-                                            color: borderFocusEdittextColor)),
+                                    border: OutlineInputBorder(),
+                                    // hintStyle: TextStyle(
+                                    //     color: _focusAddress.hasFocus
+                                    //         ? borderFocusEdittextColor
+                                    //         : borderEdittextColor),
+                                    // enabledBorder: UnderlineInputBorder(
+                                    //     borderSide: BorderSide(
+                                    //         color: borderEdittextColor)),
+                                    // focusedBorder: UnderlineInputBorder(
+                                    //     borderSide: BorderSide(
+                                    //         color: borderFocusEdittextColor)),
                                     // prefixIcon: Icon(
                                     //   Icons.email,
                                     //   color: Theme.of(context).accentColor,
@@ -227,25 +228,47 @@ class _PersonalInfoState extends State<PersonalInfoPage> {
                                   ),
                                 ),
                                 SizedBox(height: 20),
-                                new RadioButtonGroup(
-                                  labels: <String>[
-                                    "Nam",
-                                    "Nữ",
-                                  ],
-                                  // onChange: (value) => setState(() {
-                                  //   _verticalGroupValue = value;
-                                  // }),
-                                  picked: gender,
-                                  onChange: (String label, int index) =>
-                                      print("label: $label index: $index"),
-                                  onSelected: (String selected) {
+                                new DropdownButton(
+                                  value: _value,
+                                  items: list_items.map((String item) {
+                                    return DropdownMenuItem<String>(
+                                      child: Text('$item'),
+                                      value: item,
+                                    );
+                                  }).toList(),
+                                  onChanged:(value) {
                                     setState(() {
-                                      gender = selected;
-                                      _infoRequestModel.gender = selected;
+                                      _value = value;
                                     });
-                                    print(selected);
+                                  },
+                                  hint:Text("Select item"),
+                                  disabledHint:Text("Disabled"),
+                                  elevation: 8,
+                                  style:TextStyle(color:Colors.green, fontSize: 16),
+                                  icon: Icon(Icons.arrow_drop_down_circle),
+                                  iconDisabledColor: Colors.red,
+                                  iconEnabledColor: Colors.green,
+                                  isExpanded: true,
 
-                                  }),
+                                ),
+                                // new RadioButtonGroup(
+                                //     labels: <String>[
+                                //       "Nam",
+                                //       "Nữ",
+                                //     ],
+                                //     // onChange: (value) => setState(() {
+                                //     //   _verticalGroupValue = value;
+                                //     // }),
+                                //     picked: gender,
+                                //     onChange: (String label, int index) =>
+                                //         print("label: $label index: $index"),
+                                //     onSelected: (String selected) {
+                                //       setState(() {
+                                //         gender = selected;
+                                //         _infoRequestModel.gender = selected;
+                                //       });
+                                //       print(selected);
+                                //     }),
                                 SizedBox(height: 30),
                                 new Container(
                                   child: Row(
@@ -262,11 +285,11 @@ class _PersonalInfoState extends State<PersonalInfoPage> {
                                                   isApiCallProcess = true;
                                                 });
                                                 APIService apiService =
-                                                new APIService();
+                                                    new APIService();
                                                 apiService
                                                     .updatePersonalInfo(
-                                                    userLocal.accessToken,
-                                                    _infoRequestModel)
+                                                        userLocal.accessToken,
+                                                        _infoRequestModel)
                                                     .then((value) {
                                                   setState(() {
                                                     isApiCallProcess = false;
@@ -281,23 +304,24 @@ class _PersonalInfoState extends State<PersonalInfoPage> {
                                                     showDialog<String>(
                                                       context: context,
                                                       builder: (BuildContext
-                                                      context) =>
+                                                              context) =>
                                                           AlertDialog(
-                                                            title:
+                                                        title:
                                                             const Text('Lỗi'),
-                                                            content: const Text(
-                                                                'Cập nhật thông tin không thành công'),
-                                                            actions: <Widget>[
-                                                              TextButton(
-                                                                onPressed: () {
-                                                                  Navigator.pop(
-                                                                      context, 'OK');
-                                                                },
-                                                                child: const Text(
-                                                                    'OK'),
-                                                              ),
-                                                            ],
+                                                        content: const Text(
+                                                            'Cập nhật thông tin không thành công'),
+                                                        actions: <Widget>[
+                                                          TextButton(
+                                                            onPressed: () {
+                                                              Navigator.pop(
+                                                                  context,
+                                                                  'OK');
+                                                            },
+                                                            child: const Text(
+                                                                'OK'),
                                                           ),
+                                                        ],
+                                                      ),
                                                     );
                                                   }
                                                 });
@@ -311,7 +335,7 @@ class _PersonalInfoState extends State<PersonalInfoPage> {
                                             color: loginButtonColor,
                                             shape: RoundedRectangleBorder(
                                               borderRadius:
-                                              BorderRadius.circular(10.0),
+                                                  BorderRadius.circular(10.0),
                                             ),
                                           ),
                                         ),
@@ -337,7 +361,7 @@ class _PersonalInfoState extends State<PersonalInfoPage> {
                                             color: loginButtonColor,
                                             shape: RoundedRectangleBorder(
                                               borderRadius:
-                                              BorderRadius.circular(10.0),
+                                                  BorderRadius.circular(10.0),
                                             ),
                                           ),
                                         ),

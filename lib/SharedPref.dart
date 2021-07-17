@@ -48,6 +48,9 @@ Future<void> deleteUserInfo() async {
 Future<void> saveUserInfo(Data data) async {
   final SharedPreferences prefs = await SharedPreferences.getInstance();
   bool result = await prefs.setString('InfoUser', jsonEncode(data));
+  userLocal = data;
+  imgOverViewUrl = data.factory.overview;
+  print(userLocal.toJson());
   print(result);
 }
 

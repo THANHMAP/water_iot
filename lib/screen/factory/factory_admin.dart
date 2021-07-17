@@ -112,7 +112,7 @@ class _FactoryState extends State<FactoryAminPage> {
                                 new Icon(Icons.error),
                             fadeOutDuration: new Duration(seconds: 1),
                             fadeInDuration: new Duration(seconds: 3),
-                            height: 160,
+                            // height: 160,
                             fit: BoxFit.fill,
                           ),
                           // child: Image.network(

@@ -79,29 +79,55 @@ class _HomePageState extends State<HomePage> {
                         // SizedBox(height: 20),
                         Container(
                           child: Column(children: <Widget>[
-                            new Container(
-                              child: InteractiveViewer(
-                                  panEnabled: false, // Set it to false
-
-                                  child: AspectRatio(
-                                    aspectRatio: 1,
-                                    child: Column(
-                                      children: [
-                                        new CachedNetworkImage(
-                                          imageUrl: imgOverViewUrl,
-                                          placeholder: (context, url) =>
-                                              new CircularProgressIndicator(),
-                                          errorWidget: (context, url, error) =>
-                                              new Icon(Icons.error),
-                                          fadeOutDuration:
-                                              new Duration(seconds: 1),
-                                          fadeInDuration:
-                                              new Duration(seconds: 3),
-                                        ),
-                                      ],
-                                    ),
-                                  )),
-                            )
+                            Container(
+                              foregroundDecoration: const BoxDecoration(
+                                image: DecorationImage(
+                                    image: NetworkImage(
+                                        'https://p6.storage.canalblog.com/69/50/922142/85510911_o.png'),
+                                    fit: BoxFit.fill),
+                              ),
+                              decoration: const BoxDecoration(
+                                image: DecorationImage(
+                                    alignment: Alignment(-.2, 0),
+                                    image: NetworkImage(
+                                        'http://www.naturerights.com/blog/wp-content/uploads/2017/12/Taranaki-NR-post-1170x550.png'),
+                                    fit: BoxFit.cover),
+                              ),
+                              alignment: Alignment.bottomCenter,
+                              padding: EdgeInsets.only(bottom: 20),
+                              child: Text(
+                                "Hello World",
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .display1
+                                    .copyWith(color: Colors.white),
+                              ),
+                            ),
+                            // new Container(
+                            //   child: InteractiveViewer(
+                            //       panEnabled: false, // Set it to false
+                            //
+                            //       child: AspectRatio(
+                            //         aspectRatio: 1,
+                            //         child: Column(
+                            //           children: [
+                            //             new CachedNetworkImage(
+                            //               imageUrl: imgOverViewUrl,
+                            //               fit: BoxFit.cover,
+                            //               width: MediaQuery.of(context).size.width,
+                            //               placeholder: (context, url) =>
+                            //                   new CircularProgressIndicator(),
+                            //               errorWidget: (context, url, error) =>
+                            //                   new Icon(Icons.error),
+                            //               fadeOutDuration:
+                            //                   new Duration(seconds: 1),
+                            //               fadeInDuration:
+                            //                   new Duration(seconds: 3),
+                            //             ),
+                            //           ],
+                            //         ),
+                            //       )),
+                            // )
                           ]),
                         )
                       ],
