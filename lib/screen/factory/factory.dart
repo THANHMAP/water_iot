@@ -1,6 +1,4 @@
 import 'dart:convert';
-import 'dart:developer';
-
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -11,7 +9,6 @@ import 'package:water_iot/model/factory_model.dart';
 import 'package:water_iot/model/login_model.dart';
 import 'package:water_iot/screen/login/login.dart';
 import 'package:water_iot/screen/main/main.dart';
-import 'package:water_iot/screen/main/setting.dart';
 
 import '../../ProgressHUD.dart';
 import '../../SharedPref.dart';

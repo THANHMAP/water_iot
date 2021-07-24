@@ -25,6 +25,7 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     var d = Duration(seconds: 3);
     // delayed 3 seconds to next page
+
     Future.delayed(d, () async {
       // to next page and close this page
       var user = await getUserInfo();

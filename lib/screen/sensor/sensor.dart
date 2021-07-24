@@ -1,10 +1,17 @@
+import 'dart:ffi';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:water_iot/SharedPref.dart';
+import 'package:water_iot/api/api_service.dart';
+import 'package:water_iot/model/sensor_model.dart';
 import 'package:water_iot/screen/main/main.dart';
 import 'package:water_iot/screen/main/setting.dart';
 
+import '../../ProgressHUD.dart';
 import '../../constants.dart';
+import 'detailSensor.dart';
 
 class SensorPage extends StatefulWidget {
   @override
@@ -12,8 +19,27 @@ class SensorPage extends StatefulWidget {
 }
 
 class _SensorState extends State<SensorPage> {
+  bool isApiCallProcess = false;
+  final scaffoldKey = GlobalKey<ScaffoldState>();
+  List<Data> listSensor;
+
+  @override
+  void initState() {
+    super.initState();
+    listSensor = [];
+    loadData();
+  }
+
   @override
   Widget build(BuildContext context) {
+    return ProgressHUD(
+      child: _uiSetup(context),
+      inAsyncCall: isApiCallProcess,
+      opacity: 0.6,
+    );
+  }
+
+  Widget _uiSetup(BuildContext context) {
     return Scaffold(
       backgroundColor: Color(0xFFF5F6FA),
       appBar: AppBar(
@@ -90,6 +116,7 @@ class _SensorState extends State<SensorPage> {
                             _buildCardPUMP(),
                             _buildCardProcess(),
                             _buildCardChemical(),
+                            _buildCardSludge(),
                             _buildCardSupply(),
                           ]),
                         )
@@ -112,9 +139,20 @@ class _SensorState extends State<SensorPage> {
         clipBehavior: Clip.antiAlias,
         elevation: 16,
         shape:
-            RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
+        RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
         child: InkWell(
-          onTap: () {},
+          onTap: () {
+            if (listSensor != null && listSensor.length > 0) {
+              if (listSensor[0].dataList.length > 0) {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => DetailSensorPage(0),
+                ));
+              } else {
+                dialog();
+              }
+            }
+          },
           child: Column(
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -217,9 +255,20 @@ class _SensorState extends State<SensorPage> {
         clipBehavior: Clip.antiAlias,
         elevation: 16,
         shape:
-            RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
+        RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
         child: InkWell(
-          onTap: () {},
+          onTap: () {
+            if (listSensor != null && listSensor.length > 0) {
+              if (listSensor[1].dataList.length > 0) {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => DetailSensorPage(1)),
+                );
+              } else {
+                dialog();
+              }
+            }
+          },
           child: Column(
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -320,9 +369,18 @@ class _SensorState extends State<SensorPage> {
         clipBehavior: Clip.antiAlias,
         elevation: 16,
         shape:
-            RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
+        RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
         child: InkWell(
-          onTap: () {},
+          onTap: () { if (listSensor != null && listSensor.length > 0) {
+            if (listSensor[2].dataList.length > 0) {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => DetailSensorPage(2)),
+              );
+            } else {
+              dialog();
+            }
+          }},
           child: Column(
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -418,6 +476,120 @@ class _SensorState extends State<SensorPage> {
     );
   }
 
+  Widget _buildCardSludge() {
+    return Padding(
+      padding: const EdgeInsets.all(0),
+      child: Card(
+        clipBehavior: Clip.antiAlias,
+        elevation: 16,
+        shape:
+        RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
+        child: InkWell(
+          onTap: () { if (listSensor != null && listSensor.length > 0) {
+            if (listSensor[3].dataList.length > 0) {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => DetailSensorPage(3)),
+              );
+            } else {
+              dialog();
+            }
+          }},
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              Container(
+                height: 100,
+                color: Color(0xFF556DD3),
+                width: double.infinity,
+                // padding: EdgeInsets.symmetric(vertical: 10, horizontal: 0),
+                // margin: EdgeInsets.symmetric(vertical: 0, horizontal: 15),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: <Widget>[
+                    new Row(
+                      children: [
+                        Expanded(
+                          child: Container(
+                            alignment: Alignment.center,
+                            // color: Colors.amber,
+                            // height: 100,
+                            child: Align(
+                              alignment: Alignment.topRight,
+                              child: SvgPicture.asset(
+                                "assets/images/ic_chemical.svg",
+                                color: Color(0xFFF4F5F8),
+                                height: 70,
+                              ),
+                            ),
+                          ),
+                        ),
+                        Container(
+                          // color: Colors.blue,
+                          height: 100,
+                          width: 30,
+                        ),
+                        Expanded(
+                          child: Column(
+                            children: <Widget>[
+                              new Row(
+                                children: [
+                                  Expanded(
+                                    child: Container(
+                                      alignment: Alignment.center,
+                                      // color: Colors.amber,
+
+                                      child: Text(
+                                        "SLUDGE STATION",
+                                        textAlign: TextAlign.center,
+                                        style: TextStyle(
+                                            color: Colors.white, fontSize: 20),
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                              new Row(
+                                children: [
+                                  Expanded(
+                                    child: Container(
+                                      margin: const EdgeInsets.only(top: 10.0),
+                                      alignment: Alignment.center,
+                                      // color: Colors.amber,
+                                      child: Image.asset(
+                                        "assets/images/ic_arrow_down.png",
+                                        height: 10,
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
+                        ),
+                        Container(
+                          // color: Colors.blue,
+                          height: 100,
+                          width: 80,
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+
+              // Row(
+
+              // ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
   Widget _buildCardSupply() {
     return Padding(
       padding: const EdgeInsets.all(0),
@@ -425,9 +597,20 @@ class _SensorState extends State<SensorPage> {
         clipBehavior: Clip.antiAlias,
         elevation: 16,
         shape:
-            RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
+        RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
         child: InkWell(
-          onTap: () {},
+          onTap: () {
+            if (listSensor != null && listSensor.length > 0) {
+              if (listSensor[4].dataList.length > 0) {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => DetailSensorPage(4)),
+                );
+              } else {
+                dialog();
+              }
+            }
+          },
           child: Column(
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -522,6 +705,47 @@ class _SensorState extends State<SensorPage> {
           ),
         ),
       ),
+    );
+  }
+
+  loadData() {
+    setState(() {
+      isApiCallProcess = true;
+    });
+    APIService apiService = new APIService();
+    apiService.getListSensor(userLocal.accessToken, factoryId).then((value) {
+      setState(() {
+        isApiCallProcess = false;
+      });
+      if (value.statusCode == 200) {
+        listSensor = value.data;
+        print(value.toJson());
+      }
+    });
+  }
+
+  dialog() {
+    showDialog<String>(
+      context: context,
+      builder: (BuildContext
+      context) =>
+          AlertDialog(
+            title: const Text(
+                'Lỗi'),
+            content: const Text(
+                'Không có dữ liệu'),
+            actions: <Widget>[
+              TextButton(
+                onPressed: () {
+                  Navigator.pop(
+                      context,
+                      'OK');
+                },
+                child: const Text(
+                    'OK'),
+              ),
+            ],
+          ),
     );
   }
 }

@@ -13,7 +13,7 @@ class FactoryResponseModel {
     errorCode = json['error_code'];
     message = json['message'];
     if (json['data'] != null) {
-      data = new List<DataFactory>();
+      data = [];
       json['data'].forEach((v) {
         data.add(new DataFactory.fromJson(v));
       });

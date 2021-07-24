@@ -5,6 +5,7 @@ import 'package:water_iot/model/factory_model.dart';
 import 'model/login_model.dart';
 
 String imgOverViewUrl;
+String factoryId;
 List<DataFactory> listFactoryLocal = [];
 Data userLocal;
 Future<Data> getUserInfo() async {
@@ -19,6 +20,7 @@ Future<Data> getUserInfo() async {
   if (userMap != null) {
     final Data user = Data.fromJson(userMap);
     imgOverViewUrl = user.factory.overview;
+    factoryId = user.factory.factoryId.toString();
     addFactory(user);
     userLocal = user;
     print(user);
@@ -50,6 +52,7 @@ Future<void> saveUserInfo(Data data) async {
   bool result = await prefs.setString('InfoUser', jsonEncode(data));
   userLocal = data;
   imgOverViewUrl = data.factory.overview;
+  factoryId = data.factory.factoryId.toString();
   print(userLocal.toJson());
   print(result);
 }

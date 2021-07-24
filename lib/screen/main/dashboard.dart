@@ -330,7 +330,7 @@ class _DashBoardPageState extends State<DashBoardPage> {
                                       margin: new EdgeInsets.symmetric(
                                           horizontal: 50.0),
                                       child: Text(
-                                        'Device',
+                                        'Motor',
                                         style: TextStyle(
                                           color: textDashboardColor,
                                           fontFamily: 'OpenSans',
@@ -359,7 +359,7 @@ class _DashBoardPageState extends State<DashBoardPage> {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => DevicePage()),
+                                builder: (context) => MotorPage()),
                           );
                         },
                       ),

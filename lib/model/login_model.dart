@@ -119,7 +119,7 @@ class Data {
     birthday = json['birthday'];
     gender = json['gender'];
     if (json['group'] != null) {
-      group = new List<Group>();
+      group = [];
       json['group'].forEach((v) {
         group.add(new Group.fromJson(v));
       });
