@@ -1,7 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:water_iot/SharedPref.dart';
 import 'package:water_iot/screen/chart/chart.dart';
+import 'package:water_iot/screen/customer/customer.dart';
 import 'package:water_iot/screen/device/Valve.dart';
 import 'package:water_iot/screen/device/motor.dart';
 import 'package:water_iot/screen/factory/factory.dart';
@@ -81,571 +83,1201 @@ class _DashBoardPageState extends State<DashBoardPage> {
                 child: new Container(
                   margin: EdgeInsets.symmetric(vertical: 20, horizontal: 10),
                   child: new Column(
-                    children: <Widget>[
-                      InkWell(
-                        child: Container(
-                          width: double.infinity,
-                          height: 65,
-                          padding: EdgeInsets.symmetric(
-                              vertical: 10, horizontal: 20),
-                          margin:
-                              EdgeInsets.symmetric(vertical: 0, horizontal: 10),
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(10),
-                            color: Theme.of(context).primaryColor,
-                            boxShadow: [
-                              BoxShadow(
-                                  color: Theme.of(context)
-                                      .hintColor
-                                      .withOpacity(0.2),
-                                  offset: Offset(0, 10),
-                                  blurRadius: 20)
-                            ],
-                          ),
-                          child: Column(
-                            children: <Widget>[
-                              new Row(
-                                children: <Widget>[
-                                  Expanded(
-                                    flex: 8,
-                                    child: Image.asset(
-                                      "assets/images/ic_factory.png",
-                                      fit: BoxFit.contain,
-                                    ),
-                                  ),
-                                  Expanded(
-                                    flex: 50,
-                                    child: Container(
-                                      margin: new EdgeInsets.symmetric(
-                                          horizontal: 50.0),
-                                      child: Text(
-                                        'Factory',
-                                        style: TextStyle(
-                                          color: textDashboardColor,
-                                          fontFamily: 'OpenSans',
-                                          fontSize: 20.0,
-                                          fontWeight: FontWeight.bold,
-                                        ),
-                                      ),
-                                      // child: Center(
-                                      //
-                                      // ),
-                                    ),
-                                  ),
-                                  Expanded(
-                                    flex: 3,
-                                    child: Image.asset(
-                                      "assets/images/ic_arrow.png",
-                                      fit: BoxFit.contain,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ],
-                          ),
-                        ),
-                        onTap: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(builder: (context) => FactoryPage()),
-                          );
-                        },
-                      ),
-                      SizedBox(height: 13),
-                      InkWell(
-                        child: Container(
-                          width: double.infinity,
-                          height: 65,
-                          padding: EdgeInsets.symmetric(
-                              vertical: 10, horizontal: 20),
-                          margin:
-                              EdgeInsets.symmetric(vertical: 0, horizontal: 10),
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(10),
-                            color: Theme.of(context).primaryColor,
-                            boxShadow: [
-                              BoxShadow(
-                                  color: Theme.of(context)
-                                      .hintColor
-                                      .withOpacity(0.2),
-                                  offset: Offset(0, 10),
-                                  blurRadius: 20)
-                            ],
-                          ),
-                          child: Column(
-                            children: <Widget>[
-                              new Row(
-                                children: <Widget>[
-                                  Expanded(
-                                    flex: 8,
-                                    child: Image.asset(
-                                      "assets/images/ic_overview.png",
-                                      fit: BoxFit.contain,
-                                    ),
-                                  ),
-                                  Expanded(
-                                    flex: 50,
-                                    child: Container(
-                                      margin: new EdgeInsets.symmetric(
-                                          horizontal: 50.0),
-                                      child: Text(
-                                        'Overview',
-                                        style: TextStyle(
-                                          color: textDashboardColor,
-                                          fontFamily: 'OpenSans',
-                                          fontSize: 20.0,
-                                          fontWeight: FontWeight.bold,
-                                        ),
-                                      ),
-                                      // child: Center(
-                                      //
-                                      // ),
-                                    ),
-                                  ),
-                                  Expanded(
-                                    flex: 3,
-                                    child: Image.asset(
-                                      "assets/images/ic_arrow.png",
-                                      fit: BoxFit.contain,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ],
-                          ),
-                        ),
-                        onTap: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => OverViewPage()),
-                          );
-                        },
-                      ),
-                      SizedBox(height: 13),
-                      InkWell(
-                        child: Container(
-                          width: double.infinity,
-                          height: 65,
-                          padding: EdgeInsets.symmetric(
-                              vertical: 10, horizontal: 20),
-                          margin:
-                              EdgeInsets.symmetric(vertical: 0, horizontal: 10),
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(10),
-                            color: Theme.of(context).primaryColor,
-                            boxShadow: [
-                              BoxShadow(
-                                  color: Theme.of(context)
-                                      .hintColor
-                                      .withOpacity(0.2),
-                                  offset: Offset(0, 10),
-                                  blurRadius: 20)
-                            ],
-                          ),
-                          child: Column(
-                            children: <Widget>[
-                              new Row(
-                                children: <Widget>[
-                                  Expanded(
-                                    flex: 9,
-                                    child: Image.asset(
-                                      "assets/images/ic_sensor.png",
-                                      fit: BoxFit.contain,
-                                    ),
-                                  ),
-                                  Expanded(
-                                    flex: 50,
-                                    child: Container(
-                                      margin: new EdgeInsets.symmetric(
-                                          horizontal: 50.0),
-                                      child: Text(
-                                        'Sensor',
-                                        style: TextStyle(
-                                          color: textDashboardColor,
-                                          fontFamily: 'OpenSans',
-                                          fontSize: 20.0,
-                                          fontWeight: FontWeight.bold,
-                                        ),
-                                      ),
-                                      // child: Center(
-                                      //
-                                      // ),
-                                    ),
-                                  ),
-                                  Expanded(
-                                    flex: 3,
-                                    child: Image.asset(
-                                      "assets/images/ic_arrow.png",
-                                      fit: BoxFit.contain,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ],
-                          ),
-                        ),
-                        onTap: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => SensorPage()),
-                          );
-                        },
-                      ),
-                      SizedBox(height: 13),
-                      InkWell(
-                        child: Container(
-                          width: double.infinity,
-                          height: 65,
-                          padding:
-                          EdgeInsets.symmetric(vertical: 10, horizontal: 20),
-                          margin:
-                          EdgeInsets.symmetric(vertical: 0, horizontal: 10),
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(10),
-                            color: Theme.of(context).primaryColor,
-                            boxShadow: [
-                              BoxShadow(
-                                  color: Theme.of(context)
-                                      .hintColor
-                                      .withOpacity(0.2),
-                                  offset: Offset(0, 10),
-                                  blurRadius: 20)
-                            ],
-                          ),
-                          child: Column(
-                            children: <Widget>[
-                              new Row(
-                                children: <Widget>[
-                                  Expanded(
-                                    flex: 9,
-                                    child: Image.asset(
-                                      "assets/images/ic_device.png",
-                                      fit: BoxFit.contain,
-                                    ),
-                                  ),
-                                  Expanded(
-                                    flex: 50,
-                                    child: Container(
-                                      margin: new EdgeInsets.symmetric(
-                                          horizontal: 50.0),
-                                      child: Text(
-                                        'Motor',
-                                        style: TextStyle(
-                                          color: textDashboardColor,
-                                          fontFamily: 'OpenSans',
-                                          fontSize: 20.0,
-                                          fontWeight: FontWeight.bold,
-                                        ),
-                                      ),
-                                      // child: Center(
-                                      //
-                                      // ),
-                                    ),
-                                  ),
-                                  Expanded(
-                                    flex: 3,
-                                    child: Image.asset(
-                                      "assets/images/ic_arrow.png",
-                                      fit: BoxFit.contain,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ],
-                          ),
-                        ),
-                        onTap: (){
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => MotorPage()),
-                          );
-                        },
-                      ),
-
-                      SizedBox(height: 13),
-                      InkWell(
-                        child: Container(
-                          width: double.infinity,
-                          height: 65,
-                          padding:
-                          EdgeInsets.symmetric(vertical: 10, horizontal: 20),
-                          margin:
-                          EdgeInsets.symmetric(vertical: 0, horizontal: 10),
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(10),
-                            color: Theme.of(context).primaryColor,
-                            boxShadow: [
-                              BoxShadow(
-                                  color: Theme.of(context)
-                                      .hintColor
-                                      .withOpacity(0.2),
-                                  offset: Offset(0, 10),
-                                  blurRadius: 20)
-                            ],
-                          ),
-                          child: Column(
-                            children: <Widget>[
-                              new Row(
-                                children: <Widget>[
-                                  Expanded(
-                                    flex: 9,
-                                    child: Image.asset(
-                                      "assets/images/ic_device.png",
-                                      fit: BoxFit.contain,
-                                    ),
-                                  ),
-                                  Expanded(
-                                    flex: 50,
-                                    child: Container(
-                                      margin: new EdgeInsets.symmetric(
-                                          horizontal: 50.0),
-                                      child: Text(
-                                        'Valve',
-                                        style: TextStyle(
-                                          color: textDashboardColor,
-                                          fontFamily: 'OpenSans',
-                                          fontSize: 20.0,
-                                          fontWeight: FontWeight.bold,
-                                        ),
-                                      ),
-                                      // child: Center(
-                                      //
-                                      // ),
-                                    ),
-                                  ),
-                                  Expanded(
-                                    flex: 3,
-                                    child: Image.asset(
-                                      "assets/images/ic_arrow.png",
-                                      fit: BoxFit.contain,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ],
-                          ),
-                        ),
-                        onTap: (){
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => ValvePage()),
-                          );
-                        },
-                      ),
-
-                      SizedBox(height: 13),
-                      InkWell(
-                        child: Container(
-                          width: double.infinity,
-                          height: 65,
-                          padding: EdgeInsets.symmetric(
-                              vertical: 10, horizontal: 20),
-                          margin:
-                              EdgeInsets.symmetric(vertical: 0, horizontal: 10),
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(10),
-                            color: Theme.of(context).primaryColor,
-                            boxShadow: [
-                              BoxShadow(
-                                  color: Theme.of(context)
-                                      .hintColor
-                                      .withOpacity(0.2),
-                                  offset: Offset(0, 10),
-                                  blurRadius: 20)
-                            ],
-                          ),
-                          child: Column(
-                            children: <Widget>[
-                              new Row(
-                                children: <Widget>[
-                                  Expanded(
-                                    flex: 8,
-                                    child: Image.asset(
-                                      "assets/images/ic_chart.png",
-                                      fit: BoxFit.contain,
-                                    ),
-                                  ),
-                                  Expanded(
-                                    flex: 50,
-                                    child: Container(
-                                      margin: new EdgeInsets.symmetric(
-                                          horizontal: 50.0),
-                                      child: Text(
-                                        'Chart',
-                                        style: TextStyle(
-                                          color: textDashboardColor,
-                                          fontFamily: 'OpenSans',
-                                          fontSize: 20.0,
-                                          fontWeight: FontWeight.bold,
-                                        ),
-                                      ),
-                                      // child: Center(
-                                      //
-                                      // ),
-                                    ),
-                                  ),
-                                  Expanded(
-                                    flex: 3,
-                                    child: Image.asset(
-                                      "assets/images/ic_arrow.png",
-                                      fit: BoxFit.contain,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ],
-                          ),
-                        ),
-                        onTap: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => ScatterChartPage()),
-                          );
-                        },
-                      ),
-                      SizedBox(height: 13),
-                      Container(
-                        width: double.infinity,
-                        height: 65,
-                        padding:
-                            EdgeInsets.symmetric(vertical: 10, horizontal: 20),
-                        margin:
-                            EdgeInsets.symmetric(vertical: 0, horizontal: 10),
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10),
-                          color: Theme.of(context).primaryColor,
-                          boxShadow: [
-                            BoxShadow(
-                                color: Theme.of(context)
-                                    .hintColor
-                                    .withOpacity(0.2),
-                                offset: Offset(0, 10),
-                                blurRadius: 20)
-                          ],
-                        ),
-                        child: Column(
-                          children: <Widget>[
-                            new Row(
-                              children: <Widget>[
-                                Expanded(
-                                  flex: 10,
-                                  child: Image.asset(
-                                    "assets/images/ic_alarm.png",
-                                    fit: BoxFit.contain,
-                                  ),
-                                ),
-                                Expanded(
-                                  flex: 50,
-                                  child: Container(
-                                    margin: new EdgeInsets.symmetric(
-                                        horizontal: 50.0),
-                                    child: Text(
-                                      'Alarm',
-                                      style: TextStyle(
-                                        color: textDashboardColor,
-                                        fontFamily: 'OpenSans',
-                                        fontSize: 20.0,
-                                        fontWeight: FontWeight.bold,
-                                      ),
-                                    ),
-                                    // child: Center(
-                                    //
-                                    // ),
-                                  ),
-                                ),
-                                Expanded(
-                                  flex: 3,
-                                  child: Image.asset(
-                                    "assets/images/ic_arrow.png",
-                                    fit: BoxFit.contain,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ],
-                        ),
-                      ),
-                      SizedBox(height: 13),
-                      InkWell(
-                        child: Container(
-                          width: double.infinity,
-                          height: 65,
-                          padding: EdgeInsets.symmetric(
-                              vertical: 10, horizontal: 20),
-                          margin:
-                              EdgeInsets.symmetric(vertical: 0, horizontal: 10),
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(10),
-                            color: Theme.of(context).primaryColor,
-                            boxShadow: [
-                              BoxShadow(
-                                  color: Theme.of(context)
-                                      .hintColor
-                                      .withOpacity(0.2),
-                                  offset: Offset(0, 10),
-                                  blurRadius: 20)
-                            ],
-                          ),
-                          child: Column(
-                            children: <Widget>[
-                              new Row(
-                                children: <Widget>[
-                                  Expanded(
-                                    flex: 8,
-                                    child: Image.asset(
-                                      "assets/images/ic_map.png",
-                                      fit: BoxFit.contain,
-                                    ),
-                                  ),
-                                  Expanded(
-                                    flex: 50,
-                                    child: Container(
-                                      margin: new EdgeInsets.symmetric(
-                                          horizontal: 50.0),
-                                      child: Text(
-                                        'Google map',
-                                        style: TextStyle(
-                                          color: textDashboardColor,
-                                          fontFamily: 'OpenSans',
-                                          fontSize: 20.0,
-                                          fontWeight: FontWeight.bold,
-                                        ),
-                                      ),
-                                      // child: Center(
-                                      //
-                                      // ),
-                                    ),
-                                  ),
-                                  Expanded(
-                                    flex: 3,
-                                    child: Image.asset(
-                                      "assets/images/ic_arrow.png",
-                                      fit: BoxFit.contain,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ],
-                          ),
-                        ),
-                        onTap: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(builder: (context) => MapPage()),
-                          );
-                        },
-                      ),
-                    ],
+                      children: showCustomer(),
                   ),
                 ),
               ),
             ),
           ),
         ));
+  }
+
+  List<Widget> showCustomer() {
+    if (userLocal.group.first.code == "super_admin_app") {
+      return <Widget>[
+        InkWell(
+          child: Container(
+            width: double.infinity,
+            height: 65,
+            padding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+            margin: EdgeInsets.symmetric(vertical: 0, horizontal: 10),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(10),
+              color: Theme.of(context).primaryColor,
+              boxShadow: [
+                BoxShadow(
+                    color: Theme.of(context).hintColor.withOpacity(0.2),
+                    offset: Offset(0, 10),
+                    blurRadius: 20)
+              ],
+            ),
+            child: Column(
+              children: <Widget>[
+                new Row(
+                  children: <Widget>[
+                    Expanded(
+                      flex: 8,
+                      child: Image.asset(
+                        "assets/images/ic_factory.png",
+                        fit: BoxFit.contain,
+                      ),
+                    ),
+                    Expanded(
+                      flex: 50,
+                      child: Container(
+                        margin: new EdgeInsets.symmetric(horizontal: 50.0),
+                        child: Text(
+                          'Customer',
+                          style: TextStyle(
+                            color: textDashboardColor,
+                            fontFamily: 'OpenSans',
+                            fontSize: 20.0,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        // child: Center(
+                        //
+                        // ),
+                      ),
+                    ),
+                    Expanded(
+                      flex: 3,
+                      child: Image.asset(
+                        "assets/images/ic_arrow.png",
+                        fit: BoxFit.contain,
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => CustomerPage()),
+            );
+          },
+        ),
+        SizedBox(height: 13),
+        InkWell(
+          child: Container(
+            width: double.infinity,
+            height: 65,
+            padding: EdgeInsets.symmetric(
+                vertical: 10, horizontal: 20),
+            margin:
+            EdgeInsets.symmetric(vertical: 0, horizontal: 10),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(10),
+              color: Theme.of(context).primaryColor,
+              boxShadow: [
+                BoxShadow(
+                    color: Theme.of(context)
+                        .hintColor
+                        .withOpacity(0.2),
+                    offset: Offset(0, 10),
+                    blurRadius: 20)
+              ],
+            ),
+            child: Column(
+              children: <Widget>[
+                new Row(
+                  children: <Widget>[
+                    Expanded(
+                      flex: 8,
+                      child: Image.asset(
+                        "assets/images/ic_factory.png",
+                        fit: BoxFit.contain,
+                      ),
+                    ),
+                    Expanded(
+                      flex: 50,
+                      child: Container(
+                        margin: new EdgeInsets.symmetric(
+                            horizontal: 50.0),
+                        child: Text(
+                          'Factory',
+                          style: TextStyle(
+                            color: textDashboardColor,
+                            fontFamily: 'OpenSans',
+                            fontSize: 20.0,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        // child: Center(
+                        //
+                        // ),
+                      ),
+                    ),
+                    Expanded(
+                      flex: 3,
+                      child: Image.asset(
+                        "assets/images/ic_arrow.png",
+                        fit: BoxFit.contain,
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (context) => FactoryPage()),
+            );
+          },
+        ),
+        SizedBox(height: 13),
+        InkWell(
+          child: Container(
+            width: double.infinity,
+            height: 65,
+            padding: EdgeInsets.symmetric(
+                vertical: 10, horizontal: 20),
+            margin:
+            EdgeInsets.symmetric(vertical: 0, horizontal: 10),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(10),
+              color: Theme.of(context).primaryColor,
+              boxShadow: [
+                BoxShadow(
+                    color: Theme.of(context)
+                        .hintColor
+                        .withOpacity(0.2),
+                    offset: Offset(0, 10),
+                    blurRadius: 20)
+              ],
+            ),
+            child: Column(
+              children: <Widget>[
+                new Row(
+                  children: <Widget>[
+                    Expanded(
+                      flex: 8,
+                      child: Image.asset(
+                        "assets/images/ic_overview.png",
+                        fit: BoxFit.contain,
+                      ),
+                    ),
+                    Expanded(
+                      flex: 50,
+                      child: Container(
+                        margin: new EdgeInsets.symmetric(
+                            horizontal: 50.0),
+                        child: Text(
+                          'Overview',
+                          style: TextStyle(
+                            color: textDashboardColor,
+                            fontFamily: 'OpenSans',
+                            fontSize: 20.0,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        // child: Center(
+                        //
+                        // ),
+                      ),
+                    ),
+                    Expanded(
+                      flex: 3,
+                      child: Image.asset(
+                        "assets/images/ic_arrow.png",
+                        fit: BoxFit.contain,
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (context) => OverViewPage()),
+            );
+          },
+        ),
+        SizedBox(height: 13),
+        InkWell(
+          child: Container(
+            width: double.infinity,
+            height: 65,
+            padding: EdgeInsets.symmetric(
+                vertical: 10, horizontal: 20),
+            margin:
+            EdgeInsets.symmetric(vertical: 0, horizontal: 10),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(10),
+              color: Theme.of(context).primaryColor,
+              boxShadow: [
+                BoxShadow(
+                    color: Theme.of(context)
+                        .hintColor
+                        .withOpacity(0.2),
+                    offset: Offset(0, 10),
+                    blurRadius: 20)
+              ],
+            ),
+            child: Column(
+              children: <Widget>[
+                new Row(
+                  children: <Widget>[
+                    Expanded(
+                      flex: 9,
+                      child: Image.asset(
+                        "assets/images/ic_sensor.png",
+                        fit: BoxFit.contain,
+                      ),
+                    ),
+                    Expanded(
+                      flex: 50,
+                      child: Container(
+                        margin: new EdgeInsets.symmetric(
+                            horizontal: 50.0),
+                        child: Text(
+                          'Sensor',
+                          style: TextStyle(
+                            color: textDashboardColor,
+                            fontFamily: 'OpenSans',
+                            fontSize: 20.0,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        // child: Center(
+                        //
+                        // ),
+                      ),
+                    ),
+                    Expanded(
+                      flex: 3,
+                      child: Image.asset(
+                        "assets/images/ic_arrow.png",
+                        fit: BoxFit.contain,
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (context) => SensorPage()),
+            );
+          },
+        ),
+        SizedBox(height: 13),
+        InkWell(
+          child: Container(
+            width: double.infinity,
+            height: 65,
+            padding: EdgeInsets.symmetric(
+                vertical: 10, horizontal: 20),
+            margin:
+            EdgeInsets.symmetric(vertical: 0, horizontal: 10),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(10),
+              color: Theme.of(context).primaryColor,
+              boxShadow: [
+                BoxShadow(
+                    color: Theme.of(context)
+                        .hintColor
+                        .withOpacity(0.2),
+                    offset: Offset(0, 10),
+                    blurRadius: 20)
+              ],
+            ),
+            child: Column(
+              children: <Widget>[
+                new Row(
+                  children: <Widget>[
+                    Expanded(
+                      flex: 9,
+                      child: Image.asset(
+                        "assets/images/ic_device.png",
+                        fit: BoxFit.contain,
+                      ),
+                    ),
+                    Expanded(
+                      flex: 50,
+                      child: Container(
+                        margin: new EdgeInsets.symmetric(
+                            horizontal: 50.0),
+                        child: Text(
+                          'Motor',
+                          style: TextStyle(
+                            color: textDashboardColor,
+                            fontFamily: 'OpenSans',
+                            fontSize: 20.0,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        // child: Center(
+                        //
+                        // ),
+                      ),
+                    ),
+                    Expanded(
+                      flex: 3,
+                      child: Image.asset(
+                        "assets/images/ic_arrow.png",
+                        fit: BoxFit.contain,
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (context) => MotorPage()),
+            );
+          },
+        ),
+        SizedBox(height: 13),
+        InkWell(
+          child: Container(
+            width: double.infinity,
+            height: 65,
+            padding: EdgeInsets.symmetric(
+                vertical: 10, horizontal: 20),
+            margin:
+            EdgeInsets.symmetric(vertical: 0, horizontal: 10),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(10),
+              color: Theme.of(context).primaryColor,
+              boxShadow: [
+                BoxShadow(
+                    color: Theme.of(context)
+                        .hintColor
+                        .withOpacity(0.2),
+                    offset: Offset(0, 10),
+                    blurRadius: 20)
+              ],
+            ),
+            child: Column(
+              children: <Widget>[
+                new Row(
+                  children: <Widget>[
+                    Expanded(
+                      flex: 9,
+                      child: Image.asset(
+                        "assets/images/ic_device.png",
+                        fit: BoxFit.contain,
+                      ),
+                    ),
+                    Expanded(
+                      flex: 50,
+                      child: Container(
+                        margin: new EdgeInsets.symmetric(
+                            horizontal: 50.0),
+                        child: Text(
+                          'Valve',
+                          style: TextStyle(
+                            color: textDashboardColor,
+                            fontFamily: 'OpenSans',
+                            fontSize: 20.0,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        // child: Center(
+                        //
+                        // ),
+                      ),
+                    ),
+                    Expanded(
+                      flex: 3,
+                      child: Image.asset(
+                        "assets/images/ic_arrow.png",
+                        fit: BoxFit.contain,
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (context) => ValvePage()),
+            );
+          },
+        ),
+        SizedBox(height: 13),
+        InkWell(
+          child: Container(
+            width: double.infinity,
+            height: 65,
+            padding: EdgeInsets.symmetric(
+                vertical: 10, horizontal: 20),
+            margin:
+            EdgeInsets.symmetric(vertical: 0, horizontal: 10),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(10),
+              color: Theme.of(context).primaryColor,
+              boxShadow: [
+                BoxShadow(
+                    color: Theme.of(context)
+                        .hintColor
+                        .withOpacity(0.2),
+                    offset: Offset(0, 10),
+                    blurRadius: 20)
+              ],
+            ),
+            child: Column(
+              children: <Widget>[
+                new Row(
+                  children: <Widget>[
+                    Expanded(
+                      flex: 8,
+                      child: Image.asset(
+                        "assets/images/ic_chart.png",
+                        fit: BoxFit.contain,
+                      ),
+                    ),
+                    Expanded(
+                      flex: 50,
+                      child: Container(
+                        margin: new EdgeInsets.symmetric(
+                            horizontal: 50.0),
+                        child: Text(
+                          'Chart',
+                          style: TextStyle(
+                            color: textDashboardColor,
+                            fontFamily: 'OpenSans',
+                            fontSize: 20.0,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        // child: Center(
+                        //
+                        // ),
+                      ),
+                    ),
+                    Expanded(
+                      flex: 3,
+                      child: Image.asset(
+                        "assets/images/ic_arrow.png",
+                        fit: BoxFit.contain,
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (context) => ScatterChartPage()),
+            );
+          },
+        ),
+        SizedBox(height: 13),
+        Container(
+          width: double.infinity,
+          height: 65,
+          padding:
+          EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+          margin:
+          EdgeInsets.symmetric(vertical: 0, horizontal: 10),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(10),
+            color: Theme.of(context).primaryColor,
+            boxShadow: [
+              BoxShadow(
+                  color: Theme.of(context)
+                      .hintColor
+                      .withOpacity(0.2),
+                  offset: Offset(0, 10),
+                  blurRadius: 20)
+            ],
+          ),
+          child: Column(
+            children: <Widget>[
+              new Row(
+                children: <Widget>[
+                  Expanded(
+                    flex: 10,
+                    child: Image.asset(
+                      "assets/images/ic_alarm.png",
+                      fit: BoxFit.contain,
+                    ),
+                  ),
+                  Expanded(
+                    flex: 50,
+                    child: Container(
+                      margin: new EdgeInsets.symmetric(
+                          horizontal: 50.0),
+                      child: Text(
+                        'Alarm',
+                        style: TextStyle(
+                          color: textDashboardColor,
+                          fontFamily: 'OpenSans',
+                          fontSize: 20.0,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      // child: Center(
+                      //
+                      // ),
+                    ),
+                  ),
+                  Expanded(
+                    flex: 3,
+                    child: Image.asset(
+                      "assets/images/ic_arrow.png",
+                      fit: BoxFit.contain,
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          ),
+        ),
+        SizedBox(height: 13),
+        InkWell(
+          child: Container(
+            width: double.infinity,
+            height: 65,
+            padding: EdgeInsets.symmetric(
+                vertical: 10, horizontal: 20),
+            margin:
+            EdgeInsets.symmetric(vertical: 0, horizontal: 10),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(10),
+              color: Theme.of(context).primaryColor,
+              boxShadow: [
+                BoxShadow(
+                    color: Theme.of(context)
+                        .hintColor
+                        .withOpacity(0.2),
+                    offset: Offset(0, 10),
+                    blurRadius: 20)
+              ],
+            ),
+            child: Column(
+              children: <Widget>[
+                new Row(
+                  children: <Widget>[
+                    Expanded(
+                      flex: 8,
+                      child: Image.asset(
+                        "assets/images/ic_map.png",
+                        fit: BoxFit.contain,
+                      ),
+                    ),
+                    Expanded(
+                      flex: 50,
+                      child: Container(
+                        margin: new EdgeInsets.symmetric(
+                            horizontal: 50.0),
+                        child: Text(
+                          'Google map',
+                          style: TextStyle(
+                            color: textDashboardColor,
+                            fontFamily: 'OpenSans',
+                            fontSize: 20.0,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        // child: Center(
+                        //
+                        // ),
+                      ),
+                    ),
+                    Expanded(
+                      flex: 3,
+                      child: Image.asset(
+                        "assets/images/ic_arrow.png",
+                        fit: BoxFit.contain,
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => MapPage()),
+            );
+          },
+        ),
+      ];
+    }else{
+      return <Widget>[
+        InkWell(
+          child: Container(
+            width: double.infinity,
+            height: 65,
+            padding: EdgeInsets.symmetric(
+                vertical: 10, horizontal: 20),
+            margin:
+            EdgeInsets.symmetric(vertical: 0, horizontal: 10),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(10),
+              color: Theme.of(context).primaryColor,
+              boxShadow: [
+                BoxShadow(
+                    color: Theme.of(context)
+                        .hintColor
+                        .withOpacity(0.2),
+                    offset: Offset(0, 10),
+                    blurRadius: 20)
+              ],
+            ),
+            child: Column(
+              children: <Widget>[
+                new Row(
+                  children: <Widget>[
+                    Expanded(
+                      flex: 8,
+                      child: Image.asset(
+                        "assets/images/ic_factory.png",
+                        fit: BoxFit.contain,
+                      ),
+                    ),
+                    Expanded(
+                      flex: 50,
+                      child: Container(
+                        margin: new EdgeInsets.symmetric(
+                            horizontal: 50.0),
+                        child: Text(
+                          'Factory',
+                          style: TextStyle(
+                            color: textDashboardColor,
+                            fontFamily: 'OpenSans',
+                            fontSize: 20.0,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        // child: Center(
+                        //
+                        // ),
+                      ),
+                    ),
+                    Expanded(
+                      flex: 3,
+                      child: Image.asset(
+                        "assets/images/ic_arrow.png",
+                        fit: BoxFit.contain,
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (context) => FactoryPage()),
+            );
+          },
+        ),
+        SizedBox(height: 13),
+        InkWell(
+          child: Container(
+            width: double.infinity,
+            height: 65,
+            padding: EdgeInsets.symmetric(
+                vertical: 10, horizontal: 20),
+            margin:
+            EdgeInsets.symmetric(vertical: 0, horizontal: 10),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(10),
+              color: Theme.of(context).primaryColor,
+              boxShadow: [
+                BoxShadow(
+                    color: Theme.of(context)
+                        .hintColor
+                        .withOpacity(0.2),
+                    offset: Offset(0, 10),
+                    blurRadius: 20)
+              ],
+            ),
+            child: Column(
+              children: <Widget>[
+                new Row(
+                  children: <Widget>[
+                    Expanded(
+                      flex: 8,
+                      child: Image.asset(
+                        "assets/images/ic_overview.png",
+                        fit: BoxFit.contain,
+                      ),
+                    ),
+                    Expanded(
+                      flex: 50,
+                      child: Container(
+                        margin: new EdgeInsets.symmetric(
+                            horizontal: 50.0),
+                        child: Text(
+                          'Overview',
+                          style: TextStyle(
+                            color: textDashboardColor,
+                            fontFamily: 'OpenSans',
+                            fontSize: 20.0,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        // child: Center(
+                        //
+                        // ),
+                      ),
+                    ),
+                    Expanded(
+                      flex: 3,
+                      child: Image.asset(
+                        "assets/images/ic_arrow.png",
+                        fit: BoxFit.contain,
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (context) => OverViewPage()),
+            );
+          },
+        ),
+        SizedBox(height: 13),
+        InkWell(
+          child: Container(
+            width: double.infinity,
+            height: 65,
+            padding: EdgeInsets.symmetric(
+                vertical: 10, horizontal: 20),
+            margin:
+            EdgeInsets.symmetric(vertical: 0, horizontal: 10),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(10),
+              color: Theme.of(context).primaryColor,
+              boxShadow: [
+                BoxShadow(
+                    color: Theme.of(context)
+                        .hintColor
+                        .withOpacity(0.2),
+                    offset: Offset(0, 10),
+                    blurRadius: 20)
+              ],
+            ),
+            child: Column(
+              children: <Widget>[
+                new Row(
+                  children: <Widget>[
+                    Expanded(
+                      flex: 9,
+                      child: Image.asset(
+                        "assets/images/ic_sensor.png",
+                        fit: BoxFit.contain,
+                      ),
+                    ),
+                    Expanded(
+                      flex: 50,
+                      child: Container(
+                        margin: new EdgeInsets.symmetric(
+                            horizontal: 50.0),
+                        child: Text(
+                          'Sensor',
+                          style: TextStyle(
+                            color: textDashboardColor,
+                            fontFamily: 'OpenSans',
+                            fontSize: 20.0,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        // child: Center(
+                        //
+                        // ),
+                      ),
+                    ),
+                    Expanded(
+                      flex: 3,
+                      child: Image.asset(
+                        "assets/images/ic_arrow.png",
+                        fit: BoxFit.contain,
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (context) => SensorPage()),
+            );
+          },
+        ),
+        SizedBox(height: 13),
+        InkWell(
+          child: Container(
+            width: double.infinity,
+            height: 65,
+            padding: EdgeInsets.symmetric(
+                vertical: 10, horizontal: 20),
+            margin:
+            EdgeInsets.symmetric(vertical: 0, horizontal: 10),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(10),
+              color: Theme.of(context).primaryColor,
+              boxShadow: [
+                BoxShadow(
+                    color: Theme.of(context)
+                        .hintColor
+                        .withOpacity(0.2),
+                    offset: Offset(0, 10),
+                    blurRadius: 20)
+              ],
+            ),
+            child: Column(
+              children: <Widget>[
+                new Row(
+                  children: <Widget>[
+                    Expanded(
+                      flex: 9,
+                      child: Image.asset(
+                        "assets/images/ic_device.png",
+                        fit: BoxFit.contain,
+                      ),
+                    ),
+                    Expanded(
+                      flex: 50,
+                      child: Container(
+                        margin: new EdgeInsets.symmetric(
+                            horizontal: 50.0),
+                        child: Text(
+                          'Motor',
+                          style: TextStyle(
+                            color: textDashboardColor,
+                            fontFamily: 'OpenSans',
+                            fontSize: 20.0,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        // child: Center(
+                        //
+                        // ),
+                      ),
+                    ),
+                    Expanded(
+                      flex: 3,
+                      child: Image.asset(
+                        "assets/images/ic_arrow.png",
+                        fit: BoxFit.contain,
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (context) => MotorPage()),
+            );
+          },
+        ),
+        SizedBox(height: 13),
+        InkWell(
+          child: Container(
+            width: double.infinity,
+            height: 65,
+            padding: EdgeInsets.symmetric(
+                vertical: 10, horizontal: 20),
+            margin:
+            EdgeInsets.symmetric(vertical: 0, horizontal: 10),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(10),
+              color: Theme.of(context).primaryColor,
+              boxShadow: [
+                BoxShadow(
+                    color: Theme.of(context)
+                        .hintColor
+                        .withOpacity(0.2),
+                    offset: Offset(0, 10),
+                    blurRadius: 20)
+              ],
+            ),
+            child: Column(
+              children: <Widget>[
+                new Row(
+                  children: <Widget>[
+                    Expanded(
+                      flex: 9,
+                      child: Image.asset(
+                        "assets/images/ic_device.png",
+                        fit: BoxFit.contain,
+                      ),
+                    ),
+                    Expanded(
+                      flex: 50,
+                      child: Container(
+                        margin: new EdgeInsets.symmetric(
+                            horizontal: 50.0),
+                        child: Text(
+                          'Valve',
+                          style: TextStyle(
+                            color: textDashboardColor,
+                            fontFamily: 'OpenSans',
+                            fontSize: 20.0,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        // child: Center(
+                        //
+                        // ),
+                      ),
+                    ),
+                    Expanded(
+                      flex: 3,
+                      child: Image.asset(
+                        "assets/images/ic_arrow.png",
+                        fit: BoxFit.contain,
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (context) => ValvePage()),
+            );
+          },
+        ),
+        SizedBox(height: 13),
+        InkWell(
+          child: Container(
+            width: double.infinity,
+            height: 65,
+            padding: EdgeInsets.symmetric(
+                vertical: 10, horizontal: 20),
+            margin:
+            EdgeInsets.symmetric(vertical: 0, horizontal: 10),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(10),
+              color: Theme.of(context).primaryColor,
+              boxShadow: [
+                BoxShadow(
+                    color: Theme.of(context)
+                        .hintColor
+                        .withOpacity(0.2),
+                    offset: Offset(0, 10),
+                    blurRadius: 20)
+              ],
+            ),
+            child: Column(
+              children: <Widget>[
+                new Row(
+                  children: <Widget>[
+                    Expanded(
+                      flex: 8,
+                      child: Image.asset(
+                        "assets/images/ic_chart.png",
+                        fit: BoxFit.contain,
+                      ),
+                    ),
+                    Expanded(
+                      flex: 50,
+                      child: Container(
+                        margin: new EdgeInsets.symmetric(
+                            horizontal: 50.0),
+                        child: Text(
+                          'Chart',
+                          style: TextStyle(
+                            color: textDashboardColor,
+                            fontFamily: 'OpenSans',
+                            fontSize: 20.0,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        // child: Center(
+                        //
+                        // ),
+                      ),
+                    ),
+                    Expanded(
+                      flex: 3,
+                      child: Image.asset(
+                        "assets/images/ic_arrow.png",
+                        fit: BoxFit.contain,
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (context) => ScatterChartPage()),
+            );
+          },
+        ),
+        SizedBox(height: 13),
+        Container(
+          width: double.infinity,
+          height: 65,
+          padding:
+          EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+          margin:
+          EdgeInsets.symmetric(vertical: 0, horizontal: 10),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(10),
+            color: Theme.of(context).primaryColor,
+            boxShadow: [
+              BoxShadow(
+                  color: Theme.of(context)
+                      .hintColor
+                      .withOpacity(0.2),
+                  offset: Offset(0, 10),
+                  blurRadius: 20)
+            ],
+          ),
+          child: Column(
+            children: <Widget>[
+              new Row(
+                children: <Widget>[
+                  Expanded(
+                    flex: 10,
+                    child: Image.asset(
+                      "assets/images/ic_alarm.png",
+                      fit: BoxFit.contain,
+                    ),
+                  ),
+                  Expanded(
+                    flex: 50,
+                    child: Container(
+                      margin: new EdgeInsets.symmetric(
+                          horizontal: 50.0),
+                      child: Text(
+                        'Alarm',
+                        style: TextStyle(
+                          color: textDashboardColor,
+                          fontFamily: 'OpenSans',
+                          fontSize: 20.0,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      // child: Center(
+                      //
+                      // ),
+                    ),
+                  ),
+                  Expanded(
+                    flex: 3,
+                    child: Image.asset(
+                      "assets/images/ic_arrow.png",
+                      fit: BoxFit.contain,
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          ),
+        ),
+        SizedBox(height: 13),
+        InkWell(
+          child: Container(
+            width: double.infinity,
+            height: 65,
+            padding: EdgeInsets.symmetric(
+                vertical: 10, horizontal: 20),
+            margin:
+            EdgeInsets.symmetric(vertical: 0, horizontal: 10),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(10),
+              color: Theme.of(context).primaryColor,
+              boxShadow: [
+                BoxShadow(
+                    color: Theme.of(context)
+                        .hintColor
+                        .withOpacity(0.2),
+                    offset: Offset(0, 10),
+                    blurRadius: 20)
+              ],
+            ),
+            child: Column(
+              children: <Widget>[
+                new Row(
+                  children: <Widget>[
+                    Expanded(
+                      flex: 8,
+                      child: Image.asset(
+                        "assets/images/ic_map.png",
+                        fit: BoxFit.contain,
+                      ),
+                    ),
+                    Expanded(
+                      flex: 50,
+                      child: Container(
+                        margin: new EdgeInsets.symmetric(
+                            horizontal: 50.0),
+                        child: Text(
+                          'Google map',
+                          style: TextStyle(
+                            color: textDashboardColor,
+                            fontFamily: 'OpenSans',
+                            fontSize: 20.0,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        // child: Center(
+                        //
+                        // ),
+                      ),
+                    ),
+                    Expanded(
+                      flex: 3,
+                      child: Image.asset(
+                        "assets/images/ic_arrow.png",
+                        fit: BoxFit.contain,
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => MapPage()),
+            );
+          },
+        ),
+      ];
+    }
   }
 }

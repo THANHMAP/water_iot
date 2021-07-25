@@ -75,7 +75,7 @@ class _CustomerState extends State<CustomerPage> {
         clipBehavior: Clip.antiAlias,
         elevation: 16,
         shape:
-        RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
+            RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
         child: InkWell(
           onTap: () {
             customerId = item.id.toString();
@@ -84,7 +84,7 @@ class _CustomerState extends State<CustomerPage> {
               MaterialPageRoute(
                 builder: (context) => FactoryAminPage(),
               ),
-                  (route) => false,
+              (route) => false,
             );
           },
           child: Column(
@@ -103,21 +103,20 @@ class _CustomerState extends State<CustomerPage> {
                         Flexible(
                           child: CachedNetworkImage(
                             imageUrl: item.logo,
-                            imageBuilder: (context, imageProvider) =>
-                                Container(
-                                  height: 180,
-                                  width: 400,
-                                  decoration: BoxDecoration(
-                                    image: DecorationImage(
-                                      image: imageProvider,
-                                      fit: BoxFit.fill,
-                                    ),
-                                  ),
+                            imageBuilder: (context, imageProvider) => Container(
+                              height: 180,
+                              width: 400,
+                              decoration: BoxDecoration(
+                                image: DecorationImage(
+                                  image: imageProvider,
+                                  fit: BoxFit.fill,
                                 ),
+                              ),
+                            ),
                             placeholder: (context, url) =>
-                            new CircularProgressIndicator(),
+                                new CircularProgressIndicator(),
                             errorWidget: (context, url, error) =>
-                            new Icon(Icons.error),
+                                new Icon(Icons.error),
                             fadeOutDuration: new Duration(seconds: 1),
                             fadeInDuration: new Duration(seconds: 3),
                             // height: 160,
@@ -185,7 +184,7 @@ class _CustomerState extends State<CustomerPage> {
                               MaterialPageRoute(
                                 builder: (context) => FactoryAminPage(),
                               ),
-                                  (route) => false,
+                              (route) => false,
                             );
                           },
                           child: Text(
@@ -217,39 +216,35 @@ class _CustomerState extends State<CustomerPage> {
     setState(() {
       isApiCallProcess = true;
     });
-    if (userLocal.group[0].code == "super_admin_app") {
-      APIService apiService = new APIService();
-      apiService.getListCustomer(userLocal.accessToken).then((value) {
-        print(value.toJson());
-        setState(() {
-          isApiCallProcess = false;
-        });
-        if (value != null) {
-          if (value.statusCode == 200) {
-            _customers = value.data;
-          } else {
-            if (value.errorCode == 401) {
-              Navigator.pushAndRemoveUntil(
-                context,
-                MaterialPageRoute(
-                  builder: (context) {
-                    return LoginPage();
-                  },
-                ),
-                    (route) => false,
-              );
-            }
+    APIService apiService = new APIService();
+    apiService.getListCustomer(userLocal.accessToken).then((value) {
+      print(value.toJson());
+      setState(() {
+        isApiCallProcess = false;
+      });
+      if (value != null) {
+        if (value.statusCode == 200) {
+          _customers = value.data;
+        } else {
+          if (value.errorCode == 401) {
+            Navigator.pushAndRemoveUntil(
+              context,
+              MaterialPageRoute(
+                builder: (context) {
+                  return LoginPage();
+                },
+              ),
+              (route) => false,
+            );
           }
         }
-      }).catchError((onError) {
-        setState(() {
-          isApiCallProcess = false;
-        });
-        final snackBar = SnackBar(
-            content: Text("Lỗi server"));
-        scaffoldKey.currentState
-            .showSnackBar(snackBar);
+      }
+    }).catchError((onError) {
+      setState(() {
+        isApiCallProcess = false;
       });
-    }
+      final snackBar = SnackBar(content: Text("Lỗi server"));
+      scaffoldKey.currentState.showSnackBar(snackBar);
+    });
   }
 }
