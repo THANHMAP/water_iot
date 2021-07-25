@@ -88,7 +88,7 @@ class Data {
   String phone;
   String address;
   String birthday;
-  Null gender;
+  String gender;
   List<Group> group;
   String lastLogin;
   String createdAt;

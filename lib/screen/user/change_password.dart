@@ -46,7 +46,7 @@ class _ChangePasswordPageState extends State<ChangePasswordPage> {
       appBar: AppBar(
           title: Text(
             "Change Password",
-            style: TextStyle(color: mTexHeadLoginColor),
+            // style: TextStyle(color: mTexHeadLoginColor),
           ),
           centerTitle: true,
           leading: IconButton(
@@ -93,16 +93,18 @@ class _ChangePasswordPageState extends State<ChangePasswordPage> {
                                   obscureText: true,
                                   decoration: new InputDecoration(
                                     hintText: "Mật khảu mới",
-                                    hintStyle: TextStyle(
-                                        color: _focusPassword.hasFocus
-                                            ? borderFocusEdittextColor
-                                            : borderEdittextColor),
-                                    enabledBorder: UnderlineInputBorder(
-                                        borderSide: BorderSide(
-                                            color: borderEdittextColor)),
-                                    focusedBorder: UnderlineInputBorder(
-                                        borderSide: BorderSide(
-                                            color: borderFocusEdittextColor)),
+                                    labelText: 'Mật khảu mới',
+                                    border: OutlineInputBorder(),
+                                    // hintStyle: TextStyle(
+                                    //     color: _focusPassword.hasFocus
+                                    //         ? borderFocusEdittextColor
+                                    //         : borderEdittextColor),
+                                    // enabledBorder: UnderlineInputBorder(
+                                    //     borderSide: BorderSide(
+                                    //         color: borderEdittextColor)),
+                                    // focusedBorder: UnderlineInputBorder(
+                                    //     borderSide: BorderSide(
+                                    //         color: borderFocusEdittextColor)),
                                     // prefixIcon: Icon(
                                     //   Icons.email,
                                     //   color: Theme.of(context).accentColor,
@@ -125,17 +127,19 @@ class _ChangePasswordPageState extends State<ChangePasswordPage> {
                                       : null,
                                   obscureText: true,
                                   decoration: new InputDecoration(
+                                    border: OutlineInputBorder(),
+                                    labelText: 'Nhập lại mật khẩu',
                                     hintText: "Nhập lại mật khẩu",
-                                    hintStyle: TextStyle(
-                                        color: _focusPasswordRetype.hasFocus
-                                            ? borderFocusEdittextColor
-                                            : borderEdittextColor),
-                                    enabledBorder: UnderlineInputBorder(
-                                        borderSide: BorderSide(
-                                            color: borderEdittextColor)),
-                                    focusedBorder: UnderlineInputBorder(
-                                        borderSide: BorderSide(
-                                            color: borderFocusEdittextColor)),
+                                    // hintStyle: TextStyle(
+                                    //     color: _focusPasswordRetype.hasFocus
+                                    //         ? borderFocusEdittextColor
+                                    //         : borderEdittextColor),
+                                    // enabledBorder: UnderlineInputBorder(
+                                    //     borderSide: BorderSide(
+                                    //         color: borderEdittextColor)),
+                                    // focusedBorder: UnderlineInputBorder(
+                                    //     borderSide: BorderSide(
+                                    //         color: borderFocusEdittextColor)),
                                     // prefixIcon: Icon(
                                     //   Icons.email,
                                     //   color: Theme.of(context).accentColor,

@@ -88,31 +88,32 @@ class _HomePageState extends State<HomePage> {
                                     aspectRatio: 1,
                                     child: Column(
                                       children: [
-                                      Flexible(
-                                        child: new CachedNetworkImage(
-                                          imageUrl: factoryLocal.overview,
-                                          imageBuilder: (context, imageProvider) =>
-                                              Container(
-                                                height: double.infinity,
-                                                width: double.infinity,
-                                                decoration: BoxDecoration(
-                                                  image: DecorationImage(
-                                                    image: imageProvider,
-                                                    fit: BoxFit.fill,
-                                                  ),
+                                        Flexible(
+                                          child: new CachedNetworkImage(
+                                            imageUrl: factoryLocal.overview,
+                                            imageBuilder:
+                                                (context, imageProvider) =>
+                                                    Container(
+                                              height: double.infinity,
+                                              width: double.infinity,
+                                              decoration: BoxDecoration(
+                                                image: DecorationImage(
+                                                  image: imageProvider,
+                                                  fit: BoxFit.fill,
                                                 ),
                                               ),
-                                          placeholder: (context, url) =>
-                                          new CircularProgressIndicator(),
-                                          errorWidget: (context, url, error) =>
-                                          new Icon(Icons.error),
-                                          fadeOutDuration:
-                                          new Duration(seconds: 1),
-                                          fadeInDuration:
-                                          new Duration(seconds: 3),
+                                            ),
+                                            placeholder: (context, url) =>
+                                                new CircularProgressIndicator(),
+                                            errorWidget:
+                                                (context, url, error) =>
+                                                    new Icon(Icons.error),
+                                            fadeOutDuration:
+                                                new Duration(seconds: 1),
+                                            fadeInDuration:
+                                                new Duration(seconds: 3),
+                                          ),
                                         ),
-                                      ),
-
                                       ],
                                     ),
                                   )),

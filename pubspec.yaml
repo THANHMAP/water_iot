@@ -37,8 +37,8 @@ dependencies:
   shared_preferences: any
   cached_network_image: ^3.0.0
   grouped_buttons: ^1.0.4
+  date_field: ^2.0.1
   intl: ^0.17.0
-
 dev_dependencies:
   flutter_test:
     sdk: flutter

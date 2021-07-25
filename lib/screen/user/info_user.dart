@@ -1,7 +1,9 @@
+import 'package:date_field/date_field.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:grouped_buttons/grouped_buttons.dart';
+import 'package:intl/intl.dart';
 import 'package:water_iot/SharedPref.dart';
 import 'package:water_iot/api/api_service.dart';
 import 'package:water_iot/model/login_model.dart';
@@ -24,20 +26,24 @@ class _PersonalInfoState extends State<PersonalInfoPage> {
   final TextEditingController _controllerBirthday = new TextEditingController();
   final TextEditingController _controllerPhone = new TextEditingController();
   final TextEditingController _controllerAddress = new TextEditingController();
-  String gender;
-  int _value = 1;
+  String _value = userLocal.gender;
   final List<String> list_items = <String>["Nam", "Nữ"];
+  DateTime selectedData;
   @override
   void initState() {
     super.initState();
-    if (userLocal.gender == null) {
-      gender = "Nam";
+    if (userLocal.gender == null || userLocal.gender.isEmpty) {
+      _value = "Nam";
     }
-
+    if(userLocal.birthday.isEmpty){
+      selectedData = DateFormat("dd-mm-yyyy").parse("05-05-1990");
+    }else{
+      selectedData = DateFormat("dd-mm-yyyy").parse(userLocal.birthday);
+    }
     _infoRequestModel = new UpdateInfoRequestModel();
     _controllerName.text = userLocal.name;
     _controllerMail.text = userLocal.email;
-    // _controllerBirthday.text = userLocal.birthday;
+    // _controllerBirthday.text = userLocal.birthday
     _controllerPhone.text = userLocal.phone;
     _controllerAddress.text = userLocal.address;
     _focusName = new FocusNode();
@@ -45,9 +51,9 @@ class _PersonalInfoState extends State<PersonalInfoPage> {
     _focusBirthday = new FocusNode();
     _focusPhone = new FocusNode();
     _focusAddress = new FocusNode();
+
     setState(() {
-      _infoRequestModel.birthday = "15-01-1991";
-      _infoRequestModel.gender = gender;
+      _infoRequestModel.birthday = userLocal.birthday;
     });
   }
 
@@ -66,7 +72,7 @@ class _PersonalInfoState extends State<PersonalInfoPage> {
       appBar: AppBar(
           title: Text(
             "Update personal info",
-            style: TextStyle(color: mTexHeadLoginColor),
+            // style: TextStyle(color: mTexHeadLoginColor),
           ),
           centerTitle: true,
           leading: IconButton(
@@ -112,6 +118,7 @@ class _PersonalInfoState extends State<PersonalInfoPage> {
                                       ? "Vui lòng nhập họ và tên"
                                       : null,
                                   decoration: new InputDecoration(
+                                    labelText: 'Họ & tên',
                                     hintText: "Họ & tên",
                                     border: OutlineInputBorder(),
                                     // hintStyle: TextStyle(
@@ -144,6 +151,7 @@ class _PersonalInfoState extends State<PersonalInfoPage> {
                                       ? "Vui lòng nhập số điện thoại"
                                       : null,
                                   decoration: new InputDecoration(
+                                    labelText: 'Số điện thoại',
                                     hintText: "Số điện thoại",
                                     border: OutlineInputBorder(),
                                     // hintStyle: TextStyle(
@@ -176,6 +184,7 @@ class _PersonalInfoState extends State<PersonalInfoPage> {
                                       ? "Vui lòng nhập email"
                                       : null,
                                   decoration: new InputDecoration(
+                                    labelText: 'E-mail',
                                     hintText: "E-mail",
                                     border: OutlineInputBorder(),
                                     // hintStyle: TextStyle(
@@ -196,7 +205,7 @@ class _PersonalInfoState extends State<PersonalInfoPage> {
                                 ),
                                 SizedBox(height: 20),
                                 new TextFormField(
-                                  maxLength: 20,
+                                  // maxLength: 20,
                                   controller: _controllerAddress,
                                   onTap: _requestAddressFocus,
                                   focusNode: _focusAddress,
@@ -209,6 +218,7 @@ class _PersonalInfoState extends State<PersonalInfoPage> {
                                       ? "Vui lòng nhập địa chỉ"
                                       : null,
                                   decoration: new InputDecoration(
+                                    labelText: "Địa chỉ",
                                     hintText: "Địa chỉ",
                                     border: OutlineInputBorder(),
                                     // hintStyle: TextStyle(
@@ -228,7 +238,7 @@ class _PersonalInfoState extends State<PersonalInfoPage> {
                                   ),
                                 ),
                                 SizedBox(height: 20),
-                                new DropdownButton(
+                                new DropdownButtonFormField(
                                   value: _value,
                                   items: list_items.map((String item) {
                                     return DropdownMenuItem<String>(
@@ -236,20 +246,23 @@ class _PersonalInfoState extends State<PersonalInfoPage> {
                                       value: item,
                                     );
                                   }).toList(),
-                                  onChanged:(value) {
+                                  onChanged: (value) {
                                     setState(() {
                                       _value = value;
+                                      _infoRequestModel.gender = _value;
                                     });
                                   },
-                                  hint:Text("Select item"),
-                                  disabledHint:Text("Disabled"),
+                                  decoration: const InputDecoration(
+                                    hintText: "Giới tính",
+                                    border: OutlineInputBorder(),
+                                  ),
                                   elevation: 8,
-                                  style:TextStyle(color:Colors.green, fontSize: 16),
+                                  style: TextStyle(
+                                      color: borderEdittextColor, fontSize: 16),
                                   icon: Icon(Icons.arrow_drop_down_circle),
                                   iconDisabledColor: Colors.red,
-                                  iconEnabledColor: Colors.green,
+                                  iconEnabledColor: borderEdittextColor,
                                   isExpanded: true,
-
                                 ),
                                 // new RadioButtonGroup(
                                 //     labels: <String>[
@@ -269,6 +282,29 @@ class _PersonalInfoState extends State<PersonalInfoPage> {
                                 //       });
                                 //       print(selected);
                                 //     }),
+                                SizedBox(height: 30),
+                                DateTimeFormField(
+                                  initialValue: selectedData,
+                                  decoration: const InputDecoration(
+                                    hintStyle: TextStyle(color: Colors.black45),
+                                    errorStyle:
+                                        TextStyle(color: Colors.redAccent),
+                                    border: OutlineInputBorder(),
+                                    suffixIcon: Icon(Icons.event_note),
+                                    labelText: 'Ngày sinh',
+                                  ),
+                                  dateFormat: DateFormat('dd/MM/yyyy'),
+                                  mode: DateTimeFieldPickerMode.date,
+                                  autovalidateMode: AutovalidateMode.always,
+                                  validator: (e) => (e?.day ?? 0) == 1
+                                      ? 'Please not the first day'
+                                      : null,
+                                  onDateSelected: (DateTime value) {
+                                    String formattedDate = DateFormat('dd/MM/yyyy').format(value);
+                                    print(formattedDate);
+                                    _infoRequestModel.birthday = value.day.toString();
+                                  },
+                                ),
                                 SizedBox(height: 30),
                                 new Container(
                                   child: Row(

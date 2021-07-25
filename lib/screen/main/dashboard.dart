@@ -40,7 +40,7 @@ class _DashBoardPageState extends State<DashBoardPage> {
         appBar: AppBar(
           title: Text(
             "DASHBOARD",
-            style: TextStyle(color: mTexHeadLoginColor),
+            // style: TextStyle(color: mTexHeadLoginColor),
           ),
           centerTitle: true,
           actions: <Widget>[
