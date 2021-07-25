@@ -165,7 +165,7 @@ class _LoginPageState extends State<LoginPage> {
                                 new TextFormField(
                                   onTap: _requestUserFocus,
                                   focusNode: _focusUserNode,
-                                  initialValue: "adminhathanh@gmail.com",
+                                  initialValue: "adminsenco@gmail.com",
                                   style: TextStyle(
                                       color: borderFocusEdittextColor),
                                   keyboardType: TextInputType.emailAddress,
