@@ -305,7 +305,12 @@ class _DetailSensorState extends State<DetailSensorPage> {
                                   ),
                                 ),
                                 SizedBox(height: 10),
-                                getContainer(dataList.editSetPoint, dataList.idSetPoint, dataList.fieldSetPoint, dataList.setPoint, index)
+                                getContainer(
+                                    dataList.editSetPoint,
+                                    dataList.idSetPoint,
+                                    dataList.fieldSetPoint,
+                                    dataList.setPoint,
+                                    index)
                               ]),
                         ),
                       ],
@@ -317,7 +322,7 @@ class _DetailSensorState extends State<DetailSensorPage> {
                       Expanded(
                         child: Container(
                           child: Text(
-                            "Cập nhật: " +  dataList.updateStatus,
+                            "Cập nhật: " + dataList.updateStatus,
                             style: TextStyle(
                               color: Colors.grey[800],
                               fontFamily: 'OpenSans',
@@ -392,7 +397,9 @@ class _DetailSensorState extends State<DetailSensorPage> {
       });
     }
     APIService apiService = new APIService();
-    apiService.getListSensor(userLocal.accessToken, factoryId).then((value) {
+    apiService
+        .getListSensor(userLocal.accessToken, factoryLocal.factoryId.toString())
+        .then((value) {
       if (isReload == true) {
         setState(() {
           isApiCallProcess = false;
@@ -402,21 +409,34 @@ class _DetailSensorState extends State<DetailSensorPage> {
         DateTime now = DateTime.now();
         updateStatus = DateFormat('dd-mm-yyyy kk:mm:ss').format(now);
         listDataSensor = value.data[positon].dataList;
-        for (var i = 0;i < listDataSensor.length; i++){
-          listDataSensor[i].updateStatus = updateStatus;
+        if (listDataSensor.length > 0) {
+          for (var i = 0; i < listDataSensor.length; i++) {
+            listDataSensor[i].updateStatus = updateStatus;
+          }
+          setState(() {
+            listDataSensor;
+          });
+          print(value.toJson());
+          Timer(Duration(seconds: 30), () {
+            isReload = false;
+            loadData();
+            print("Yeah, this line is printed after 120 seconds");
+          });
+        } else {
+          dialog();
         }
-        setState(() { listDataSensor; });
-        print(value.toJson());
-        Timer(Duration(seconds: 30), () {
-          isReload = false;
-          loadData();
-          print("Yeah, this line is printed after 120 seconds");
-        });
       }
+    }).catchError((onError) {
+      setState(() {
+        isApiCallProcess = false;
+      });
+      final snackBar = SnackBar(content: Text("Lỗi server"));
+      scaffoldKey.currentState.showSnackBar(snackBar);
     });
   }
 
-  Container getContainer(String value, String idSetpoint, String field, String text, int index) {
+  Container getContainer(
+      String value, String idSetpoint, String field, String text, int index) {
     if (value == "true") {
       return Container(
         child: Row(
@@ -425,7 +445,8 @@ class _DetailSensorState extends State<DetailSensorPage> {
             Center(
               child: InkWell(
                 onTap: () {
-                  _displayTextInputDialog(context, idSetpoint, field, text, index);
+                  _displayTextInputDialog(
+                      context, idSetpoint, field, text, index);
                 },
                 child: RichText(
                   text: WidgetSpan(
@@ -463,7 +484,8 @@ class _DetailSensorState extends State<DetailSensorPage> {
     }
   }
 
-  Future<void> _displayTextInputDialog(BuildContext context,String idSetpoint, String field, String valueSensor, int index) async {
+  Future<void> _displayTextInputDialog(BuildContext context, String idSetpoint,
+      String field, String valueSensor, int index) async {
     _textFieldController.text = valueSensor;
     return showDialog(
         context: context,
@@ -507,13 +529,15 @@ class _DetailSensorState extends State<DetailSensorPage> {
         });
   }
 
-
-  updateSensor(String idSetpoint, String field, String valuePoint, int index) async {
+  updateSensor(
+      String idSetpoint, String field, String valuePoint, int index) async {
     setState(() {
       isApiCallProcess = true;
     });
     APIService apiService = new APIService();
-    apiService.updateSetpoint(userLocal.accessToken, idSetpoint, field, valuePoint).then((value) {
+    apiService
+        .updateSetpoint(userLocal.accessToken, idSetpoint, field, valuePoint)
+        .then((value) {
       if (value.statusCode == 200) {
         print(value.toJson());
         listDataSensor[index].setPoint = valuePoint;
@@ -522,5 +546,23 @@ class _DetailSensorState extends State<DetailSensorPage> {
         isApiCallProcess = false;
       });
     });
+  }
+
+  dialog() {
+    showDialog<String>(
+      context: context,
+      builder: (BuildContext context) => AlertDialog(
+        title: const Text('Lỗi'),
+        content: const Text('Không có dữ liệu'),
+        actions: <Widget>[
+          TextButton(
+            onPressed: () {
+              Navigator.pop(context);
+            },
+            child: const Text('OK'),
+          ),
+        ],
+      ),
+    );
   }
 }

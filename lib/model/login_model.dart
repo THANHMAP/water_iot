@@ -52,14 +52,17 @@ class LoginResponseModel {
   bool status;
   int statusCode;
   String message;
+  int errorCode;
   Data data;
 
-  LoginResponseModel({this.status, this.statusCode, this.message, this.data});
+  LoginResponseModel(
+      {this.status, this.statusCode, this.message, this.errorCode, this.data});
 
   LoginResponseModel.fromJson(Map<String, dynamic> json) {
     status = json['status'];
     statusCode = json['status_code'];
     message = json['message'];
+    errorCode = json['error_code'];
     data = json['data'] != null ? new Data.fromJson(json['data']) : null;
   }
 
@@ -68,6 +71,7 @@ class LoginResponseModel {
     data['status'] = this.status;
     data['status_code'] = this.statusCode;
     data['message'] = this.message;
+    data['error_code'] = this.errorCode;
     if (this.data != null) {
       data['data'] = this.data.toJson();
     }
@@ -80,11 +84,11 @@ class Data {
   String name;
   String username;
   String email;
-  Factory factory;
+  Customer customer;
   String phone;
   String address;
   String birthday;
-  String gender;
+  Null gender;
   List<Group> group;
   String lastLogin;
   String createdAt;
@@ -96,7 +100,7 @@ class Data {
       this.name,
       this.username,
       this.email,
-      this.factory,
+      this.customer,
       this.phone,
       this.address,
       this.birthday,
@@ -112,14 +116,15 @@ class Data {
     name = json['name'];
     username = json['username'];
     email = json['email'];
-    factory =
-        json['factory'] != null ? new Factory.fromJson(json['factory']) : null;
+    customer = json['customer'] != null
+        ? new Customer.fromJson(json['customer'])
+        : null;
     phone = json['phone'];
     address = json['address'];
     birthday = json['birthday'];
     gender = json['gender'];
     if (json['group'] != null) {
-      group = [];
+      group = new List<Group>();
       json['group'].forEach((v) {
         group.add(new Group.fromJson(v));
       });
@@ -136,8 +141,8 @@ class Data {
     data['name'] = this.name;
     data['username'] = this.username;
     data['email'] = this.email;
-    if (this.factory != null) {
-      data['factory'] = this.factory.toJson();
+    if (this.customer != null) {
+      data['customer'] = this.customer.toJson();
     }
     data['phone'] = this.phone;
     data['address'] = this.address;
@@ -154,43 +159,24 @@ class Data {
   }
 }
 
-class Factory {
+class Customer {
   int id;
   String name;
-  String thumbnail;
-  String overview;
-  int factoryId;
-  String address;
-  String ip;
+  String logo;
 
-  Factory(
-      {this.id,
-      this.name,
-      this.thumbnail,
-      this.overview,
-      this.factoryId,
-      this.address,
-      this.ip});
+  Customer({this.id, this.name, this.logo});
 
-  Factory.fromJson(Map<String, dynamic> json) {
+  Customer.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     name = json['name'];
-    thumbnail = json['thumbnail'];
-    overview = json['overview'];
-    factoryId = json['factory_id'];
-    address = json['address'];
-    ip = json['ip'];
+    logo = json['logo'];
   }
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
     data['id'] = this.id;
     data['name'] = this.name;
-    data['thumbnail'] = this.thumbnail;
-    data['overview'] = this.overview;
-    data['factory_id'] = this.factoryId;
-    data['address'] = this.address;
-    data['ip'] = this.ip;
+    data['logo'] = this.logo;
     return data;
   }
 }

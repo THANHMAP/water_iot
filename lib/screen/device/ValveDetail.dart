@@ -5,29 +5,30 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:water_iot/api/api_service.dart';
 import 'package:water_iot/model/motor.dart';
+import 'package:water_iot/model/valve_model.dart';
 
 import '../../ProgressHUD.dart';
 import '../../SharedPref.dart';
 import '../../constants.dart';
 
-class MotorDetailPage extends StatefulWidget {
+class ValveDetailPage extends StatefulWidget {
   int _currentIndex;
 
-  MotorDetailPage(this._currentIndex, {Key key}) : super(key: key);
+  ValveDetailPage(this._currentIndex, {Key key}) : super(key: key);
 
   @override
-  _MotorDetailState createState() => _MotorDetailState(_currentIndex);
+  _ValveDetailState createState() => _ValveDetailState(_currentIndex);
 }
 
-class _MotorDetailState extends State<MotorDetailPage> {
+class _ValveDetailState extends State<ValveDetailPage> {
   bool isReload = true;
   bool isApiCallProcess = false;
   int position;
   String title;
-  List<DataMotor> _listMotors = [];
+  List<DataValve> _listValves = [];
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
-  _MotorDetailState(this.position);
+  _ValveDetailState(this.position);
 
   @override
   void initState() {
@@ -108,13 +109,13 @@ class _MotorDetailState extends State<MotorDetailPage> {
 
   Widget _buildListView() {
     return ListView.builder(
-        itemCount: _listMotors == null ? 0 : _listMotors.length,
+        itemCount: _listValves == null ? 0 : _listValves.length,
         itemBuilder: (context, index) {
-          return _buildCard(_listMotors[index]);
+          return _buildCard(_listValves[index]);
         });
   }
 
-  Widget _buildCard(DataMotor dataMotor) {
+  Widget _buildCard(DataValve dataValve) {
     return Padding(
       padding: const EdgeInsets.all(15.0),
       child: Card(
@@ -146,7 +147,7 @@ class _MotorDetailState extends State<MotorDetailPage> {
                             color: Colors.white,
                           ),
                           child: Text(
-                            dataMotor.name + " - " + dataMotor.symbol,
+                            dataValve.name + " - " + dataValve.symbol,
                             style: TextStyle(
                               color: textDashboardColor,
                               fontFamily: 'OpenSans',
@@ -183,9 +184,10 @@ class _MotorDetailState extends State<MotorDetailPage> {
                                       fit: FlexFit.tight,
                                       flex: 1,
                                       child: Container(
+                                        width: 50,
                                         decoration: BoxDecoration(
                                           color:
-                                              HexColor(dataMotor.statusColor),
+                                              HexColor(dataValve.statusColor),
                                           boxShadow: [
                                             BoxShadow(
                                               color:
@@ -196,9 +198,13 @@ class _MotorDetailState extends State<MotorDetailPage> {
                                                   3), // changes position of shadow
                                             ),
                                           ],
+                                          // border: Border.all(
+                                          //   color: Colors.red,
+                                          //   width: 1,
+                                          // )
                                         ),
                                         child: Center(
-                                          child: Text(dataMotor.statusName,
+                                          child: Text(dataValve.statusName,
                                               style: TextStyle(
                                                   fontWeight: FontWeight.bold,
                                                   color: Colors.grey[800],
@@ -225,10 +231,10 @@ class _MotorDetailState extends State<MotorDetailPage> {
                                       fit: FlexFit.tight,
                                       flex: 1,
                                       child: Container(
-                                        width: 30,
+                                        width: 50,
                                         decoration: BoxDecoration(
                                           color: HexColor(
-                                              dataMotor.operationStatusColor),
+                                              dataValve.operationStatusColor),
                                           boxShadow: [
                                             BoxShadow(
                                               color:
@@ -246,7 +252,7 @@ class _MotorDetailState extends State<MotorDetailPage> {
                                         ),
                                         child: Center(
                                           child: Text(
-                                              dataMotor.operationStatusName,
+                                              dataValve.operationStatusName,
                                               style: TextStyle(
                                                   fontWeight: FontWeight.bold,
                                                   color: Colors.grey[800],
@@ -263,7 +269,7 @@ class _MotorDetailState extends State<MotorDetailPage> {
                                   Flexible(
                                     fit: FlexFit.tight,
                                     flex: 2,
-                                    child: Text("Total OVL: ",
+                                    child: Text("Total LFO: ",
                                         style: TextStyle(
                                             fontWeight: FontWeight.bold,
                                             color: Colors.grey[800],
@@ -272,7 +278,7 @@ class _MotorDetailState extends State<MotorDetailPage> {
                                   Flexible(
                                     fit: FlexFit.tight,
                                     flex: 1,
-                                    child: Text(dataMotor.totalovl.toString(),
+                                    child: Text(dataValve.totalfo.toString(),
                                         style: TextStyle(
                                             color: Colors.grey[800],
                                             fontSize: 18)),
@@ -287,7 +293,7 @@ class _MotorDetailState extends State<MotorDetailPage> {
                                   Flexible(
                                     fit: FlexFit.tight,
                                     flex: 2,
-                                    child: Text("Total NRF: ",
+                                    child: Text("Total LFC: ",
                                         style: TextStyle(
                                             fontWeight: FontWeight.bold,
                                             color: Colors.grey[800],
@@ -296,7 +302,7 @@ class _MotorDetailState extends State<MotorDetailPage> {
                                   Flexible(
                                     fit: FlexFit.tight,
                                     flex: 1,
-                                    child: Text(dataMotor.totalnrf.toString(),
+                                    child: Text(dataValve.totalfc.toString(),
                                         style: TextStyle(
                                             color: Colors.grey[800],
                                             fontSize: 18)),
@@ -311,7 +317,7 @@ class _MotorDetailState extends State<MotorDetailPage> {
                                   Flexible(
                                     fit: FlexFit.tight,
                                     flex: 2,
-                                    child: Text("Total RT: ",
+                                    child: Text("Total LOC: ",
                                         style: TextStyle(
                                             fontWeight: FontWeight.bold,
                                             color: Colors.grey[800],
@@ -320,7 +326,7 @@ class _MotorDetailState extends State<MotorDetailPage> {
                                   Flexible(
                                     fit: FlexFit.tight,
                                     flex: 1,
-                                    child: Text(dataMotor.totalrt.toString(),
+                                    child: Text(dataValve.totaloc.toString(),
                                         style: TextStyle(
                                             color: Colors.grey[800],
                                             fontSize: 18)),
@@ -349,34 +355,34 @@ class _MotorDetailState extends State<MotorDetailPage> {
       });
     }
     APIService apiService = new APIService();
-    apiService.getListMotor(userLocal.accessToken, factoryLocal.factoryId.toString()).then((value) {
+    apiService
+        .getListValve(userLocal.accessToken, factoryLocal.factoryId.toString())
+        .then((value) {
       if (isReload == true) {
         setState(() {
           isApiCallProcess = false;
         });
       }
       if (value.statusCode == 200) {
-        _listMotors = value.data[position].dataMotor;
-        if(_listMotors.length > 0){
+        DateTime now = DateTime.now();
+        _listValves = value.data[position].dataValve;
+        if (_listValves.length > 0) {
           print(value.toJson());
           Timer(Duration(seconds: 120), () {
             isReload = false;
             loadData();
             print("Yeah, this line is printed after 120 seconds");
           });
-        }else{
+        } else {
           dialog();
         }
-
       }
-    }).catchError((onError){
+    }).catchError((onError) {
       setState(() {
         isApiCallProcess = false;
       });
-      final snackBar = SnackBar(
-          content: Text("Lỗi server"));
-      scaffoldKey.currentState
-          .showSnackBar(snackBar);
+      final snackBar = SnackBar(content: Text("Lỗi server"));
+      scaffoldKey.currentState.showSnackBar(snackBar);
     });
   }
 
@@ -388,16 +394,13 @@ class _MotorDetailState extends State<MotorDetailPage> {
         content: const Text('Không có dữ liệu'),
         actions: <Widget>[
           TextButton(
-            onPressed: () {
-              Navigator.pop(context);
-            },
+            onPressed: () => Navigator.pop(context),
             child: const Text('OK'),
           ),
         ],
       ),
     );
   }
-
 }
 
 class HexColor extends Color {

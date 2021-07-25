@@ -1,41 +1,72 @@
 import 'dart:convert';
+import 'dart:io';
 import 'package:http/http.dart' as http;
+import 'package:water_iot/SharedPref.dart';
 import 'package:water_iot/api/AppUrl.dart';
+import 'package:water_iot/model/CustomerResponseModel.dart';
 import 'package:water_iot/model/change_password_model.dart';
 import 'package:water_iot/model/factory_model.dart';
 import 'package:water_iot/model/login_model.dart';
 import 'package:water_iot/model/motor.dart';
 import 'package:water_iot/model/sensor_model.dart';
+import 'package:water_iot/model/valve_model.dart';
 
 class APIService {
   Future<LoginResponseModel> login(LoginRequestModel requestModel) async {
     String url = AppUrl.login;
-
-    final response =
-        await http.post(Uri.parse(url), body: requestModel.toJson());
-    if (response.statusCode == 200 ||
-        response.statusCode == 400 ||
-        response.statusCode == 500) {
-      return LoginResponseModel.fromJson(
-        json.decode(response.body),
-      );
+    try {
+      final response =
+          await http.post(Uri.parse(url), body: requestModel.toJson());
+      if (response.statusCode == 200 ||
+          response.statusCode == 400 ||
+          response.statusCode == 500) {
+        return LoginResponseModel.fromJson(
+          json.decode(response.body),
+        );
+      }
+      return null;
+    } on SocketException catch (e) {
+      throw Exception('Failed to load');
     }
-    return null;
   }
 
   Future<FactoryResponseModel> getListFactory(String token) async {
     String url = AppUrl.list_factory;
-    final response = await http
-        .get(Uri.parse(url), headers: {'Authorization': 'Bearer $token'});
-    if (response.statusCode == 200 ||
-        response.statusCode == 400 ||
-        response.statusCode == 401 ||
-        response.statusCode == 500) {
-      return FactoryResponseModel.fromJson(
-        json.decode(response.body),
-      );
+    try {
+      final response = await http.post(Uri.parse(url),
+          body: {'customer_id': customerId},
+          headers: {'Authorization': 'Bearer $token'});
+      if (response.statusCode == 200 ||
+          response.statusCode == 400 ||
+          response.statusCode == 401 ||
+          response.statusCode == 500) {
+        return FactoryResponseModel.fromJson(
+          json.decode(response.body),
+        );
+      }
+      return null;
+    } on SocketException catch (e) {
+      throw Exception('Failed to load');
     }
-    return null;
+  }
+
+  Future<CustomerResponseModel> getListCustomer(String token) async {
+    String url = AppUrl.get_list_customer;
+    try {
+      final response = await http
+          .get(Uri.parse(url), headers: {'Authorization': 'Bearer $token'});
+      if (response.statusCode == 200 ||
+          response.statusCode == 400 ||
+          response.statusCode == 401 ||
+          response.statusCode == 500) {
+        return CustomerResponseModel.fromJson(
+          json.decode(response.body),
+        );
+      }
+      return null;
+    } on SocketException catch (e) {
+      throw Exception('Failed to load');
+    }
   }
 
   Future<ChangePasswordResponseModel> changePassword(String token,
@@ -76,7 +107,8 @@ class APIService {
       String token, String factoryId) async {
     String url = AppUrl.get_list_sensor;
     final response = await http.post(Uri.parse(url),
-        body: {'factory_id': factoryId}, headers: {'Authorization': 'Bearer $token'});
+        body: {'factory_id': factoryId},
+        headers: {'Authorization': 'Bearer $token'});
     if (response.statusCode == 200 ||
         response.statusCode == 400 ||
         response.statusCode == 401 ||
@@ -91,8 +123,13 @@ class APIService {
   Future<ResponseNormal> updateSetpoint(
       String token, String idSetpoint, String fieldPoint, String value) async {
     String url = AppUrl.update_sensor;
-    final response = await http.post(Uri.parse(url),
-        body: {'id_set_point': idSetpoint, 'field_set_point': fieldPoint, 'value_set_point': value}, headers: {'Authorization': 'Bearer $token'});
+    final response = await http.post(Uri.parse(url), body: {
+      'id_set_point': idSetpoint,
+      'field_set_point': fieldPoint,
+      'value_set_point': value
+    }, headers: {
+      'Authorization': 'Bearer $token'
+    });
     if (response.statusCode == 200 ||
         response.statusCode == 400 ||
         response.statusCode == 401 ||
@@ -104,28 +141,53 @@ class APIService {
     return null;
   }
 
-  Future<MotorResponse> getListMotor(
-      String token, String factoryId) async {
+  Future<MotorResponse> getListMotor(String token, String factoryId) async {
     String url = AppUrl.get_list_motor;
-    final response = await http.post(Uri.parse(url),
-        body: {'factory_id': factoryId}, headers: {'Authorization': 'Bearer $token'});
-    if (response.statusCode == 200 ||
-        response.statusCode == 400 ||
-        response.statusCode == 401 ||
-        response.statusCode == 500) {
-      return MotorResponse.fromJson(
-        json.decode(response.body),
-      );
+    try {
+      final response = await http.post(Uri.parse(url),
+          body: {'factory_id': factoryId},
+          headers: {'Authorization': 'Bearer $token'});
+      if (response.statusCode == 200 ||
+          response.statusCode == 400 ||
+          response.statusCode == 401 ||
+          response.statusCode == 500) {
+        return MotorResponse.fromJson(
+          json.decode(response.body),
+        );
+      }
+      return null;
+    } on SocketException catch (e) {
+      throw Exception('Failed to load');
     }
-    return null;
   }
 
+  Future<ValveResponseModel> getListValve(
+      String token, String factoryId) async {
+    String url = AppUrl.get_list_valve;
+    try {
+      final response = await http.post(Uri.parse(url),
+          body: {'factory_id': factoryId},
+          headers: {'Authorization': 'Bearer $token'});
+      if (response.statusCode == 200 ||
+          response.statusCode == 400 ||
+          response.statusCode == 401 ||
+          response.statusCode == 500) {
+        return ValveResponseModel.fromJson(
+          json.decode(response.body),
+        );
+      }
+      return null;
+    } on SocketException catch (e) {
+      throw Exception('Failed to load');
+    }
+  }
 }
 
-class ResponseNormal{
+class ResponseNormal {
   bool status;
   int statusCode;
   String message;
+
   ResponseNormal({this.status, this.statusCode, this.message});
 
   ResponseNormal.fromJson(Map<String, dynamic> json) {

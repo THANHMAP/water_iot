@@ -7,5 +7,7 @@ class AppUrl {
   static const String get_list_sensor = baseURL + "/sensor/list";
   static const String update_sensor = baseURL + "/sensor/update-set-point";
   static const String get_list_motor = baseURL + "/motor/list";
+  static const String get_list_valve = baseURL + "/valve/list";
+  static const String get_list_customer = baseURL + "/customer/list";
   // static const String forgotPassword = baseURL + "/forgot-password";
 }

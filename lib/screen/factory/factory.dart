@@ -27,7 +27,6 @@ class _FactoryState extends State<FactoryPage> {
   @override
   void initState() {
     super.initState();
-    // Call the getJSONData() method when the app initializes
     loadFactory();
   }
 
@@ -104,6 +103,7 @@ class _FactoryState extends State<FactoryPage> {
             RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
         child: InkWell(
           onTap: () {
+            factoryLocal = item;
             Navigator.pushAndRemoveUntil(
               context,
               MaterialPageRoute(
@@ -111,7 +111,7 @@ class _FactoryState extends State<FactoryPage> {
                   return MainPage(0);
                 },
               ),
-                  (route) => false,
+              (route) => false,
             );
           },
           child: Column(
@@ -129,7 +129,7 @@ class _FactoryState extends State<FactoryPage> {
                       children: [
                         Flexible(
                           child: CachedNetworkImage(
-                            imageUrl:  item.thumbnail,
+                            imageUrl: item.thumbnail,
                             placeholder: (context, url) =>
                                 new CircularProgressIndicator(),
                             errorWidget: (context, url, error) =>
@@ -243,59 +243,41 @@ class _FactoryState extends State<FactoryPage> {
     );
   }
 
-
   loadFactory() async {
     setState(() {
       isApiCallProcess = true;
     });
-    var user = await getUserInfo();
-    if (user.group.first.code == "super_admin_app") {
-      APIService apiService = new APIService();
-      apiService.getListFactory(user.accessToken).then((value) {
-        print(value.toJson());
-        setState(() {
-          isApiCallProcess = false;
-        });
-        if (value != null) {
-          if (value.statusCode == 200) {
-            _factory = value.data;
-          } else {
-            if (value.errorCode == 401) {
-              Navigator.pushAndRemoveUntil(
-                context,
-                MaterialPageRoute(
-                  builder: (context) {
-                    return LoginPage();
-                  },
-                ),
-                (route) => false,
-              );
-            }
-          }
-        }
-      });
-    } else {
-      _factory = listFactoryLocal;
+    APIService apiService = new APIService();
+    apiService.getListFactory(userLocal.accessToken).then((value) {
+      print(value.toJson());
       setState(() {
         isApiCallProcess = false;
       });
-    }
-  }
-
-  Future<Data> getUserInfo() async {
-    final SharedPreferences prefs = await SharedPreferences.getInstance();
-
-    Map<String, dynamic> userMap;
-    final String userStr = prefs.getString('InfoUser');
-    if (userStr != null) {
-      userMap = jsonDecode(userStr) as Map<String, dynamic>;
-    }
-
-    if (userMap != null) {
-      final Data user = Data.fromJson(userMap);
-      print(user);
-      return user;
-    }
-    return null;
+      if (value != null) {
+        if (value.statusCode == 200) {
+          _factory = value.data;
+        } else {
+          if (value.errorCode == 401) {
+            Navigator.pushAndRemoveUntil(
+              context,
+              MaterialPageRoute(
+                builder: (context) {
+                  return LoginPage();
+                },
+              ),
+              (route) => false,
+            );
+          }
+        }
+      }
+    }).catchError((onError){
+      setState(() {
+        isApiCallProcess = false;
+      });
+      final snackBar = SnackBar(
+          content: Text("Lỗi server"));
+      scaffoldKey.currentState
+          .showSnackBar(snackBar);
+    });
   }
 }

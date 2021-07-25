@@ -10,13 +10,14 @@ import 'package:water_iot/screen/device/MotorDetail.dart';
 
 import '../../ProgressHUD.dart';
 import '../../constants.dart';
+import 'ValveDetail.dart';
 
-class MotorPage extends StatefulWidget {
+class ValvePage extends StatefulWidget {
   @override
-  _MotorState createState() => _MotorState();
+  _ValveState createState() => _ValveState();
 }
 
-class _MotorState extends State<MotorPage> {
+class _ValveState extends State<ValvePage> {
   bool isApiCallProcess = false;
   final scaffoldKey = GlobalKey<ScaffoldState>();
   List<Data> listData = [];
@@ -24,7 +25,7 @@ class _MotorState extends State<MotorPage> {
   @override
   void initState() {
     super.initState();
-    loadData();
+    // loadData();
   }
 
   @override
@@ -41,8 +42,8 @@ class _MotorState extends State<MotorPage> {
       backgroundColor: Color(0xFFF5F6FA),
       appBar: AppBar(
           title: Text(
-            "SENSOR",
-            style: TextStyle(color: mTexHeadLoginColor),
+            "VALVE",
+            // style: TextStyle(color: mTexHeadLoginColor),
           ),
           centerTitle: true,
           actions: <Widget>[
@@ -136,20 +137,21 @@ class _MotorState extends State<MotorPage> {
         clipBehavior: Clip.antiAlias,
         elevation: 16,
         shape:
-            RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
+        RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
         child: InkWell(
           onTap: () {
-            if (listData != null && listData.length > 0) {
-              if (listData[0].dataMotor.length > 0) {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => MotorDetailPage(0),
-                    ));
-              } else {
-                dialog();
-              }
-            }
+            // if (listData != null && listData.length > 0) {
+            //   if (listData[0].dataMotor.length > 0) {
+            //
+            //   } else {
+            //     dialog();
+            //   }
+            // }
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => ValveDetailPage(0),
+                ));
           },
           child: Column(
             mainAxisSize: MainAxisSize.min,
@@ -253,19 +255,23 @@ class _MotorState extends State<MotorPage> {
         clipBehavior: Clip.antiAlias,
         elevation: 16,
         shape:
-            RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
+        RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
         child: InkWell(
           onTap: () {
-            if (listData != null && listData.length > 0) {
-              if (listData[1].dataMotor.length > 0) {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => MotorDetailPage(1)),
-                );
-              } else {
-                dialog();
-              }
-            }
+            // if (listData != null && listData.length > 0) {
+            //   if (listData[1].dataMotor.length > 0) {
+            //     Navigator.push(
+            //       context,
+            //       MaterialPageRoute(builder: (context) => MotorDetailPage(1)),
+            //     );
+            //   } else {
+            //     dialog();
+            //   }
+            // }
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => ValveDetailPage(1)),
+            );
           },
           child: Column(
             mainAxisSize: MainAxisSize.min,
@@ -367,19 +373,23 @@ class _MotorState extends State<MotorPage> {
         clipBehavior: Clip.antiAlias,
         elevation: 16,
         shape:
-            RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
+        RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
         child: InkWell(
           onTap: () {
-            if (listData != null && listData.length > 0) {
-              if (listData[2].dataMotor.length > 0) {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => MotorDetailPage(2)),
-                );
-              } else {
-                dialog();
-              }
-            }
+            // if (listData != null && listData.length > 0) {
+            //   if (listData[2].dataMotor.length > 0) {
+            //     Navigator.push(
+            //       context,
+            //       MaterialPageRoute(builder: (context) => MotorDetailPage(2)),
+            //     );
+            //   } else {
+            //     dialog();
+            //   }
+            // }
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => ValveDetailPage(2)),
+            );
           },
           child: Column(
             mainAxisSize: MainAxisSize.min,
@@ -483,19 +493,23 @@ class _MotorState extends State<MotorPage> {
         clipBehavior: Clip.antiAlias,
         elevation: 16,
         shape:
-            RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
+        RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
         child: InkWell(
           onTap: () {
-            if (listData != null && listData.length > 0) {
-              if (listData[3].dataMotor.length > 0) {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => MotorDetailPage(3)),
-                );
-              } else {
-                dialog();
-              }
-            }
+            // if (listData != null && listData.length > 0) {
+            //   if (listData[3].dataMotor.length > 0) {
+            //     Navigator.push(
+            //       context,
+            //       MaterialPageRoute(builder: (context) => MotorDetailPage(3)),
+            //     );
+            //   } else {
+            //     dialog();
+            //   }
+            // }
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => ValveDetailPage(3)),
+            );
           },
           child: Column(
             mainAxisSize: MainAxisSize.min,
@@ -599,19 +613,23 @@ class _MotorState extends State<MotorPage> {
         clipBehavior: Clip.antiAlias,
         elevation: 16,
         shape:
-            RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
+        RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
         child: InkWell(
           onTap: () {
-            if (listData != null && listData.length > 0) {
-              if (listData[4].dataMotor.length > 0) {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => MotorDetailPage(4)),
-                );
-              } else {
-                dialog();
-              }
-            }
+            // if (listData != null && listData.length > 0) {
+            //   if (listData[4].dataMotor.length > 0) {
+            //     Navigator.push(
+            //       context,
+            //       MaterialPageRoute(builder: (context) => MotorDetailPage(4)),
+            //     );
+            //   } else {
+            //     dialog();
+            //   }
+            // }
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => ValveDetailPage(4)),
+            );
           },
           child: Column(
             mainAxisSize: MainAxisSize.min,
@@ -715,7 +733,7 @@ class _MotorState extends State<MotorPage> {
       isApiCallProcess = true;
     });
     APIService apiService = new APIService();
-    apiService.getListMotor(userLocal.accessToken, factoryId).then((value) {
+    apiService.getListMotor(userLocal.accessToken, factoryLocal.factoryId.toString()).then((value) {
       setState(() {
         isApiCallProcess = false;
       });

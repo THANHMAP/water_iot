@@ -7,6 +7,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:water_iot/api/api_service.dart';
 import 'package:water_iot/model/login_model.dart';
+import 'package:water_iot/screen/customer/customer.dart';
 import 'package:water_iot/screen/factory/factory.dart';
 import 'package:water_iot/screen/factory/factory_admin.dart';
 import 'package:water_iot/screen/main/main.dart';
@@ -164,7 +165,7 @@ class _LoginPageState extends State<LoginPage> {
                                 new TextFormField(
                                   onTap: _requestUserFocus,
                                   focusNode: _focusUserNode,
-                                  initialValue: "phucthinh@gmail.com",
+                                  initialValue: "adminhathanh@gmail.com",
                                   style: TextStyle(
                                       color: borderFocusEdittextColor),
                                   keyboardType: TextInputType.emailAddress,
@@ -191,7 +192,7 @@ class _LoginPageState extends State<LoginPage> {
                                 new TextFormField(
                                   onTap: _requestPasswordFocus,
                                   focusNode: _focusPasswordNode,
-                                  initialValue: "123456789",
+                                  initialValue: "12345678",
                                   style: TextStyle(
                                       color: borderFocusEdittextColor),
                                   keyboardType: TextInputType.text,
@@ -251,15 +252,22 @@ class _LoginPageState extends State<LoginPage> {
 
                                           if (value.statusCode == 200) {
                                             saveUserInfo(value.data);
-                                            if (value.data.accessToken != null) {
-                                              var screen ;
-                                              Group group = value.data.group.first;
-                                              if(group.code == "super_admin_app"){
+                                            if (value.data.accessToken !=
+                                                null) {
+                                              var screen;
+                                              Group group =
+                                                  value.data.group.first;
+                                              if (group.code ==
+                                                  "super_admin_app") {
+                                                screen = CustomerPage();
+                                              } else if (group.code ==
+                                                  "admin") {
+                                                customerId = value.data.customer.id.toString();
                                                 screen = FactoryAminPage();
-                                              }else if(group.code == "admin"){
-                                                screen = MainPage(1);
-                                              }else if(group.code == "viewer"){
-                                                screen = MainPage(1);
+                                              } else if (group.code ==
+                                                  "viewer") {
+                                                customerId = value.data.customer.id.toString();
+                                                screen = FactoryAminPage();
                                               }
                                               Navigator.pushAndRemoveUntil(
                                                 context,
@@ -271,7 +279,8 @@ class _LoginPageState extends State<LoginPage> {
                                                 (route) => false,
                                               );
                                               final snackBar = SnackBar(
-                                                  content: Text("Login Successful"));
+                                                  content:
+                                                      Text("Login Successful"));
                                               scaffoldKey.currentState
                                                   .showSnackBar(snackBar);
                                             }
@@ -286,6 +295,14 @@ class _LoginPageState extends State<LoginPage> {
                                             isApiCallProcess = false;
                                           });
                                         }
+                                      }).catchError((onError){
+                                        setState(() {
+                                          isApiCallProcess = false;
+                                        });
+                                        final snackBar = SnackBar(
+                                            content: Text("Lỗi server"));
+                                        scaffoldKey.currentState
+                                            .showSnackBar(snackBar);
                                       });
                                     }
                                   },
@@ -319,8 +336,7 @@ class _LoginPageState extends State<LoginPage> {
               //   // ),
               //
               // ],
-            ))
-    );
+            )));
   }
 
   void _requestIpFocus() {
@@ -340,8 +356,6 @@ class _LoginPageState extends State<LoginPage> {
       FocusScope.of(context).requestFocus(_focusPasswordNode);
     });
   }
-
-
 
   @override
   void dispose() {

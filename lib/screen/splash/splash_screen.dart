@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:water_iot/model/login_model.dart';
+import 'package:water_iot/screen/customer/customer.dart';
 import 'package:water_iot/screen/factory/factory.dart';
 import 'package:water_iot/screen/factory/factory_admin.dart';
 import 'package:water_iot/screen/home/home_screen.dart';
@@ -33,11 +34,11 @@ class _SplashScreenState extends State<SplashScreen> {
         var screen;
         Group group = user.group.first;
         if (group.code == "super_admin_app") {
-          screen = FactoryAminPage();
+          screen = CustomerPage();
         } else if (group.code == "admin") {
-          screen = MainPage(1);
+          screen = FactoryAminPage();
         } else if (group.code == "viewer") {
-          screen = MainPage(1);
+          screen = FactoryAminPage();
         }
         Navigator.pushAndRemoveUntil(
           context,

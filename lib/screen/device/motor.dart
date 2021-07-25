@@ -5,28 +5,25 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:water_iot/SharedPref.dart';
 import 'package:water_iot/api/api_service.dart';
-import 'package:water_iot/model/sensor_model.dart';
-import 'package:water_iot/screen/main/main.dart';
-import 'package:water_iot/screen/main/setting.dart';
+import 'package:water_iot/model/motor.dart';
+import 'package:water_iot/screen/device/MotorDetail.dart';
 
 import '../../ProgressHUD.dart';
 import '../../constants.dart';
-import 'detailSensor.dart';
 
-class SensorPage extends StatefulWidget {
+class MotorPage extends StatefulWidget {
   @override
-  _SensorState createState() => _SensorState();
+  _MotorState createState() => _MotorState();
 }
 
-class _SensorState extends State<SensorPage> {
+class _MotorState extends State<MotorPage> {
   bool isApiCallProcess = false;
   final scaffoldKey = GlobalKey<ScaffoldState>();
-  List<Data> listSensor;
+  List<Data> listData = [];
 
   @override
   void initState() {
     super.initState();
-    // listSensor = [];
     // loadData();
   }
 
@@ -44,8 +41,8 @@ class _SensorState extends State<SensorPage> {
       backgroundColor: Color(0xFFF5F6FA),
       appBar: AppBar(
           title: Text(
-            "SENSOR",
-            style: TextStyle(color: mTexHeadLoginColor),
+            "MOTOR",
+            // style: TextStyle(color: mTexHeadLoginColor),
           ),
           centerTitle: true,
           actions: <Widget>[
@@ -139,23 +136,25 @@ class _SensorState extends State<SensorPage> {
         clipBehavior: Clip.antiAlias,
         elevation: 16,
         shape:
-        RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
+            RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
         child: InkWell(
           onTap: () {
-            // if (listSensor != null && listSensor.length > 0) {
-            //   if (listSensor[0].dataList.length > 0) {
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => MotorDetailPage(0),
+                ));
+            // if (listData != null && listData.length > 0) {
+            //   if (listData[0].dataMotor.length > 0) {
             //     Navigator.push(
-            //       context,
-            //       MaterialPageRoute(builder: (context) => DetailSensorPage(0),
-            //     ));
+            //         context,
+            //         MaterialPageRoute(
+            //           builder: (context) => MotorDetailPage(0),
+            //         ));
             //   } else {
             //     dialog();
             //   }
             // }
-            Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => DetailSensorPage(0),
-                ));
           },
           child: Column(
             mainAxisSize: MainAxisSize.min,
@@ -259,14 +258,14 @@ class _SensorState extends State<SensorPage> {
         clipBehavior: Clip.antiAlias,
         elevation: 16,
         shape:
-        RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
+            RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
         child: InkWell(
           onTap: () {
-            // if (listSensor != null && listSensor.length > 0) {
-            //   if (listSensor[1].dataList.length > 0) {
+            // if (listData != null && listData.length > 0) {
+            //   if (listData[1].dataMotor.length > 0) {
             //     Navigator.push(
             //       context,
-            //       MaterialPageRoute(builder: (context) => DetailSensorPage(1)),
+            //       MaterialPageRoute(builder: (context) => MotorDetailPage(1)),
             //     );
             //   } else {
             //     dialog();
@@ -274,7 +273,7 @@ class _SensorState extends State<SensorPage> {
             // }
             Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => DetailSensorPage(1)),
+              MaterialPageRoute(builder: (context) => MotorDetailPage(1)),
             );
           },
           child: Column(
@@ -377,22 +376,24 @@ class _SensorState extends State<SensorPage> {
         clipBehavior: Clip.antiAlias,
         elevation: 16,
         shape:
-        RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
+            RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
         child: InkWell(
-          onTap: () { if (listSensor != null && listSensor.length > 0) {
-            // if (listSensor[2].dataList.length > 0) {
-            //   Navigator.push(
-            //     context,
-            //     MaterialPageRoute(builder: (context) => DetailSensorPage(2)),
-            //   );
-            // } else {
-            //   dialog();
+          onTap: () {
+            // if (listData != null && listData.length > 0) {
+            //   if (listData[2].dataMotor.length > 0) {
+            //     Navigator.push(
+            //       context,
+            //       MaterialPageRoute(builder: (context) => MotorDetailPage(2)),
+            //     );
+            //   } else {
+            //     dialog();
+            //   }
             // }
             Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => DetailSensorPage(2)),
+              MaterialPageRoute(builder: (context) => MotorDetailPage(2)),
             );
-          }},
+          },
           child: Column(
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -495,22 +496,24 @@ class _SensorState extends State<SensorPage> {
         clipBehavior: Clip.antiAlias,
         elevation: 16,
         shape:
-        RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
+            RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
         child: InkWell(
-          onTap: () { if (listSensor != null && listSensor.length > 0) {
-            // if (listSensor[3].dataList.length > 0) {
-            //   Navigator.push(
-            //     context,
-            //     MaterialPageRoute(builder: (context) => DetailSensorPage(3)),
-            //   );
-            // } else {
-            //   dialog();
+          onTap: () {
+            // if (listData != null && listData.length > 0) {
+            //   if (listData[3].dataMotor.length > 0) {
+            //     Navigator.push(
+            //       context,
+            //       MaterialPageRoute(builder: (context) => MotorDetailPage(3)),
+            //     );
+            //   } else {
+            //     dialog();
+            //   }
             // }
             Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => DetailSensorPage(3)),
+              MaterialPageRoute(builder: (context) => MotorDetailPage(3)),
             );
-          }},
+          },
           child: Column(
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -613,23 +616,25 @@ class _SensorState extends State<SensorPage> {
         clipBehavior: Clip.antiAlias,
         elevation: 16,
         shape:
-        RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
+            RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
         child: InkWell(
           onTap: () {
-            // if (listSensor != null && listSensor.length > 0) {
-            //   if (listSensor[4].dataList.length > 0) {
+            // if (listData != null && listData.length > 0) {
+            //   if (listData[4].dataMotor.length > 0) {
             //     Navigator.push(
             //       context,
-            //       MaterialPageRoute(builder: (context) => DetailSensorPage(4)),
+            //       MaterialPageRoute(builder: (context) => MotorDetailPage(4)),
             //     );
             //   } else {
             //     dialog();
             //   }
             // }
+
             Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => DetailSensorPage(4)),
+              MaterialPageRoute(builder: (context) => MotorDetailPage(4)),
             );
+
           },
           child: Column(
             mainAxisSize: MainAxisSize.min,
@@ -733,12 +738,12 @@ class _SensorState extends State<SensorPage> {
       isApiCallProcess = true;
     });
     APIService apiService = new APIService();
-    apiService.getListSensor(userLocal.accessToken, factoryLocal.factoryId.toString()).then((value) {
+    apiService.getListMotor(userLocal.accessToken, factoryLocal.factoryId.toString()).then((value) {
       setState(() {
         isApiCallProcess = false;
       });
       if (value.statusCode == 200) {
-        listSensor = value.data;
+        listData = value.data;
         print(value.toJson());
       }
     });
@@ -747,25 +752,18 @@ class _SensorState extends State<SensorPage> {
   dialog() {
     showDialog<String>(
       context: context,
-      builder: (BuildContext
-      context) =>
-          AlertDialog(
-            title: const Text(
-                'Lỗi'),
-            content: const Text(
-                'Không có dữ liệu'),
-            actions: <Widget>[
-              TextButton(
-                onPressed: () {
-                  Navigator.pop(
-                      context,
-                      'OK');
-                },
-                child: const Text(
-                    'OK'),
-              ),
-            ],
+      builder: (BuildContext context) => AlertDialog(
+        title: const Text('Lỗi'),
+        content: const Text('Không có dữ liệu'),
+        actions: <Widget>[
+          TextButton(
+            onPressed: () {
+              Navigator.pop(context, 'OK');
+            },
+            child: const Text('OK'),
           ),
+        ],
+      ),
     );
   }
 }

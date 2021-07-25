@@ -6,29 +6,28 @@ import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:water_iot/SharedPref.dart';
 import 'package:water_iot/api/api_service.dart';
-import 'package:water_iot/model/factory_model.dart';
-import 'package:water_iot/model/login_model.dart';
+import 'package:water_iot/model/CustomerResponseModel.dart';
+import 'package:water_iot/screen/factory/factory_admin.dart';
 import 'package:water_iot/screen/login/login.dart';
 import 'package:water_iot/screen/main/main.dart';
 
 import '../../ProgressHUD.dart';
 import '../../constants.dart';
 
-class FactoryAminPage extends StatefulWidget {
+class CustomerPage extends StatefulWidget {
   @override
-  _FactoryState createState() => _FactoryState();
+  _CustomerState createState() => _CustomerState();
 }
 
-class _FactoryState extends State<FactoryAminPage> {
+class _CustomerState extends State<CustomerPage> {
   bool isApiCallProcess = false;
   final scaffoldKey = GlobalKey<ScaffoldState>();
-  List<DataFactory> _factory;
+  List<Data> _customers;
 
   @override
   void initState() {
     super.initState();
-    // Call the getJSONData() method when the app initializes
-    loadFactory();
+    loadCustomers();
   }
 
   @override
@@ -45,8 +44,8 @@ class _FactoryState extends State<FactoryAminPage> {
       backgroundColor: Color(0xFFF5F6FA),
       appBar: AppBar(
           title: Text(
-            "FACTORY",
-            style: TextStyle(color: mTexHeadLoginColor),
+            "CUSTOMER",
+            // style: TextStyle(color: mTexHeadLoginColor),
           ),
           centerTitle: true),
       body: Stack(
@@ -62,30 +61,30 @@ class _FactoryState extends State<FactoryAminPage> {
 
   Widget _buildListView() {
     return ListView.builder(
-        itemCount: _factory == null ? 0 : _factory.length,
+        itemCount: _customers == null ? 0 : _customers.length,
         itemBuilder: (context, index) {
-          return _buildCard(_factory[index]);
+          return _buildCard(_customers[index]);
           // return _buildRow(data[index]);
         });
   }
 
-  Widget _buildCard(DataFactory item) {
+  Widget _buildCard(Data item) {
     return Padding(
       padding: const EdgeInsets.all(15.0),
       child: Card(
         clipBehavior: Clip.antiAlias,
         elevation: 16,
         shape:
-            RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
+        RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
         child: InkWell(
           onTap: () {
-            factoryLocal = item;
+            customerId = item.id.toString();
             Navigator.pushAndRemoveUntil(
               context,
               MaterialPageRoute(
-                builder: (context) => MainPage(0),
+                builder: (context) => FactoryAminPage(),
               ),
-              (route) => false,
+                  (route) => false,
             );
           },
           child: Column(
@@ -103,11 +102,22 @@ class _FactoryState extends State<FactoryAminPage> {
                       children: [
                         Flexible(
                           child: CachedNetworkImage(
-                            imageUrl: item.thumbnail,
+                            imageUrl: item.logo,
+                            imageBuilder: (context, imageProvider) =>
+                                Container(
+                                  height: 180,
+                                  width: 400,
+                                  decoration: BoxDecoration(
+                                    image: DecorationImage(
+                                      image: imageProvider,
+                                      fit: BoxFit.fill,
+                                    ),
+                                  ),
+                                ),
                             placeholder: (context, url) =>
-                                new CircularProgressIndicator(),
+                            new CircularProgressIndicator(),
                             errorWidget: (context, url, error) =>
-                                new Icon(Icons.error),
+                            new Icon(Icons.error),
                             fadeOutDuration: new Duration(seconds: 1),
                             fadeInDuration: new Duration(seconds: 3),
                             // height: 160,
@@ -122,7 +132,7 @@ class _FactoryState extends State<FactoryAminPage> {
                         ),
                       ],
                     ),
-                    SizedBox(height: 13),
+                    SizedBox(height: 18),
                     new Row(
                       children: [
                         Expanded(
@@ -132,7 +142,7 @@ class _FactoryState extends State<FactoryAminPage> {
                               style: TextStyle(
                                 color: textDashboardColor,
                                 fontFamily: 'OpenSans',
-                                fontSize: 20.0,
+                                fontSize: 25.0,
                                 fontWeight: FontWeight.bold,
                               ),
                             ),
@@ -143,24 +153,24 @@ class _FactoryState extends State<FactoryAminPage> {
                         ),
                       ],
                     ),
-                    SizedBox(height: 10),
-                    new Row(
-                      children: [
-                        Expanded(
-                          child: Container(
-                            child: Text(
-                              item.address,
-                              style: TextStyle(
-                                color: textDashboardColor,
-                                fontFamily: 'OpenSans',
-                                fontSize: 17.0,
-                                fontWeight: FontWeight.normal,
-                              ),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
+                    // SizedBox(height: 10),
+                    // new Row(
+                    //   children: [
+                    //     Expanded(
+                    //       child: Container(
+                    //         child: Text(
+                    //           "item.address",
+                    //           style: TextStyle(
+                    //             color: textDashboardColor,
+                    //             fontFamily: 'OpenSans',
+                    //             fontSize: 17.0,
+                    //             fontWeight: FontWeight.normal,
+                    //           ),
+                    //         ),
+                    //       ),
+                    //     ),
+                    //   ],
+                    // ),
                     SizedBox(height: 18),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.start,
@@ -169,11 +179,11 @@ class _FactoryState extends State<FactoryAminPage> {
                           padding: EdgeInsets.symmetric(
                               vertical: 17, horizontal: 60),
                           onPressed: () {
-                            factoryLocal = item;
+                            customerId = item.id.toString();
                             Navigator.pushAndRemoveUntil(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => MainPage(0),
+                                builder: (context) => FactoryAminPage(),
                               ),
                                   (route) => false,
                             );
@@ -203,56 +213,43 @@ class _FactoryState extends State<FactoryAminPage> {
     );
   }
 
-  loadFactory() async {
+  loadCustomers() async {
     setState(() {
       isApiCallProcess = true;
     });
-    APIService apiService = new APIService();
-    apiService.getListFactory(userLocal.accessToken).then((value) {
-      print(value.toJson());
-      setState(() {
-        isApiCallProcess = false;
-      });
-      if (value != null) {
-        if (value.statusCode == 200) {
-          _factory = value.data;
-        } else {
-          if (value.errorCode == 401) {
-            Navigator.pushAndRemoveUntil(
-              context,
-              MaterialPageRoute(
-                builder: (context) {
-                  return LoginPage();
-                },
-              ),
-              (route) => false,
-            );
+    if (userLocal.group[0].code == "super_admin_app") {
+      APIService apiService = new APIService();
+      apiService.getListCustomer(userLocal.accessToken).then((value) {
+        print(value.toJson());
+        setState(() {
+          isApiCallProcess = false;
+        });
+        if (value != null) {
+          if (value.statusCode == 200) {
+            _customers = value.data;
+          } else {
+            if (value.errorCode == 401) {
+              Navigator.pushAndRemoveUntil(
+                context,
+                MaterialPageRoute(
+                  builder: (context) {
+                    return LoginPage();
+                  },
+                ),
+                    (route) => false,
+              );
+            }
           }
         }
-      }
-    }).catchError((onError) {
-      setState(() {
-        isApiCallProcess = false;
+      }).catchError((onError) {
+        setState(() {
+          isApiCallProcess = false;
+        });
+        final snackBar = SnackBar(
+            content: Text("Lỗi server"));
+        scaffoldKey.currentState
+            .showSnackBar(snackBar);
       });
-      final snackBar = SnackBar(content: Text("Lỗi server"));
-      scaffoldKey.currentState.showSnackBar(snackBar);
-    });
-  }
-
-  Future<Data> getUserInfo() async {
-    final SharedPreferences prefs = await SharedPreferences.getInstance();
-
-    Map<String, dynamic> userMap;
-    final String userStr = prefs.getString('InfoUser');
-    if (userStr != null) {
-      userMap = jsonDecode(userStr) as Map<String, dynamic>;
     }
-
-    if (userMap != null) {
-      final Data user = Data.fromJson(userMap);
-      print(user);
-      return user;
-    }
-    return null;
   }
 }

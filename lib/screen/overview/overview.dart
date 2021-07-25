@@ -63,7 +63,8 @@ class _OverViewState extends State<OverViewPage> {
                       children: <Widget>[
                         Center(
                           child: Text(
-                            userLocal.factory.name,
+                            nameFactory,
+                            // userLocal.factory.name,
                             textAlign: TextAlign.center,
                             style: TextStyle(
                               color: borderEdittextColor,
