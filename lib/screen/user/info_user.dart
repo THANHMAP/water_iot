@@ -71,7 +71,7 @@ class _PersonalInfoState extends State<PersonalInfoPage> {
       backgroundColor: Color(0xFFF5F6FA),
       appBar: AppBar(
           title: Text(
-            "Update personal info",
+            "Cập Nhật Thông Tin Người Dùng",
             // style: TextStyle(color: mTexHeadLoginColor),
           ),
           centerTitle: true,
@@ -118,6 +118,7 @@ class _PersonalInfoState extends State<PersonalInfoPage> {
                                       ? "Vui lòng nhập họ và tên"
                                       : null,
                                   decoration: new InputDecoration(
+                                    fillColor: Colors.white, filled: true,
                                     labelText: 'Họ & tên',
                                     hintText: "Họ & tên",
                                     border: OutlineInputBorder(),
@@ -151,6 +152,7 @@ class _PersonalInfoState extends State<PersonalInfoPage> {
                                       ? "Vui lòng nhập số điện thoại"
                                       : null,
                                   decoration: new InputDecoration(
+                                    fillColor: Colors.white, filled: true,
                                     labelText: 'Số điện thoại',
                                     hintText: "Số điện thoại",
                                     border: OutlineInputBorder(),
@@ -184,6 +186,7 @@ class _PersonalInfoState extends State<PersonalInfoPage> {
                                       ? "Vui lòng nhập email"
                                       : null,
                                   decoration: new InputDecoration(
+                                    fillColor: Colors.white, filled: true,
                                     labelText: 'E-mail',
                                     hintText: "E-mail",
                                     border: OutlineInputBorder(),
@@ -218,6 +221,7 @@ class _PersonalInfoState extends State<PersonalInfoPage> {
                                       ? "Vui lòng nhập địa chỉ"
                                       : null,
                                   decoration: new InputDecoration(
+                                    fillColor: Colors.white, filled: true,
                                     labelText: "Địa chỉ",
                                     hintText: "Địa chỉ",
                                     border: OutlineInputBorder(),
@@ -253,6 +257,7 @@ class _PersonalInfoState extends State<PersonalInfoPage> {
                                     });
                                   },
                                   decoration: const InputDecoration(
+                                    fillColor: Colors.white, filled: true,
                                     hintText: "Giới tính",
                                     border: OutlineInputBorder(),
                                   ),
@@ -286,6 +291,7 @@ class _PersonalInfoState extends State<PersonalInfoPage> {
                                 DateTimeFormField(
                                   initialValue: selectedData,
                                   decoration: const InputDecoration(
+                                    fillColor: Colors.white, filled: true,
                                     hintStyle: TextStyle(color: Colors.black45),
                                     errorStyle:
                                         TextStyle(color: Colors.redAccent),

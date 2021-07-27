@@ -181,6 +181,29 @@ class APIService {
       throw Exception('Failed to load');
     }
   }
+
+  Future<AvatarResponseModel> uploadImageHTTP(file) async {
+    String token = userLocal.accessToken;
+    Map<String, String> headers = {'Authorization': 'Bearer $token'};
+    try {
+      var request =
+          http.MultipartRequest('POST', Uri.parse(AppUrl.upload_avatar));
+      request.headers.addAll(headers);
+      request.files.add(await http.MultipartFile.fromPath('avatar', file.path));
+      var response = await http.Response.fromStream(await request.send());
+      if (response.statusCode == 200 ||
+          response.statusCode == 400 ||
+          response.statusCode == 401 ||
+          response.statusCode == 500) {
+        return AvatarResponseModel.fromJson(
+          json.decode(response.body),
+        );
+      }
+      return null;
+    } on SocketException catch (e) {
+      throw Exception('Failed to load');
+    }
+  }
 }
 
 class ResponseNormal {
@@ -201,6 +224,49 @@ class ResponseNormal {
     data['status'] = this.status;
     data['status_code'] = this.statusCode;
     data['message'] = this.message;
+    return data;
+  }
+}
+
+class AvatarResponseModel {
+  bool status;
+  int statusCode;
+  String message;
+  DataAvatar data;
+
+  AvatarResponseModel({this.status, this.statusCode, this.message, this.data});
+
+  AvatarResponseModel.fromJson(Map<String, dynamic> json) {
+    status = json['status'];
+    statusCode = json['status_code'];
+    message = json['message'];
+    data = json['data'] != null ? new DataAvatar.fromJson(json['data']) : null;
+  }
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    data['status'] = this.status;
+    data['status_code'] = this.statusCode;
+    data['message'] = this.message;
+    if (this.data != null) {
+      data['data'] = this.data.toJson();
+    }
+    return data;
+  }
+}
+
+class DataAvatar {
+  String avatar;
+
+  DataAvatar({this.avatar});
+
+  DataAvatar.fromJson(Map<String, dynamic> json) {
+    avatar = json['avatar'];
+  }
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    data['avatar'] = this.avatar;
     return data;
   }
 }

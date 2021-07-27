@@ -85,7 +85,7 @@ class _ValveState extends State<ValvePage> {
                       children: <Widget>[
                         Center(
                           child: Text(
-                            'HA THANH WATER SUPPLY FACTORY 30.000m3 Capacity',
+                           factoryLocal.name,
                             textAlign: TextAlign.center,
                             style: TextStyle(
                               color: borderEdittextColor,
@@ -95,7 +95,7 @@ class _ValveState extends State<ValvePage> {
                             ),
                           ),
                         ),
-                        SizedBox(height: 20),
+                        SizedBox(height: 10),
                         Center(
                           child: Text(
                             'MONITORING & SCALLING SENSOR',
@@ -140,13 +140,6 @@ class _ValveState extends State<ValvePage> {
         RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
         child: InkWell(
           onTap: () {
-            // if (listData != null && listData.length > 0) {
-            //   if (listData[0].dataMotor.length > 0) {
-            //
-            //   } else {
-            //     dialog();
-            //   }
-            // }
             Navigator.push(
                 context,
                 MaterialPageRoute(
@@ -170,6 +163,7 @@ class _ValveState extends State<ValvePage> {
                     new Row(
                       children: [
                         Expanded(
+                          flex: 1,
                           child: Container(
                             alignment: Alignment.center,
                             // color: Colors.amber,
@@ -184,12 +178,8 @@ class _ValveState extends State<ValvePage> {
                             ),
                           ),
                         ),
-                        Container(
-                          // color: Colors.blue,
-                          height: 100,
-                          width: 30,
-                        ),
                         Expanded(
+                          flex: 2,
                           child: Column(
                             children: <Widget>[
                               new Row(
@@ -198,9 +188,8 @@ class _ValveState extends State<ValvePage> {
                                     child: Container(
                                       alignment: Alignment.center,
                                       // color: Colors.amber,
-
                                       child: Text(
-                                        "RAW PUMP STATION",
+                                        "RAW STATION",
                                         textAlign: TextAlign.center,
                                         style: TextStyle(
                                             color: Colors.white, fontSize: 20),
@@ -226,11 +215,6 @@ class _ValveState extends State<ValvePage> {
                               ),
                             ],
                           ),
-                        ),
-                        Container(
-                          // color: Colors.blue,
-                          height: 100,
-                          width: 80,
                         ),
                       ],
                     ),
@@ -258,16 +242,6 @@ class _ValveState extends State<ValvePage> {
         RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
         child: InkWell(
           onTap: () {
-            // if (listData != null && listData.length > 0) {
-            //   if (listData[1].dataMotor.length > 0) {
-            //     Navigator.push(
-            //       context,
-            //       MaterialPageRoute(builder: (context) => MotorDetailPage(1)),
-            //     );
-            //   } else {
-            //     dialog();
-            //   }
-            // }
             Navigator.push(
               context,
               MaterialPageRoute(builder: (context) => ValveDetailPage(1)),
@@ -290,6 +264,7 @@ class _ValveState extends State<ValvePage> {
                     new Row(
                       children: [
                         Expanded(
+                          flex: 1,
                           child: Container(
                             alignment: Alignment.center,
                             // color: Colors.amber,
@@ -304,12 +279,8 @@ class _ValveState extends State<ValvePage> {
                             ),
                           ),
                         ),
-                        Container(
-                          // color: Colors.blue,
-                          height: 100,
-                          width: 30,
-                        ),
                         Expanded(
+                          flex: 2,
                           child: Column(
                             children: <Widget>[
                               new Row(
@@ -345,11 +316,6 @@ class _ValveState extends State<ValvePage> {
                             ],
                           ),
                         ),
-                        Container(
-                          // color: Colors.blue,
-                          height: 100,
-                          width: 80,
-                        ),
                       ],
                     ),
                   ],
@@ -376,16 +342,6 @@ class _ValveState extends State<ValvePage> {
         RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
         child: InkWell(
           onTap: () {
-            // if (listData != null && listData.length > 0) {
-            //   if (listData[2].dataMotor.length > 0) {
-            //     Navigator.push(
-            //       context,
-            //       MaterialPageRoute(builder: (context) => MotorDetailPage(2)),
-            //     );
-            //   } else {
-            //     dialog();
-            //   }
-            // }
             Navigator.push(
               context,
               MaterialPageRoute(builder: (context) => ValveDetailPage(2)),
@@ -408,6 +364,7 @@ class _ValveState extends State<ValvePage> {
                     new Row(
                       children: [
                         Expanded(
+                          flex: 1,
                           child: Container(
                             alignment: Alignment.center,
                             // color: Colors.amber,
@@ -422,12 +379,8 @@ class _ValveState extends State<ValvePage> {
                             ),
                           ),
                         ),
-                        Container(
-                          // color: Colors.blue,
-                          height: 100,
-                          width: 30,
-                        ),
                         Expanded(
+                          flex: 2,
                           child: Column(
                             children: <Widget>[
                               new Row(
@@ -465,11 +418,6 @@ class _ValveState extends State<ValvePage> {
                             ],
                           ),
                         ),
-                        Container(
-                          // color: Colors.blue,
-                          height: 100,
-                          width: 80,
-                        ),
                       ],
                     ),
                   ],
@@ -496,16 +444,6 @@ class _ValveState extends State<ValvePage> {
         RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
         child: InkWell(
           onTap: () {
-            // if (listData != null && listData.length > 0) {
-            //   if (listData[3].dataMotor.length > 0) {
-            //     Navigator.push(
-            //       context,
-            //       MaterialPageRoute(builder: (context) => MotorDetailPage(3)),
-            //     );
-            //   } else {
-            //     dialog();
-            //   }
-            // }
             Navigator.push(
               context,
               MaterialPageRoute(builder: (context) => ValveDetailPage(3)),
@@ -528,6 +466,7 @@ class _ValveState extends State<ValvePage> {
                     new Row(
                       children: [
                         Expanded(
+                          flex: 1,
                           child: Container(
                             alignment: Alignment.center,
                             // color: Colors.amber,
@@ -542,12 +481,8 @@ class _ValveState extends State<ValvePage> {
                             ),
                           ),
                         ),
-                        Container(
-                          // color: Colors.blue,
-                          height: 100,
-                          width: 30,
-                        ),
                         Expanded(
+                          flex: 2,
                           child: Column(
                             children: <Widget>[
                               new Row(
@@ -585,11 +520,6 @@ class _ValveState extends State<ValvePage> {
                             ],
                           ),
                         ),
-                        Container(
-                          // color: Colors.blue,
-                          height: 100,
-                          width: 80,
-                        ),
                       ],
                     ),
                   ],
@@ -616,16 +546,6 @@ class _ValveState extends State<ValvePage> {
         RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
         child: InkWell(
           onTap: () {
-            // if (listData != null && listData.length > 0) {
-            //   if (listData[4].dataMotor.length > 0) {
-            //     Navigator.push(
-            //       context,
-            //       MaterialPageRoute(builder: (context) => MotorDetailPage(4)),
-            //     );
-            //   } else {
-            //     dialog();
-            //   }
-            // }
             Navigator.push(
               context,
               MaterialPageRoute(builder: (context) => ValveDetailPage(4)),
@@ -648,6 +568,7 @@ class _ValveState extends State<ValvePage> {
                     new Row(
                       children: [
                         Expanded(
+                          flex: 1,
                           child: Container(
                             alignment: Alignment.center,
                             // color: Colors.amber,
@@ -662,12 +583,13 @@ class _ValveState extends State<ValvePage> {
                             ),
                           ),
                         ),
-                        Container(
-                          // color: Colors.blue,
-                          height: 100,
-                          width: 30,
-                        ),
+                        // Container(
+                        //   // color: Colors.blue,
+                        //   height: 100,
+                        //   width: 30,
+                        // ),
                         Expanded(
+                          flex: 2,
                           child: Column(
                             children: <Widget>[
                               new Row(
@@ -707,11 +629,11 @@ class _ValveState extends State<ValvePage> {
                             ],
                           ),
                         ),
-                        Container(
-                          // color: Colors.blue,
-                          height: 100,
-                          width: 80,
-                        ),
+                        // Container(
+                        //   // color: Colors.blue,
+                        //   height: 100,
+                        //   width: 80,
+                        // ),
                       ],
                     ),
                   ],
@@ -748,7 +670,6 @@ class _ValveState extends State<ValvePage> {
     showDialog<String>(
       context: context,
       builder: (BuildContext context) => AlertDialog(
-        title: const Text('Lỗi'),
         content: const Text('Không có dữ liệu'),
         actions: <Widget>[
           TextButton(

@@ -44,7 +44,7 @@ class _FactoryState extends State<FactoryPage> {
       backgroundColor: Color(0xFFF5F6FA),
       appBar: AppBar(
           title: Text(
-            "FACTORY",
+            "Nhà Máy",
             style: TextStyle(color: mTexHeadLoginColor),
           ),
           centerTitle: true,
@@ -108,7 +108,7 @@ class _FactoryState extends State<FactoryPage> {
               context,
               MaterialPageRoute(
                 builder: (context) {
-                  return MainPage(0);
+                  return MainPage();
                 },
               ),
               (route) => false,
@@ -198,7 +198,7 @@ class _FactoryState extends State<FactoryPage> {
                               context,
                               MaterialPageRoute(
                                 builder: (context) {
-                                  return MainPage(0);
+                                  return MainPage();
                                 },
                               ),
                               (route) => false,

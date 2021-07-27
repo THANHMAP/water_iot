@@ -41,7 +41,7 @@ class _DashBoardPageState extends State<DashBoardPage> {
     return Scaffold(
         appBar: AppBar(
           title: Text(
-            "DASHBOARD",
+            "Bảng Điều Khiển",
             // style: TextStyle(color: mTexHeadLoginColor),
           ),
           centerTitle: true,
@@ -127,7 +127,7 @@ class _DashBoardPageState extends State<DashBoardPage> {
                       child: Container(
                         margin: new EdgeInsets.symmetric(horizontal: 50.0),
                         child: Text(
-                          'Customer',
+                          'Khách Hàng',
                           style: TextStyle(
                             color: textDashboardColor,
                             fontFamily: 'OpenSans',
@@ -197,7 +197,7 @@ class _DashBoardPageState extends State<DashBoardPage> {
                         margin: new EdgeInsets.symmetric(
                             horizontal: 50.0),
                         child: Text(
-                          'Factory',
+                          'Nhà Máy',
                           style: TextStyle(
                             color: textDashboardColor,
                             fontFamily: 'OpenSans',
@@ -268,7 +268,7 @@ class _DashBoardPageState extends State<DashBoardPage> {
                         margin: new EdgeInsets.symmetric(
                             horizontal: 50.0),
                         child: Text(
-                          'Overview',
+                          'Tổng Quan',
                           style: TextStyle(
                             color: textDashboardColor,
                             fontFamily: 'OpenSans',
@@ -339,7 +339,7 @@ class _DashBoardPageState extends State<DashBoardPage> {
                         margin: new EdgeInsets.symmetric(
                             horizontal: 50.0),
                         child: Text(
-                          'Sensor',
+                          'Cảm Biến',
                           style: TextStyle(
                             color: textDashboardColor,
                             fontFamily: 'OpenSans',
@@ -481,7 +481,7 @@ class _DashBoardPageState extends State<DashBoardPage> {
                         margin: new EdgeInsets.symmetric(
                             horizontal: 50.0),
                         child: Text(
-                          'Valve',
+                          'Vavle',
                           style: TextStyle(
                             color: textDashboardColor,
                             fontFamily: 'OpenSans',
@@ -552,7 +552,7 @@ class _DashBoardPageState extends State<DashBoardPage> {
                         margin: new EdgeInsets.symmetric(
                             horizontal: 50.0),
                         child: Text(
-                          'Chart',
+                          'Thống Kê',
                           style: TextStyle(
                             color: textDashboardColor,
                             fontFamily: 'OpenSans',
@@ -622,7 +622,7 @@ class _DashBoardPageState extends State<DashBoardPage> {
                       margin: new EdgeInsets.symmetric(
                           horizontal: 50.0),
                       child: Text(
-                        'Alarm',
+                        'Thông Báo',
                         style: TextStyle(
                           color: textDashboardColor,
                           fontFamily: 'OpenSans',
@@ -685,7 +685,7 @@ class _DashBoardPageState extends State<DashBoardPage> {
                         margin: new EdgeInsets.symmetric(
                             horizontal: 50.0),
                         child: Text(
-                          'Google map',
+                          'Bản Đồ',
                           style: TextStyle(
                             color: textDashboardColor,
                             fontFamily: 'OpenSans',
@@ -757,7 +757,7 @@ class _DashBoardPageState extends State<DashBoardPage> {
                         margin: new EdgeInsets.symmetric(
                             horizontal: 50.0),
                         child: Text(
-                          'Factory',
+                          'Nhà Máy',
                           style: TextStyle(
                             color: textDashboardColor,
                             fontFamily: 'OpenSans',
@@ -828,7 +828,7 @@ class _DashBoardPageState extends State<DashBoardPage> {
                         margin: new EdgeInsets.symmetric(
                             horizontal: 50.0),
                         child: Text(
-                          'Overview',
+                          'Tổng Quan',
                           style: TextStyle(
                             color: textDashboardColor,
                             fontFamily: 'OpenSans',
@@ -899,7 +899,7 @@ class _DashBoardPageState extends State<DashBoardPage> {
                         margin: new EdgeInsets.symmetric(
                             horizontal: 50.0),
                         child: Text(
-                          'Sensor',
+                          'Cảm Biến',
                           style: TextStyle(
                             color: textDashboardColor,
                             fontFamily: 'OpenSans',
@@ -1041,7 +1041,7 @@ class _DashBoardPageState extends State<DashBoardPage> {
                         margin: new EdgeInsets.symmetric(
                             horizontal: 50.0),
                         child: Text(
-                          'Valve',
+                          'Vavle',
                           style: TextStyle(
                             color: textDashboardColor,
                             fontFamily: 'OpenSans',
@@ -1112,7 +1112,7 @@ class _DashBoardPageState extends State<DashBoardPage> {
                         margin: new EdgeInsets.symmetric(
                             horizontal: 50.0),
                         child: Text(
-                          'Chart',
+                          'Thống Kê',
                           style: TextStyle(
                             color: textDashboardColor,
                             fontFamily: 'OpenSans',
@@ -1182,7 +1182,7 @@ class _DashBoardPageState extends State<DashBoardPage> {
                       margin: new EdgeInsets.symmetric(
                           horizontal: 50.0),
                       child: Text(
-                        'Alarm',
+                        'Thông Báo',
                         style: TextStyle(
                           color: textDashboardColor,
                           fontFamily: 'OpenSans',
@@ -1245,7 +1245,7 @@ class _DashBoardPageState extends State<DashBoardPage> {
                         margin: new EdgeInsets.symmetric(
                             horizontal: 50.0),
                         child: Text(
-                          'Google map',
+                          'Bản Đồ',
                           style: TextStyle(
                             color: textDashboardColor,
                             fontFamily: 'OpenSans',

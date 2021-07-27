@@ -44,7 +44,7 @@ class _CustomerState extends State<CustomerPage> {
       backgroundColor: Color(0xFFF5F6FA),
       appBar: AppBar(
           title: Text(
-            "CUSTOMER",
+            "Khách Hàng",
             // style: TextStyle(color: mTexHeadLoginColor),
           ),
           centerTitle: true),
@@ -172,7 +172,8 @@ class _CustomerState extends State<CustomerPage> {
                     // ),
                     SizedBox(height: 18),
                     Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.center, //Center Row contents horizontally,
+                      crossAxisAlignment: CrossAxisAlignment.center, //Center Row contents vertically,
                       children: <Widget>[
                         FlatButton(
                           padding: EdgeInsets.symmetric(

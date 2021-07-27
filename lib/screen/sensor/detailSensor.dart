@@ -22,6 +22,7 @@ class DetailSensorPage extends StatefulWidget {
 
 class _DetailSensorState extends State<DetailSensorPage> {
   bool isReload = true;
+  final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
   bool isApiCallProcess = false;
   final scaffoldKey = GlobalKey<ScaffoldState>();
   List<DataList> listDataSensor = [];
@@ -242,41 +243,43 @@ class _DetailSensorState extends State<DetailSensorPage> {
                                     ],
                                   ),
                                 ),
-                                for (var i = 0;
-                                    i < dataList.dataSensor.length;
-                                    i++)
-                                  Container(
-                                    margin: const EdgeInsets.only(top: 10.0),
-                                    child: Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
-                                      children: <Widget>[
-                                        Text(dataList.dataSensor[i].value,
-                                            style: TextStyle(
-                                                color: Colors.grey[800],
-                                                fontSize: 17)),
-                                        RichText(
-                                          text: WidgetSpan(
-                                            child: Container(
-                                              padding: EdgeInsets.all(6),
-                                              decoration: BoxDecoration(
-                                                  borderRadius:
-                                                      BorderRadius.circular(4),
-                                                  color: Color(0xFF4CAF50)),
-                                              child: Text(
-                                                dataList.dataSensor[i].unit,
-                                                textAlign: TextAlign.center,
-                                                style: TextStyle(
-                                                  fontWeight: FontWeight.w500,
-                                                  color: Colors.white,
+                                if (dataList.dataSensor.length > 0)
+                                  for (var i = 0;
+                                      i < dataList.dataSensor.length;
+                                      i++)
+                                    Container(
+                                      margin: const EdgeInsets.only(top: 10.0),
+                                      child: Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        children: <Widget>[
+                                          Text(dataList.dataSensor[i].value,
+                                              style: TextStyle(
+                                                  color: Colors.grey[800],
+                                                  fontSize: 17)),
+                                          RichText(
+                                            text: WidgetSpan(
+                                              child: Container(
+                                                padding: EdgeInsets.all(6),
+                                                decoration: BoxDecoration(
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            4),
+                                                    color: Color(0xFF4CAF50)),
+                                                child: Text(
+                                                  dataList.dataSensor[i].unit,
+                                                  textAlign: TextAlign.center,
+                                                  style: TextStyle(
+                                                    fontWeight: FontWeight.w500,
+                                                    color: Colors.white,
+                                                  ),
                                                 ),
                                               ),
                                             ),
                                           ),
-                                        ),
-                                      ],
+                                        ],
+                                      ),
                                     ),
-                                  ),
                               ]),
                         ),
                         Expanded(
@@ -352,6 +355,7 @@ class _DetailSensorState extends State<DetailSensorPage> {
   Widget _uiSetup(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
+          key: _scaffoldKey,
           appBar: AppBar(
               title: Text(title
                   // style: TextStyle(color: mTexHeadLoginColor),
@@ -413,9 +417,9 @@ class _DetailSensorState extends State<DetailSensorPage> {
           for (var i = 0; i < listDataSensor.length; i++) {
             listDataSensor[i].updateStatus = updateStatus;
           }
-          setState(() {
-            listDataSensor;
-          });
+          // setState(() {
+          //   listDataSensor;
+          // });
           print(value.toJson());
           Timer(Duration(seconds: 30), () {
             isReload = false;
@@ -427,12 +431,16 @@ class _DetailSensorState extends State<DetailSensorPage> {
         }
       }
     }).catchError((onError) {
+      print(onError);
       setState(() {
         isApiCallProcess = false;
       });
-      final snackBar = SnackBar(content: Text("Lỗi server"));
-      scaffoldKey.currentState.showSnackBar(snackBar);
+      showInSnackBar("Lỗi server");
     });
+  }
+
+  void showInSnackBar(String value) {
+    _scaffoldKey.currentState.showSnackBar(new SnackBar(content: new Text(value)));
   }
 
   Container getContainer(
@@ -552,7 +560,6 @@ class _DetailSensorState extends State<DetailSensorPage> {
     showDialog<String>(
       context: context,
       builder: (BuildContext context) => AlertDialog(
-        title: const Text('Lỗi'),
         content: const Text('Không có dữ liệu'),
         actions: <Widget>[
           TextButton(

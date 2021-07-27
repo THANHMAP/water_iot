@@ -9,5 +9,6 @@ class AppUrl {
   static const String get_list_motor = baseURL + "/motor/list";
   static const String get_list_valve = baseURL + "/valve/list";
   static const String get_list_customer = baseURL + "/customer/list";
+  static const String upload_avatar= baseURL + "/user/update-avatar";
   // static const String forgotPassword = baseURL + "/forgot-password";
 }

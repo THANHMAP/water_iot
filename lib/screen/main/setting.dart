@@ -1,11 +1,17 @@
+import 'dart:io';
+
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:water_iot/SharedPref.dart';
+import 'package:water_iot/api/api_service.dart';
 import 'package:water_iot/screen/login/login.dart';
 import 'package:water_iot/screen/user/change_password.dart';
 import 'package:water_iot/screen/user/info_user.dart';
 
+import '../../ProgressHUD.dart';
 import '../../constants.dart';
 
 class SettingPage extends StatefulWidget {
@@ -16,16 +22,27 @@ class SettingPage extends StatefulWidget {
 class _SettingPageState extends State<SettingPage> {
   final String _fullName = userLocal.name;
   final String _lastLoginGin = userLocal.lastLogin;
+  String urlImg;
   final String _status = "Software Developer";
   final String _bio =
       "\"Hi, I am a Freelance developer working for hourly basis. If you wants to contact me to build your product leave a message.\"";
   final String _followers = "173";
   final String _posts = "24";
   final String _scores = "450";
-
+  File imageFile;
+  bool isApiCallProcess = false;
   @override
   void initState() {
     super.initState();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return ProgressHUD(
+      child: _uiSetup(context),
+      inAsyncCall: isApiCallProcess,
+      opacity: 0.6,
+    );
   }
 
   Widget _buildCoverImage(Size screenSize) {
@@ -41,23 +58,54 @@ class _SettingPageState extends State<SettingPage> {
   }
 
   Widget _buildProfileImage() {
-    return Center(
-      child: Container(
-        width: 140.0,
-        height: 140.0,
-        decoration: BoxDecoration(
-          image: DecorationImage(
-            image: AssetImage('assets/images/test.jpg'),
-            fit: BoxFit.cover,
-          ),
-          borderRadius: BorderRadius.circular(80.0),
-          border: Border.all(
-            color: Color(0xFF556DD3),
-            width: 1.0,
+    return loadProfile();
+  }
+
+  Widget loadProfile() {
+    if (userLocal.avatar.isEmpty) {
+      urlImg = "assets/images/no_image.png";
+      return Center(
+        child: Container(
+          width: 140.0,
+          height: 140.0,
+          decoration: BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage(urlImg),
+              fit: BoxFit.cover,
+            ),
+            borderRadius: BorderRadius.circular(80.0),
+            border: Border.all(
+              color: Color(0xFF556DD3),
+              width: 1.0,
+            ),
           ),
         ),
-      ),
-    );
+      );
+    } else {
+      urlImg = userLocal.avatar;
+      return Center(
+        child: Container(
+          width: 140.0,
+          height: 140.0,
+          decoration: BoxDecoration(
+            image: DecorationImage(
+              image: new CachedNetworkImageProvider(urlImg),
+              fit: BoxFit.cover,
+            ),
+            borderRadius: BorderRadius.circular(80.0),
+            border: Border.all(
+              color: Color(0xFF556DD3),
+              width: 1.0,
+            ),
+          ),
+          // child: CachedNetworkImage(
+          //   imageUrl: urlImg,
+          //   placeholder: (context, url) => new CircularProgressIndicator(),
+          //   errorWidget: (context, url, error) => new Icon(Icons.error),
+          // ),
+        ),
+      );
+    }
   }
 
   Widget _buildFullName() {
@@ -78,13 +126,11 @@ class _SettingPageState extends State<SettingPage> {
     return Container(
       padding: EdgeInsets.symmetric(vertical: 4.0, horizontal: 6.0),
       decoration: BoxDecoration(
-        color: Theme
-            .of(context)
-            .scaffoldBackgroundColor,
+        color: Theme.of(context).scaffoldBackgroundColor,
         borderRadius: BorderRadius.circular(4.0),
       ),
       child: Text(
-        "Nearest access:",
+        "Lần Truy Cập Gần Nhất:",
         style: TextStyle(
           fontFamily: 'Spectral',
           color: Colors.black,
@@ -99,9 +145,7 @@ class _SettingPageState extends State<SettingPage> {
     return Container(
       padding: EdgeInsets.symmetric(vertical: 4.0, horizontal: 6.0),
       decoration: BoxDecoration(
-        color: Theme
-            .of(context)
-            .scaffoldBackgroundColor,
+        color: Theme.of(context).scaffoldBackgroundColor,
         borderRadius: BorderRadius.circular(4.0),
       ),
       child: Text(
@@ -178,7 +222,7 @@ class _SettingPageState extends State<SettingPage> {
                 child: Container(
                   margin: new EdgeInsets.symmetric(horizontal: 50.0),
                   child: Text(
-                    'General information',
+                    'Thông Tin Chung',
                     style: TextStyle(
                       color: textDashboardColor,
                       fontFamily: 'OpenSans',
@@ -210,72 +254,72 @@ class _SettingPageState extends State<SettingPage> {
 
   Widget _buildStatContainerInfoPerson() {
     return InkWell(
-        child: Container(
-          height: 40.0,
-          // margin: EdgeInsets.only(top: 8.0),
-          decoration: const BoxDecoration(
-            border: Border(
-              top: BorderSide(width: 0.5, color: Color(0xFFB3B3B3)),
-              // left: BorderSide(width: 1.0, color: Color(0xFFFFFFFF)),
-              // right: BorderSide(width: 1.0, color: Color(0xFF000000)),
-              bottom: BorderSide(width: 0.5, color: Color(0xFFB3B3B3)),
-            ),
-          ),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: <Widget>[
-              new Row(
-                // mainAxisAlignment: MainAxisAlignment.center,
-                // crossAxisAlignment: CrossAxisAlignment.center,
-                children: <Widget>[
-                  Expanded(
-                    flex: 10,
-                    child: SvgPicture.asset(
-                      "assets/images/ic_setting.svg",
-                      width: 20,
-                      height: 30,
-                    ),
-                  ),
-                  Expanded(
-                    flex: 50,
-                    child: Container(
-                      margin: new EdgeInsets.symmetric(horizontal: 50.0),
-                      child: Text(
-                        'Personal Information',
-                        style: TextStyle(
-                          color: textDashboardColor,
-                          fontFamily: 'OpenSans',
-                          fontSize: 16.0,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      // child: Center(
-                      //
-                      // ),
-                    ),
-                  ),
-                  Expanded(
-                    flex: 10,
-                    child: Padding(
-                      padding: const EdgeInsets.only(right: 40.0),
-                      child: Image.asset(
-                        "assets/images/ic_arrow.png",
-                        fit: BoxFit.contain,
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ],
+      child: Container(
+        height: 40.0,
+        // margin: EdgeInsets.only(top: 8.0),
+        decoration: const BoxDecoration(
+          border: Border(
+            top: BorderSide(width: 0.5, color: Color(0xFFB3B3B3)),
+            // left: BorderSide(width: 1.0, color: Color(0xFFFFFFFF)),
+            // right: BorderSide(width: 1.0, color: Color(0xFF000000)),
+            bottom: BorderSide(width: 0.5, color: Color(0xFFB3B3B3)),
           ),
         ),
-        onTap: (){
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => PersonalInfoPage()),
-          );
-        },
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: <Widget>[
+            new Row(
+              // mainAxisAlignment: MainAxisAlignment.center,
+              // crossAxisAlignment: CrossAxisAlignment.center,
+              children: <Widget>[
+                Expanded(
+                  flex: 10,
+                  child: SvgPicture.asset(
+                    "assets/images/ic_setting.svg",
+                    width: 20,
+                    height: 30,
+                  ),
+                ),
+                Expanded(
+                  flex: 50,
+                  child: Container(
+                    margin: new EdgeInsets.symmetric(horizontal: 50.0),
+                    child: Text(
+                      'Thông Tin Người Dùng',
+                      style: TextStyle(
+                        color: textDashboardColor,
+                        fontFamily: 'OpenSans',
+                        fontSize: 16.0,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    // child: Center(
+                    //
+                    // ),
+                  ),
+                ),
+                Expanded(
+                  flex: 10,
+                  child: Padding(
+                    padding: const EdgeInsets.only(right: 40.0),
+                    child: Image.asset(
+                      "assets/images/ic_arrow.png",
+                      fit: BoxFit.contain,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ],
+        ),
+      ),
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => PersonalInfoPage()),
+        );
+      },
     );
   }
 
@@ -313,7 +357,7 @@ class _SettingPageState extends State<SettingPage> {
                   child: Container(
                     margin: new EdgeInsets.symmetric(horizontal: 50.0),
                     child: Text(
-                      'Change Password',
+                      'Đổi Mật Khẩu',
                       style: TextStyle(
                         color: textDashboardColor,
                         fontFamily: 'OpenSans',
@@ -384,7 +428,7 @@ class _SettingPageState extends State<SettingPage> {
                   child: Container(
                     margin: new EdgeInsets.symmetric(horizontal: 50.0),
                     child: Text(
-                      'Log out',
+                      'Đăng Xuất',
                       style: TextStyle(
                         color: textDashboardColor,
                         fontFamily: 'OpenSans',
@@ -429,9 +473,7 @@ class _SettingPageState extends State<SettingPage> {
     );
 
     return Container(
-      color: Theme
-          .of(context)
-          .scaffoldBackgroundColor,
+      color: Theme.of(context).scaffoldBackgroundColor,
       padding: EdgeInsets.all(8.0),
       child: Text(
         _bio,
@@ -452,9 +494,7 @@ class _SettingPageState extends State<SettingPage> {
 
   Widget _buildGetInTouch(BuildContext context) {
     return Container(
-      color: Theme
-          .of(context)
-          .scaffoldBackgroundColor,
+      color: Theme.of(context).scaffoldBackgroundColor,
       padding: EdgeInsets.only(top: 10.0),
       child: Text(
         "Get in Touch with ${_fullName.split(" ")[0]},",
@@ -465,7 +505,7 @@ class _SettingPageState extends State<SettingPage> {
 
   Widget _buildButtons() {
     return Padding(
-      padding: EdgeInsets.symmetric(vertical: 17, horizontal: 100),
+      padding: EdgeInsets.symmetric(vertical: 17, horizontal: 75),
       child: Container(
         height: 30.0,
         decoration: BoxDecoration(
@@ -476,7 +516,9 @@ class _SettingPageState extends State<SettingPage> {
         child: Row(
           children: <Widget>[
             Expanded(
+              flex: 1,
               child: Container(
+                padding: new EdgeInsets.only(right: 10),
                 child: Align(
                   alignment: Alignment.centerRight,
                   child: Image.asset(
@@ -490,11 +532,13 @@ class _SettingPageState extends State<SettingPage> {
             Expanded(
               flex: 3,
               child: InkWell(
-                onTap: () => print("followed"),
+                onTap: (){
+                  _getFromGallery();
+                },
                 child: Container(
                   child: Center(
                     child: Text(
-                      "Update Infomation",
+                      "Cập Nhật Hình Ảnh Đại Diện",
                       style: TextStyle(
                         color: Colors.white,
                         fontWeight: FontWeight.w600,
@@ -531,15 +575,12 @@ class _SettingPageState extends State<SettingPage> {
     );
   }
 
-  @override
-  Widget build(BuildContext context) {
-    Size screenSize = MediaQuery
-        .of(context)
-        .size;
+  Widget _uiSetup(BuildContext context) {
+    Size screenSize = MediaQuery.of(context).size;
     return Scaffold(
-        backgroundColor: Color(0xFFF5F6FA),
+        backgroundColor: Colors.white,
         appBar: AppBar(
-          title: Text("Account Information"),
+          title: Text("Tài Khoản"),
           centerTitle: true,
           actions: <Widget>[
             IconButton(
@@ -603,7 +644,34 @@ class _SettingPageState extends State<SettingPage> {
           return LoginPage();
         },
       ),
-          (route) => false,
+      (route) => false,
     );
+  }
+
+  /// Get from gallery
+  _getFromGallery() async {
+    PickedFile pickedFile = await ImagePicker().getImage(
+      source: ImageSource.gallery,
+      maxWidth: 1800,
+      maxHeight: 1800,
+    );
+    if (pickedFile != null) {
+      setState(() {
+        imageFile = File(pickedFile.path);
+        isApiCallProcess = true;
+      });
+      // File imageFile = File(pickedFile.path);
+      print(imageFile);
+      APIService apiService = new APIService();
+      apiService.uploadImageHTTP(imageFile).then((value) {
+        setState(() {
+          isApiCallProcess = false;
+        });
+        userLocal.avatar = value.data.avatar;
+        setState(() {
+          return userLocal;
+        });
+      });
+    }
   }
 }

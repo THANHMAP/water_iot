@@ -87,17 +87,17 @@ class _SensorState extends State<SensorPage> {
                       children: <Widget>[
                         Center(
                           child: Text(
-                            'HA THANH WATER SUPPLY FACTORY 30.000m3 Capacity',
+                            factoryLocal.name,
                             textAlign: TextAlign.center,
                             style: TextStyle(
                               color: borderEdittextColor,
                               fontFamily: 'OpenSans',
                               fontSize: 18.0,
-                              fontWeight: FontWeight.normal,
+                              fontWeight: FontWeight.bold,
                             ),
                           ),
                         ),
-                        SizedBox(height: 20),
+                        SizedBox(height: 10),
                         Center(
                           child: Text(
                             'MONITORING & SCALLING SENSOR',
@@ -142,16 +142,6 @@ class _SensorState extends State<SensorPage> {
         RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
         child: InkWell(
           onTap: () {
-            // if (listSensor != null && listSensor.length > 0) {
-            //   if (listSensor[0].dataList.length > 0) {
-            //     Navigator.push(
-            //       context,
-            //       MaterialPageRoute(builder: (context) => DetailSensorPage(0),
-            //     ));
-            //   } else {
-            //     dialog();
-            //   }
-            // }
             Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => DetailSensorPage(0),
@@ -174,6 +164,7 @@ class _SensorState extends State<SensorPage> {
                     new Row(
                       children: [
                         Expanded(
+                          flex: 1,
                           child: Container(
                             alignment: Alignment.center,
                             // color: Colors.amber,
@@ -188,12 +179,8 @@ class _SensorState extends State<SensorPage> {
                             ),
                           ),
                         ),
-                        Container(
-                          // color: Colors.blue,
-                          height: 100,
-                          width: 30,
-                        ),
                         Expanded(
+                          flex: 2,
                           child: Column(
                             children: <Widget>[
                               new Row(
@@ -202,9 +189,8 @@ class _SensorState extends State<SensorPage> {
                                     child: Container(
                                       alignment: Alignment.center,
                                       // color: Colors.amber,
-
                                       child: Text(
-                                        "RAW PUMP STATION",
+                                        "RAW STATION",
                                         textAlign: TextAlign.center,
                                         style: TextStyle(
                                             color: Colors.white, fontSize: 20),
@@ -230,11 +216,6 @@ class _SensorState extends State<SensorPage> {
                               ),
                             ],
                           ),
-                        ),
-                        Container(
-                          // color: Colors.blue,
-                          height: 100,
-                          width: 80,
                         ),
                       ],
                     ),
@@ -262,16 +243,6 @@ class _SensorState extends State<SensorPage> {
         RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
         child: InkWell(
           onTap: () {
-            // if (listSensor != null && listSensor.length > 0) {
-            //   if (listSensor[1].dataList.length > 0) {
-            //     Navigator.push(
-            //       context,
-            //       MaterialPageRoute(builder: (context) => DetailSensorPage(1)),
-            //     );
-            //   } else {
-            //     dialog();
-            //   }
-            // }
             Navigator.push(
               context,
               MaterialPageRoute(builder: (context) => DetailSensorPage(1)),
@@ -294,6 +265,7 @@ class _SensorState extends State<SensorPage> {
                     new Row(
                       children: [
                         Expanded(
+                          flex: 1,
                           child: Container(
                             alignment: Alignment.center,
                             // color: Colors.amber,
@@ -308,12 +280,8 @@ class _SensorState extends State<SensorPage> {
                             ),
                           ),
                         ),
-                        Container(
-                          // color: Colors.blue,
-                          height: 100,
-                          width: 30,
-                        ),
                         Expanded(
+                          flex: 2,
                           child: Column(
                             children: <Widget>[
                               new Row(
@@ -349,11 +317,6 @@ class _SensorState extends State<SensorPage> {
                             ],
                           ),
                         ),
-                        Container(
-                          // color: Colors.blue,
-                          height: 100,
-                          width: 80,
-                        ),
                       ],
                     ),
                   ],
@@ -380,14 +343,6 @@ class _SensorState extends State<SensorPage> {
         RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
         child: InkWell(
           onTap: () { if (listSensor != null && listSensor.length > 0) {
-            // if (listSensor[2].dataList.length > 0) {
-            //   Navigator.push(
-            //     context,
-            //     MaterialPageRoute(builder: (context) => DetailSensorPage(2)),
-            //   );
-            // } else {
-            //   dialog();
-            // }
             Navigator.push(
               context,
               MaterialPageRoute(builder: (context) => DetailSensorPage(2)),
@@ -410,6 +365,7 @@ class _SensorState extends State<SensorPage> {
                     new Row(
                       children: [
                         Expanded(
+                          flex: 1,
                           child: Container(
                             alignment: Alignment.center,
                             // color: Colors.amber,
@@ -424,12 +380,8 @@ class _SensorState extends State<SensorPage> {
                             ),
                           ),
                         ),
-                        Container(
-                          // color: Colors.blue,
-                          height: 100,
-                          width: 30,
-                        ),
                         Expanded(
+                          flex: 2,
                           child: Column(
                             children: <Widget>[
                               new Row(
@@ -467,11 +419,6 @@ class _SensorState extends State<SensorPage> {
                             ],
                           ),
                         ),
-                        Container(
-                          // color: Colors.blue,
-                          height: 100,
-                          width: 80,
-                        ),
                       ],
                     ),
                   ],
@@ -498,14 +445,6 @@ class _SensorState extends State<SensorPage> {
         RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
         child: InkWell(
           onTap: () { if (listSensor != null && listSensor.length > 0) {
-            // if (listSensor[3].dataList.length > 0) {
-            //   Navigator.push(
-            //     context,
-            //     MaterialPageRoute(builder: (context) => DetailSensorPage(3)),
-            //   );
-            // } else {
-            //   dialog();
-            // }
             Navigator.push(
               context,
               MaterialPageRoute(builder: (context) => DetailSensorPage(3)),
@@ -528,6 +467,7 @@ class _SensorState extends State<SensorPage> {
                     new Row(
                       children: [
                         Expanded(
+                          flex: 1,
                           child: Container(
                             alignment: Alignment.center,
                             // color: Colors.amber,
@@ -542,12 +482,8 @@ class _SensorState extends State<SensorPage> {
                             ),
                           ),
                         ),
-                        Container(
-                          // color: Colors.blue,
-                          height: 100,
-                          width: 30,
-                        ),
                         Expanded(
+                          flex: 2,
                           child: Column(
                             children: <Widget>[
                               new Row(
@@ -585,11 +521,6 @@ class _SensorState extends State<SensorPage> {
                             ],
                           ),
                         ),
-                        Container(
-                          // color: Colors.blue,
-                          height: 100,
-                          width: 80,
-                        ),
                       ],
                     ),
                   ],
@@ -616,16 +547,6 @@ class _SensorState extends State<SensorPage> {
         RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
         child: InkWell(
           onTap: () {
-            // if (listSensor != null && listSensor.length > 0) {
-            //   if (listSensor[4].dataList.length > 0) {
-            //     Navigator.push(
-            //       context,
-            //       MaterialPageRoute(builder: (context) => DetailSensorPage(4)),
-            //     );
-            //   } else {
-            //     dialog();
-            //   }
-            // }
             Navigator.push(
               context,
               MaterialPageRoute(builder: (context) => DetailSensorPage(4)),
@@ -648,6 +569,7 @@ class _SensorState extends State<SensorPage> {
                     new Row(
                       children: [
                         Expanded(
+                          flex: 1,
                           child: Container(
                             alignment: Alignment.center,
                             // color: Colors.amber,
@@ -662,12 +584,13 @@ class _SensorState extends State<SensorPage> {
                             ),
                           ),
                         ),
-                        Container(
-                          // color: Colors.blue,
-                          height: 100,
-                          width: 30,
-                        ),
+                        // Container(
+                        //   // color: Colors.blue,
+                        //   height: 100,
+                        //   width: 30,
+                        // ),
                         Expanded(
+                          flex: 2,
                           child: Column(
                             children: <Widget>[
                               new Row(
@@ -707,11 +630,11 @@ class _SensorState extends State<SensorPage> {
                             ],
                           ),
                         ),
-                        Container(
-                          // color: Colors.blue,
-                          height: 100,
-                          width: 80,
-                        ),
+                        // Container(
+                        //   // color: Colors.blue,
+                        //   height: 100,
+                        //   width: 80,
+                        // ),
                       ],
                     ),
                   ],

@@ -7,14 +7,14 @@ import 'package:water_iot/screen/main/setting.dart';
 import 'package:water_iot/screen/overview/overview.dart';
 
 class MainPage extends StatefulWidget {
-  int _currentIndex;
-  MainPage(this._currentIndex, {Key key}): super(key: key);
+  // int _currentIndex;
+  // MainPage(this._currentIndex, {Key key}): super(key: key);
   @override
   _MainPageState createState() => _MainPageState();
 }
 
 class _MainPageState extends State<MainPage> {
-
+  int _currentIndex = 1;
   final _pageOptions = [HomePage(), DashBoardPage(), SettingPage()];
 
   @override
@@ -29,10 +29,10 @@ class _MainPageState extends State<MainPage> {
     final textTheme = Theme.of(context).textTheme;
 
     return Scaffold(
-      body: _pageOptions[widget._currentIndex],
+      body: _pageOptions[_currentIndex],
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
-        currentIndex: widget._currentIndex,
+        currentIndex: _currentIndex,
         backgroundColor: colorScheme.surface,
         selectedItemColor: Color(0xFF556DD3),
         unselectedItemColor: colorScheme.onSurface.withOpacity(.60),
@@ -40,11 +40,11 @@ class _MainPageState extends State<MainPage> {
         unselectedLabelStyle: textTheme.caption,
         onTap: (value) {
           // Respond to item press.
-          setState(() => widget._currentIndex = value);
+          setState(() => _currentIndex = value);
         },
         items: [
           BottomNavigationBarItem(
-            label: 'OverView',
+            label: 'Tổng Quan',
             icon: SvgPicture.asset(
               "assets/images/ic_dashboard.svg",
               width: 20,
@@ -58,7 +58,7 @@ class _MainPageState extends State<MainPage> {
             ),
           ),
           BottomNavigationBarItem(
-            label: 'DashBoard',
+            label: 'Bảng Điều Khiển',
             icon: SvgPicture.asset(
               "assets/images/ic_home.svg",
               width: 20,
@@ -72,7 +72,7 @@ class _MainPageState extends State<MainPage> {
             ),
           ),
           BottomNavigationBarItem(
-            label: 'Account Information',
+            label: 'Tài Khoản',
             icon: SvgPicture.asset(
               "assets/images/ic_setting.svg",
               width: 20,

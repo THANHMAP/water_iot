@@ -45,7 +45,7 @@ class _ChangePasswordPageState extends State<ChangePasswordPage> {
       backgroundColor: Color(0xFFF5F6FA),
       appBar: AppBar(
           title: Text(
-            "Change Password",
+            "Đổi Mật Khẩu",
             // style: TextStyle(color: mTexHeadLoginColor),
           ),
           centerTitle: true,
@@ -92,6 +92,7 @@ class _ChangePasswordPageState extends State<ChangePasswordPage> {
                                       : null,
                                   obscureText: true,
                                   decoration: new InputDecoration(
+                                    fillColor: Colors.white, filled: true,
                                     hintText: "Mật khảu mới",
                                     labelText: 'Mật khảu mới',
                                     border: OutlineInputBorder(),
@@ -127,6 +128,7 @@ class _ChangePasswordPageState extends State<ChangePasswordPage> {
                                       : null,
                                   obscureText: true,
                                   decoration: new InputDecoration(
+                                    fillColor: Colors.white, filled: true,
                                     border: OutlineInputBorder(),
                                     labelText: 'Nhập lại mật khẩu',
                                     hintText: "Nhập lại mật khẩu",

@@ -41,7 +41,7 @@ class _MotorState extends State<MotorPage> {
       backgroundColor: Color(0xFFF5F6FA),
       appBar: AppBar(
           title: Text(
-            "MOTOR",
+            "Motor",
             // style: TextStyle(color: mTexHeadLoginColor),
           ),
           centerTitle: true,
@@ -84,7 +84,7 @@ class _MotorState extends State<MotorPage> {
                       children: <Widget>[
                         Center(
                           child: Text(
-                            'HA THANH WATER SUPPLY FACTORY 30.000m3 Capacity',
+                            factoryLocal.name,
                             textAlign: TextAlign.center,
                             style: TextStyle(
                               color: borderEdittextColor,
@@ -94,7 +94,7 @@ class _MotorState extends State<MotorPage> {
                             ),
                           ),
                         ),
-                        SizedBox(height: 20),
+                        SizedBox(height: 10),
                         Center(
                           child: Text(
                             'MONITORING & SCALLING SENSOR',
@@ -144,17 +144,6 @@ class _MotorState extends State<MotorPage> {
                 MaterialPageRoute(
                   builder: (context) => MotorDetailPage(0),
                 ));
-            // if (listData != null && listData.length > 0) {
-            //   if (listData[0].dataMotor.length > 0) {
-            //     Navigator.push(
-            //         context,
-            //         MaterialPageRoute(
-            //           builder: (context) => MotorDetailPage(0),
-            //         ));
-            //   } else {
-            //     dialog();
-            //   }
-            // }
           },
           child: Column(
             mainAxisSize: MainAxisSize.min,
@@ -173,6 +162,7 @@ class _MotorState extends State<MotorPage> {
                     new Row(
                       children: [
                         Expanded(
+                          flex: 1,
                           child: Container(
                             alignment: Alignment.center,
                             // color: Colors.amber,
@@ -187,12 +177,8 @@ class _MotorState extends State<MotorPage> {
                             ),
                           ),
                         ),
-                        Container(
-                          // color: Colors.blue,
-                          height: 100,
-                          width: 30,
-                        ),
                         Expanded(
+                          flex: 2,
                           child: Column(
                             children: <Widget>[
                               new Row(
@@ -201,9 +187,8 @@ class _MotorState extends State<MotorPage> {
                                     child: Container(
                                       alignment: Alignment.center,
                                       // color: Colors.amber,
-
                                       child: Text(
-                                        "RAW PUMP STATION",
+                                        "RAW STATION",
                                         textAlign: TextAlign.center,
                                         style: TextStyle(
                                             color: Colors.white, fontSize: 20),
@@ -229,11 +214,6 @@ class _MotorState extends State<MotorPage> {
                               ),
                             ],
                           ),
-                        ),
-                        Container(
-                          // color: Colors.blue,
-                          height: 100,
-                          width: 80,
                         ),
                       ],
                     ),
@@ -261,16 +241,6 @@ class _MotorState extends State<MotorPage> {
             RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
         child: InkWell(
           onTap: () {
-            // if (listData != null && listData.length > 0) {
-            //   if (listData[1].dataMotor.length > 0) {
-            //     Navigator.push(
-            //       context,
-            //       MaterialPageRoute(builder: (context) => MotorDetailPage(1)),
-            //     );
-            //   } else {
-            //     dialog();
-            //   }
-            // }
             Navigator.push(
               context,
               MaterialPageRoute(builder: (context) => MotorDetailPage(1)),
@@ -293,6 +263,7 @@ class _MotorState extends State<MotorPage> {
                     new Row(
                       children: [
                         Expanded(
+                          flex: 1,
                           child: Container(
                             alignment: Alignment.center,
                             // color: Colors.amber,
@@ -307,12 +278,8 @@ class _MotorState extends State<MotorPage> {
                             ),
                           ),
                         ),
-                        Container(
-                          // color: Colors.blue,
-                          height: 100,
-                          width: 30,
-                        ),
                         Expanded(
+                          flex: 2,
                           child: Column(
                             children: <Widget>[
                               new Row(
@@ -348,11 +315,6 @@ class _MotorState extends State<MotorPage> {
                             ],
                           ),
                         ),
-                        Container(
-                          // color: Colors.blue,
-                          height: 100,
-                          width: 80,
-                        ),
                       ],
                     ),
                   ],
@@ -379,16 +341,6 @@ class _MotorState extends State<MotorPage> {
             RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
         child: InkWell(
           onTap: () {
-            // if (listData != null && listData.length > 0) {
-            //   if (listData[2].dataMotor.length > 0) {
-            //     Navigator.push(
-            //       context,
-            //       MaterialPageRoute(builder: (context) => MotorDetailPage(2)),
-            //     );
-            //   } else {
-            //     dialog();
-            //   }
-            // }
             Navigator.push(
               context,
               MaterialPageRoute(builder: (context) => MotorDetailPage(2)),
@@ -411,6 +363,7 @@ class _MotorState extends State<MotorPage> {
                     new Row(
                       children: [
                         Expanded(
+                          flex: 1,
                           child: Container(
                             alignment: Alignment.center,
                             // color: Colors.amber,
@@ -425,12 +378,8 @@ class _MotorState extends State<MotorPage> {
                             ),
                           ),
                         ),
-                        Container(
-                          // color: Colors.blue,
-                          height: 100,
-                          width: 30,
-                        ),
                         Expanded(
+                          flex: 2,
                           child: Column(
                             children: <Widget>[
                               new Row(
@@ -468,11 +417,6 @@ class _MotorState extends State<MotorPage> {
                             ],
                           ),
                         ),
-                        Container(
-                          // color: Colors.blue,
-                          height: 100,
-                          width: 80,
-                        ),
                       ],
                     ),
                   ],
@@ -499,16 +443,6 @@ class _MotorState extends State<MotorPage> {
             RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
         child: InkWell(
           onTap: () {
-            // if (listData != null && listData.length > 0) {
-            //   if (listData[3].dataMotor.length > 0) {
-            //     Navigator.push(
-            //       context,
-            //       MaterialPageRoute(builder: (context) => MotorDetailPage(3)),
-            //     );
-            //   } else {
-            //     dialog();
-            //   }
-            // }
             Navigator.push(
               context,
               MaterialPageRoute(builder: (context) => MotorDetailPage(3)),
@@ -531,6 +465,7 @@ class _MotorState extends State<MotorPage> {
                     new Row(
                       children: [
                         Expanded(
+                          flex: 1,
                           child: Container(
                             alignment: Alignment.center,
                             // color: Colors.amber,
@@ -545,12 +480,8 @@ class _MotorState extends State<MotorPage> {
                             ),
                           ),
                         ),
-                        Container(
-                          // color: Colors.blue,
-                          height: 100,
-                          width: 30,
-                        ),
                         Expanded(
+                          flex: 2,
                           child: Column(
                             children: <Widget>[
                               new Row(
@@ -588,11 +519,6 @@ class _MotorState extends State<MotorPage> {
                             ],
                           ),
                         ),
-                        Container(
-                          // color: Colors.blue,
-                          height: 100,
-                          width: 80,
-                        ),
                       ],
                     ),
                   ],
@@ -619,22 +545,10 @@ class _MotorState extends State<MotorPage> {
             RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
         child: InkWell(
           onTap: () {
-            // if (listData != null && listData.length > 0) {
-            //   if (listData[4].dataMotor.length > 0) {
-            //     Navigator.push(
-            //       context,
-            //       MaterialPageRoute(builder: (context) => MotorDetailPage(4)),
-            //     );
-            //   } else {
-            //     dialog();
-            //   }
-            // }
-
             Navigator.push(
               context,
               MaterialPageRoute(builder: (context) => MotorDetailPage(4)),
             );
-
           },
           child: Column(
             mainAxisSize: MainAxisSize.min,
@@ -653,6 +567,7 @@ class _MotorState extends State<MotorPage> {
                     new Row(
                       children: [
                         Expanded(
+                          flex: 1,
                           child: Container(
                             alignment: Alignment.center,
                             // color: Colors.amber,
@@ -667,12 +582,13 @@ class _MotorState extends State<MotorPage> {
                             ),
                           ),
                         ),
-                        Container(
-                          // color: Colors.blue,
-                          height: 100,
-                          width: 30,
-                        ),
+                        // Container(
+                        //   // color: Colors.blue,
+                        //   height: 100,
+                        //   width: 30,
+                        // ),
                         Expanded(
+                          flex: 2,
                           child: Column(
                             children: <Widget>[
                               new Row(
@@ -712,11 +628,11 @@ class _MotorState extends State<MotorPage> {
                             ],
                           ),
                         ),
-                        Container(
-                          // color: Colors.blue,
-                          height: 100,
-                          width: 80,
-                        ),
+                        // Container(
+                        //   // color: Colors.blue,
+                        //   height: 100,
+                        //   width: 80,
+                        // ),
                       ],
                     ),
                   ],
@@ -738,7 +654,9 @@ class _MotorState extends State<MotorPage> {
       isApiCallProcess = true;
     });
     APIService apiService = new APIService();
-    apiService.getListMotor(userLocal.accessToken, factoryLocal.factoryId.toString()).then((value) {
+    apiService
+        .getListMotor(userLocal.accessToken, factoryLocal.factoryId.toString())
+        .then((value) {
       setState(() {
         isApiCallProcess = false;
       });

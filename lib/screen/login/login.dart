@@ -72,7 +72,7 @@ class _LoginPageState extends State<LoginPage> {
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: <Widget>[
                               Text(
-                                'LOGIN',
+                                'Đăng Nhập',
                                 style: TextStyle(
                                   color: Colors.white,
                                   fontFamily: 'OpenSans',
@@ -118,7 +118,7 @@ class _LoginPageState extends State<LoginPage> {
                                     Expanded(
                                       child: Container(
                                         child: Text(
-                                          'Login To Accesss Dasboard',
+                                          'Đăng Nhập Vào Bảng Điều Khiển',
                                           style: TextStyle(
                                             color: mTexHeadLoginColor,
                                             fontFamily: 'OpenSans',

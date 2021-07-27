@@ -5,7 +5,8 @@ class FactoryResponseModel {
   String message;
   List<DataFactory> data;
 
-  FactoryResponseModel({this.status, this.statusCode, this.errorCode, this.message, this.data});
+  FactoryResponseModel(
+      {this.status, this.statusCode, this.errorCode, this.message, this.data});
 
   FactoryResponseModel.fromJson(Map<String, dynamic> json) {
     status = json['status'];
@@ -43,17 +44,19 @@ class DataFactory {
   String address;
   String thumbnail;
   String overview;
+  String overviewApp;
 
   DataFactory(
       {this.id,
-        this.factoryId,
-        this.name,
-        this.ip,
-        this.langtitude,
-        this.longtitude,
-        this.address,
-        this.thumbnail,
-        this.overview});
+      this.factoryId,
+      this.name,
+      this.ip,
+      this.langtitude,
+      this.longtitude,
+      this.address,
+      this.thumbnail,
+      this.overview,
+      this.overviewApp});
 
   DataFactory.fromJson(Map<String, dynamic> json) {
     id = json['id'];
@@ -65,6 +68,7 @@ class DataFactory {
     address = json['address'];
     thumbnail = json['thumbnail'];
     overview = json['overview'];
+    overviewApp = json['overview_app'];
   }
 
   Map<String, dynamic> toJson() {
@@ -78,6 +82,7 @@ class DataFactory {
     data['address'] = this.address;
     data['thumbnail'] = this.thumbnail;
     data['overview'] = this.overview;
+    data['overview_app'] = this.overviewApp;
     return data;
   }
 }

@@ -23,7 +23,7 @@ class _OverViewState extends State<OverViewPage> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-            title: Text("OverView"),
+            title: Text("Tổng Quan"),
             centerTitle: true,
             actions: <Widget>[
               IconButton(
@@ -50,78 +50,62 @@ class _OverViewState extends State<OverViewPage> {
                   Navigator.pop(context);
                 })),
       body: Container(
-        child: Container(
-          child: SingleChildScrollView(
-            child: new Container(
-              child: new Column(
-                children: <Widget>[
-                  Container(
-                    width: double.infinity,
-                    margin: EdgeInsets.symmetric(vertical: 20, horizontal: 20),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[
-                        Center(
-                          child: Text(
-                            nameFactory,
-                            // userLocal.factory.name,
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                              color: borderEdittextColor,
-                              fontFamily: 'OpenSans',
-                              fontSize: 18.0,
-                              fontWeight: FontWeight.normal,
-                            ),
-                          ),
-                        ),
-                        SizedBox(height: 20),
-                        // Center(
-                        //   child: Text(
-                        //     'MONITORING & SCALLING SENSOR',
-                        //     textAlign: TextAlign.center,
-                        //     style: TextStyle(
-                        //       color: Color(0xFF00B500),
-                        //       fontFamily: 'OpenSans',
-                        //       fontSize: 18.0,
-                        //       fontWeight: FontWeight.normal,
-                        //     ),
-                        //   ),
-                        // ),
-                        // SizedBox(height: 20),
-                        Container(
-                          child: Column(children: <Widget>[
-                            new Container(
-                              child: InteractiveViewer(
-                                  panEnabled: false, // Set it to false
-
-                                  child: AspectRatio(
-                                    aspectRatio: 1,
-                                    child: Column(
-                                      children: [
-                                        new CachedNetworkImage(
-                                          imageUrl: imgOverViewUrl,
-                                          placeholder: (context, url) =>
-                                          new CircularProgressIndicator(),
-                                          errorWidget: (context, url, error) =>
-                                          new Icon(Icons.error),
-                                          fadeOutDuration:
-                                          new Duration(seconds: 1),
-                                          fadeInDuration:
-                                          new Duration(seconds: 3),
-                                        ),
-                                      ],
-                                    ),
-                                  )),
-                            )
-                          ]),
-                        )
-                      ],
-                    ),
+        child: Column(
+          children: <Widget>[
+            Container(
+              // color: Colors.blue,
+              height: 40,
+              child: Center(
+                child: Text(
+                  factoryLocal.name,
+                  // userLocal.factory.name,
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    color: borderFocusEdittextColor,
+                    fontFamily: 'OpenSans',
+                    fontSize: 18.0,
+                    fontWeight: FontWeight.bold,
                   ),
-                ],
+                ),
               ),
             ),
-          ),
+            Expanded(
+              child: Container(
+                // color: Colors.amber,
+                child: InteractiveViewer(
+                    panEnabled: false, // Set it to false
+                    child: AspectRatio(
+                      aspectRatio: 1,
+                      child: Column(
+                        children: [
+                          Flexible(
+                            child: new CachedNetworkImage(
+                              imageUrl: factoryLocal.overviewApp,
+                              imageBuilder: (context, imageProvider) =>
+                                  Container(
+                                    height: double.infinity,
+                                    width: double.infinity,
+                                    decoration: BoxDecoration(
+                                      image: DecorationImage(
+                                        image: imageProvider,
+                                        fit: BoxFit.fill,
+                                      ),
+                                    ),
+                                  ),
+                              placeholder: (context, url) =>
+                              new CircularProgressIndicator(),
+                              errorWidget: (context, url, error) =>
+                              new Icon(Icons.error),
+                              fadeOutDuration: new Duration(seconds: 1),
+                              fadeInDuration: new Duration(seconds: 3),
+                            ),
+                          ),
+                        ],
+                      ),
+                    )),
+              ),
+            ),
+          ],
         ),
       ),
     );

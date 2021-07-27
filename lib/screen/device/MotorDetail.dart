@@ -68,6 +68,7 @@ class _MotorDetailState extends State<MotorDetailPage> {
   Widget _uiSetup(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
+          key: scaffoldKey,
           appBar: AppBar(
               title: Text(title
                   // style: TextStyle(color: mTexHeadLoginColor),
@@ -197,12 +198,16 @@ class _MotorDetailState extends State<MotorDetailPage> {
                                             ),
                                           ],
                                         ),
-                                        child: Center(
-                                          child: Text(dataMotor.statusName,
-                                              style: TextStyle(
-                                                  fontWeight: FontWeight.bold,
-                                                  color: Colors.grey[800],
-                                                  fontSize: 18)),
+                                        child: Padding(
+                                          padding:
+                                              EdgeInsets.fromLTRB(5, 5, 5, 5),
+                                          child: Center(
+                                            child: Text(dataMotor.statusName,
+                                                style: TextStyle(
+                                                    fontWeight: FontWeight.bold,
+                                                    color: Colors.grey[800],
+                                                    fontSize: 18)),
+                                          ),
                                         ),
                                       )),
                                 ],
@@ -244,13 +249,17 @@ class _MotorDetailState extends State<MotorDetailPage> {
                                           //   width: 1,
                                           // )
                                         ),
-                                        child: Center(
-                                          child: Text(
-                                              dataMotor.operationStatusName,
-                                              style: TextStyle(
-                                                  fontWeight: FontWeight.bold,
-                                                  color: Colors.grey[800],
-                                                  fontSize: 18)),
+                                        child: Padding(
+                                          padding:
+                                              EdgeInsets.fromLTRB(5, 5, 5, 5),
+                                          child: Center(
+                                            child: Text(
+                                                dataMotor.operationStatusName,
+                                                style: TextStyle(
+                                                    fontWeight: FontWeight.bold,
+                                                    color: Colors.grey[800],
+                                                    fontSize: 18)),
+                                          ),
                                         ),
                                       )),
                                 ],
@@ -349,7 +358,9 @@ class _MotorDetailState extends State<MotorDetailPage> {
       });
     }
     APIService apiService = new APIService();
-    apiService.getListMotor(userLocal.accessToken, factoryLocal.factoryId.toString()).then((value) {
+    apiService
+        .getListMotor(userLocal.accessToken, factoryLocal.factoryId.toString())
+        .then((value) {
       if (isReload == true) {
         setState(() {
           isApiCallProcess = false;
@@ -357,26 +368,23 @@ class _MotorDetailState extends State<MotorDetailPage> {
       }
       if (value.statusCode == 200) {
         _listMotors = value.data[position].dataMotor;
-        if(_listMotors.length > 0){
+        if (_listMotors.length > 0) {
           print(value.toJson());
           Timer(Duration(seconds: 120), () {
             isReload = false;
             loadData();
             print("Yeah, this line is printed after 120 seconds");
           });
-        }else{
+        } else {
           dialog();
         }
-
       }
-    }).catchError((onError){
+    }).catchError((onError) {
       setState(() {
         isApiCallProcess = false;
       });
-      final snackBar = SnackBar(
-          content: Text("Lỗi server"));
-      scaffoldKey.currentState
-          .showSnackBar(snackBar);
+      final snackBar = SnackBar(content: Text("Lỗi server"));
+      scaffoldKey.currentState.showSnackBar(snackBar);
     });
   }
 
@@ -384,7 +392,6 @@ class _MotorDetailState extends State<MotorDetailPage> {
     showDialog<String>(
       context: context,
       builder: (BuildContext context) => AlertDialog(
-        title: const Text('Lỗi'),
         content: const Text('Không có dữ liệu'),
         actions: <Widget>[
           TextButton(
@@ -397,7 +404,6 @@ class _MotorDetailState extends State<MotorDetailPage> {
       ),
     );
   }
-
 }
 
 class HexColor extends Color {

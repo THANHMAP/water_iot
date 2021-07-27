@@ -45,7 +45,7 @@ class _FactoryState extends State<FactoryAminPage> {
       backgroundColor: Color(0xFFF5F6FA),
       appBar: AppBar(
           title: Text(
-            "FACTORY",
+            "Nhà Máy",
             style: TextStyle(color: mTexHeadLoginColor),
           ),
           centerTitle: true),
@@ -83,7 +83,7 @@ class _FactoryState extends State<FactoryAminPage> {
             Navigator.pushAndRemoveUntil(
               context,
               MaterialPageRoute(
-                builder: (context) => MainPage(0),
+                builder: (context) => MainPage(),
               ),
               (route) => false,
             );
@@ -167,17 +167,18 @@ class _FactoryState extends State<FactoryAminPage> {
                       children: <Widget>[
                         FlatButton(
                           padding: EdgeInsets.symmetric(
-                              vertical: 17, horizontal: 60),
+                              vertical: 13, horizontal: 30),
                           onPressed: () {
                             factoryLocal = item;
                             Navigator.pushAndRemoveUntil(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => MainPage(0),
+                                builder: (context) => MainPage(),
                               ),
                                   (route) => false,
                             );
                           },
+
                           child: Text(
                             "Truy cập",
                             style: TextStyle(color: Colors.white),
@@ -216,6 +217,7 @@ class _FactoryState extends State<FactoryAminPage> {
       if (value != null) {
         if (value.statusCode == 200) {
           _factory = value.data;
+          listFactoryLocal = _factory;
         } else {
           if (value.errorCode == 401) {
             Navigator.pushAndRemoveUntil(

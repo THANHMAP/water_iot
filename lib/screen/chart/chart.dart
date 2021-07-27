@@ -27,8 +27,8 @@ class _ScatterChartPageState extends State {
       backgroundColor: Color(0xFFF5F6FA),
       appBar: AppBar(
           title: Text(
-            "CHART",
-            style: TextStyle(color: mTexHeadLoginColor),
+            "Biểu Đồ",
+            // style: TextStyle(color: mTexHeadLoginColor),
           ),
           centerTitle: true,
           actions: <Widget>[

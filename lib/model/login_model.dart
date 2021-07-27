@@ -90,6 +90,7 @@ class Data {
   String birthday;
   String gender;
   List<Group> group;
+  String avatar;
   String lastLogin;
   String createdAt;
   String updatedAt;
@@ -106,6 +107,7 @@ class Data {
       this.birthday,
       this.gender,
       this.group,
+      this.avatar,
       this.lastLogin,
       this.createdAt,
       this.updatedAt,
@@ -129,6 +131,7 @@ class Data {
         group.add(new Group.fromJson(v));
       });
     }
+    avatar = json['avatar'];
     lastLogin = json['last_login'];
     createdAt = json['createdAt'];
     updatedAt = json['updatedAt'];
@@ -151,6 +154,7 @@ class Data {
     if (this.group != null) {
       data['group'] = this.group.map((v) => v.toJson()).toList();
     }
+    data['avatar'] = this.avatar;
     data['last_login'] = this.lastLogin;
     data['createdAt'] = this.createdAt;
     data['updatedAt'] = this.updatedAt;

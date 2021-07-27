@@ -69,6 +69,7 @@ class _ValveDetailState extends State<ValveDetailPage> {
   Widget _uiSetup(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
+          key: scaffoldKey,
           appBar: AppBar(
               title: Text(title
                   // style: TextStyle(color: mTexHeadLoginColor),
@@ -203,12 +204,16 @@ class _ValveDetailState extends State<ValveDetailPage> {
                                           //   width: 1,
                                           // )
                                         ),
-                                        child: Center(
-                                          child: Text(dataValve.statusName,
-                                              style: TextStyle(
-                                                  fontWeight: FontWeight.bold,
-                                                  color: Colors.grey[800],
-                                                  fontSize: 18)),
+                                        child: Padding(
+                                          padding:
+                                              EdgeInsets.fromLTRB(5, 5, 5, 5),
+                                          child: Center(
+                                            child: Text(dataValve.statusName,
+                                                style: TextStyle(
+                                                    fontWeight: FontWeight.bold,
+                                                    color: Colors.grey[800],
+                                                    fontSize: 18)),
+                                          ),
                                         ),
                                       )),
                                 ],
@@ -250,13 +255,17 @@ class _ValveDetailState extends State<ValveDetailPage> {
                                           //   width: 1,
                                           // )
                                         ),
-                                        child: Center(
-                                          child: Text(
-                                              dataValve.operationStatusName,
-                                              style: TextStyle(
-                                                  fontWeight: FontWeight.bold,
-                                                  color: Colors.grey[800],
-                                                  fontSize: 18)),
+                                        child: Padding(
+                                          padding:
+                                              EdgeInsets.fromLTRB(5, 5, 5, 5),
+                                          child: Center(
+                                            child: Text(
+                                                dataValve.operationStatusName,
+                                                style: TextStyle(
+                                                    fontWeight: FontWeight.bold,
+                                                    color: Colors.grey[800],
+                                                    fontSize: 18)),
+                                          ),
                                         ),
                                       )),
                                 ],
@@ -390,7 +399,6 @@ class _ValveDetailState extends State<ValveDetailPage> {
     showDialog<String>(
       context: context,
       builder: (BuildContext context) => AlertDialog(
-        title: const Text('Lỗi'),
         content: const Text('Không có dữ liệu'),
         actions: <Widget>[
           TextButton(
