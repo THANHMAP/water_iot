@@ -27,6 +27,7 @@ class _MapPageState extends State {
       zoom: 5);
 
   @override
+  // ignore: must_call_super
   void initState() {
     addMarker();
     loadBound();
