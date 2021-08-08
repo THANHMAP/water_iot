@@ -97,7 +97,7 @@ class _MotorState extends State<MotorPage> {
                         SizedBox(height: 10),
                         Center(
                           child: Text(
-                            'MONITORING & SCALLING SENSOR',
+                            'MONITORING & SCALLING MOTOR',
                             textAlign: TextAlign.center,
                             style: TextStyle(
                               color: Color(0xFF00B500),

@@ -12,14 +12,16 @@ class SensorRequestModel {
 class SensorResponseModel {
   bool status;
   int statusCode;
+  int errorCode;
   String message;
   List<Data> data;
 
-  SensorResponseModel({this.status, this.statusCode, this.message, this.data});
+  SensorResponseModel({this.status, this.statusCode, this.errorCode, this.message, this.data});
 
   SensorResponseModel.fromJson(Map<String, dynamic> json) {
     status = json['status'];
     statusCode = json['status_code'];
+    errorCode = json['error_code'];
     message = json['message'];
     if (json['data'] != null) {
       data = [];
@@ -33,6 +35,7 @@ class SensorResponseModel {
     final Map<String, dynamic> data = new Map<String, dynamic>();
     data['status'] = this.status;
     data['status_code'] = this.statusCode;
+    data['error_code'] = this.errorCode;
     data['message'] = this.message;
     if (this.data != null) {
       data['data'] = this.data.map((v) => v.toJson()).toList();

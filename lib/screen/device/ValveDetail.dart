@@ -6,6 +6,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:water_iot/api/api_service.dart';
 import 'package:water_iot/model/motor.dart';
 import 'package:water_iot/model/valve_model.dart';
+import 'package:water_iot/screen/login/login.dart';
 
 import '../../ProgressHUD.dart';
 import '../../SharedPref.dart';
@@ -384,6 +385,18 @@ class _ValveDetailState extends State<ValveDetailPage> {
           });
         } else {
           dialog();
+        }
+      } else {
+        if (value.errorCode == 401) {
+          Navigator.pushAndRemoveUntil(
+            context,
+            MaterialPageRoute(
+              builder: (context) {
+                return LoginPage();
+              },
+            ),
+            (route) => false,
+          );
         }
       }
     }).catchError((onError) {

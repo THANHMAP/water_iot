@@ -5,9 +5,13 @@ import 'package:water_iot/SharedPref.dart';
 import 'package:water_iot/api/AppUrl.dart';
 import 'package:water_iot/model/CustomerResponseModel.dart';
 import 'package:water_iot/model/change_password_model.dart';
+import 'package:water_iot/model/chemical/chemical.dart';
+import 'package:water_iot/model/electric/electric_model.dart';
 import 'package:water_iot/model/factory_model.dart';
+import 'package:water_iot/model/flowmeter/flowmeter.dart';
 import 'package:water_iot/model/login_model.dart';
 import 'package:water_iot/model/motor.dart';
+import 'package:water_iot/model/report_model.dart';
 import 'package:water_iot/model/sensor_model.dart';
 import 'package:water_iot/model/valve_model.dart';
 
@@ -161,6 +165,69 @@ class APIService {
     }
   }
 
+  Future<ElectricResponseModel> getListElectrical(String factoryId) async {
+    String url = AppUrl.get_static_electrical;
+    String token = userLocal.accessToken;
+    try {
+      final response = await http.post(Uri.parse(url),
+          body: {'factory_id': factoryId},
+          headers: {'Authorization': 'Bearer $token'});
+      if (response.statusCode == 200 ||
+          response.statusCode == 400 ||
+          response.statusCode == 401 ||
+          response.statusCode == 500) {
+        return ElectricResponseModel.fromJson(
+          json.decode(response.body),
+        );
+      }
+      return null;
+    } on SocketException catch (e) {
+      throw Exception(e);
+    }
+  }
+
+  Future<ChemicalResponse> getListChemical(String factoryId) async {
+    String url = AppUrl.get_static_chemical;
+    String token = userLocal.accessToken;
+    try {
+      final response = await http.post(Uri.parse(url),
+          body: {'factory_id': factoryId},
+          headers: {'Authorization': 'Bearer $token'});
+      if (response.statusCode == 200 ||
+          response.statusCode == 400 ||
+          response.statusCode == 401 ||
+          response.statusCode == 500) {
+        return ChemicalResponse.fromJson(
+          json.decode(response.body),
+        );
+      }
+      return null;
+    } on SocketException catch (e) {
+      throw Exception(e);
+    }
+  }
+
+  Future<FlowmeterResponse> getListFlowmeter(String factoryId) async {
+    String url = AppUrl.get_static_flowmeter;
+    String token = userLocal.accessToken;
+    try {
+      final response = await http.post(Uri.parse(url),
+          body: {'factory_id': factoryId},
+          headers: {'Authorization': 'Bearer $token'});
+      if (response.statusCode == 200 ||
+          response.statusCode == 400 ||
+          response.statusCode == 401 ||
+          response.statusCode == 500) {
+        return FlowmeterResponse.fromJson(
+          json.decode(response.body),
+        );
+      }
+      return null;
+    } on SocketException catch (e) {
+      throw Exception(e);
+    }
+  }
+
   Future<ValveResponseModel> getListValve(
       String token, String factoryId) async {
     String url = AppUrl.get_list_valve;
@@ -204,6 +271,28 @@ class APIService {
       throw Exception('Failed to load');
     }
   }
+
+  Future<ReportResponse> getReportElectrical(String factoryId, String fromDate, String toDate) async {
+    String url = AppUrl.get_report_electrical;
+    String token = userLocal.accessToken;
+    try {
+      final response = await http.post(Uri.parse(url),
+          body: {'factory_id': factoryId, 'from_date': fromDate, 'to_date': toDate},
+          headers: {'Authorization': 'Bearer $token'});
+      if (response.statusCode == 200 ||
+          response.statusCode == 400 ||
+          response.statusCode == 401 ||
+          response.statusCode == 500) {
+        return ReportResponse.fromJson(
+          json.decode(response.body),
+        );
+      }
+      return null;
+    } on SocketException catch (e) {
+      throw Exception(e);
+    }
+  }
+
 }
 
 class ResponseNormal {
