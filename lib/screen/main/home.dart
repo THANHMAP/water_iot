@@ -1,7 +1,11 @@
+import 'dart:async';
+
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:water_iot/api/api_service.dart';
+import 'package:water_iot/screen/login/login.dart';
 
 import '../../SharedPref.dart';
 import '../../constants.dart';
@@ -12,9 +16,11 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  String image = factoryLocal.overviewApp;
   @override
   void initState() {
     super.initState();
+    loadData();
   }
 
   @override
@@ -70,7 +76,7 @@ class _HomePageState extends State<HomePage> {
                         children: [
                           Flexible(
                             child: new CachedNetworkImage(
-                              imageUrl: factoryLocal.overviewApp,
+                              imageUrl: image,
                               imageBuilder: (context, imageProvider) =>
                                   Container(
                                 height: double.infinity,
@@ -99,5 +105,39 @@ class _HomePageState extends State<HomePage> {
         ),
       ),
     );
+  }
+
+  loadData() async {
+    APIService apiService = new APIService();
+    apiService.getDetailFactory(userLocal.accessToken, factoryLocal.factoryId.toString()).then((value) {
+      if (value.statusCode == 200) {
+        setState(() {
+          image = value.data.overviewApp;
+        });
+        print("start time");
+        Timer(Duration(seconds: 120), () {
+          loadData();
+          print("Yeah, this line is printed after 120 seconds");
+        });
+      } else {
+        if (value.errorCode == 401) {
+          Navigator.pushAndRemoveUntil(
+            context,
+            MaterialPageRoute(
+              builder: (context) {
+                return LoginPage();
+              },
+            ),
+                (route) => false,
+          );
+        }
+      }
+    }).catchError((onError) {
+      // setState(() {
+      //   isApiCallProcess = false;
+      // });
+      // final snackBar = SnackBar(content: Text("Lỗi server"));
+      // scaffoldKey.currentState.showSnackBar(snackBar);
+    });
   }
 }

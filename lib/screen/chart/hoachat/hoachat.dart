@@ -84,7 +84,7 @@ class _HoaChatPageState extends State {
                           style: TextStyle(
                             color: Color(0xFF070707),
                             fontFamily: 'OpenSans',
-                            fontSize: 35.0,
+                            fontSize: 20.0,
                             fontWeight: FontWeight.normal,
                           ),
                         ),

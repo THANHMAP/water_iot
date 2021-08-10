@@ -93,7 +93,7 @@ class _MotorState extends State<MotorPage> {
                           style: TextStyle(
                             color: borderEdittextColor,
                             fontFamily: 'OpenSans',
-                            fontSize: 35.0,
+                            fontSize: 20.0,
                             fontWeight: FontWeight.normal,
                           ),
                         ),

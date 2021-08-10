@@ -7,6 +7,7 @@ import 'package:water_iot/model/CustomerResponseModel.dart';
 import 'package:water_iot/model/change_password_model.dart';
 import 'package:water_iot/model/chemical/chemical.dart';
 import 'package:water_iot/model/electric/electric_model.dart';
+import 'package:water_iot/model/factory_detail.dart';
 import 'package:water_iot/model/factory_model.dart';
 import 'package:water_iot/model/flowmeter/flowmeter.dart';
 import 'package:water_iot/model/login_model.dart';
@@ -118,6 +119,23 @@ class APIService {
         response.statusCode == 401 ||
         response.statusCode == 500) {
       return SensorResponseModel.fromJson(
+        json.decode(response.body),
+      );
+    }
+    return null;
+  }
+
+  Future<FactoryDetailResponse> getDetailFactory(
+      String token, String factoryId) async {
+    String url = AppUrl.list_factory_detail;
+    final response = await http.post(Uri.parse(url),
+        body: {'factory_id': factoryId},
+        headers: {'Authorization': 'Bearer $token'});
+    if (response.statusCode == 200 ||
+        response.statusCode == 400 ||
+        response.statusCode == 401 ||
+        response.statusCode == 500) {
+      return FactoryDetailResponse.fromJson(
         json.decode(response.body),
       );
     }

@@ -195,6 +195,7 @@ class _FactoryState extends State<FactoryPage> {
                           padding: EdgeInsets.symmetric(
                               vertical: 17, horizontal: 60),
                           onPressed: () {
+                            factoryLocal = item;
                             Navigator.pushAndRemoveUntil(
                               context,
                               MaterialPageRoute(

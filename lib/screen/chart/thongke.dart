@@ -81,7 +81,7 @@ class _ScatterChartPageState extends State {
                           style: TextStyle(
                             color: Color(0xFF070707),
                             fontFamily: 'OpenSans',
-                            fontSize: 25.0,
+                            fontSize: 20.0,
                             fontWeight: FontWeight.normal,
                           ),
                         ),

@@ -95,7 +95,7 @@ class _SensorState extends State<SensorPage> {
                           style: TextStyle(
                             color: borderEdittextColor,
                             fontFamily: 'OpenSans',
-                            fontSize: 35.0,
+                            fontSize: 20.0,
                             fontWeight: FontWeight.normal,
                           ),
                         ),
