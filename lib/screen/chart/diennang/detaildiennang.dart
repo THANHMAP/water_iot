@@ -98,7 +98,31 @@ class _DetailDienNangState extends State<DetailDienNangPage> {
         // key: cardA,
         // leading: CircleAvatar(
         //     child: Image.asset("assets/images/devs.jpg")),
-        title: Text(thongSoDien.title),
+        title: Container(
+          child: Column(
+            children: <Widget>[
+              Row(
+                children: <Widget>[
+                  new Column(
+                    children: <Widget>[
+                      Image.asset(
+                        "assets/images/img_data.png",
+                        fit: BoxFit.contain,
+                        height: 35,
+                      ),
+                    ],
+                  ),
+                  Expanded(
+                      child: new Column(
+                    children: <Widget>[
+                      new Text(thongSoDien.title),
+                    ],
+                  ))
+                ],
+              ),
+            ],
+          ),
+        ),
         // subtitle: Text("FLUTTER DEVELOPMENT COMPANY"),
         children: <Widget>[
           Divider(
@@ -170,19 +194,6 @@ class _DetailDienNangState extends State<DetailDienNangPage> {
                                   ),
                                   Container(
                                     margin: const EdgeInsets.only(top: 15.0),
-                                    child: Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.start,
-                                      children: <Widget>[
-                                        Text("0",
-                                            style: TextStyle(
-                                                color: Colors.grey[800],
-                                                fontSize: 17)),
-                                      ],
-                                    ),
-                                  ),
-                                  Container(
-                                    margin: const EdgeInsets.only(top: 18.0),
                                     child: Row(
                                       mainAxisAlignment:
                                           MainAxisAlignment.start,
@@ -383,6 +394,19 @@ class _DetailDienNangState extends State<DetailDienNangPage> {
                                           MainAxisAlignment.start,
                                       children: <Widget>[
                                         Text("16",
+                                            style: TextStyle(
+                                                color: Colors.grey[800],
+                                                fontSize: 17)),
+                                      ],
+                                    ),
+                                  ),
+                                  Container(
+                                    margin: const EdgeInsets.only(top: 18.0),
+                                    child: Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.start,
+                                      children: <Widget>[
+                                        Text("17",
                                             style: TextStyle(
                                                 color: Colors.grey[800],
                                                 fontSize: 17)),

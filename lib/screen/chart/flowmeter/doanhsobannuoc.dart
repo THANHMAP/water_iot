@@ -175,7 +175,7 @@ class _DoanhSoBanNuocPageState extends State<DoanhSoBanNuocPage> {
                                         mainAxisAlignment:
                                         MainAxisAlignment.start,
                                         children: <Widget>[
-                                          Text("0",
+                                          Text("1",
                                               style: TextStyle(
                                                   color: Colors.grey[800],
                                                   fontSize: 17)),
@@ -188,7 +188,7 @@ class _DoanhSoBanNuocPageState extends State<DoanhSoBanNuocPage> {
                                         mainAxisAlignment:
                                         MainAxisAlignment.start,
                                         children: <Widget>[
-                                          Text("1",
+                                          Text("2",
                                               style: TextStyle(
                                                   color: Colors.grey[800],
                                                   fontSize: 17)),

@@ -33,20 +33,20 @@ class _ScatterChartPageState extends State {
             // style: TextStyle(color: mTexHeadLoginColor),
           ),
           centerTitle: true,
-          // actions: <Widget>[
-          //   IconButton(
-          //     icon: SvgPicture.asset(
-          //       'assets/images/ic_notification.svg',
-          //       height: 20.0,
-          //       width: 20.0,
-          //       allowDrawingOutsideViewBox: true,
-          //     ),
-          //     onPressed: () {
-          //       // ScaffoldMessenger.of(context).showSnackBar(
-          //       //     const SnackBar(content: Text('This is a snackbar')));
-          //     },
-          //   ),
-          // ],
+          actions: <Widget>[
+            IconButton(
+              icon: SvgPicture.asset(
+                'assets/images/ic_notification.svg',
+                height: 20.0,
+                width: 20.0,
+                allowDrawingOutsideViewBox: true,
+              ),
+              onPressed: () {
+                // ScaffoldMessenger.of(context).showSnackBar(
+                //     const SnackBar(content: Text('This is a snackbar')));
+              },
+            ),
+          ],
           leading: IconButton(
               icon: SvgPicture.asset(
                 'assets/images/ic_back.svg',
@@ -59,55 +59,275 @@ class _ScatterChartPageState extends State {
                 // Do something.
               })),
       body: Container(
-        child: Container(
-          child: SingleChildScrollView(
-            child: new Container(
-              child: new Column(
-                children: <Widget>[
-                  Container(
-                    width: double.infinity,
-                    margin: EdgeInsets.symmetric(vertical: 20, horizontal: 20),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[
-                        Center(
-                          child: Text(
-                            factoryLocal.name,
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                              color: borderEdittextColor,
-                              fontFamily: 'OpenSans',
-                              fontSize: 18.0,
-                              fontWeight: FontWeight.normal,
-                            ),
+          constraints: BoxConstraints.expand(),
+          decoration: BoxDecoration(
+              image: DecorationImage(
+                  image: AssetImage("assets/images/bg_app.png"),
+                  fit: BoxFit.cover)),
+        child: SingleChildScrollView(
+          child: new Container(
+            child: new Column(
+              children: <Widget>[
+                Container(
+                  width: double.infinity,
+                  margin: EdgeInsets.symmetric(vertical: 20, horizontal: 20),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      Center(
+                        child: Text(
+                          factoryLocal.name,
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            color: Color(0xFF070707),
+                            fontFamily: 'OpenSans',
+                            fontSize: 25.0,
+                            fontWeight: FontWeight.normal,
                           ),
                         ),
-                        // SizedBox(height: 10),
-                        // Center(
-                        //   child: Text(
-                        //     'MONITORING & SCALLING SENSOR',
-                        //     textAlign: TextAlign.center,
-                        //     style: TextStyle(
-                        //       color: Color(0xFF00B500),
-                        //       fontFamily: 'OpenSans',
-                        //       fontSize: 18.0,
-                        //       fontWeight: FontWeight.normal,
-                        //     ),
-                        //   ),
-                        // ),
-                        SizedBox(height: 20),
-                        Container(
-                          child: Column(children: <Widget>[
-                            _buildDienNang(),
-                            _buildHoaChat(),
-                            _buildDoangThuNuoc(),
-                          ]),
-                        )
-                      ],
-                    ),
+                      ),
+                      // SizedBox(height: 10),
+                      // Center(
+                      //   child: Text(
+                      //     'MONITORING & SCALLING SENSOR',
+                      //     textAlign: TextAlign.center,
+                      //     style: TextStyle(
+                      //       color: Color(0xFF00B500),
+                      //       fontFamily: 'OpenSans',
+                      //       fontSize: 18.0,
+                      //       fontWeight: FontWeight.normal,
+                      //     ),
+                      //   ),
+                      // ),
+                      SizedBox(height: 20),
+                      Container(
+                        child: Column(children: <Widget>[
+
+                          InkWell(
+                            child: Container(
+                              width: double.infinity,
+                              height: 65,
+                              padding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+                              margin: EdgeInsets.symmetric(vertical: 0, horizontal: 10),
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(10),
+                                color: Theme.of(context).primaryColor,
+                                boxShadow: [
+                                  BoxShadow(
+                                      color: Theme.of(context).hintColor.withOpacity(0.2),
+                                      offset: Offset(0, 10),
+                                      blurRadius: 20)
+                                ],
+                              ),
+                              child: Column(
+                                children: <Widget>[
+                                  new Row(
+                                    children: <Widget>[
+                                      Expanded(
+                                        flex: 8,
+                                        child: SvgPicture.asset(
+                                          "assets/images/ic_process.svg",
+                                          color: Color(0xFF556DD3),
+                                          fit: BoxFit.contain,
+                                          height: 40,
+                                        ),
+                                        // child: Image.asset(
+                                        //   "assets/images/ic_factory.png",
+                                        //   fit: BoxFit.contain,
+                                        // ),
+                                      ),
+                                      Expanded(
+                                        flex: 50,
+                                        child: Container(
+                                          margin: new EdgeInsets.symmetric(horizontal: 50.0),
+                                          child: Text(
+                                            'Điện Năng',
+                                            style: TextStyle(
+                                              color: textDashboardColor,
+                                              fontFamily: 'OpenSans',
+                                              fontSize: 20.0,
+                                              fontWeight: FontWeight.bold,
+                                            ),
+                                          ),
+                                          // child: Center(
+                                          //
+                                          // ),
+                                        ),
+                                      ),
+                                      Expanded(
+                                        flex: 3,
+                                        child: Image.asset(
+                                          "assets/images/ic_arrow.png",
+                                          fit: BoxFit.contain,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                            ),
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(builder: (context) => DienNangPage()),
+                              );
+                            },
+                          ),
+                          SizedBox(height: 13),
+                          InkWell(
+                            child: Container(
+                              width: double.infinity,
+                              height: 65,
+                              padding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+                              margin: EdgeInsets.symmetric(vertical: 0, horizontal: 10),
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(10),
+                                color: Theme.of(context).primaryColor,
+                                boxShadow: [
+                                  BoxShadow(
+                                      color: Theme.of(context).hintColor.withOpacity(0.2),
+                                      offset: Offset(0, 10),
+                                      blurRadius: 20)
+                                ],
+                              ),
+                              child: Column(
+                                children: <Widget>[
+                                  new Row(
+                                    children: <Widget>[
+                                      Expanded(
+                                        flex: 8,
+                                        child: SvgPicture.asset(
+                                          "assets/images/ic_chemical.svg",
+                                          color: Color(0xFF556DD3),
+                                          fit: BoxFit.contain,
+                                          height: 40,
+                                        ),
+                                        // child: Image.asset(
+                                        //   "assets/images/ic_factory.png",
+                                        //   fit: BoxFit.contain,
+                                        // ),
+                                      ),
+                                      Expanded(
+                                        flex: 50,
+                                        child: Container(
+                                          margin: new EdgeInsets.symmetric(horizontal: 50.0),
+                                          child: Text(
+                                            'Hóa Chất',
+                                            style: TextStyle(
+                                              color: textDashboardColor,
+                                              fontFamily: 'OpenSans',
+                                              fontSize: 20.0,
+                                              fontWeight: FontWeight.bold,
+                                            ),
+                                          ),
+                                          // child: Center(
+                                          //
+                                          // ),
+                                        ),
+                                      ),
+                                      Expanded(
+                                        flex: 3,
+                                        child: Image.asset(
+                                          "assets/images/ic_arrow.png",
+                                          fit: BoxFit.contain,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                            ),
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(builder: (context) => HoaChatPage()),
+                              );
+                            },
+                          ),
+                          SizedBox(height: 13),
+                          InkWell(
+                            child: Container(
+                              width: double.infinity,
+                              height: 65,
+                              padding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+                              margin: EdgeInsets.symmetric(vertical: 0, horizontal: 10),
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(10),
+                                color: Theme.of(context).primaryColor,
+                                boxShadow: [
+                                  BoxShadow(
+                                      color: Theme.of(context).hintColor.withOpacity(0.2),
+                                      offset: Offset(0, 10),
+                                      blurRadius: 20)
+                                ],
+                              ),
+                              child: Column(
+                                children: <Widget>[
+                                  new Row(
+                                    children: <Widget>[
+                                      Expanded(
+                                        flex: 8,
+                                        child: Align(
+                                          alignment: Alignment.center,
+                                          child: SvgPicture.asset(
+                                            "assets/images/ic_pump.svg",
+                                            color: Color(0xFF556DD3),
+                                            fit: BoxFit.contain,
+                                            height: 40,
+                                          ),
+                                        ),
+
+                                        // child: Image.asset(
+                                        //   "assets/images/ic_factory.png",
+                                        //   fit: BoxFit.contain,
+                                        // ),
+                                      ),
+                                      Expanded(
+                                        flex: 50,
+                                        child: Container(
+                                          margin: new EdgeInsets.symmetric(horizontal: 50.0),
+                                          child: Text(
+                                            'Lưu Lượng',
+                                            style: TextStyle(
+                                              color: textDashboardColor,
+                                              fontFamily: 'OpenSans',
+                                              fontSize: 20.0,
+                                              fontWeight: FontWeight.bold,
+                                            ),
+                                          ),
+                                          // child: Center(
+                                          //
+                                          // ),
+                                        ),
+                                      ),
+                                      Expanded(
+                                        flex: 3,
+                                        child: Image.asset(
+                                          "assets/images/ic_arrow.png",
+                                          fit: BoxFit.contain,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                            ),
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(builder: (context) => DoanhThuNuocPage()),
+                              );
+                            },
+                          ),
+                          // _buildDienNang(),
+                          // _buildHoaChat(),
+                          // _buildDoangThuNuoc(),
+                        ]),
+                      )
+                    ],
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
           ),
         ),
@@ -381,7 +601,6 @@ class _ScatterChartPageState extends State {
                                       ),
                                     ),
                                   ),
-
                                 ],
                               ),
                               // new Row(

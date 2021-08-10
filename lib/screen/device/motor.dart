@@ -71,57 +71,422 @@ class _MotorState extends State<MotorPage> {
                 // Do something.
               })),
       body: Container(
-        child: Container(
-          child: SingleChildScrollView(
-            child: new Container(
-              child: new Column(
-                children: <Widget>[
-                  Container(
-                    width: double.infinity,
-                    margin: EdgeInsets.symmetric(vertical: 20, horizontal: 20),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[
-                        Center(
-                          child: Text(
-                            factoryLocal.name,
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                              color: borderEdittextColor,
-                              fontFamily: 'OpenSans',
-                              fontSize: 18.0,
-                              fontWeight: FontWeight.normal,
-                            ),
+        constraints: BoxConstraints.expand(),
+        decoration: BoxDecoration(
+            image: DecorationImage(
+                image: AssetImage("assets/images/bg_app.png"),
+                fit: BoxFit.cover)),
+        child: SingleChildScrollView(
+          child: new Container(
+            child: new Column(
+              children: <Widget>[
+                Container(
+                  width: double.infinity,
+                  margin: EdgeInsets.symmetric(vertical: 20, horizontal: 20),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      Center(
+                        child: Text(
+                          factoryLocal.name,
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            color: borderEdittextColor,
+                            fontFamily: 'OpenSans',
+                            fontSize: 35.0,
+                            fontWeight: FontWeight.normal,
                           ),
                         ),
-                        SizedBox(height: 10),
-                        Center(
-                          child: Text(
-                            'MONITORING & SCALLING MOTOR',
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                              color: Color(0xFF00B500),
-                              fontFamily: 'OpenSans',
-                              fontSize: 18.0,
-                              fontWeight: FontWeight.normal,
-                            ),
+                      ),
+                      SizedBox(height: 10),
+                      Center(
+                        child: Text(
+                          'MONITORING & SCALLING VALVE',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            color: Color(0xFFFF0000),
+                            fontFamily: 'OpenSans',
+                            fontSize: 18.0,
+                            fontWeight: FontWeight.normal,
                           ),
                         ),
-                        SizedBox(height: 20),
-                        Container(
-                          child: Column(children: <Widget>[
-                            _buildCardPUMP(),
-                            _buildCardProcess(),
-                            _buildCardChemical(),
-                            _buildCardSludge(),
-                            _buildCardSupply(),
-                          ]),
-                        )
-                      ],
-                    ),
+                      ),
+                      SizedBox(height: 20),
+                      Container(
+                        child: Column(children: <Widget>[
+                          InkWell(
+                            child: Container(
+                              width: double.infinity,
+                              height: 65,
+                              padding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+                              margin: EdgeInsets.symmetric(vertical: 0, horizontal: 10),
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(10),
+                                color: Theme.of(context).primaryColor,
+                                boxShadow: [
+                                  BoxShadow(
+                                      color: Theme.of(context).hintColor.withOpacity(0.2),
+                                      offset: Offset(0, 10),
+                                      blurRadius: 20)
+                                ],
+                              ),
+                              child: Column(
+                                children: <Widget>[
+                                  new Row(
+                                    children: <Widget>[
+                                      Expanded(
+                                        flex: 8,
+                                        child: SvgPicture.asset(
+                                          "assets/images/ic_pump.svg",
+                                          color: Color(0xFF556DD3),
+                                          fit: BoxFit.contain,
+                                          height: 40,
+                                        ),
+                                        // child: Image.asset(
+                                        //   "assets/images/ic_factory.png",
+                                        //   fit: BoxFit.contain,
+                                        // ),
+                                      ),
+                                      Expanded(
+                                        flex: 55,
+                                        child: Container(
+                                          margin: new EdgeInsets.symmetric(horizontal: 40.0),
+                                          child: Text(
+                                            "RAW STATION",
+                                            style: TextStyle(
+                                              color: textDashboardColor,
+                                              fontFamily: 'OpenSans',
+                                              fontSize: 20.0,
+                                              fontWeight: FontWeight.bold,
+                                            ),
+                                          ),
+                                          // child: Center(
+                                          //
+                                          // ),
+                                        ),
+                                      ),
+                                      Expanded(
+                                        flex: 3,
+                                        child: Image.asset(
+                                          "assets/images/ic_arrow.png",
+                                          fit: BoxFit.contain,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                            ),
+                            onTap: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => MotorDetailPage(0),
+                                  ));
+                            },
+                          ),
+                          SizedBox(height: 13),
+                          InkWell(
+                            child: Container(
+                              width: double.infinity,
+                              height: 65,
+                              padding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+                              margin: EdgeInsets.symmetric(vertical: 0, horizontal: 10),
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(10),
+                                color: Theme.of(context).primaryColor,
+                                boxShadow: [
+                                  BoxShadow(
+                                      color: Theme.of(context).hintColor.withOpacity(0.2),
+                                      offset: Offset(0, 10),
+                                      blurRadius: 20)
+                                ],
+                              ),
+                              child: Column(
+                                children: <Widget>[
+                                  new Row(
+                                    children: <Widget>[
+                                      Expanded(
+                                        flex: 8,
+                                        child: SvgPicture.asset(
+                                          "assets/images/ic_process.svg",
+                                          color: Color(0xFF556DD3),
+                                          fit: BoxFit.contain,
+                                          height: 40,
+                                        ),
+                                        // child: Image.asset(
+                                        //   "assets/images/ic_factory.png",
+                                        //   fit: BoxFit.contain,
+                                        // ),
+                                      ),
+                                      Expanded(
+                                        flex: 55,
+                                        child: Container(
+                                          margin: new EdgeInsets.symmetric(horizontal: 40.0),
+                                          child: Text(
+                                            'PROCESS STATION',
+                                            style: TextStyle(
+                                              color: textDashboardColor,
+                                              fontFamily: 'OpenSans',
+                                              fontSize: 20.0,
+                                              fontWeight: FontWeight.bold,
+                                            ),
+                                          ),
+                                          // child: Center(
+                                          //
+                                          // ),
+                                        ),
+                                      ),
+                                      Expanded(
+                                        flex: 3,
+                                        child: Image.asset(
+                                          "assets/images/ic_arrow.png",
+                                          fit: BoxFit.contain,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                            ),
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(builder: (context) => MotorDetailPage(1)),
+                              );
+                            },
+                          ),
+                          SizedBox(height: 13),
+                          InkWell(
+                            child: Container(
+                              width: double.infinity,
+                              height: 65,
+                              padding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+                              margin: EdgeInsets.symmetric(vertical: 0, horizontal: 10),
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(10),
+                                color: Theme.of(context).primaryColor,
+                                boxShadow: [
+                                  BoxShadow(
+                                      color: Theme.of(context).hintColor.withOpacity(0.2),
+                                      offset: Offset(0, 10),
+                                      blurRadius: 20)
+                                ],
+                              ),
+                              child: Column(
+                                children: <Widget>[
+                                  new Row(
+                                    children: <Widget>[
+                                      Expanded(
+                                        flex: 8,
+                                        child: Align(
+                                          alignment: Alignment.center,
+                                          child: SvgPicture.asset(
+                                            "assets/images/ic_chemical.svg",
+                                            color: Color(0xFF556DD3),
+                                            fit: BoxFit.contain,
+                                            height: 40,
+                                          ),
+                                        ),
+
+                                        // child: Image.asset(
+                                        //   "assets/images/ic_factory.png",
+                                        //   fit: BoxFit.contain,
+                                        // ),
+                                      ),
+                                      Expanded(
+                                        flex: 55,
+                                        child: Container(
+                                          margin: new EdgeInsets.symmetric(horizontal: 35.0),
+                                          child: Text(
+                                            'CHEMICAL STATION',
+                                            style: TextStyle(
+                                              color: textDashboardColor,
+                                              fontFamily: 'OpenSans',
+                                              fontSize: 20.0,
+                                              fontWeight: FontWeight.bold,
+                                            ),
+                                          ),
+                                          // child: Center(
+                                          //
+                                          // ),
+                                        ),
+                                      ),
+                                      Expanded(
+                                        flex: 3,
+                                        child: Image.asset(
+                                          "assets/images/ic_arrow.png",
+                                          fit: BoxFit.contain,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                            ),
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(builder: (context) => MotorDetailPage(2)),
+                              );
+                            },
+                          ),
+                          SizedBox(height: 13),
+                          InkWell(
+                            child: Container(
+                              width: double.infinity,
+                              height: 65,
+                              padding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+                              margin: EdgeInsets.symmetric(vertical: 0, horizontal: 10),
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(10),
+                                color: Theme.of(context).primaryColor,
+                                boxShadow: [
+                                  BoxShadow(
+                                      color: Theme.of(context).hintColor.withOpacity(0.2),
+                                      offset: Offset(0, 10),
+                                      blurRadius: 20)
+                                ],
+                              ),
+                              child: Column(
+                                children: <Widget>[
+                                  new Row(
+                                    children: <Widget>[
+                                      Expanded(
+                                        flex: 8,
+                                        child: Align(
+                                          alignment: Alignment.center,
+                                          child: SvgPicture.asset(
+                                            "assets/images/ic_chemical.svg",
+                                            color: Color(0xFF556DD3),
+                                            fit: BoxFit.contain,
+                                            height: 40,
+                                          ),
+                                        ),
+
+                                        // child: Image.asset(
+                                        //   "assets/images/ic_factory.png",
+                                        //   fit: BoxFit.contain,
+                                        // ),
+                                      ),
+                                      Expanded(
+                                        flex: 55,
+                                        child: Container(
+                                          margin: new EdgeInsets.symmetric(horizontal: 35.0),
+                                          child: Text(
+                                            'SLUDGE STATION',
+                                            style: TextStyle(
+                                              color: textDashboardColor,
+                                              fontFamily: 'OpenSans',
+                                              fontSize: 20.0,
+                                              fontWeight: FontWeight.bold,
+                                            ),
+                                          ),
+                                          // child: Center(
+                                          //
+                                          // ),
+                                        ),
+                                      ),
+                                      Expanded(
+                                        flex: 3,
+                                        child: Image.asset(
+                                          "assets/images/ic_arrow.png",
+                                          fit: BoxFit.contain,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                            ),
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(builder: (context) => MotorDetailPage(3)),
+                              );
+                            },
+                          ),
+                          SizedBox(height: 13),
+                          InkWell(
+                            child: Container(
+                              width: double.infinity,
+                              height: 65,
+                              padding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+                              margin: EdgeInsets.symmetric(vertical: 0, horizontal: 10),
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(10),
+                                color: Theme.of(context).primaryColor,
+                                boxShadow: [
+                                  BoxShadow(
+                                      color: Theme.of(context).hintColor.withOpacity(0.2),
+                                      offset: Offset(0, 10),
+                                      blurRadius: 20)
+                                ],
+                              ),
+                              child: Column(
+                                children: <Widget>[
+                                  new Row(
+                                    children: <Widget>[
+                                      Expanded(
+                                        flex: 8,
+                                        child: Align(
+                                          alignment: Alignment.center,
+                                          child: SvgPicture.asset(
+                                            "assets/images/ic_supply.svg",
+                                            color: Color(0xFF556DD3),
+                                            fit: BoxFit.contain,
+                                            height: 40,
+                                          ),
+                                        ),
+
+                                        // child: Image.asset(
+                                        //   "assets/images/ic_factory.png",
+                                        //   fit: BoxFit.contain,
+                                        // ),
+                                      ),
+                                      Expanded(
+                                        flex: 55,
+                                        child: Container(
+                                          margin: new EdgeInsets.symmetric(horizontal: 35.0),
+                                          child: Text(
+                                            'SUPPLY STATION',
+                                            style: TextStyle(
+                                              color: textDashboardColor,
+                                              fontFamily: 'OpenSans',
+                                              fontSize: 20.0,
+                                              fontWeight: FontWeight.bold,
+                                            ),
+                                          ),
+                                          // child: Center(
+                                          //
+                                          // ),
+                                        ),
+                                      ),
+                                      Expanded(
+                                        flex: 3,
+                                        child: Image.asset(
+                                          "assets/images/ic_arrow.png",
+                                          fit: BoxFit.contain,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                            ),
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(builder: (context) => MotorDetailPage(4)),
+                              );
+                            },
+                          ),
+                        ]),
+                      )
+                    ],
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
           ),
         ),

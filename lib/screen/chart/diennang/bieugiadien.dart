@@ -98,7 +98,31 @@ class _BieuGiaDienPageState extends State<BieuGiaDienPage> {
         // key: cardA,
         // leading: CircleAvatar(
         //     child: Image.asset("assets/images/devs.jpg")),
-        title: Text(bieuGiaDien.title),
+        title: Container(
+          child: Column(
+            children: <Widget>[
+              Row(
+                children: <Widget>[
+                  new Column(
+                    children: <Widget>[
+                      Image.asset(
+                        "assets/images/img_data.png",
+                        fit: BoxFit.contain,
+                        height: 35,
+                      ),
+                    ],
+                  ),
+                  Expanded(
+                      child: new Column(
+                        children: <Widget>[
+                          new Text(bieuGiaDien.title),
+                        ],
+                      ))
+                ],
+              ),
+            ],
+          ),
+        ),
         // subtitle: Text("FLUTTER DEVELOPMENT COMPANY"),
         children: <Widget>[
           Divider(
@@ -374,266 +398,6 @@ class _BieuGiaDienPageState extends State<BieuGiaDienPage> {
     );
   }
 
-  // Widget _buildItem(BieuGiaDien bieuGiaDien) {
-  //     return Padding(
-  //       padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10),
-  //       child: Card(
-  //         clipBehavior: Clip.antiAlias,
-  //         elevation: 16,
-  //         shape:
-  //             RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
-  //         child: InkWell(
-  //           // onTap: () {},
-  //           child: Column(
-  //             mainAxisSize: MainAxisSize.min,
-  //             crossAxisAlignment: CrossAxisAlignment.start,
-  //             children: <Widget>[
-  //               Container(
-  //                 width: double.infinity,
-  //                 padding: EdgeInsets.symmetric(vertical: 20, horizontal: 10),
-  //                 margin: EdgeInsets.symmetric(vertical: 10, horizontal: 15),
-  //                 child: Column(children: <Widget>[
-  //                   new Row(
-  //                     children: [
-  //                       Expanded(
-  //                         child: Container(
-  //                           child: Text(
-  //                             bieuGiaDien.title,
-  //                             style: TextStyle(
-  //                               color: textDashboardColor,
-  //                               fontFamily: 'OpenSans',
-  //                               fontSize: 20.0,
-  //                               fontWeight: FontWeight.bold,
-  //                             ),
-  //                           ),
-  //                           // child: Center(
-  //                           //
-  //                           // ),
-  //                         ),
-  //                       ),
-  //                     ],
-  //                   ),
-  //                   SizedBox(height: 20),
-  //                   Container(
-  //                     child: Row(
-  //                       crossAxisAlignment: CrossAxisAlignment.start,
-  //                       children: [
-  //                         Expanded(
-  //                           flex: 1,
-  //                           child: Column(
-  //                               mainAxisSize: MainAxisSize.max,
-  //                               children: <Widget>[
-  //                                 Container(
-  //                                   decoration: BoxDecoration(
-  //                                     border: Border(
-  //                                       // top: BorderSide(width: 16.0, color: Colors.lightBlue.shade600),
-  //                                       bottom: BorderSide(
-  //                                           width: 1,
-  //                                           color: Colors.lightBlue.shade900),
-  //                                     ),
-  //                                     color: Colors.white,
-  //                                   ),
-  //                                   child: Row(
-  //                                     mainAxisAlignment:
-  //                                         MainAxisAlignment.start,
-  //                                     children: <Widget>[
-  //                                       Text("#",
-  //                                           style: TextStyle(
-  //                                               color: Colors.grey[800],
-  //                                               fontWeight: FontWeight.bold,
-  //                                               fontSize: 18)),
-  //                                     ],
-  //                                   ),
-  //                                 ),
-  //                                 Container(
-  //                                   margin: const EdgeInsets.only(top: 15.0),
-  //                                   child: Row(
-  //                                     mainAxisAlignment:
-  //                                         MainAxisAlignment.start,
-  //                                     children: <Widget>[
-  //                                       Text("0",
-  //                                           style: TextStyle(
-  //                                               color: Colors.grey[800],
-  //                                               fontSize: 17)),
-  //                                     ],
-  //                                   ),
-  //                                 ),
-  //                                 Container(
-  //                                   margin: const EdgeInsets.only(top: 18.0),
-  //                                   child: Row(
-  //                                     mainAxisAlignment:
-  //                                         MainAxisAlignment.start,
-  //                                     children: <Widget>[
-  //                                       Text("1",
-  //                                           style: TextStyle(
-  //                                               color: Colors.grey[800],
-  //                                               fontSize: 17)),
-  //                                     ],
-  //                                   ),
-  //                                 ),
-  //                                 Container(
-  //                                   margin: const EdgeInsets.only(top: 18.0),
-  //                                   child: Row(
-  //                                     mainAxisAlignment:
-  //                                         MainAxisAlignment.start,
-  //                                     children: <Widget>[
-  //                                       Text("2",
-  //                                           style: TextStyle(
-  //                                               color: Colors.grey[800],
-  //                                               fontSize: 17)),
-  //                                     ],
-  //                                   ),
-  //                                 ),
-  //                               ]),
-  //                         ),
-  //                         Expanded(
-  //                           flex: 5,
-  //                           child: Column(
-  //                               mainAxisSize: MainAxisSize.max,
-  //                               children: <Widget>[
-  //                                 Container(
-  //                                   decoration: BoxDecoration(
-  //                                     border: Border(
-  //                                       // top: BorderSide(width: 16.0, color: Colors.lightBlue.shade600),
-  //                                       bottom: BorderSide(
-  //                                           width: 1,
-  //                                           color: Colors.lightBlue.shade900),
-  //                                     ),
-  //                                     color: Colors.white,
-  //                                   ),
-  //                                   child: Row(
-  //                                     mainAxisAlignment:
-  //                                         MainAxisAlignment.spaceBetween,
-  //                                     children: <Widget>[
-  //                                       Text("Value",
-  //                                           style: TextStyle(
-  //                                               color: Colors.grey[800],
-  //                                               fontWeight: FontWeight.bold,
-  //                                               fontSize: 18)),
-  //                                       Text("Unit",
-  //                                           style: TextStyle(
-  //                                               color: Colors.grey[800],
-  //                                               fontWeight: FontWeight.bold,
-  //                                               fontSize: 18)),
-  //                                     ],
-  //                                   ),
-  //                                 ),
-  //                                 // Container(
-  //                                 //   margin: const EdgeInsets.only(top: 10.0),
-  //                                 //   child: Row(
-  //                                 //     mainAxisAlignment:
-  //                                 //         MainAxisAlignment.spaceBetween,
-  //                                 //     children: <Widget>[
-  //                                 //       Text(bieuGiaDien.dataList..thapDiem.isEmpty ? "0" : dataList.info.thapDiem,
-  //                                 //           style: TextStyle(
-  //                                 //               color: Colors.grey[800],
-  //                                 //               fontSize: 17)),
-  //                                 //       RichText(
-  //                                 //         text: WidgetSpan(
-  //                                 //           child: Container(
-  //                                 //             width: 90,
-  //                                 //             padding: EdgeInsets.all(6),
-  //                                 //             decoration: BoxDecoration(
-  //                                 //                 borderRadius:
-  //                                 //                     BorderRadius.circular(4),
-  //                                 //                 color: Color(0xFF555555)),
-  //                                 //             child: Text(
-  //                                 //               "thap_diem",
-  //                                 //               textAlign: TextAlign.center,
-  //                                 //               style: TextStyle(
-  //                                 //                 fontWeight: FontWeight.w500,
-  //                                 //                 color: Colors.white,
-  //                                 //               ),
-  //                                 //             ),
-  //                                 //           ),
-  //                                 //         ),
-  //                                 //       ),
-  //                                 //     ],
-  //                                 //   ),
-  //                                 // ),
-  //                                 // Container(
-  //                                 //   margin: const EdgeInsets.only(top: 10.0),
-  //                                 //   child: Row(
-  //                                 //     mainAxisAlignment:
-  //                                 //         MainAxisAlignment.spaceBetween,
-  //                                 //     children: <Widget>[
-  //                                 //       Text(dataList.info.binhThuong.isEmpty ? "0" : dataList.info.binhThuong,
-  //                                 //           style: TextStyle(
-  //                                 //               color: Colors.grey[800],
-  //                                 //               fontSize: 17)),
-  //                                 //       RichText(
-  //                                 //         text: WidgetSpan(
-  //                                 //           child: Container(
-  //                                 //             width: 90,
-  //                                 //             padding: EdgeInsets.all(6),
-  //                                 //             decoration: BoxDecoration(
-  //                                 //                 borderRadius:
-  //                                 //                     BorderRadius.circular(4),
-  //                                 //                 color: Color(0xFF555555)),
-  //                                 //             child: Text(
-  //                                 //               "binh_thuong",
-  //                                 //               textAlign: TextAlign.center,
-  //                                 //               style: TextStyle(
-  //                                 //                 fontWeight: FontWeight.w500,
-  //                                 //                 color: Colors.white,
-  //                                 //               ),
-  //                                 //             ),
-  //                                 //           ),
-  //                                 //         ),
-  //                                 //       ),
-  //                                 //     ],
-  //                                 //   ),
-  //                                 // ),
-  //                                 // Container(
-  //                                 //   margin: const EdgeInsets.only(top: 10.0),
-  //                                 //   child: Row(
-  //                                 //     mainAxisAlignment:
-  //                                 //         MainAxisAlignment.spaceBetween,
-  //                                 //     children: <Widget>[
-  //                                 //       Text(dataList.info.caoDiem.isEmpty ? "0" : dataList.info.caoDiem,
-  //                                 //           style: TextStyle(
-  //                                 //               color: Colors.grey[800],
-  //                                 //               fontSize: 17)),
-  //                                 //       RichText(
-  //                                 //         text: WidgetSpan(
-  //                                 //           child: Container(
-  //                                 //             width: 90,
-  //                                 //             padding: EdgeInsets.all(6),
-  //                                 //             decoration: BoxDecoration(
-  //                                 //                 borderRadius:
-  //                                 //                     BorderRadius.circular(4),
-  //                                 //                 color: Color(0xFF555555)),
-  //                                 //             child: Text(
-  //                                 //               "cao_diem",
-  //                                 //               textAlign: TextAlign.center,
-  //                                 //               style: TextStyle(
-  //                                 //                 fontWeight: FontWeight.w500,
-  //                                 //                 color: Colors.white,
-  //                                 //               ),
-  //                                 //             ),
-  //                                 //           ),
-  //                                 //         ),
-  //                                 //       ),
-  //                                 //     ],
-  //                                 //   ),
-  //                                 // ),
-  //
-  //                               ]),
-  //                         ),
-  //                       ],
-  //                     ),
-  //                   ),
-  //                 ]),
-  //               ),
-  //               // Row(
-  //
-  //               // ),
-  //             ],
-  //           ),
-  //         ),
-  //       ),
-  //     );
-  // }
 
   loadData() async {
     setState(() {

@@ -110,8 +110,36 @@ class _PolymePageState extends State<PolymePage> {
         // key: cardA,
         // leading: CircleAvatar(
         //     child: Image.asset("assets/images/devs.jpg")),
-        title: Text(
-            dataChemical == null ? "" : dataChemical.congThucHoaChat.title),
+        // title: Text(
+        //     dataChemical == null ? "" : dataChemical.congThucHoaChat.title),
+        title: Container(
+          child: Column(
+            children: <Widget>[
+              Row(
+                children: <Widget>[
+                  new Column(
+                    children: <Widget>[
+                      Image.asset(
+                        "assets/images/img_data.png",
+                        fit: BoxFit.contain,
+                        height: 35,
+                      ),
+                    ],
+                  ),
+                  Expanded(
+                    child: Padding(
+                      padding: const EdgeInsets.only(left: 20),
+                      child: new Text(
+                        dataChemical == null ? "" : dataChemical.congThucHoaChat.title,
+                        textAlign: TextAlign.left,
+                      ),
+                    ),
+                  )
+                ],
+              ),
+            ],
+          ),
+        ),
         // subtitle: Text("FLUTTER DEVELOPMENT COMPANY"),
         children: <Widget>[
           Divider(
@@ -437,7 +465,35 @@ class _PolymePageState extends State<PolymePage> {
         // key: cardA,
         // leading: CircleAvatar(
         //     child: Image.asset("assets/images/devs.jpg")),
-        title: Text(dataChemical == null ? "" : dataChemical.khoHoaChat.title),
+        // title: Text(dataChemical == null ? "" : dataChemical.khoHoaChat.title),
+        title: Container(
+          child: Column(
+            children: <Widget>[
+              Row(
+                children: <Widget>[
+                  new Column(
+                    children: <Widget>[
+                      Image.asset(
+                        "assets/images/img_data.png",
+                        fit: BoxFit.contain,
+                        height: 35,
+                      ),
+                    ],
+                  ),
+                  Expanded(
+                    child: Padding(
+                      padding: const EdgeInsets.only(left: 20),
+                      child: new Text(
+                        dataChemical == null ? "" : dataChemical.khoHoaChat.title,
+                        textAlign: TextAlign.left,
+                      ),
+                    ),
+                  )
+                ],
+              ),
+            ],
+          ),
+        ),
         // subtitle: Text("FLUTTER DEVELOPMENT COMPANY"),
         children: <Widget>[
           Divider(
@@ -624,8 +680,36 @@ class _PolymePageState extends State<PolymePage> {
         // key: cardA,
         // leading: CircleAvatar(
         //     child: Image.asset("assets/images/devs.jpg")),
-        title:
-            Text(dataChemical == null ? "" : dataChemical.hoaChatTieuThu.title),
+        // title:
+        //     Text(dataChemical == null ? "" : dataChemical.hoaChatTieuThu.title),
+        title: Container(
+          child: Column(
+            children: <Widget>[
+              Row(
+                children: <Widget>[
+                  new Column(
+                    children: <Widget>[
+                      Image.asset(
+                        "assets/images/img_data.png",
+                        fit: BoxFit.contain,
+                        height: 35,
+                      ),
+                    ],
+                  ),
+                  Expanded(
+                    child: Padding(
+                      padding: const EdgeInsets.only(left: 20),
+                      child: new Text(
+                        dataChemical == null ? "" : dataChemical.hoaChatTieuThu.title,
+                        textAlign: TextAlign.left,
+                      ),
+                    ),
+                  )
+                ],
+              ),
+            ],
+          ),
+        ),
         // subtitle: Text("FLUTTER DEVELOPMENT COMPANY"),
         children: <Widget>[
           Divider(
@@ -829,8 +913,36 @@ class _PolymePageState extends State<PolymePage> {
         // key: cardA,
         // leading: CircleAvatar(
         //     child: Image.asset("assets/images/devs.jpg")),
-        title:
-            Text(dataChemical == null ? "" : dataChemical.bieuGiaHoaChat.title),
+        // title:
+        //     Text(dataChemical == null ? "" : dataChemical.bieuGiaHoaChat.title),
+        title: Container(
+          child: Column(
+            children: <Widget>[
+              Row(
+                children: <Widget>[
+                  new Column(
+                    children: <Widget>[
+                      Image.asset(
+                        "assets/images/img_data.png",
+                        fit: BoxFit.contain,
+                        height: 35,
+                      ),
+                    ],
+                  ),
+                  Expanded(
+                    child: Padding(
+                      padding: const EdgeInsets.only(left: 20),
+                      child: new Text(
+                        dataChemical == null ? "" : dataChemical.bieuGiaHoaChat.title,
+                        textAlign: TextAlign.left,
+                      ),
+                    ),
+                  )
+                ],
+              ),
+            ],
+          ),
+        ),
         // subtitle: Text("FLUTTER DEVELOPMENT COMPANY"),
         children: <Widget>[
           Divider(
@@ -1034,8 +1146,36 @@ class _PolymePageState extends State<PolymePage> {
         // key: cardA,
         // leading: CircleAvatar(
         //     child: Image.asset("assets/images/devs.jpg")),
-        title:
-            Text(dataChemical == null ? "" : dataChemical.chiPhiHoaChat.title),
+        // title:
+        //     Text(dataChemical == null ? "" : dataChemical.chiPhiHoaChat.title),
+        title: Container(
+          child: Column(
+            children: <Widget>[
+              Row(
+                children: <Widget>[
+                  new Column(
+                    children: <Widget>[
+                      Image.asset(
+                        "assets/images/img_data.png",
+                        fit: BoxFit.contain,
+                        height: 35,
+                      ),
+                    ],
+                  ),
+                  Expanded(
+                    child: Padding(
+                      padding: const EdgeInsets.only(left: 20),
+                      child: new Text(
+                        dataChemical == null ? "" : dataChemical.chiPhiHoaChat.title,
+                        textAlign: TextAlign.left,
+                      ),
+                    ),
+                  )
+                ],
+              ),
+            ],
+          ),
+        ),
         // subtitle: Text("FLUTTER DEVELOPMENT COMPANY"),
         children: <Widget>[
           Divider(

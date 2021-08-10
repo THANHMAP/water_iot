@@ -41,6 +41,7 @@ class _CustomerState extends State<CustomerPage> {
 
   Widget _uiSetup(BuildContext context) {
     return Scaffold(
+      key: scaffoldKey,
       backgroundColor: Color(0xFFF5F6FA),
       appBar: AppBar(
           title: Text(

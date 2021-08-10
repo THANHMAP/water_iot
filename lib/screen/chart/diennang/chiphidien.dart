@@ -98,7 +98,31 @@ class _ChiPhiDienPageState extends State<ChiPhiDienPage> {
         // key: cardA,
         // leading: CircleAvatar(
         //     child: Image.asset("assets/images/devs.jpg")),
-        title: Text(chiPhiDien.title),
+        title: Container(
+          child: Column(
+            children: <Widget>[
+              Row(
+                children: <Widget>[
+                  new Column(
+                    children: <Widget>[
+                      Image.asset(
+                        "assets/images/img_data.png",
+                        fit: BoxFit.contain,
+                        height: 35,
+                      ),
+                    ],
+                  ),
+                  Expanded(
+                      child: new Column(
+                        children: <Widget>[
+                          new Text(chiPhiDien.title),
+                        ],
+                      ))
+                ],
+              ),
+            ],
+          ),
+        ),
         // subtitle: Text("FLUTTER DEVELOPMENT COMPANY"),
         children: <Widget>[
           Divider(
@@ -175,19 +199,6 @@ class _ChiPhiDienPageState extends State<ChiPhiDienPage> {
                                         mainAxisAlignment:
                                             MainAxisAlignment.start,
                                         children: <Widget>[
-                                          Text("0",
-                                              style: TextStyle(
-                                                  color: Colors.grey[800],
-                                                  fontSize: 17)),
-                                        ],
-                                      ),
-                                    ),
-                                    Container(
-                                      margin: const EdgeInsets.only(top: 18.0),
-                                      child: Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.start,
-                                        children: <Widget>[
                                           Text("1",
                                               style: TextStyle(
                                                   color: Colors.grey[800],
@@ -215,6 +226,19 @@ class _ChiPhiDienPageState extends State<ChiPhiDienPage> {
                                             MainAxisAlignment.start,
                                         children: <Widget>[
                                           Text("3",
+                                              style: TextStyle(
+                                                  color: Colors.grey[800],
+                                                  fontSize: 17)),
+                                        ],
+                                      ),
+                                    ),
+                                    Container(
+                                      margin: const EdgeInsets.only(top: 18.0),
+                                      child: Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.start,
+                                        children: <Widget>[
+                                          Text("4",
                                               style: TextStyle(
                                                   color: Colors.grey[800],
                                                   fontSize: 17)),

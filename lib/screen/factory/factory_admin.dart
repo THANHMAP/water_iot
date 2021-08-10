@@ -43,6 +43,7 @@ class _FactoryState extends State<FactoryAminPage> {
   Widget _uiSetup(BuildContext context) {
     return Scaffold(
       backgroundColor: Color(0xFFF5F6FA),
+      key: scaffoldKey,
       appBar: AppBar(
           title: Text(
             "Nhà Máy",
