@@ -53,9 +53,23 @@ class Info {
   Info({this.kg, this.l, this.s});
 
   Info.fromJson(Map<String, dynamic> json) {
-    kg = json['kg'];
-    l = json['l'];
-    s = json['s'];
+    if(json['kg'] == null){
+      kg = 0;
+    }else{
+      kg = json['kg'];
+    }
+
+    if(json['l'] == null){
+      l = 0;
+    }else{
+      l = json['l'];
+    }
+
+    if(json['s'] == null){
+      s = 0;
+    }else{
+      s = json['s'];
+    }
   }
 
   Map<String, dynamic> toJson() {

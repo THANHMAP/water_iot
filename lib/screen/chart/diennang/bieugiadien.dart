@@ -7,7 +7,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:water_iot/api/api_service.dart';
 import 'package:water_iot/model/electric/bieugiadien.dart';
 import 'package:water_iot/screen/login/login.dart';
-
+import 'package:intl/intl.dart' as intl;
 import '../../../ProgressHUD.dart';
 import '../../../SharedPref.dart';
 import '../../../constants.dart';
@@ -21,6 +21,7 @@ class _BieuGiaDienPageState extends State<BieuGiaDienPage> {
   bool isApiCallProcess = false;
   List<BieuGiaDien> bieugiadien;
   final scaffoldKey = GlobalKey<ScaffoldState>();
+  final formatter = intl.NumberFormat.decimalPattern();
 
   @override
   void initState() {
@@ -113,11 +114,14 @@ class _BieuGiaDienPageState extends State<BieuGiaDienPage> {
                     ],
                   ),
                   Expanded(
-                      child: new Column(
-                        children: <Widget>[
-                          new Text(bieuGiaDien.title),
-                        ],
-                      ))
+                      child: Padding(
+                        padding: const EdgeInsets.only(left: 20),
+                        child: new Text(
+                          bieuGiaDien == null ? "" : bieuGiaDien.title,
+                          textAlign: TextAlign.left,
+                        ),
+                      ),
+                  )
                 ],
               ),
             ],
@@ -273,11 +277,12 @@ class _BieuGiaDienPageState extends State<BieuGiaDienPage> {
                                             MainAxisAlignment.spaceBetween,
                                         children: <Widget>[
                                           Text(
-                                              bieuGiaDien.dataList[i].info
-                                                      .thapDiem.isEmpty
-                                                  ? "0"
-                                                  : bieuGiaDien.dataList[i].info
-                                                      .thapDiem,
+                                            formatter.format(bieuGiaDien.dataList[i].info.thapDiem),
+                                              // bieuGiaDien.dataList[i].info
+                                              //         .thapDiem.isEmpty
+                                              //     ? "0"
+                                              //     : bieuGiaDien.dataList[i].info
+                                              //         .thapDiem,
                                               style: TextStyle(
                                                   color: Colors.grey[800],
                                                   fontSize: 17)),
@@ -312,11 +317,12 @@ class _BieuGiaDienPageState extends State<BieuGiaDienPage> {
                                             MainAxisAlignment.spaceBetween,
                                         children: <Widget>[
                                           Text(
-                                              bieuGiaDien.dataList[i].info
-                                                      .binhThuong.isEmpty
-                                                  ? "0"
-                                                  : bieuGiaDien.dataList[i].info
-                                                      .binhThuong,
+                                              formatter.format(bieuGiaDien.dataList[i].info.binhThuong),
+                                              // bieuGiaDien.dataList[i].info
+                                              //         .binhThuong.isEmpty
+                                              //     ? "0"
+                                              //     : bieuGiaDien.dataList[i].info
+                                              //         .binhThuong,
                                               style: TextStyle(
                                                   color: Colors.grey[800],
                                                   fontSize: 17)),
@@ -351,11 +357,12 @@ class _BieuGiaDienPageState extends State<BieuGiaDienPage> {
                                             MainAxisAlignment.spaceBetween,
                                         children: <Widget>[
                                           Text(
-                                              bieuGiaDien.dataList[i].info
-                                                      .caoDiem.isEmpty
-                                                  ? "0"
-                                                  : bieuGiaDien
-                                                      .dataList[i].info.caoDiem,
+                                              formatter.format(bieuGiaDien.dataList[i].info.caoDiem),
+                                              // bieuGiaDien.dataList[i].info
+                                              //         .caoDiem.isEmpty
+                                              //     ? "0"
+                                              //     : bieuGiaDien
+                                              //         .dataList[i].info.caoDiem,
                                               style: TextStyle(
                                                   color: Colors.grey[800],
                                                   fontSize: 17)),

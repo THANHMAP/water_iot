@@ -128,8 +128,17 @@ class DataSensor {
   DataSensor({this.value, this.unit, this.isPercent});
 
   DataSensor.fromJson(Map<String, dynamic> json) {
-    value = json['value'];
-    unit = json['unit'];
+    if(json['value'] != null){
+      value = json['value'];
+    }else{
+      value = "0";
+    }
+
+    if(json['unit'] != null){
+      unit = json['unit'];
+    }else{
+      unit = "";
+    }
     isPercent = json['is_percent'];
   }
 

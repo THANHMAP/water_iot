@@ -54,7 +54,11 @@ class Info {
   Info({this.value});
 
   Info.fromJson(Map<String, dynamic> json) {
-    value = json['value'];
+    if(json['value'] == null){
+      value = 0;
+    }else{
+      value = json['value'];
+    }
   }
 
   Map<String, dynamic> toJson() {

@@ -133,8 +133,19 @@ class Info {
   Info({this.value, this.unit});
 
   Info.fromJson(Map<String, dynamic> json) {
-    value = json['value'];
-    unit = json['unit'];
+    if(json['value'] != null){
+      value = json['value'];
+    }else{
+      value = 0;
+    }
+
+    if(json['unit'] != null){
+      unit = json['unit'];
+    }else{
+      unit = "";
+    }
+
+
   }
 
   Map<String, dynamic> toJson() {

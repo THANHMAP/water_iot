@@ -7,7 +7,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:water_iot/api/api_service.dart';
 import 'package:water_iot/model/electric/diennangtieuthu.dart';
 import 'package:water_iot/screen/login/login.dart';
-
+import 'package:intl/intl.dart' as intl;
 import '../../../ProgressHUD.dart';
 import '../../../SharedPref.dart';
 import '../../../constants.dart';
@@ -21,7 +21,7 @@ class _DienNangTieuThuPageState extends State<DienNangTieuThuPage> {
   bool isApiCallProcess = false;
   List<DienNangTieuThu> dienNangTieuThu;
   final scaffoldKey = GlobalKey<ScaffoldState>();
-
+  final formatter = intl.NumberFormat.decimalPattern();
   @override
   void initState() {
     super.initState();
@@ -113,11 +113,14 @@ class _DienNangTieuThuPageState extends State<DienNangTieuThuPage> {
                     ],
                   ),
                   Expanded(
-                      child: new Column(
-                        children: <Widget>[
-                          new Text(dienNangTieuThu.title),
-                        ],
-                      ))
+                      child: Padding(
+                        padding: const EdgeInsets.only(left: 20),
+                        child: new Text(
+                          dienNangTieuThu == null ? "" : dienNangTieuThu.title,
+                          textAlign: TextAlign.left,
+                        ),
+                      ),
+                  )
                 ],
               ),
             ],
@@ -286,11 +289,7 @@ class _DienNangTieuThuPageState extends State<DienNangTieuThuPage> {
                                             MainAxisAlignment.spaceBetween,
                                         children: <Widget>[
                                           Text(
-                                              dienNangTieuThu.dataList[i].info
-                                                      .thapDiem.isEmpty
-                                                  ? "0"
-                                                  : dienNangTieuThu.dataList[i]
-                                                      .info.thapDiem,
+                                            formatter.format(dienNangTieuThu.dataList[i].info.thapDiem),
                                               style: TextStyle(
                                                   color: Colors.grey[800],
                                                   fontSize: 17)),
@@ -325,11 +324,7 @@ class _DienNangTieuThuPageState extends State<DienNangTieuThuPage> {
                                             MainAxisAlignment.spaceBetween,
                                         children: <Widget>[
                                           Text(
-                                              dienNangTieuThu.dataList[i].info
-                                                      .binhThuong.isEmpty
-                                                  ? "0"
-                                                  : dienNangTieuThu.dataList[i]
-                                                      .info.binhThuong,
+                                              formatter.format(dienNangTieuThu.dataList[i].info.binhThuong),
                                               style: TextStyle(
                                                   color: Colors.grey[800],
                                                   fontSize: 17)),
@@ -364,11 +359,7 @@ class _DienNangTieuThuPageState extends State<DienNangTieuThuPage> {
                                             MainAxisAlignment.spaceBetween,
                                         children: <Widget>[
                                           Text(
-                                              dienNangTieuThu.dataList[i].info
-                                                      .caoDiem.isEmpty
-                                                  ? "0"
-                                                  : dienNangTieuThu
-                                                      .dataList[i].info.caoDiem,
+                                              formatter.format(dienNangTieuThu.dataList[i].info.caoDiem),
                                               style: TextStyle(
                                                   color: Colors.grey[800],
                                                   fontSize: 17)),
@@ -403,11 +394,7 @@ class _DienNangTieuThuPageState extends State<DienNangTieuThuPage> {
                                             MainAxisAlignment.spaceBetween,
                                         children: <Widget>[
                                           Text(
-                                              dienNangTieuThu.dataList[i].info
-                                                      .tong.isEmpty
-                                                  ? "0"
-                                                  : dienNangTieuThu
-                                                      .dataList[i].info.tong,
+                                              formatter.format(dienNangTieuThu.dataList[i].info.tong),
                                               style: TextStyle(
                                                   color: Colors.grey[800],
                                                   fontSize: 17)),

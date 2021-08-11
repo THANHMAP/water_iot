@@ -4,10 +4,11 @@ import 'package:expansion_tile_card/expansion_tile_card.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:intl/intl.dart';
 import 'package:water_iot/api/api_service.dart';
 import 'package:water_iot/model/electric/thongsodien.dart';
 import 'package:water_iot/screen/login/login.dart';
-
+import 'package:intl/intl.dart' as intl;
 import '../../../ProgressHUD.dart';
 import '../../../SharedPref.dart';
 import '../../../constants.dart';
@@ -20,8 +21,10 @@ class DetailDienNangPage extends StatefulWidget {
 class _DetailDienNangState extends State<DetailDienNangPage> {
   bool isApiCallProcess = false;
   List<ThongSoDien> thongSoDien;
+  static const _locale = 'en';
+  String _formatNumber(String s) => NumberFormat.decimalPattern(_locale).format(double.parse(s));
   final scaffoldKey = GlobalKey<ScaffoldState>();
-
+  final formatter = intl.NumberFormat.decimalPattern();
   @override
   void initState() {
     super.initState();
@@ -98,6 +101,31 @@ class _DetailDienNangState extends State<DetailDienNangPage> {
         // key: cardA,
         // leading: CircleAvatar(
         //     child: Image.asset("assets/images/devs.jpg")),
+        // title: Container(
+        //   child: Column(
+        //     children: <Widget>[
+        //       Row(
+        //         children: <Widget>[
+        //           new Column(
+        //             children: <Widget>[
+        //               Image.asset(
+        //                 "assets/images/img_data.png",
+        //                 fit: BoxFit.contain,
+        //                 height: 35,
+        //               ),
+        //             ],
+        //           ),
+        //           Expanded(
+        //               child: new Column(
+        //             children: <Widget>[
+        //               new Text(thongSoDien.title),
+        //             ],
+        //           ))
+        //         ],
+        //       ),
+        //     ],
+        //   ),
+        // ),
         title: Container(
           child: Column(
             children: <Widget>[
@@ -113,11 +141,14 @@ class _DetailDienNangState extends State<DetailDienNangPage> {
                     ],
                   ),
                   Expanded(
-                      child: new Column(
-                    children: <Widget>[
-                      new Text(thongSoDien.title),
-                    ],
-                  ))
+                    child: Padding(
+                      padding: const EdgeInsets.only(left: 20),
+                      child: new Text(
+                        thongSoDien == null ? "" : thongSoDien.title,
+                        textAlign: TextAlign.left,
+                      ),
+                    ),
+                  )
                 ],
               ),
             ],
@@ -453,7 +484,7 @@ class _DetailDienNangState extends State<DetailDienNangPage> {
                                       mainAxisAlignment:
                                           MainAxisAlignment.spaceAround,
                                       children: <Widget>[
-                                        Text(thongSoDien.dataList[0].info.v1V2,
+                                        Text(_formatNumber(thongSoDien.dataList[0].info.v1V2.replaceAll(',', '')),
                                             style: TextStyle(
                                                 color: Colors.grey[800],
                                                 fontSize: 17)),
@@ -486,7 +517,7 @@ class _DetailDienNangState extends State<DetailDienNangPage> {
                                       mainAxisAlignment:
                                           MainAxisAlignment.spaceAround,
                                       children: <Widget>[
-                                        Text(thongSoDien.dataList[0].info.v1N,
+                                        Text(_formatNumber(thongSoDien.dataList[0].info.v1N.replaceAll(',', '')),
                                             style: TextStyle(
                                                 color: Colors.grey[800],
                                                 fontSize: 17)),
@@ -519,7 +550,7 @@ class _DetailDienNangState extends State<DetailDienNangPage> {
                                       mainAxisAlignment:
                                           MainAxisAlignment.spaceAround,
                                       children: <Widget>[
-                                        Text(thongSoDien.dataList[0].info.v2V3,
+                                        Text(_formatNumber(thongSoDien.dataList[0].info.v2V3.replaceAll(',', '')),
                                             style: TextStyle(
                                                 color: Colors.grey[800],
                                                 fontSize: 17)),
@@ -552,7 +583,7 @@ class _DetailDienNangState extends State<DetailDienNangPage> {
                                       mainAxisAlignment:
                                           MainAxisAlignment.spaceAround,
                                       children: <Widget>[
-                                        Text(thongSoDien.dataList[0].info.v2N,
+                                        Text(_formatNumber(thongSoDien.dataList[0].info.v2N.replaceAll(',', '')),
                                             style: TextStyle(
                                                 color: Colors.grey[800],
                                                 fontSize: 17)),
@@ -585,7 +616,7 @@ class _DetailDienNangState extends State<DetailDienNangPage> {
                                       mainAxisAlignment:
                                           MainAxisAlignment.spaceAround,
                                       children: <Widget>[
-                                        Text(thongSoDien.dataList[0].info.v3V1,
+                                        Text(_formatNumber(thongSoDien.dataList[0].info.v3V1.replaceAll(',', '')),
                                             style: TextStyle(
                                                 color: Colors.grey[800],
                                                 fontSize: 17)),
@@ -618,7 +649,7 @@ class _DetailDienNangState extends State<DetailDienNangPage> {
                                       mainAxisAlignment:
                                           MainAxisAlignment.spaceAround,
                                       children: <Widget>[
-                                        Text(thongSoDien.dataList[0].info.v3N,
+                                        Text(_formatNumber(thongSoDien.dataList[0].info.v3N.replaceAll(',', '')),
                                             style: TextStyle(
                                                 color: Colors.grey[800],
                                                 fontSize: 17)),
@@ -651,7 +682,7 @@ class _DetailDienNangState extends State<DetailDienNangPage> {
                                       mainAxisAlignment:
                                           MainAxisAlignment.spaceAround,
                                       children: <Widget>[
-                                        Text(thongSoDien.dataList[0].info.vN,
+                                        Text(_formatNumber(thongSoDien.dataList[0].info.vN.replaceAll(',', '')),
                                             style: TextStyle(
                                                 color: Colors.grey[800],
                                                 fontSize: 17)),
@@ -684,7 +715,7 @@ class _DetailDienNangState extends State<DetailDienNangPage> {
                                       mainAxisAlignment:
                                           MainAxisAlignment.spaceAround,
                                       children: <Widget>[
-                                        Text(thongSoDien.dataList[0].info.a1,
+                                        Text(_formatNumber(thongSoDien.dataList[0].info.a1.replaceAll(',', '')),
                                             style: TextStyle(
                                                 color: Colors.grey[800],
                                                 fontSize: 17)),
@@ -717,7 +748,7 @@ class _DetailDienNangState extends State<DetailDienNangPage> {
                                       mainAxisAlignment:
                                           MainAxisAlignment.spaceAround,
                                       children: <Widget>[
-                                        Text(thongSoDien.dataList[0].info.a2,
+                                        Text(_formatNumber(thongSoDien.dataList[0].info.a2.replaceAll(',', '')),
                                             style: TextStyle(
                                                 color: Colors.grey[800],
                                                 fontSize: 17)),
@@ -750,7 +781,7 @@ class _DetailDienNangState extends State<DetailDienNangPage> {
                                       mainAxisAlignment:
                                           MainAxisAlignment.spaceAround,
                                       children: <Widget>[
-                                        Text(thongSoDien.dataList[0].info.a3,
+                                        Text(_formatNumber(thongSoDien.dataList[0].info.a3.replaceAll(',', '')),
                                             style: TextStyle(
                                                 color: Colors.grey[800],
                                                 fontSize: 17)),
@@ -783,7 +814,7 @@ class _DetailDienNangState extends State<DetailDienNangPage> {
                                       mainAxisAlignment:
                                           MainAxisAlignment.spaceAround,
                                       children: <Widget>[
-                                        Text(thongSoDien.dataList[0].info.an,
+                                        Text(_formatNumber(thongSoDien.dataList[0].info.an.replaceAll(',', '')),
                                             style: TextStyle(
                                                 color: Colors.grey[800],
                                                 fontSize: 17)),
@@ -816,7 +847,7 @@ class _DetailDienNangState extends State<DetailDienNangPage> {
                                       mainAxisAlignment:
                                           MainAxisAlignment.spaceAround,
                                       children: <Widget>[
-                                        Text(thongSoDien.dataList[0].info.hz,
+                                        Text(_formatNumber(thongSoDien.dataList[0].info.hz.replaceAll(',', '')),
                                             style: TextStyle(
                                                 color: Colors.grey[800],
                                                 fontSize: 17)),
@@ -849,7 +880,7 @@ class _DetailDienNangState extends State<DetailDienNangPage> {
                                       mainAxisAlignment:
                                           MainAxisAlignment.spaceAround,
                                       children: <Widget>[
-                                        Text(thongSoDien.dataList[0].info.cosp,
+                                        Text(_formatNumber(thongSoDien.dataList[0].info.cosp.replaceAll(',', '')),
                                             style: TextStyle(
                                                 color: Colors.grey[800],
                                                 fontSize: 17)),
@@ -882,7 +913,7 @@ class _DetailDienNangState extends State<DetailDienNangPage> {
                                       mainAxisAlignment:
                                           MainAxisAlignment.spaceAround,
                                       children: <Widget>[
-                                        Text(thongSoDien.dataList[0].info.kwh,
+                                        Text(_formatNumber(thongSoDien.dataList[0].info.kwh.replaceAll(',', '')),
                                             style: TextStyle(
                                                 color: Colors.grey[800],
                                                 fontSize: 17)),
@@ -915,7 +946,7 @@ class _DetailDienNangState extends State<DetailDienNangPage> {
                                       mainAxisAlignment:
                                           MainAxisAlignment.spaceAround,
                                       children: <Widget>[
-                                        Text(thongSoDien.dataList[0].info.kvarh,
+                                        Text(_formatNumber(thongSoDien.dataList[0].info.kvarh.replaceAll(',', '')),
                                             style: TextStyle(
                                                 color: Colors.grey[800],
                                                 fontSize: 17)),
@@ -948,7 +979,7 @@ class _DetailDienNangState extends State<DetailDienNangPage> {
                                       mainAxisAlignment:
                                           MainAxisAlignment.spaceAround,
                                       children: <Widget>[
-                                        Text(thongSoDien.dataList[0].info.kvah,
+                                        Text(_formatNumber(thongSoDien.dataList[0].info.kvah.replaceAll(',', '')),
                                             style: TextStyle(
                                                 color: Colors.grey[800],
                                                 fontSize: 17)),
@@ -981,7 +1012,7 @@ class _DetailDienNangState extends State<DetailDienNangPage> {
                                       mainAxisAlignment:
                                           MainAxisAlignment.spaceAround,
                                       children: <Widget>[
-                                        Text(thongSoDien.dataList[0].info.thd,
+                                        Text(_formatNumber(thongSoDien.dataList[0].info.thd.replaceAll(',', '')),
                                             style: TextStyle(
                                                 color: Colors.grey[800],
                                                 fontSize: 17)),
@@ -1216,8 +1247,7 @@ class _DetailDienNangState extends State<DetailDienNangPage> {
                                       mainAxisAlignment:
                                           MainAxisAlignment.spaceAround,
                                       children: <Widget>[
-                                        Text(
-                                            thongSoDien.dataList[1].info.kwhDay,
+                                        Text(_formatNumber(thongSoDien.dataList[1].info.kwhDay.replaceAll(',', '')),
                                             style: TextStyle(
                                                 color: Colors.grey[800],
                                                 fontSize: 17)),
@@ -1250,9 +1280,7 @@ class _DetailDienNangState extends State<DetailDienNangPage> {
                                       mainAxisAlignment:
                                           MainAxisAlignment.spaceAround,
                                       children: <Widget>[
-                                        Text(
-                                            thongSoDien
-                                                .dataList[1].info.kvarhDay,
+                                        Text(_formatNumber(thongSoDien.dataList[1].info.kvarhDay.replaceAll(',', '')),
                                             style: TextStyle(
                                                 color: Colors.grey[800],
                                                 fontSize: 17)),
@@ -1285,9 +1313,7 @@ class _DetailDienNangState extends State<DetailDienNangPage> {
                                       mainAxisAlignment:
                                           MainAxisAlignment.spaceAround,
                                       children: <Widget>[
-                                        Text(
-                                            thongSoDien
-                                                .dataList[1].info.kwhMonth,
+                                        Text(_formatNumber(thongSoDien.dataList[1].info.kwhMonth.replaceAll(',', '')),
                                             style: TextStyle(
                                                 color: Colors.grey[800],
                                                 fontSize: 17)),
@@ -1320,9 +1346,7 @@ class _DetailDienNangState extends State<DetailDienNangPage> {
                                       mainAxisAlignment:
                                           MainAxisAlignment.spaceAround,
                                       children: <Widget>[
-                                        Text(
-                                            thongSoDien
-                                                .dataList[1].info.kvarhMonth,
+                                        Text(_formatNumber(thongSoDien.dataList[1].info.kvarhMonth.replaceAll(',', '')),
                                             style: TextStyle(
                                                 color: Colors.grey[800],
                                                 fontSize: 17)),
@@ -1355,9 +1379,7 @@ class _DetailDienNangState extends State<DetailDienNangPage> {
                                       mainAxisAlignment:
                                           MainAxisAlignment.spaceAround,
                                       children: <Widget>[
-                                        Text(
-                                            thongSoDien
-                                                .dataList[1].info.kwhYear,
+                                        Text(_formatNumber(thongSoDien.dataList[1].info.kwhYear.replaceAll(',', '')),
                                             style: TextStyle(
                                                 color: Colors.grey[800],
                                                 fontSize: 17)),
@@ -1390,9 +1412,7 @@ class _DetailDienNangState extends State<DetailDienNangPage> {
                                       mainAxisAlignment:
                                           MainAxisAlignment.spaceAround,
                                       children: <Widget>[
-                                        Text(
-                                            thongSoDien
-                                                .dataList[1].info.kvarhYear,
+                                        Text(_formatNumber(thongSoDien.dataList[1].info.kvarhYear.replaceAll(',', '')),
                                             style: TextStyle(
                                                 color: Colors.grey[800],
                                                 fontSize: 17)),
@@ -1425,9 +1445,7 @@ class _DetailDienNangState extends State<DetailDienNangPage> {
                                       mainAxisAlignment:
                                           MainAxisAlignment.spaceAround,
                                       children: <Widget>[
-                                        Text(
-                                            thongSoDien
-                                                .dataList[1].info.kwhTotal,
+                                        Text(_formatNumber(thongSoDien.dataList[1].info.kwhTotal.replaceAll(',', '')),
                                             style: TextStyle(
                                                 color: Colors.grey[800],
                                                 fontSize: 17)),
@@ -1460,9 +1478,7 @@ class _DetailDienNangState extends State<DetailDienNangPage> {
                                       mainAxisAlignment:
                                           MainAxisAlignment.spaceAround,
                                       children: <Widget>[
-                                        Text(
-                                            thongSoDien
-                                                .dataList[1].info.kvarhTotal,
+                                        Text(_formatNumber(thongSoDien.dataList[1].info.kvarhTotal.replaceAll(',', '')),
                                             style: TextStyle(
                                                 color: Colors.grey[800],
                                                 fontSize: 17)),

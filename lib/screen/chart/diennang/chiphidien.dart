@@ -7,7 +7,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:water_iot/api/api_service.dart';
 import 'package:water_iot/model/electric/chiphidien.dart';
 import 'package:water_iot/screen/login/login.dart';
-
+import 'package:intl/intl.dart' as intl;
 import '../../../ProgressHUD.dart';
 import '../../../SharedPref.dart';
 import '../../../constants.dart';
@@ -21,7 +21,7 @@ class _ChiPhiDienPageState extends State<ChiPhiDienPage> {
   bool isApiCallProcess = false;
   List<ChiPhiDien> chiPhiDien;
   final scaffoldKey = GlobalKey<ScaffoldState>();
-
+  final formatter = intl.NumberFormat.decimalPattern();
   @override
   void initState() {
     super.initState();
@@ -113,11 +113,15 @@ class _ChiPhiDienPageState extends State<ChiPhiDienPage> {
                     ],
                   ),
                   Expanded(
-                      child: new Column(
-                        children: <Widget>[
-                          new Text(chiPhiDien.title),
-                        ],
-                      ))
+
+                      child: Padding(
+                        padding: const EdgeInsets.only(left: 20),
+                        child: new Text(
+                          chiPhiDien == null ? "" : chiPhiDien.title,
+                          textAlign: TextAlign.left,
+                        ),
+                      ),
+                  )
                 ],
               ),
             ],
@@ -286,11 +290,7 @@ class _ChiPhiDienPageState extends State<ChiPhiDienPage> {
                                             MainAxisAlignment.spaceBetween,
                                         children: <Widget>[
                                           Text(
-                                              chiPhiDien.dataList[i].info
-                                                      .thapDiem.isEmpty
-                                                  ? "0"
-                                                  : chiPhiDien.dataList[i].info
-                                                      .thapDiem,
+                                            formatter.format(chiPhiDien.dataList[i].info.thapDiem),
                                               style: TextStyle(
                                                   color: Colors.grey[800],
                                                   fontSize: 17)),
@@ -325,11 +325,7 @@ class _ChiPhiDienPageState extends State<ChiPhiDienPage> {
                                             MainAxisAlignment.spaceBetween,
                                         children: <Widget>[
                                           Text(
-                                              chiPhiDien.dataList[i].info
-                                                      .binhThuong.isEmpty
-                                                  ? "0"
-                                                  : chiPhiDien.dataList[i].info
-                                                      .binhThuong,
+                                              formatter.format(chiPhiDien.dataList[i].info.binhThuong),
                                               style: TextStyle(
                                                   color: Colors.grey[800],
                                                   fontSize: 17)),
@@ -364,11 +360,7 @@ class _ChiPhiDienPageState extends State<ChiPhiDienPage> {
                                             MainAxisAlignment.spaceBetween,
                                         children: <Widget>[
                                           Text(
-                                              chiPhiDien.dataList[i].info
-                                                      .caoDiem.isEmpty
-                                                  ? "0"
-                                                  : chiPhiDien
-                                                      .dataList[i].info.caoDiem,
+                                              formatter.format(chiPhiDien.dataList[i].info.caoDiem),
                                               style: TextStyle(
                                                   color: Colors.grey[800],
                                                   fontSize: 17)),
@@ -403,11 +395,7 @@ class _ChiPhiDienPageState extends State<ChiPhiDienPage> {
                                             MainAxisAlignment.spaceBetween,
                                         children: <Widget>[
                                           Text(
-                                              chiPhiDien.dataList[i].info.tong
-                                                      .isEmpty
-                                                  ? "0"
-                                                  : chiPhiDien
-                                                      .dataList[i].info.tong,
+                                              formatter.format(chiPhiDien.dataList[i].info.tong),
                                               style: TextStyle(
                                                   color: Colors.grey[800],
                                                   fontSize: 17)),

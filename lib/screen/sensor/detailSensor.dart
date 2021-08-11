@@ -31,7 +31,8 @@ class _DetailSensorState extends State<DetailSensorPage> {
   String codeDialog;
   String valueText;
   String updateStatus;
-
+  static const _locale = 'en';
+  String _formatNumber(String s) => NumberFormat.decimalPattern(_locale).format(double.parse(s));
   _DetailSensorState(this.positon);
 
   String title;
@@ -253,7 +254,7 @@ class _DetailSensorState extends State<DetailSensorPage> {
                                         mainAxisAlignment:
                                             MainAxisAlignment.spaceBetween,
                                         children: <Widget>[
-                                          Text(dataList.dataSensor[i].value,
+                                          Text(_formatNumber(dataList.dataSensor[i].value.replaceAll(',', '')),
                                               style: TextStyle(
                                                   color: Colors.grey[800],
                                                   fontSize: 17)),

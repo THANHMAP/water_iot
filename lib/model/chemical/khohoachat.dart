@@ -55,8 +55,17 @@ class Info {
   Info({this.khoiLuongConLai, this.khoiLuongDaNhap});
 
   Info.fromJson(Map<String, dynamic> json) {
-    khoiLuongConLai = json['khoi_luong_con_lai'];
-    khoiLuongDaNhap = json['khoi_luong_da_nhap'];
+    if(json['khoi_luong_con_lai'] == null){
+      khoiLuongConLai = 0;
+    }else{
+      khoiLuongConLai = json['khoi_luong_con_lai'];
+    }
+
+    if(json['khoi_luong_da_nhap'] == null){
+      khoiLuongDaNhap = 0;
+    }else{
+      khoiLuongDaNhap = json['khoi_luong_da_nhap'];
+    }
   }
 
   Map<String, dynamic> toJson() {

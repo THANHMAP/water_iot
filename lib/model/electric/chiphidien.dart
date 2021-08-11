@@ -46,18 +46,37 @@ class DataList {
 }
 
 class Info {
-  String thapDiem;
-  String binhThuong;
-  String caoDiem;
-  String tong;
+  int thapDiem;
+  int binhThuong;
+  int caoDiem;
+  int tong;
 
   Info({this.thapDiem, this.binhThuong, this.caoDiem, this.tong});
 
   Info.fromJson(Map<String, dynamic> json) {
-    thapDiem = json['thap_diem'].toString();
-    binhThuong = json['binh_thuong'].toString();
-    caoDiem = json['cao_diem'].toString();
-    tong = json['tong'].toString();
+    if(json['thap_diem'] != null){
+      thapDiem = json['thap_diem'];
+    }else{
+      thapDiem = 0;
+    }
+
+    if(json['binh_thuong'] != null){
+      binhThuong = json['binh_thuong'];
+    }else{
+      binhThuong = 0;
+    }
+
+    if(json['cao_diem'] != null){
+      caoDiem = json['cao_diem'];
+    }else{
+      caoDiem = 0;
+    }
+
+    if(json['tong'] != null){
+      tong = json['tong'];
+    }else{
+      tong = 0;
+    }
   }
 
   Map<String, dynamic> toJson() {
