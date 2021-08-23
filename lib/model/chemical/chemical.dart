@@ -77,15 +77,13 @@ class DataChemical {
   CongThucHoaChat congThucHoaChat;
   KhoHoaChat khoHoaChat;
   HoaChatTieuThu hoaChatTieuThu;
-  BieuGiaHoaChat bieuGiaHoaChat;
-  ChiPhiHoaChat chiPhiHoaChat;
+  // BieuGiaHoaChat bieuGiaHoaChat;
+  // ChiPhiHoaChat chiPhiHoaChat;
 
   DataChemical(
       {this.congThucHoaChat,
         this.khoHoaChat,
-        this.hoaChatTieuThu,
-        this.bieuGiaHoaChat,
-        this.chiPhiHoaChat});
+        this.hoaChatTieuThu});
 
   DataChemical.fromJson(Map<String, dynamic> json) {
     congThucHoaChat = json['cong_thuc_hoa_chat'] != null
@@ -97,12 +95,12 @@ class DataChemical {
     hoaChatTieuThu = json['hoa_chat_tieu_thu'] != null
         ? new HoaChatTieuThu.fromJson(json['hoa_chat_tieu_thu'])
         : null;
-    bieuGiaHoaChat = json['bieu_gia_hoa_chat'] != null
-        ? new BieuGiaHoaChat.fromJson(json['bieu_gia_hoa_chat'])
-        : null;
-    chiPhiHoaChat = json['chi_phi_hoa_chat'] != null
-        ? new ChiPhiHoaChat.fromJson(json['chi_phi_hoa_chat'])
-        : null;
+    // bieuGiaHoaChat = json['bieu_gia_hoa_chat'] != null
+    //     ? new BieuGiaHoaChat.fromJson(json['bieu_gia_hoa_chat'])
+    //     : null;
+    // chiPhiHoaChat = json['chi_phi_hoa_chat'] != null
+    //     ? new ChiPhiHoaChat.fromJson(json['chi_phi_hoa_chat'])
+    //     : null;
   }
 
   Map<String, dynamic> toJson() {
@@ -116,12 +114,12 @@ class DataChemical {
     if (this.hoaChatTieuThu != null) {
       data['hoa_chat_tieu_thu'] = this.hoaChatTieuThu.toJson();
     }
-    if (this.bieuGiaHoaChat != null) {
-      data['bieu_gia_hoa_chat'] = this.bieuGiaHoaChat.toJson();
-    }
-    if (this.chiPhiHoaChat != null) {
-      data['chi_phi_hoa_chat'] = this.chiPhiHoaChat.toJson();
-    }
+    // if (this.bieuGiaHoaChat != null) {
+    //   data['bieu_gia_hoa_chat'] = this.bieuGiaHoaChat.toJson();
+    // }
+    // if (this.chiPhiHoaChat != null) {
+    //   data['chi_phi_hoa_chat'] = this.chiPhiHoaChat.toJson();
+    // }
     return data;
   }
 }

@@ -26,57 +26,82 @@ class CongThucHoaChat {
 
 class DataList {
   String title;
-  Info info;
+  InfoKg infoKg;
+  InfoL  infoL;
+  InfoS  infoS;
 
-  DataList({this.title, this.info});
+  DataList({this.title, this.infoKg, this.infoL, this.infoS});
 
   DataList.fromJson(Map<String, dynamic> json) {
     title = json['title'];
-    info = json['info'] != null ? new Info.fromJson(json['info']) : null;
+    if(json['info'] != null){
+      var jsonResponse = json['info'];
+      if(jsonResponse.containsKey("kg")){
+        infoKg = json['info'] != null ? new InfoKg.fromJson(json['info']) : null;
+      }else if(jsonResponse.containsKey("l")){
+        infoL = json['info'] != null ? new InfoL.fromJson(json['info']) : null;
+      }else if(jsonResponse.containsKey("s")){
+        infoS = json['info'] != null ? new InfoS.fromJson(json['info']) : null;
+      }
+    }
+    // info = json['info'] != null ? new Info.fromJson(json['info']) : null;
   }
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
     data['title'] = this.title;
-    if (this.info != null) {
-      data['info'] = this.info.toJson();
+    if (this.infoKg != null) {
+      data['info'] = this.infoKg.toJson();
     }
     return data;
   }
 }
 
-class Info {
+class InfoKg {
   int kg;
-  int l;
-  int s;
 
-  Info({this.kg, this.l, this.s});
+  InfoKg({this.kg});
 
-  Info.fromJson(Map<String, dynamic> json) {
+  InfoKg.fromJson(Map<String, dynamic> json) {
     if(json['kg'] == null){
       kg = 0;
     }else{
       kg = json['kg'];
     }
+  }
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    data['kg'] = this.kg;
+    return data;
+  }
+}
 
+class InfoL {
+  int l;
+
+
+  InfoL({this.l});
+
+  InfoL.fromJson(Map<String, dynamic> json) {
     if(json['l'] == null){
       l = 0;
     }else{
       l = json['l'];
     }
+  }
 
+}
+
+class InfoS {
+  int s;
+
+  InfoS({this.s});
+
+  InfoS.fromJson(Map<String, dynamic> json) {
     if(json['s'] == null){
       s = 0;
     }else{
       s = json['s'];
     }
-  }
-
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['kg'] = this.kg;
-    data['l'] = this.l;
-    data['s'] = this.s;
-    return data;
   }
 }

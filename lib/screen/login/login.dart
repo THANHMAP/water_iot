@@ -36,6 +36,7 @@ class _LoginPageState extends State<LoginPage> {
     _focusIpNode = new FocusNode();
     _focusUserNode = new FocusNode();
     _focusPasswordNode = new FocusNode();
+    loginRequestModel.ip = "197.168.0.12";
     deleteUserInfo();
   }
 
@@ -130,42 +131,41 @@ class _LoginPageState extends State<LoginPage> {
                                     ),
                                   ],
                                 ),
-                                SizedBox(height: 20),
-                                new TextFormField(
-                                  onTap: _requestIpFocus,
-                                  focusNode: _focusIpNode,
-                                  initialValue: "197.168.0.12",
-                                  style: TextStyle(
-                                      color: borderFocusEdittextColor),
-                                  keyboardType: TextInputType.text,
-                                  onSaved: (input) =>
-                                      loginRequestModel.ip = input,
-                                  validator: (input) => !input.contains('.')
-                                      ? "Ip should be valid"
-                                      : null,
-                                  decoration: new InputDecoration(
-                                    hintText: "IP nhà máy",
-                                    hintStyle: TextStyle(
-                                        color: _focusIpNode.hasFocus
-                                            ? borderFocusEdittextColor
-                                            : borderEdittextColor),
-                                    enabledBorder: UnderlineInputBorder(
-                                        borderSide: BorderSide(
-                                            color: borderEdittextColor)),
-                                    focusedBorder: UnderlineInputBorder(
-                                        borderSide: BorderSide(
-                                            color: borderFocusEdittextColor)),
-                                    // prefixIcon: Icon(
-                                    //   Icons.email,
-                                    //   color: Theme.of(context).accentColor,
-                                    // ),
-                                  ),
-                                ),
+                                // SizedBox(height: 20),
+                                // new TextFormField(
+                                //   onTap: _requestIpFocus,
+                                //   focusNode: _focusIpNode,
+                                //   initialValue: "197.168.0.12",
+                                //   style: TextStyle(
+                                //       color: borderFocusEdittextColor),
+                                //   keyboardType: TextInputType.text,
+                                //   onSaved: (input) =>
+                                //       loginRequestModel.ip = input,
+                                //   validator: (input) => !input.contains('.')
+                                //       ? "Ip should be valid"
+                                //       : null,
+                                //   decoration: new InputDecoration(
+                                //     hintText: "IP nhà máy",
+                                //     hintStyle: TextStyle(
+                                //         color: _focusIpNode.hasFocus
+                                //             ? borderFocusEdittextColor
+                                //             : borderEdittextColor),
+                                //     enabledBorder: UnderlineInputBorder(
+                                //         borderSide: BorderSide(
+                                //             color: borderEdittextColor)),
+                                //     focusedBorder: UnderlineInputBorder(
+                                //         borderSide: BorderSide(
+                                //             color: borderFocusEdittextColor)),
+                                //     // prefixIcon: Icon(
+                                //     //   Icons.email,
+                                //     //   color: Theme.of(context).accentColor,
+                                //     // ),
+                                //   ),
+                                // ),
                                 SizedBox(height: 20),
                                 new TextFormField(
                                   onTap: _requestUserFocus,
                                   focusNode: _focusUserNode,
-                                  initialValue: "adminsenco@gmail.com",
                                   style: TextStyle(
                                       color: borderFocusEdittextColor),
                                   keyboardType: TextInputType.emailAddress,
@@ -192,7 +192,6 @@ class _LoginPageState extends State<LoginPage> {
                                 new TextFormField(
                                   onTap: _requestPasswordFocus,
                                   focusNode: _focusPasswordNode,
-                                  initialValue: "12345678",
                                   style: TextStyle(
                                       color: borderFocusEdittextColor),
                                   keyboardType: TextInputType.text,

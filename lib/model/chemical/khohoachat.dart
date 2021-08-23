@@ -1,13 +1,11 @@
 class KhoHoaChat {
   String title;
-  String unit;
   List<DataList> dataList;
 
-  KhoHoaChat({this.title, this.unit, this.dataList});
+  KhoHoaChat({this.title, this.dataList});
 
   KhoHoaChat.fromJson(Map<String, dynamic> json) {
     title = json['title'];
-    unit = json['unit'];
     if (json['data_list'] != null) {
       dataList = [];
       json['data_list'].forEach((v) {
@@ -19,7 +17,7 @@ class KhoHoaChat {
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
     data['title'] = this.title;
-    data['unit'] = this.unit;
+
     if (this.dataList != null) {
       data['data_list'] = this.dataList.map((v) => v.toJson()).toList();
     }
@@ -29,37 +27,66 @@ class KhoHoaChat {
 
 class DataList {
   String title;
-  Info info;
+  String unit;
+  InfoKhoiLuongConLai infoKLCL;
+  InfokhoiLuongDaNhap infoKLDN;
+  InfoBieuGia infoBG;
 
-  DataList({this.title, this.info});
+  DataList({this.title,  this.unit, this.infoKLCL, this.infoKLDN, this.infoBG});
 
   DataList.fromJson(Map<String, dynamic> json) {
     title = json['title'];
-    info = json['info'] != null ? new Info.fromJson(json['info']) : null;
+    unit = json['unit'];
+    if(json['info'] != null) {
+      var jsonResponse = json['info'];
+      if(jsonResponse.containsKey("value")){
+        infoBG = json['info'] != null ? new InfoBieuGia.fromJson(json['info']) : null;
+      } else if(jsonResponse.containsKey("khoi_luong_con_lai")){
+        infoKLCL = json['info'] != null ? new InfoKhoiLuongConLai.fromJson(json['info']) : null;
+      }else if(jsonResponse.containsKey("khoi_luong_da_nhap")){
+        infoKLDN = json['info'] != null ? new InfokhoiLuongDaNhap.fromJson(json['info']) : null;
+      }
+    }
   }
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
     data['title'] = this.title;
-    if (this.info != null) {
-      data['info'] = this.info.toJson();
+    data['unit'] = this.unit;
+    if (this.infoKLCL != null) {
+      data['info'] = this.infoKLCL.toJson();
     }
     return data;
   }
 }
 
-class Info {
+class InfoKhoiLuongConLai {
   int khoiLuongConLai;
-  int khoiLuongDaNhap;
 
-  Info({this.khoiLuongConLai, this.khoiLuongDaNhap});
+  InfoKhoiLuongConLai({this.khoiLuongConLai});
 
-  Info.fromJson(Map<String, dynamic> json) {
+  InfoKhoiLuongConLai.fromJson(Map<String, dynamic> json) {
     if(json['khoi_luong_con_lai'] == null){
       khoiLuongConLai = 0;
     }else{
       khoiLuongConLai = json['khoi_luong_con_lai'];
     }
+
+  }
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    data['khoi_luong_con_lai'] = this.khoiLuongConLai;
+    return data;
+  }
+}
+
+class InfokhoiLuongDaNhap {
+  int khoiLuongDaNhap;
+
+  InfokhoiLuongDaNhap({this.khoiLuongDaNhap});
+
+  InfokhoiLuongDaNhap.fromJson(Map<String, dynamic> json) {
 
     if(json['khoi_luong_da_nhap'] == null){
       khoiLuongDaNhap = 0;
@@ -70,8 +97,27 @@ class Info {
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['khoi_luong_con_lai'] = this.khoiLuongConLai;
     data['khoi_luong_da_nhap'] = this.khoiLuongDaNhap;
+    return data;
+  }
+}
+
+class InfoBieuGia {
+  int value;
+
+  InfoBieuGia({this.value});
+
+  InfoBieuGia.fromJson(Map<String, dynamic> json) {
+    if(json['value'] == null){
+      value = 0;
+    }else{
+      value = json['value'];
+    }
+  }
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    data['value'] = this.value;
     return data;
   }
 }

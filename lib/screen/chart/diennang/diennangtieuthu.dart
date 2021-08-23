@@ -43,7 +43,7 @@ class _DienNangTieuThuPageState extends State<DienNangTieuThuPage> {
       home: Scaffold(
           key: scaffoldKey,
           appBar: AppBar(
-              title: Text("Điện Năng Tiêu Thụ"
+              title: Text("Chi Tiết Điện Năng Tiêu Thụ"
                   // style: TextStyle(color: mTexHeadLoginColor),
                   ),
               centerTitle: true,
@@ -239,6 +239,19 @@ class _DienNangTieuThuPageState extends State<DienNangTieuThuPage> {
                                       margin: const EdgeInsets.only(top: 18.0),
                                       child: Row(
                                         mainAxisAlignment:
+                                        MainAxisAlignment.start,
+                                        children: <Widget>[
+                                          Text("4",
+                                              style: TextStyle(
+                                                  color: Colors.grey[800],
+                                                  fontSize: 17)),
+                                        ],
+                                      ),
+                                    ),
+                                    Container(
+                                      margin: const EdgeInsets.only(top: 18.0),
+                                      child: Row(
+                                        mainAxisAlignment:
                                             MainAxisAlignment.start,
                                         children: <Widget>[
                                           Text("4",
@@ -269,12 +282,17 @@ class _DienNangTieuThuPageState extends State<DienNangTieuThuPage> {
                                         mainAxisAlignment:
                                             MainAxisAlignment.spaceBetween,
                                         children: <Widget>[
-                                          Text("Value",
+                                          Text("Thời điểm",
                                               style: TextStyle(
                                                   color: Colors.grey[800],
                                                   fontWeight: FontWeight.bold,
                                                   fontSize: 18)),
-                                          Text("Unit",
+                                          Text("Kwh",
+                                              style: TextStyle(
+                                                  color: Colors.grey[800],
+                                                  fontWeight: FontWeight.bold,
+                                                  fontSize: 18)),
+                                          Text("VND",
                                               style: TextStyle(
                                                   color: Colors.grey[800],
                                                   fontWeight: FontWeight.bold,
@@ -285,26 +303,42 @@ class _DienNangTieuThuPageState extends State<DienNangTieuThuPage> {
                                     Container(
                                       margin: const EdgeInsets.only(top: 10.0),
                                       child: Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceBetween,
+                                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                         children: <Widget>[
-                                          Text(
-                                            formatter.format(dienNangTieuThu.dataList[i].info.thapDiem),
-                                              style: TextStyle(
-                                                  color: Colors.grey[800],
-                                                  fontSize: 17)),
+                                          Container(
+                                            width: 80,
+                                            child: Text(dienNangTieuThu.dataList[i].info.thapDiem.thoiGian,
+                                                style: TextStyle(
+                                                    color: Colors.grey[800], fontSize: 16)),
+                                          ),
                                           RichText(
                                             text: WidgetSpan(
                                               child: Container(
-                                                width: 90,
                                                 padding: EdgeInsets.all(6),
                                                 decoration: BoxDecoration(
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            4),
+                                                    borderRadius: BorderRadius.circular(4),
                                                     color: Color(0xFF555555)),
                                                 child: Text(
-                                                  "thap_diem",
+                                                  formatter.format(
+                                                      dienNangTieuThu.dataList[i].info.thapDiem.kwh),
+                                                  textAlign: TextAlign.center,
+                                                  style: TextStyle(
+                                                    fontWeight: FontWeight.w500,
+                                                    color: Colors.white,
+                                                  ),
+                                                ),
+                                              ),
+                                            ),
+                                          ),
+                                          RichText(
+                                            text: WidgetSpan(
+                                              child: Container(
+                                                padding: EdgeInsets.all(6),
+                                                decoration: BoxDecoration(
+                                                    borderRadius: BorderRadius.circular(4),
+                                                    color: Color(0xFF555555)),
+                                                child: Text(
+                                                  formatter.format(dienNangTieuThu.dataList[i].info.thapDiem.chiPhi),
                                                   textAlign: TextAlign.center,
                                                   style: TextStyle(
                                                     fontWeight: FontWeight.w500,
@@ -320,26 +354,42 @@ class _DienNangTieuThuPageState extends State<DienNangTieuThuPage> {
                                     Container(
                                       margin: const EdgeInsets.only(top: 10.0),
                                       child: Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceBetween,
+                                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                         children: <Widget>[
-                                          Text(
-                                              formatter.format(dienNangTieuThu.dataList[i].info.binhThuong),
-                                              style: TextStyle(
-                                                  color: Colors.grey[800],
-                                                  fontSize: 17)),
+                                          Container(
+                                            width: 80,
+                                            child: Text(dienNangTieuThu.dataList[i].info.binhThuong.thoiGian,
+                                                style: TextStyle(
+                                                    color: Colors.grey[800], fontSize: 16)),
+                                          ),
                                           RichText(
                                             text: WidgetSpan(
                                               child: Container(
-                                                width: 90,
                                                 padding: EdgeInsets.all(6),
                                                 decoration: BoxDecoration(
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            4),
+                                                    borderRadius: BorderRadius.circular(4),
                                                     color: Color(0xFF555555)),
                                                 child: Text(
-                                                  "binh_thuong",
+                                                  formatter.format(
+                                                      dienNangTieuThu.dataList[i].info.binhThuong.kwh),
+                                                  textAlign: TextAlign.center,
+                                                  style: TextStyle(
+                                                    fontWeight: FontWeight.w500,
+                                                    color: Colors.white,
+                                                  ),
+                                                ),
+                                              ),
+                                            ),
+                                          ),
+                                          RichText(
+                                            text: WidgetSpan(
+                                              child: Container(
+                                                padding: EdgeInsets.all(6),
+                                                decoration: BoxDecoration(
+                                                    borderRadius: BorderRadius.circular(4),
+                                                    color: Color(0xFF555555)),
+                                                child: Text(
+                                                  formatter.format(dienNangTieuThu.dataList[i].info.binhThuong.chiPhi),
                                                   textAlign: TextAlign.center,
                                                   style: TextStyle(
                                                     fontWeight: FontWeight.w500,
@@ -355,26 +405,42 @@ class _DienNangTieuThuPageState extends State<DienNangTieuThuPage> {
                                     Container(
                                       margin: const EdgeInsets.only(top: 10.0),
                                       child: Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceBetween,
+                                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                         children: <Widget>[
-                                          Text(
-                                              formatter.format(dienNangTieuThu.dataList[i].info.caoDiem),
-                                              style: TextStyle(
-                                                  color: Colors.grey[800],
-                                                  fontSize: 17)),
+                                          Container(
+                                            width: 80,
+                                            child: Text(dienNangTieuThu.dataList[i].info.caoDiem.thoiGian,
+                                                style: TextStyle(
+                                                    color: Colors.grey[800], fontSize: 16)),
+                                          ),
                                           RichText(
                                             text: WidgetSpan(
                                               child: Container(
-                                                width: 90,
                                                 padding: EdgeInsets.all(6),
                                                 decoration: BoxDecoration(
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            4),
+                                                    borderRadius: BorderRadius.circular(4),
                                                     color: Color(0xFF555555)),
                                                 child: Text(
-                                                  "cao_diem",
+                                                  formatter.format(
+                                                      dienNangTieuThu.dataList[i].info.caoDiem.kwh),
+                                                  textAlign: TextAlign.center,
+                                                  style: TextStyle(
+                                                    fontWeight: FontWeight.w500,
+                                                    color: Colors.white,
+                                                  ),
+                                                ),
+                                              ),
+                                            ),
+                                          ),
+                                          RichText(
+                                            text: WidgetSpan(
+                                              child: Container(
+                                                padding: EdgeInsets.all(6),
+                                                decoration: BoxDecoration(
+                                                    borderRadius: BorderRadius.circular(4),
+                                                    color: Color(0xFF555555)),
+                                                child: Text(
+                                                  formatter.format(dienNangTieuThu.dataList[i].info.caoDiem.chiPhi),
                                                   textAlign: TextAlign.center,
                                                   style: TextStyle(
                                                     fontWeight: FontWeight.w500,
@@ -390,26 +456,42 @@ class _DienNangTieuThuPageState extends State<DienNangTieuThuPage> {
                                     Container(
                                       margin: const EdgeInsets.only(top: 10.0),
                                       child: Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceBetween,
+                                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                         children: <Widget>[
-                                          Text(
-                                              formatter.format(dienNangTieuThu.dataList[i].info.tong),
-                                              style: TextStyle(
-                                                  color: Colors.grey[800],
-                                                  fontSize: 17)),
+                                          Container(
+                                            width: 80,
+                                            child: Text(dienNangTieuThu.dataList[i].info.tong.thoiGian,
+                                                style: TextStyle(
+                                                    color: Colors.grey[800], fontSize: 16)),
+                                          ),
                                           RichText(
                                             text: WidgetSpan(
                                               child: Container(
-                                                width: 90,
                                                 padding: EdgeInsets.all(6),
                                                 decoration: BoxDecoration(
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            4),
+                                                    borderRadius: BorderRadius.circular(4),
                                                     color: Color(0xFF555555)),
                                                 child: Text(
-                                                  "tong",
+                                                  formatter.format(
+                                                      dienNangTieuThu.dataList[i].info.tong.kwh),
+                                                  textAlign: TextAlign.center,
+                                                  style: TextStyle(
+                                                    fontWeight: FontWeight.w500,
+                                                    color: Colors.white,
+                                                  ),
+                                                ),
+                                              ),
+                                            ),
+                                          ),
+                                          RichText(
+                                            text: WidgetSpan(
+                                              child: Container(
+                                                padding: EdgeInsets.all(6),
+                                                decoration: BoxDecoration(
+                                                    borderRadius: BorderRadius.circular(4),
+                                                    color: Color(0xFF555555)),
+                                                child: Text(
+                                                  formatter.format(dienNangTieuThu.dataList[i].info.tong.chiPhi),
                                                   textAlign: TextAlign.center,
                                                   style: TextStyle(
                                                     fontWeight: FontWeight.w500,

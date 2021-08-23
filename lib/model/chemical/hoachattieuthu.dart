@@ -1,15 +1,13 @@
 class HoaChatTieuThu {
   String title;
-  String unit;
   List<DataList> dataList;
 
-  HoaChatTieuThu({this.title, this.unit, this.dataList});
+  HoaChatTieuThu({this.title, this.dataList});
 
   HoaChatTieuThu.fromJson(Map<String, dynamic> json) {
     title = json['title'];
-    unit = json['unit'];
     if (json['data_list'] != null) {
-      dataList = new List<DataList>();
+      dataList = [];
       json['data_list'].forEach((v) {
         dataList.add(new DataList.fromJson(v));
       });
@@ -19,7 +17,7 @@ class HoaChatTieuThu {
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
     data['title'] = this.title;
-    data['unit'] = this.unit;
+
     if (this.dataList != null) {
       data['data_list'] = this.dataList.map((v) => v.toJson()).toList();
     }
@@ -29,20 +27,25 @@ class HoaChatTieuThu {
 
 class DataList {
   String title;
-  Info info;
+  List<Info> info;
 
   DataList({this.title, this.info});
 
   DataList.fromJson(Map<String, dynamic> json) {
     title = json['title'];
-    info = json['info'] != null ? new Info.fromJson(json['info']) : null;
+    if (json['info'] != null) {
+      info = [];
+      json['info'].forEach((v) {
+        info.add(new Info.fromJson(v));
+      });
+    }
   }
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
     data['title'] = this.title;
     if (this.info != null) {
-      data['info'] = this.info.toJson();
+      data['info'] = this.info.map((v) => v.toJson()).toList();
     }
     return data;
   }
@@ -50,6 +53,7 @@ class DataList {
 
 class Info {
   int value;
+  String unit;
 
   Info({this.value});
 
@@ -60,11 +64,18 @@ class Info {
       value = json['value'];
     }
 
+    if(json['unit'] != null){
+      unit = json['unit'];
+    }else{
+      unit = "";
+    }
+
   }
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
     data['value'] = this.value;
+    data['unit'] = this.unit;
     return data;
   }
 }

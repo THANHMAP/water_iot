@@ -213,9 +213,9 @@ class _DienNangState extends State {
                                         flex: 50,
                                         child: Container(
                                           margin: new EdgeInsets.symmetric(
-                                              horizontal: 40.0),
+                                              horizontal: 10.0),
                                           child: Text(
-                                            "Biểu Giá Điện",
+                                            "Tổng Điện Năng Tiêu Thụ",
                                             textAlign: TextAlign.left,
                                             style: TextStyle(
                                               color: textDashboardColor,
@@ -293,13 +293,13 @@ class _DienNangState extends State {
                                         // ),
                                       ),
                                       Expanded(
-                                        flex: 50,
+                                        flex: 60,
                                         child: Container(
                                           margin: new EdgeInsets.symmetric(
-                                              horizontal: 35.0),
+                                              horizontal: 20.0),
                                           child: Text(
                                             "Điện Năng Tiêu Thụ",
-                                            textAlign: TextAlign.left,
+                                            textAlign: TextAlign.center,
                                             style: TextStyle(
                                               color: textDashboardColor,
                                               fontFamily: 'OpenSans',
@@ -332,89 +332,89 @@ class _DienNangState extends State {
                                   ));
                             },
                           ),
-                          SizedBox(height: 13),
-                          InkWell(
-                            child: Container(
-                              width: double.infinity,
-                              height: 70,
-                              padding: EdgeInsets.symmetric(
-                                  vertical: 10, horizontal: 20),
-                              margin: EdgeInsets.symmetric(
-                                  vertical: 0, horizontal: 10),
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(10),
-                                color: Theme.of(context).primaryColor,
-                                boxShadow: [
-                                  BoxShadow(
-                                      color: Theme.of(context)
-                                          .hintColor
-                                          .withOpacity(0.2),
-                                      offset: Offset(0, 10),
-                                      blurRadius: 20)
-                                ],
-                              ),
-                              child: Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                children: <Widget>[
-                                  new Row(
-                                    children: <Widget>[
-                                      Expanded(
-                                        flex: 8,
-                                        child: Align(
-                                          alignment: Alignment.center,
-                                          child: Image.asset(
-                                            "assets/images/img_data.png",
-                                            fit: BoxFit.contain,
-                                            height: 35,
-                                          ),
-                                        ),
-
-                                        // child: Image.asset(
-                                        //   "assets/images/ic_factory.png",
-                                        //   fit: BoxFit.contain,
-                                        // ),
-                                      ),
-                                      Expanded(
-                                        flex: 50,
-                                        child: Container(
-                                          margin: new EdgeInsets.symmetric(
-                                              horizontal: 40.0),
-                                          child: Text(
-                                            "Chi Phí Điện Năng",
-                                            textAlign: TextAlign.left,
-                                            style: TextStyle(
-                                              color: textDashboardColor,
-                                              fontFamily: 'OpenSans',
-                                              fontSize: 20.0,
-                                              fontWeight: FontWeight.bold,
-                                            ),
-                                          ),
-                                          // child: Center(
-                                          //
-                                          // ),
-                                        ),
-                                      ),
-                                      Expanded(
-                                        flex: 3,
-                                        child: Image.asset(
-                                          "assets/images/ic_arrow.png",
-                                          fit: BoxFit.contain,
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ],
-                              ),
-                            ),
-                            onTap: () {
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) => ChiPhiDienPage(),
-                                  ));
-                            },
-                          ),
+                          // SizedBox(height: 13),
+                          // InkWell(
+                          //   child: Container(
+                          //     width: double.infinity,
+                          //     height: 70,
+                          //     padding: EdgeInsets.symmetric(
+                          //         vertical: 10, horizontal: 20),
+                          //     margin: EdgeInsets.symmetric(
+                          //         vertical: 0, horizontal: 10),
+                          //     decoration: BoxDecoration(
+                          //       borderRadius: BorderRadius.circular(10),
+                          //       color: Theme.of(context).primaryColor,
+                          //       boxShadow: [
+                          //         BoxShadow(
+                          //             color: Theme.of(context)
+                          //                 .hintColor
+                          //                 .withOpacity(0.2),
+                          //             offset: Offset(0, 10),
+                          //             blurRadius: 20)
+                          //       ],
+                          //     ),
+                          //     child: Column(
+                          //       mainAxisAlignment: MainAxisAlignment.center,
+                          //       crossAxisAlignment: CrossAxisAlignment.center,
+                          //       children: <Widget>[
+                          //         new Row(
+                          //           children: <Widget>[
+                          //             Expanded(
+                          //               flex: 8,
+                          //               child: Align(
+                          //                 alignment: Alignment.center,
+                          //                 child: Image.asset(
+                          //                   "assets/images/img_data.png",
+                          //                   fit: BoxFit.contain,
+                          //                   height: 35,
+                          //                 ),
+                          //               ),
+                          //
+                          //               // child: Image.asset(
+                          //               //   "assets/images/ic_factory.png",
+                          //               //   fit: BoxFit.contain,
+                          //               // ),
+                          //             ),
+                          //             Expanded(
+                          //               flex: 50,
+                          //               child: Container(
+                          //                 margin: new EdgeInsets.symmetric(
+                          //                     horizontal: 40.0),
+                          //                 child: Text(
+                          //                   "Chi Phí Điện Năng",
+                          //                   textAlign: TextAlign.left,
+                          //                   style: TextStyle(
+                          //                     color: textDashboardColor,
+                          //                     fontFamily: 'OpenSans',
+                          //                     fontSize: 20.0,
+                          //                     fontWeight: FontWeight.bold,
+                          //                   ),
+                          //                 ),
+                          //                 // child: Center(
+                          //                 //
+                          //                 // ),
+                          //               ),
+                          //             ),
+                          //             Expanded(
+                          //               flex: 3,
+                          //               child: Image.asset(
+                          //                 "assets/images/ic_arrow.png",
+                          //                 fit: BoxFit.contain,
+                          //               ),
+                          //             ),
+                          //           ],
+                          //         ),
+                          //       ],
+                          //     ),
+                          //   ),
+                          //   onTap: () {
+                          //     Navigator.push(
+                          //         context,
+                          //         MaterialPageRoute(
+                          //           builder: (context) => ChiPhiDienPage(),
+                          //         ));
+                          //   },
+                          // ),
                           // _buildDienNang(),
                           // _buildHoaChat(),
                           // _buildDoangThuNuoc(),
@@ -737,105 +737,4 @@ class _DienNangState extends State {
     );
   }
 
-  Widget _buildChiPhiDienNang() {
-    return Padding(
-      padding: const EdgeInsets.all(0),
-      child: Card(
-        clipBehavior: Clip.antiAlias,
-        elevation: 16,
-        shape:
-            RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
-        child: InkWell(
-          onTap: () {
-            Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => ChiPhiDienPage(),
-                ));
-          },
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              Container(
-                height: 70,
-                color: HexColor("#009688"),
-                width: double.infinity,
-                // padding: EdgeInsets.symmetric(vertical: 10, horizontal: 0),
-                // margin: EdgeInsets.symmetric(vertical: 0, horizontal: 15),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: <Widget>[
-                    new Row(
-                      children: [
-                        // Expanded(
-                        //   flex: 1,
-                        //   child: Container(
-                        //     alignment: Alignment.center,
-                        //     // color: Colors.amber,
-                        //     // height: 100,
-                        //     child: Align(
-                        //       alignment: Alignment.topRight,
-                        //       child: SvgPicture.asset(
-                        //         "assets/images/ic_pump.svg",
-                        //         color: Color(0xFFF4F5F8),
-                        //         height: 70,
-                        //       ),
-                        //     ),
-                        //   ),
-                        // ),
-                        Expanded(
-                          flex: 2,
-                          child: Column(
-                            children: <Widget>[
-                              new Row(
-                                children: [
-                                  Expanded(
-                                    child: Container(
-                                      alignment: Alignment.center,
-                                      // color: Colors.amber,
-                                      child: Text(
-                                        "Chi Phí Điện Năng",
-                                        textAlign: TextAlign.center,
-                                        style: TextStyle(
-                                            color: Colors.white, fontSize: 30),
-                                      ),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                              // new Row(
-                              //   children: [
-                              //     Expanded(
-                              //       child: Container(
-                              //         margin: const EdgeInsets.only(top: 10.0),
-                              //         alignment: Alignment.center,
-                              //         // color: Colors.amber,
-                              //         child: Image.asset(
-                              //           "assets/images/ic_arrow_down.png",
-                              //           height: 10,
-                              //         ),
-                              //       ),
-                              //     ),
-                              //   ],
-                              // ),
-                            ],
-                          ),
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
-              ),
-
-              // Row(
-
-              // ),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
 }

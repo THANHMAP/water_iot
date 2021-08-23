@@ -44,7 +44,7 @@ class _BieuGiaDienPageState extends State<BieuGiaDienPage> {
       home: Scaffold(
           key: scaffoldKey,
           appBar: AppBar(
-              title: Text("Biểu Giá Điện"
+              title: Text("Tổng Điện Năng Tiêu Thụ"
                   // style: TextStyle(color: mTexHeadLoginColor),
                   ),
               centerTitle: true,
@@ -114,13 +114,13 @@ class _BieuGiaDienPageState extends State<BieuGiaDienPage> {
                     ],
                   ),
                   Expanded(
-                      child: Padding(
-                        padding: const EdgeInsets.only(left: 20),
-                        child: new Text(
-                          bieuGiaDien == null ? "" : bieuGiaDien.title,
-                          textAlign: TextAlign.left,
-                        ),
+                    child: Padding(
+                      padding: const EdgeInsets.only(left: 20),
+                      child: new Text(
+                        bieuGiaDien == null ? "" : bieuGiaDien.title,
+                        textAlign: TextAlign.left,
                       ),
+                    ),
                   )
                 ],
               ),
@@ -140,263 +140,7 @@ class _BieuGiaDienPageState extends State<BieuGiaDienPage> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 for (var i = 0; i < bieuGiaDien.dataList.length; i++)
-                  Container(
-                    width: double.infinity,
-                    padding: EdgeInsets.symmetric(vertical: 20, horizontal: 10),
-                    margin: EdgeInsets.symmetric(vertical: 10, horizontal: 15),
-                    child: Column(children: <Widget>[
-                      new Row(
-                        children: [
-                          Expanded(
-                            child: Container(
-                              child: Text(
-                                bieuGiaDien.dataList[i].title,
-                                style: TextStyle(
-                                  color: textDashboardColor,
-                                  fontFamily: 'OpenSans',
-                                  fontSize: 20.0,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              ),
-                              // child: Center(
-                              //
-                              // ),
-                            ),
-                          ),
-                        ],
-                      ),
-                      SizedBox(height: 20),
-                      Container(
-                        child: Row(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Expanded(
-                              flex: 1,
-                              child: Column(
-                                  mainAxisSize: MainAxisSize.max,
-                                  children: <Widget>[
-                                    Container(
-                                      decoration: BoxDecoration(
-                                        border: Border(
-                                          // top: BorderSide(width: 16.0, color: Colors.lightBlue.shade600),
-                                          bottom: BorderSide(
-                                              width: 1,
-                                              color: Colors.lightBlue.shade900),
-                                        ),
-                                        color: Colors.white,
-                                      ),
-                                      child: Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.start,
-                                        children: <Widget>[
-                                          Text("#",
-                                              style: TextStyle(
-                                                  color: Colors.grey[800],
-                                                  fontWeight: FontWeight.bold,
-                                                  fontSize: 18)),
-                                        ],
-                                      ),
-                                    ),
-                                    Container(
-                                      margin: const EdgeInsets.only(top: 15.0),
-                                      child: Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.start,
-                                        children: <Widget>[
-                                          Text("1",
-                                              style: TextStyle(
-                                                  color: Colors.grey[800],
-                                                  fontSize: 17)),
-                                        ],
-                                      ),
-                                    ),
-                                    Container(
-                                      margin: const EdgeInsets.only(top: 18.0),
-                                      child: Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.start,
-                                        children: <Widget>[
-                                          Text("2",
-                                              style: TextStyle(
-                                                  color: Colors.grey[800],
-                                                  fontSize: 17)),
-                                        ],
-                                      ),
-                                    ),
-                                    Container(
-                                      margin: const EdgeInsets.only(top: 18.0),
-                                      child: Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.start,
-                                        children: <Widget>[
-                                          Text("3",
-                                              style: TextStyle(
-                                                  color: Colors.grey[800],
-                                                  fontSize: 17)),
-                                        ],
-                                      ),
-                                    ),
-                                  ]),
-                            ),
-                            Expanded(
-                              flex: 5,
-                              child: Column(
-                                  mainAxisSize: MainAxisSize.max,
-                                  children: <Widget>[
-                                    Container(
-                                      decoration: BoxDecoration(
-                                        border: Border(
-                                          // top: BorderSide(width: 16.0, color: Colors.lightBlue.shade600),
-                                          bottom: BorderSide(
-                                              width: 1,
-                                              color: Colors.lightBlue.shade900),
-                                        ),
-                                        color: Colors.white,
-                                      ),
-                                      child: Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceBetween,
-                                        children: <Widget>[
-                                          Text("Value",
-                                              style: TextStyle(
-                                                  color: Colors.grey[800],
-                                                  fontWeight: FontWeight.bold,
-                                                  fontSize: 18)),
-                                          Text("Unit",
-                                              style: TextStyle(
-                                                  color: Colors.grey[800],
-                                                  fontWeight: FontWeight.bold,
-                                                  fontSize: 18)),
-                                        ],
-                                      ),
-                                    ),
-                                    Container(
-                                      margin: const EdgeInsets.only(top: 10.0),
-                                      child: Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceBetween,
-                                        children: <Widget>[
-                                          Text(
-                                            formatter.format(bieuGiaDien.dataList[i].info.thapDiem),
-                                              // bieuGiaDien.dataList[i].info
-                                              //         .thapDiem.isEmpty
-                                              //     ? "0"
-                                              //     : bieuGiaDien.dataList[i].info
-                                              //         .thapDiem,
-                                              style: TextStyle(
-                                                  color: Colors.grey[800],
-                                                  fontSize: 17)),
-                                          RichText(
-                                            text: WidgetSpan(
-                                              child: Container(
-                                                width: 90,
-                                                padding: EdgeInsets.all(6),
-                                                decoration: BoxDecoration(
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            4),
-                                                    color: Color(0xFF555555)),
-                                                child: Text(
-                                                  "thap_diem",
-                                                  textAlign: TextAlign.center,
-                                                  style: TextStyle(
-                                                    fontWeight: FontWeight.w500,
-                                                    color: Colors.white,
-                                                  ),
-                                                ),
-                                              ),
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                    Container(
-                                      margin: const EdgeInsets.only(top: 10.0),
-                                      child: Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceBetween,
-                                        children: <Widget>[
-                                          Text(
-                                              formatter.format(bieuGiaDien.dataList[i].info.binhThuong),
-                                              // bieuGiaDien.dataList[i].info
-                                              //         .binhThuong.isEmpty
-                                              //     ? "0"
-                                              //     : bieuGiaDien.dataList[i].info
-                                              //         .binhThuong,
-                                              style: TextStyle(
-                                                  color: Colors.grey[800],
-                                                  fontSize: 17)),
-                                          RichText(
-                                            text: WidgetSpan(
-                                              child: Container(
-                                                width: 90,
-                                                padding: EdgeInsets.all(6),
-                                                decoration: BoxDecoration(
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            4),
-                                                    color: Color(0xFF555555)),
-                                                child: Text(
-                                                  "binh_thuong",
-                                                  textAlign: TextAlign.center,
-                                                  style: TextStyle(
-                                                    fontWeight: FontWeight.w500,
-                                                    color: Colors.white,
-                                                  ),
-                                                ),
-                                              ),
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                    Container(
-                                      margin: const EdgeInsets.only(top: 10.0),
-                                      child: Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceBetween,
-                                        children: <Widget>[
-                                          Text(
-                                              formatter.format(bieuGiaDien.dataList[i].info.caoDiem),
-                                              // bieuGiaDien.dataList[i].info
-                                              //         .caoDiem.isEmpty
-                                              //     ? "0"
-                                              //     : bieuGiaDien
-                                              //         .dataList[i].info.caoDiem,
-                                              style: TextStyle(
-                                                  color: Colors.grey[800],
-                                                  fontSize: 17)),
-                                          RichText(
-                                            text: WidgetSpan(
-                                              child: Container(
-                                                width: 90,
-                                                padding: EdgeInsets.all(6),
-                                                decoration: BoxDecoration(
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            4),
-                                                    color: Color(0xFF555555)),
-                                                child: Text(
-                                                  "cao_diem",
-                                                  textAlign: TextAlign.center,
-                                                  style: TextStyle(
-                                                    fontWeight: FontWeight.w500,
-                                                    color: Colors.white,
-                                                  ),
-                                                ),
-                                              ),
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                  ]),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ]),
-                  ),
+                  loadTypeInfo(bieuGiaDien.dataList[i])
               ],
             ),
           ),
@@ -405,6 +149,648 @@ class _BieuGiaDienPageState extends State<BieuGiaDienPage> {
     );
   }
 
+  Widget loadTypeInfo(DataList dataList) {
+    if (dataList.infoDienNangTieuThu != null) {
+      return Container(
+        width: double.infinity,
+        padding: EdgeInsets.symmetric(vertical: 20, horizontal: 10),
+        margin: EdgeInsets.symmetric(vertical: 10, horizontal: 15),
+        child: Column(children: <Widget>[
+          new Row(
+            children: [
+              Expanded(
+                child: Container(
+                  child: Text(
+                    dataList.title,
+                    style: TextStyle(
+                      color: textDashboardColor,
+                      fontFamily: 'OpenSans',
+                      fontSize: 20.0,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  // child: Center(
+                  //
+                  // ),
+                ),
+              ),
+            ],
+          ),
+          SizedBox(height: 20),
+          Container(
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Expanded(
+                  flex: 1,
+                  child:
+                      Column(mainAxisSize: MainAxisSize.max, children: <Widget>[
+                    Container(
+                      decoration: BoxDecoration(
+                        border: Border(
+                          // top: BorderSide(width: 16.0, color: Colors.lightBlue.shade600),
+                          bottom: BorderSide(
+                              width: 1, color: Colors.lightBlue.shade900),
+                        ),
+                        color: Colors.white,
+                      ),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: <Widget>[
+                          Text("#",
+                              style: TextStyle(
+                                  color: Colors.grey[800],
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 18)),
+                        ],
+                      ),
+                    ),
+                    Container(
+                      margin: const EdgeInsets.only(top: 15.0),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: <Widget>[
+                          Text("1",
+                              style: TextStyle(
+                                  color: Colors.grey[800], fontSize: 17)),
+                        ],
+                      ),
+                    ),
+                    Container(
+                      margin: const EdgeInsets.only(top: 18.0),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: <Widget>[
+                          Text("2",
+                              style: TextStyle(
+                                  color: Colors.grey[800], fontSize: 17)),
+                        ],
+                      ),
+                    ),
+                    Container(
+                      margin: const EdgeInsets.only(top: 18.0),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: <Widget>[
+                          Text("3",
+                              style: TextStyle(
+                                  color: Colors.grey[800], fontSize: 17)),
+                        ],
+                      ),
+                    ),
+                        Container(
+                          margin: const EdgeInsets.only(top: 18.0),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: <Widget>[
+                              Text("4",
+                                  style: TextStyle(
+                                      color: Colors.grey[800], fontSize: 17)),
+                            ],
+                          ),
+                        ),
+                  ]),
+                ),
+                Expanded(
+                  flex: 5,
+                  child:
+                      Column(mainAxisSize: MainAxisSize.max, children: <Widget>[
+                    Container(
+                      decoration: BoxDecoration(
+                        border: Border(
+                          // top: BorderSide(width: 16.0, color: Colors.lightBlue.shade600),
+                          bottom: BorderSide(
+                              width: 1, color: Colors.lightBlue.shade900),
+                        ),
+                        color: Colors.white,
+                      ),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: <Widget>[
+                          Text("Thời điểm",
+                              style: TextStyle(
+                                  color: Colors.grey[800],
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 18)),
+                          Text("Kwh",
+                              style: TextStyle(
+                                  color: Colors.grey[800],
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 18)),
+                          Text("VND",
+                              style: TextStyle(
+                                  color: Colors.grey[800],
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 18)),
+                        ],
+                      ),
+                    ),
+                        Container(
+                          margin: const EdgeInsets.only(top: 10.0),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: <Widget>[
+                              Container(
+                                width: 80,
+                                child: Text(dataList.infoDienNangTieuThu.trongNgay.thoiGian,
+                                    style: TextStyle(
+                                        color: Colors.grey[800], fontSize: 16)),
+                              ),
+                              RichText(
+                                text: WidgetSpan(
+                                  child: Container(
+                                    padding: EdgeInsets.all(6),
+                                    decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(4),
+                                        color: Color(0xFF555555)),
+                                    child: Text(
+                                      formatter.format(
+                                          dataList.infoDienNangTieuThu.trongNgay.kwh),
+                                      textAlign: TextAlign.center,
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.w500,
+                                        color: Colors.white,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              RichText(
+                                text: WidgetSpan(
+                                  child: Container(
+                                    padding: EdgeInsets.all(6),
+                                    decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(4),
+                                        color: Color(0xFF555555)),
+                                    child: Text(
+                                      formatter.format(dataList
+                                          .infoDienNangTieuThu.trongNgay.thanhTien),
+                                      textAlign: TextAlign.center,
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.w500,
+                                        color: Colors.white,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        Container(
+                          margin: const EdgeInsets.only(top: 10.0),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: <Widget>[
+                              Container(
+                                width: 80,
+                                child: Text(dataList.infoDienNangTieuThu.trongThang.thoiGian,
+                                    style: TextStyle(
+                                        color: Colors.grey[800], fontSize: 16)),
+                              ),
+                              RichText(
+                                text: WidgetSpan(
+                                  child: Container(
+                                    padding: EdgeInsets.all(6),
+                                    decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(4),
+                                        color: Color(0xFF555555)),
+                                    child: Text(
+                                      formatter.format(
+                                          dataList.infoDienNangTieuThu.trongThang.kwh),
+                                      textAlign: TextAlign.center,
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.w500,
+                                        color: Colors.white,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              RichText(
+                                text: WidgetSpan(
+                                  child: Container(
+                                    padding: EdgeInsets.all(6),
+                                    decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(4),
+                                        color: Color(0xFF555555)),
+                                    child: Text(
+                                      formatter.format(dataList
+                                          .infoDienNangTieuThu.trongThang.thanhTien),
+                                      textAlign: TextAlign.center,
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.w500,
+                                        color: Colors.white,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        Container(
+                          margin: const EdgeInsets.only(top: 10.0),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: <Widget>[
+                              Container(
+                                width: 80,
+                                child: Text(dataList.infoDienNangTieuThu.trongNam.thoiGian,
+                                    style: TextStyle(
+                                        color: Colors.grey[800], fontSize: 16)),
+                              ),
+                              RichText(
+                                text: WidgetSpan(
+                                  child: Container(
+                                    padding: EdgeInsets.all(6),
+                                    decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(4),
+                                        color: Color(0xFF555555)),
+                                    child: Text(
+                                      formatter.format(
+                                          dataList.infoDienNangTieuThu.trongNam.kwh),
+                                      textAlign: TextAlign.center,
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.w500,
+                                        color: Colors.white,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              RichText(
+                                text: WidgetSpan(
+                                  child: Container(
+                                    padding: EdgeInsets.all(6),
+                                    decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(4),
+                                        color: Color(0xFF555555)),
+                                    child: Text(
+                                      formatter.format(dataList
+                                          .infoDienNangTieuThu.trongNam.thanhTien),
+                                      textAlign: TextAlign.center,
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.w500,
+                                        color: Colors.white,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        Container(
+                          margin: const EdgeInsets.only(top: 10.0),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: <Widget>[
+                              Container(
+                                width: 80,
+                                child: Text(dataList.infoDienNangTieuThu.tong.thoiGian,
+                                    style: TextStyle(
+                                        color: Colors.grey[800], fontSize: 16)),
+                              ),
+                              RichText(
+                                text: WidgetSpan(
+                                  child: Container(
+                                    padding: EdgeInsets.all(6),
+                                    decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(4),
+                                        color: Color(0xFF555555)),
+                                    child: Text(
+                                      formatter.format(
+                                          dataList.infoDienNangTieuThu.tong.kwh),
+                                      textAlign: TextAlign.center,
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.w500,
+                                        color: Colors.white,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              RichText(
+                                text: WidgetSpan(
+                                  child: Container(
+                                    padding: EdgeInsets.all(6),
+                                    decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(4),
+                                        color: Color(0xFF555555)),
+                                    child: Text(
+                                      formatter.format(dataList
+                                          .infoDienNangTieuThu.tong.thanhTien),
+                                      textAlign: TextAlign.center,
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.w500,
+                                        color: Colors.white,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                  ]),
+                ),
+              ],
+            ),
+          ),
+        ]),
+      );
+    } else {
+      return Container(
+        width: double.infinity,
+        padding: EdgeInsets.symmetric(vertical: 20, horizontal: 10),
+        margin: EdgeInsets.symmetric(vertical: 10, horizontal: 15),
+        child: Column(children: <Widget>[
+          new Row(
+            children: [
+              Expanded(
+                child: Container(
+                  child: Text(
+                    dataList.title,
+                    style: TextStyle(
+                      color: textDashboardColor,
+                      fontFamily: 'OpenSans',
+                      fontSize: 20.0,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  // child: Center(
+                  //
+                  // ),
+                ),
+              ),
+            ],
+          ),
+          SizedBox(height: 20),
+          Container(
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Expanded(
+                  flex: 1,
+                  child:
+                      Column(mainAxisSize: MainAxisSize.max, children: <Widget>[
+                    Container(
+                      decoration: BoxDecoration(
+                        border: Border(
+                          // top: BorderSide(width: 16.0, color: Colors.lightBlue.shade600),
+                          bottom: BorderSide(
+                              width: 1, color: Colors.lightBlue.shade900),
+                        ),
+                        color: Colors.white,
+                      ),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: <Widget>[
+                          Text("#",
+                              style: TextStyle(
+                                  color: Colors.grey[800],
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 18)),
+                        ],
+                      ),
+                    ),
+                    Container(
+                      margin: const EdgeInsets.only(top: 15.0),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: <Widget>[
+                          Text("1",
+                              style: TextStyle(
+                                  color: Colors.grey[800], fontSize: 17)),
+                        ],
+                      ),
+                    ),
+                    Container(
+                      margin: const EdgeInsets.only(top: 18.0),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: <Widget>[
+                          Text("2",
+                              style: TextStyle(
+                                  color: Colors.grey[800], fontSize: 17)),
+                        ],
+                      ),
+                    ),
+                    Container(
+                      margin: const EdgeInsets.only(top: 18.0),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: <Widget>[
+                          Text("3",
+                              style: TextStyle(
+                                  color: Colors.grey[800], fontSize: 17)),
+                        ],
+                      ),
+                    ),
+                  ]),
+                ),
+                Expanded(
+                  flex: 5,
+                  child:
+                      Column(mainAxisSize: MainAxisSize.max, children: <Widget>[
+                    Container(
+                      decoration: BoxDecoration(
+                        border: Border(
+                          // top: BorderSide(width: 16.0, color: Colors.lightBlue.shade600),
+                          bottom: BorderSide(
+                              width: 1, color: Colors.lightBlue.shade900),
+                        ),
+                        color: Colors.white,
+                      ),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: <Widget>[
+                          Text("Thời điểm",
+                              style: TextStyle(
+                                  color: Colors.grey[800],
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 18)),
+                          Text("Kwh",
+                              style: TextStyle(
+                                  color: Colors.grey[800],
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 18)),
+                          Text("VND",
+                              style: TextStyle(
+                                  color: Colors.grey[800],
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 18)),
+                        ],
+                      ),
+                    ),
+                    Container(
+                      margin: const EdgeInsets.only(top: 10.0),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: <Widget>[
+                          Container(
+                            width: 100,
+                            child: Text(dataList.infoBieuGiaDien.thapDiem.thoiGian,
+                                style: TextStyle(
+                                    color: Colors.grey[800], fontSize: 16)),
+                          ),
+                          RichText(
+                            text: WidgetSpan(
+                              child: Container(
+                                padding: EdgeInsets.all(6),
+                                decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(4),
+                                    color: Color(0xFF555555)),
+                                child: Text(
+                                  formatter.format(
+                                      dataList.infoBieuGiaDien.thapDiem.kwh),
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.w500,
+                                    color: Colors.white,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                          RichText(
+                            text: WidgetSpan(
+                              child: Container(
+                                padding: EdgeInsets.all(6),
+                                decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(4),
+                                    color: Color(0xFF555555)),
+                                child: Text(
+                                  formatter.format(dataList
+                                      .infoBieuGiaDien.thapDiem.thanhTien),
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.w500,
+                                    color: Colors.white,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Container(
+                      margin: const EdgeInsets.only(top: 10.0),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: <Widget>[
+                          Container(
+                            width: 100,
+                            child: Text(dataList.infoBieuGiaDien.binhThuong.thoiGian,
+                                style: TextStyle(
+                                    color: Colors.grey[800], fontSize: 16)),
+                          ),
+
+                          RichText(
+                            text: WidgetSpan(
+                              child: Container(
+                                padding: EdgeInsets.all(6),
+                                decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(4),
+                                    color: Color(0xFF555555)),
+                                child: Text(
+                                  formatter.format(
+                                      dataList.infoBieuGiaDien.binhThuong.kwh),
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.w500,
+                                    color: Colors.white,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                          RichText(
+                            text: WidgetSpan(
+                              child: Container(
+                                padding: EdgeInsets.all(6),
+                                decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(4),
+                                    color: Color(0xFF555555)),
+                                child: Text(
+                                  formatter.format(dataList
+                                      .infoBieuGiaDien.binhThuong.thanhTien),
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.w500,
+                                    color: Colors.white,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Container(
+                      margin: const EdgeInsets.only(top: 10.0),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: <Widget>[
+                          Container(
+                            width: 100,
+                            child: Text(dataList.infoBieuGiaDien.caoDiem.thoiGian,
+                                style: TextStyle(
+                                    color: Colors.grey[800], fontSize: 16)),
+                          ),
+
+                          RichText(
+                            text: WidgetSpan(
+                              child: Container(
+                                padding: EdgeInsets.all(6),
+                                decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(4),
+                                    color: Color(0xFF555555)),
+                                child: Text(
+                                  formatter.format(
+                                      dataList.infoBieuGiaDien.caoDiem.kwh),
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.w500,
+                                    color: Colors.white,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                          RichText(
+                            text: WidgetSpan(
+                              child: Container(
+                                padding: EdgeInsets.all(6),
+                                decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(4),
+                                    color: Color(0xFF555555)),
+                                child: Text(
+                                  formatter.format(dataList
+                                      .infoBieuGiaDien.caoDiem.thanhTien),
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.w500,
+                                    color: Colors.white,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ]),
+                ),
+              ],
+            ),
+          ),
+        ]),
+      );
+    }
+  }
 
   loadData() async {
     setState(() {

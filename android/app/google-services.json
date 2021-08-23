@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "78228555286",
+    "project_id": "petwater-ee25d",
+    "storage_bucket": "petwater-ee25d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:78228555286:android:9482625b3b79ff53375737",
+        "android_client_info": {
+          "package_name": "com.example.water_iot"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "78228555286-o9lit5oqe2ol64pnt7rcpdsc69lpt9bs.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.water_iot",
+            "certificate_hash": "93e86691ba53d4c10b12328ca876cc3de2d3b75c"
+          }
+        },
+        {
+          "client_id": "78228555286-u6moghblfmgvc9ou89be2c86dtso5sd6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDwyIWObRA2v0g0xafa64ypZ1TTzZQtRa8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "78228555286-u6moghblfmgvc9ou89be2c86dtso5sd6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
