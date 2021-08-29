@@ -220,7 +220,7 @@ class _SettingPageState extends State<SettingPage> {
               Expanded(
                 flex: 50,
                 child: Container(
-                  margin: new EdgeInsets.symmetric(horizontal: 50.0),
+                  margin: new EdgeInsets.symmetric(horizontal: 40.0),
                   child: Text(
                     'Thông Tin Chung',
                     style: TextStyle(
@@ -284,7 +284,7 @@ class _SettingPageState extends State<SettingPage> {
                 Expanded(
                   flex: 50,
                   child: Container(
-                    margin: new EdgeInsets.symmetric(horizontal: 50.0),
+                    margin: new EdgeInsets.symmetric(horizontal: 40.0),
                     child: Text(
                       'Thông Tin Người Dùng',
                       style: TextStyle(
@@ -355,7 +355,7 @@ class _SettingPageState extends State<SettingPage> {
                 Expanded(
                   flex: 50,
                   child: Container(
-                    margin: new EdgeInsets.symmetric(horizontal: 50.0),
+                    margin: new EdgeInsets.symmetric(horizontal: 40.0),
                     child: Text(
                       'Đổi Mật Khẩu',
                       style: TextStyle(
@@ -426,7 +426,7 @@ class _SettingPageState extends State<SettingPage> {
                 Expanded(
                   flex: 50,
                   child: Container(
-                    margin: new EdgeInsets.symmetric(horizontal: 50.0),
+                    margin: new EdgeInsets.symmetric(horizontal: 40.0),
                     child: Text(
                       'Đăng Xuất',
                       style: TextStyle(
@@ -505,7 +505,7 @@ class _SettingPageState extends State<SettingPage> {
 
   Widget _buildButtons() {
     return Padding(
-      padding: EdgeInsets.symmetric(vertical: 17, horizontal: 75),
+      padding: EdgeInsets.symmetric(vertical: 17, horizontal: 65),
       child: Container(
         height: 30.0,
         decoration: BoxDecoration(
@@ -530,7 +530,7 @@ class _SettingPageState extends State<SettingPage> {
               ),
             ),
             Expanded(
-              flex: 3,
+              flex: 4,
               child: InkWell(
                 onTap: (){
                   _getFromGallery();

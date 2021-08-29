@@ -224,7 +224,7 @@ class _SensorState extends State<SensorPage> {
                                       Expanded(
                                         flex: 55,
                                         child: Container(
-                                          margin: new EdgeInsets.symmetric(horizontal: 40.0),
+                                          margin: new EdgeInsets.symmetric(horizontal: 30.0),
                                           child: Text(
                                             'PROCESS STATION',
                                             style: TextStyle(
@@ -297,9 +297,9 @@ class _SensorState extends State<SensorPage> {
                                         // ),
                                       ),
                                       Expanded(
-                                        flex: 55,
+                                        flex: 50,
                                         child: Container(
-                                          margin: new EdgeInsets.symmetric(horizontal: 35.0),
+                                          margin: new EdgeInsets.symmetric(horizontal: 20.0),
                                           child: Text(
                                             'CHEMICAL STATION',
                                             style: TextStyle(

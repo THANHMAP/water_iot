@@ -174,7 +174,7 @@ class _DienNangState extends State {
                           InkWell(
                             child: Container(
                               width: double.infinity,
-                              height: 65,
+                              height: 70,
                               padding: EdgeInsets.symmetric(
                                   vertical: 10, horizontal: 20),
                               margin: EdgeInsets.symmetric(
@@ -216,7 +216,7 @@ class _DienNangState extends State {
                                               horizontal: 10.0),
                                           child: Text(
                                             "Tổng Điện Năng Tiêu Thụ",
-                                            textAlign: TextAlign.left,
+                                            textAlign: TextAlign.center,
                                             style: TextStyle(
                                               color: textDashboardColor,
                                               fontFamily: 'OpenSans',
