@@ -127,19 +127,42 @@ class _FactoryState extends State<FactoryAminPage> {
                     new Row(
                       children: [
                         Expanded(
+                          flex: 1,
                           child: Container(
-                            child: Text(
-                              item.name,
-                              style: TextStyle(
-                                color: textDashboardColor,
-                                fontFamily: 'OpenSans',
-                                fontSize: 20.0,
-                                fontWeight: FontWeight.bold,
+                              child: CachedNetworkImage(
+                                imageUrl:  item.logoCustomer,
+                                imageBuilder: (context, imageProvider) => Container(
+                                  height: 60,
+                                  width: 30,
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.all(Radius.circular(20)),
+                                    image: DecorationImage(
+                                      image: imageProvider,
+                                      fit: BoxFit.cover,
+                                    ),
+                                  ),
+                                ),
+                              )
+                          ),
+                        ),
+                        Expanded(
+                          flex: 3,
+                          child: Padding(
+                            padding: const EdgeInsets.only(left: 8.0),
+                            child: Container(
+                              child: Text(
+                                item.name,
+                                style: TextStyle(
+                                  color: textDashboardColor,
+                                  fontFamily: 'OpenSans',
+                                  fontSize: 20.0,
+                                  fontWeight: FontWeight.bold,
+                                ),
                               ),
+                              // child: Center(
+                              //
+                              // ),
                             ),
-                            // child: Center(
-                            //
-                            // ),
                           ),
                         ),
                       ],

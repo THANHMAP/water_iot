@@ -258,25 +258,22 @@ class _LoginPageState extends State<LoginPage> {
                                                   value.data.group.first;
                                               if (group.code ==
                                                   "super_admin_app") {
-                                                screen = CustomerPage();
+                                                screen = '/customer';
                                               } else if (group.code ==
                                                   "admin") {
                                                 customerId = value.data.customer.id.toString();
-                                                screen = FactoryAminPage();
+                                                screen = '/factoryAdmin';
                                               } else if (group.code ==
                                                   "viewer") {
                                                 customerId = value.data.customer.id.toString();
-                                                screen = FactoryAminPage();
+                                                screen = '/factoryAdmin';
                                               }
-                                              Navigator.pushAndRemoveUntil(
-                                                context,
-                                                MaterialPageRoute(
-                                                  builder: (context) {
-                                                    return screen;
-                                                  },
-                                                ),
-                                                (route) => false,
-                                              );
+                                              else if (group.code ==
+                                                  "admin_factory") {
+                                                customerId = value.data.customer.id.toString();
+                                                screen = '/factoryAdmin';
+                                              }
+                                              Navigator.pushNamed(context, screen);
                                               final snackBar = SnackBar(
                                                   content:
                                                       Text("Login Successful"));

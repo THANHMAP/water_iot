@@ -34,31 +34,18 @@ class _SplashScreenState extends State<SplashScreen> {
         var screen;
         Group group = user.group.first;
         if (group.code == "super_admin_app") {
-          screen = CustomerPage();
+          screen = '/customer';
         } else if (group.code == "admin") {
-          screen = FactoryAminPage();
+          screen = '/factoryAdmin';
         } else if (group.code == "viewer") {
-          screen = FactoryAminPage();
+          screen = '/factoryAdmin';
+        }else if (group.code == "admin_factory") {
+          screen = '/factoryAdmin';
         }
-        Navigator.pushAndRemoveUntil(
-          context,
-          MaterialPageRoute(
-            builder: (context) {
-              return screen;
-            },
-          ),
-          (route) => false,
-        );
+        Navigator.pushNamed(context, screen);
+
       } else {
-        Navigator.pushAndRemoveUntil(
-          context,
-          MaterialPageRoute(
-            builder: (context) {
-              return LoginPage();
-            },
-          ),
-          (route) => false,
-        );
+        Navigator.pushNamed(context, '/login');
       }
       // if (dataUser.accessToken != null) {
       // } else {

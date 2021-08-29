@@ -42,6 +42,7 @@ class DataFactory {
   String langtitude;
   String longtitude;
   String address;
+  String logoCustomer;
   String thumbnail;
   String overview;
   String overviewApp;
@@ -54,6 +55,7 @@ class DataFactory {
       this.langtitude,
       this.longtitude,
       this.address,
+        this.logoCustomer,
       this.thumbnail,
       this.overview,
       this.overviewApp});
@@ -66,6 +68,7 @@ class DataFactory {
     langtitude = json['langtitude'];
     longtitude = json['longtitude'];
     address = json['address'];
+    logoCustomer = json['logo_customer'];
     thumbnail = json['thumbnail'];
     overview = json['overview'];
     overviewApp = json['overview_app'];
@@ -80,6 +83,7 @@ class DataFactory {
     data['langtitude'] = this.langtitude;
     data['longtitude'] = this.longtitude;
     data['address'] = this.address;
+    data['logo_customer'] = this.logoCustomer;
     data['thumbnail'] = this.thumbnail;
     data['overview'] = this.overview;
     data['overview_app'] = this.overviewApp;

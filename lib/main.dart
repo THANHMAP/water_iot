@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:water_iot/screen/customer/customer.dart';
+import 'package:water_iot/screen/factory/factory_admin.dart';
+import 'package:water_iot/screen/login/login.dart';
 import 'package:water_iot/test.dart';
 import 'screen/splash/splash_screen.dart';
 
@@ -41,7 +44,13 @@ class MyApp extends StatelessWidget {
         ),
       ),
       // home: DetailSensorPage(),
-      home: SplashScreen(),
+      initialRoute:'/',
+      routes: {
+        '/': (context) =>SplashScreen(),
+        '/login': (context) =>LoginPage(),
+        '/factoryAdmin': (context) =>FactoryAminPage(),
+        '/customer': (context) =>CustomerPage(),
+      },
       // home: TestPage(),
       // home: MainPage(),
       // home:Factory()
