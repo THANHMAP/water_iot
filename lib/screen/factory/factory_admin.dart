@@ -129,20 +129,7 @@ class _FactoryState extends State<FactoryAminPage> {
                         Expanded(
                           flex: 1,
                           child: Container(
-                              child: CachedNetworkImage(
-                                imageUrl:  item.logoCustomer,
-                                imageBuilder: (context, imageProvider) => Container(
-                                  height: 60,
-                                  width: 30,
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.all(Radius.circular(20)),
-                                    image: DecorationImage(
-                                      image: imageProvider,
-                                      fit: BoxFit.cover,
-                                    ),
-                                  ),
-                                ),
-                              )
+                              child: Image.network(item.logoCustomer)
                           ),
                         ),
                         Expanded(
