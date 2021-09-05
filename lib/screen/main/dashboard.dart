@@ -99,7 +99,7 @@ class _DashBoardPageState extends State<DashBoardPage> {
         InkWell(
           child: Container(
             width: double.infinity,
-            height: 65,
+            height: 70,
             padding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
             margin: EdgeInsets.symmetric(vertical: 0, horizontal: 10),
             decoration: BoxDecoration(
@@ -164,7 +164,7 @@ class _DashBoardPageState extends State<DashBoardPage> {
         InkWell(
           child: Container(
             width: double.infinity,
-            height: 65,
+            height: 70,
             padding: EdgeInsets.symmetric(
                 vertical: 10, horizontal: 20),
             margin:
@@ -235,7 +235,7 @@ class _DashBoardPageState extends State<DashBoardPage> {
         InkWell(
           child: Container(
             width: double.infinity,
-            height: 65,
+            height: 70,
             padding: EdgeInsets.symmetric(
                 vertical: 10, horizontal: 20),
             margin:
@@ -306,7 +306,7 @@ class _DashBoardPageState extends State<DashBoardPage> {
         InkWell(
           child: Container(
             width: double.infinity,
-            height: 65,
+            height: 70,
             padding: EdgeInsets.symmetric(
                 vertical: 10, horizontal: 20),
             margin:
@@ -377,7 +377,7 @@ class _DashBoardPageState extends State<DashBoardPage> {
         InkWell(
           child: Container(
             width: double.infinity,
-            height: 65,
+            height: 70,
             padding: EdgeInsets.symmetric(
                 vertical: 10, horizontal: 20),
             margin:
@@ -448,7 +448,7 @@ class _DashBoardPageState extends State<DashBoardPage> {
         InkWell(
           child: Container(
             width: double.infinity,
-            height: 65,
+            height: 70,
             padding: EdgeInsets.symmetric(
                 vertical: 10, horizontal: 20),
             margin:
@@ -519,7 +519,7 @@ class _DashBoardPageState extends State<DashBoardPage> {
         InkWell(
           child: Container(
             width: double.infinity,
-            height: 65,
+            height: 70,
             padding: EdgeInsets.symmetric(
                 vertical: 10, horizontal: 20),
             margin:
@@ -590,7 +590,7 @@ class _DashBoardPageState extends State<DashBoardPage> {
         InkWell(
           child: Container(
             width: double.infinity,
-            height: 65,
+            height: 70,
             padding: EdgeInsets.symmetric(
                 vertical: 10, horizontal: 20),
             margin:
@@ -662,7 +662,7 @@ class _DashBoardPageState extends State<DashBoardPage> {
         InkWell(
           child: Container(
             width: double.infinity,
-            height: 65,
+            height: 70,
             padding: EdgeInsets.symmetric(
                 vertical: 10, horizontal: 20),
             margin:
@@ -733,7 +733,7 @@ class _DashBoardPageState extends State<DashBoardPage> {
         InkWell(
           child: Container(
             width: double.infinity,
-            height: 65,
+            height: 70,
             padding: EdgeInsets.symmetric(
                 vertical: 10, horizontal: 20),
             margin:
@@ -804,7 +804,7 @@ class _DashBoardPageState extends State<DashBoardPage> {
         InkWell(
           child: Container(
             width: double.infinity,
-            height: 65,
+            height: 70,
             padding: EdgeInsets.symmetric(
                 vertical: 10, horizontal: 20),
             margin:
@@ -875,7 +875,7 @@ class _DashBoardPageState extends State<DashBoardPage> {
         InkWell(
           child: Container(
             width: double.infinity,
-            height: 65,
+            height: 70,
             padding: EdgeInsets.symmetric(
                 vertical: 10, horizontal: 20),
             margin:
@@ -946,7 +946,7 @@ class _DashBoardPageState extends State<DashBoardPage> {
         InkWell(
           child: Container(
             width: double.infinity,
-            height: 65,
+            height: 70,
             padding: EdgeInsets.symmetric(
                 vertical: 10, horizontal: 20),
             margin:
@@ -1017,7 +1017,7 @@ class _DashBoardPageState extends State<DashBoardPage> {
         InkWell(
           child: Container(
             width: double.infinity,
-            height: 65,
+            height: 70,
             padding: EdgeInsets.symmetric(
                 vertical: 10, horizontal: 20),
             margin:
@@ -1088,7 +1088,7 @@ class _DashBoardPageState extends State<DashBoardPage> {
         InkWell(
           child: Container(
             width: double.infinity,
-            height: 65,
+            height: 70,
             padding: EdgeInsets.symmetric(
                 vertical: 10, horizontal: 20),
             margin:

@@ -248,19 +248,6 @@ class _DienNangTieuThuPageState extends State<DienNangTieuThuPage> {
                                         ],
                                       ),
                                     ),
-                                    Container(
-                                      margin: const EdgeInsets.only(top: 18.0),
-                                      child: Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.start,
-                                        children: <Widget>[
-                                          Text("4",
-                                              style: TextStyle(
-                                                  color: Colors.grey[800],
-                                                  fontSize: 17)),
-                                        ],
-                                      ),
-                                    ),
                                   ]),
                             ),
                             Expanded(
@@ -306,7 +293,7 @@ class _DienNangTieuThuPageState extends State<DienNangTieuThuPage> {
                                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                         children: <Widget>[
                                           Container(
-                                            width: 80,
+                                            width: 100,
                                             child: Text(dienNangTieuThu.dataList[i].info.thapDiem.thoiGian,
                                                 style: TextStyle(
                                                     color: Colors.grey[800], fontSize: 16)),
@@ -357,7 +344,7 @@ class _DienNangTieuThuPageState extends State<DienNangTieuThuPage> {
                                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                         children: <Widget>[
                                           Container(
-                                            width: 80,
+                                            width: 100,
                                             child: Text(dienNangTieuThu.dataList[i].info.binhThuong.thoiGian,
                                                 style: TextStyle(
                                                     color: Colors.grey[800], fontSize: 16)),
@@ -408,7 +395,7 @@ class _DienNangTieuThuPageState extends State<DienNangTieuThuPage> {
                                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                         children: <Widget>[
                                           Container(
-                                            width: 80,
+                                            width: 100,
                                             child: Text(dienNangTieuThu.dataList[i].info.caoDiem.thoiGian,
                                                 style: TextStyle(
                                                     color: Colors.grey[800], fontSize: 16)),
@@ -459,7 +446,7 @@ class _DienNangTieuThuPageState extends State<DienNangTieuThuPage> {
                                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                         children: <Widget>[
                                           Container(
-                                            width: 80,
+                                            width: 100,
                                             child: Text(dienNangTieuThu.dataList[i].info.tong.thoiGian,
                                                 style: TextStyle(
                                                     color: Colors.grey[800], fontSize: 16)),

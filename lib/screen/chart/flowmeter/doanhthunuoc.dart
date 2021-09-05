@@ -141,7 +141,7 @@ class _DoanhThuNuocPageState extends State {
                                         flex: 50,
                                         child: Container(
                                           margin: new EdgeInsets.symmetric(
-                                              horizontal: 35.0),
+                                              horizontal: 20.0),
                                           child: Text(
                                             "Lưu Lượng Đầu Vào",
                                             textAlign: TextAlign.left,
@@ -220,7 +220,7 @@ class _DoanhThuNuocPageState extends State {
                                         flex: 50,
                                         child: Container(
                                           margin: new EdgeInsets.symmetric(
-                                              horizontal: 40.0),
+                                              horizontal: 20.0),
                                           child: Text(
                                             "Lưu Lượng Hao Phí",
                                             textAlign: TextAlign.left,

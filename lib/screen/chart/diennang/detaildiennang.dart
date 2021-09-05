@@ -250,7 +250,7 @@ class _DetailDienNangState extends State<DetailDienNangPage> {
                                     ),
                                   ),
                                   Container(
-                                    margin: const EdgeInsets.only(top: 18.0),
+                                    margin: const EdgeInsets.only(top: 19.0),
                                     child: Row(
                                       mainAxisAlignment:
                                           MainAxisAlignment.start,
@@ -263,7 +263,7 @@ class _DetailDienNangState extends State<DetailDienNangPage> {
                                     ),
                                   ),
                                   Container(
-                                    margin: const EdgeInsets.only(top: 18.0),
+                                    margin: const EdgeInsets.only(top: 19.0),
                                     child: Row(
                                       mainAxisAlignment:
                                           MainAxisAlignment.start,
@@ -276,7 +276,7 @@ class _DetailDienNangState extends State<DetailDienNangPage> {
                                     ),
                                   ),
                                   Container(
-                                    margin: const EdgeInsets.only(top: 18.0),
+                                    margin: const EdgeInsets.only(top: 19.0),
                                     child: Row(
                                       mainAxisAlignment:
                                           MainAxisAlignment.start,
@@ -289,7 +289,7 @@ class _DetailDienNangState extends State<DetailDienNangPage> {
                                     ),
                                   ),
                                   Container(
-                                    margin: const EdgeInsets.only(top: 18.0),
+                                    margin: const EdgeInsets.only(top: 19.0),
                                     child: Row(
                                       mainAxisAlignment:
                                           MainAxisAlignment.start,
@@ -302,7 +302,7 @@ class _DetailDienNangState extends State<DetailDienNangPage> {
                                     ),
                                   ),
                                   Container(
-                                    margin: const EdgeInsets.only(top: 18.0),
+                                    margin: const EdgeInsets.only(top: 19.0),
                                     child: Row(
                                       mainAxisAlignment:
                                           MainAxisAlignment.start,
@@ -315,7 +315,7 @@ class _DetailDienNangState extends State<DetailDienNangPage> {
                                     ),
                                   ),
                                   Container(
-                                    margin: const EdgeInsets.only(top: 18.0),
+                                    margin: const EdgeInsets.only(top: 19.0),
                                     child: Row(
                                       mainAxisAlignment:
                                           MainAxisAlignment.start,
@@ -328,7 +328,7 @@ class _DetailDienNangState extends State<DetailDienNangPage> {
                                     ),
                                   ),
                                   Container(
-                                    margin: const EdgeInsets.only(top: 18.0),
+                                    margin: const EdgeInsets.only(top: 19.0),
                                     child: Row(
                                       mainAxisAlignment:
                                           MainAxisAlignment.start,
@@ -341,7 +341,7 @@ class _DetailDienNangState extends State<DetailDienNangPage> {
                                     ),
                                   ),
                                   Container(
-                                    margin: const EdgeInsets.only(top: 18.0),
+                                    margin: const EdgeInsets.only(top: 19.0),
                                     child: Row(
                                       mainAxisAlignment:
                                           MainAxisAlignment.start,
@@ -354,7 +354,7 @@ class _DetailDienNangState extends State<DetailDienNangPage> {
                                     ),
                                   ),
                                   Container(
-                                    margin: const EdgeInsets.only(top: 18.0),
+                                    margin: const EdgeInsets.only(top: 19.0),
                                     child: Row(
                                       mainAxisAlignment:
                                           MainAxisAlignment.start,
@@ -367,7 +367,7 @@ class _DetailDienNangState extends State<DetailDienNangPage> {
                                     ),
                                   ),
                                   Container(
-                                    margin: const EdgeInsets.only(top: 18.0),
+                                    margin: const EdgeInsets.only(top: 19.0),
                                     child: Row(
                                       mainAxisAlignment:
                                           MainAxisAlignment.start,
@@ -380,7 +380,7 @@ class _DetailDienNangState extends State<DetailDienNangPage> {
                                     ),
                                   ),
                                   Container(
-                                    margin: const EdgeInsets.only(top: 18.0),
+                                    margin: const EdgeInsets.only(top: 19.0),
                                     child: Row(
                                       mainAxisAlignment:
                                           MainAxisAlignment.start,
@@ -393,7 +393,7 @@ class _DetailDienNangState extends State<DetailDienNangPage> {
                                     ),
                                   ),
                                   Container(
-                                    margin: const EdgeInsets.only(top: 18.0),
+                                    margin: const EdgeInsets.only(top: 19.0),
                                     child: Row(
                                       mainAxisAlignment:
                                           MainAxisAlignment.start,
@@ -406,7 +406,7 @@ class _DetailDienNangState extends State<DetailDienNangPage> {
                                     ),
                                   ),
                                   Container(
-                                    margin: const EdgeInsets.only(top: 18.0),
+                                    margin: const EdgeInsets.only(top: 19.0),
                                     child: Row(
                                       mainAxisAlignment:
                                           MainAxisAlignment.start,
@@ -419,7 +419,7 @@ class _DetailDienNangState extends State<DetailDienNangPage> {
                                     ),
                                   ),
                                   Container(
-                                    margin: const EdgeInsets.only(top: 18.0),
+                                    margin: const EdgeInsets.only(top: 19.0),
                                     child: Row(
                                       mainAxisAlignment:
                                           MainAxisAlignment.start,
@@ -432,7 +432,7 @@ class _DetailDienNangState extends State<DetailDienNangPage> {
                                     ),
                                   ),
                                   Container(
-                                    margin: const EdgeInsets.only(top: 18.0),
+                                    margin: const EdgeInsets.only(top: 19.0),
                                     child: Row(
                                       mainAxisAlignment:
                                           MainAxisAlignment.start,
@@ -484,30 +484,51 @@ class _DetailDienNangState extends State<DetailDienNangPage> {
                                       mainAxisAlignment:
                                           MainAxisAlignment.spaceAround,
                                       children: <Widget>[
-                                        Text(_formatNumber(thongSoDien.dataList[0].info.v1V2.replaceAll(',', '')),
-                                            style: TextStyle(
-                                                color: Colors.grey[800],
-                                                fontSize: 17)),
-                                        RichText(
-                                          text: WidgetSpan(
-                                            child: Container(
-                                              width: 60,
-                                              padding: EdgeInsets.all(6),
-                                              decoration: BoxDecoration(
-                                                  borderRadius:
-                                                      BorderRadius.circular(4),
-                                                  color: Color(0xFF555555)),
-                                              child: Text(
-                                                "v1-v2",
-                                                textAlign: TextAlign.center,
-                                                style: TextStyle(
-                                                  fontWeight: FontWeight.w500,
-                                                  color: Colors.white,
+                                        Expanded(
+                                          flex: 1,
+                                          child: Container(
+                                            padding: new EdgeInsets.only(left: 50),
+                                            child: Align(
+                                              alignment: Alignment.centerLeft,
+                                              child: Text(_formatNumber(thongSoDien.dataList[0].info.v1V2.replaceAll(',', '')),
+                                                  style: TextStyle(
+                                                      color: Colors.grey[800],
+                                                      fontSize: 17)),
+                                            ),
+                                          ),
+                                        ),
+
+                                        Expanded(
+                                          flex: 1,
+                                          child: Container(
+                                            // padding: new EdgeInsets.only(right: 10),
+                                            child: Align(
+                                              alignment: Alignment.center,
+                                              child: RichText(
+                                                text: WidgetSpan(
+                                                  child: Container(
+                                                    width: 60,
+                                                    padding: EdgeInsets.all(6),
+                                                    decoration: BoxDecoration(
+                                                        borderRadius:
+                                                        BorderRadius.circular(4),
+                                                        color: Color(0xFF555555)),
+                                                    child: Text(
+                                                      "v1-v2",
+                                                      textAlign: TextAlign.center,
+                                                      style: TextStyle(
+                                                        fontWeight: FontWeight.w500,
+                                                        color: Colors.white,
+                                                      ),
+                                                    ),
+                                                  ),
                                                 ),
                                               ),
                                             ),
                                           ),
                                         ),
+
+
                                       ],
                                     ),
                                   ),
@@ -515,32 +536,53 @@ class _DetailDienNangState extends State<DetailDienNangPage> {
                                     margin: const EdgeInsets.only(top: 10.0),
                                     child: Row(
                                       mainAxisAlignment:
-                                          MainAxisAlignment.spaceAround,
+                                      MainAxisAlignment.spaceAround,
                                       children: <Widget>[
-                                        Text(_formatNumber(thongSoDien.dataList[0].info.v1N.replaceAll(',', '')),
-                                            style: TextStyle(
-                                                color: Colors.grey[800],
-                                                fontSize: 17)),
-                                        RichText(
-                                          text: WidgetSpan(
-                                            child: Container(
-                                              width: 60,
-                                              padding: EdgeInsets.all(6),
-                                              decoration: BoxDecoration(
-                                                  borderRadius:
-                                                      BorderRadius.circular(4),
-                                                  color: Color(0xFF555555)),
-                                              child: Text(
-                                                "v1-n",
-                                                textAlign: TextAlign.center,
-                                                style: TextStyle(
-                                                  fontWeight: FontWeight.w500,
-                                                  color: Colors.white,
+                                        Expanded(
+                                          flex: 1,
+                                          child: Container(
+                                            padding: new EdgeInsets.only(left: 50),
+                                            child: Align(
+                                              alignment: Alignment.centerLeft,
+                                              child: Text(_formatNumber(thongSoDien.dataList[0].info.v1N.replaceAll(',', '')),
+                                                  style: TextStyle(
+                                                      color: Colors.grey[800],
+                                                      fontSize: 17)),
+                                            ),
+                                          ),
+                                        ),
+
+                                        Expanded(
+                                          flex: 1,
+                                          child: Container(
+                                            // padding: new EdgeInsets.only(right: 10),
+                                            child: Align(
+                                              alignment: Alignment.center,
+                                              child: RichText(
+                                                text: WidgetSpan(
+                                                  child: Container(
+                                                    width: 60,
+                                                    padding: EdgeInsets.all(6),
+                                                    decoration: BoxDecoration(
+                                                        borderRadius:
+                                                        BorderRadius.circular(4),
+                                                        color: Color(0xFF555555)),
+                                                    child: Text(
+                                                      "v1-n",
+                                                      textAlign: TextAlign.center,
+                                                      style: TextStyle(
+                                                        fontWeight: FontWeight.w500,
+                                                        color: Colors.white,
+                                                      ),
+                                                    ),
+                                                  ),
                                                 ),
                                               ),
                                             ),
                                           ),
                                         ),
+
+
                                       ],
                                     ),
                                   ),
@@ -548,32 +590,53 @@ class _DetailDienNangState extends State<DetailDienNangPage> {
                                     margin: const EdgeInsets.only(top: 10.0),
                                     child: Row(
                                       mainAxisAlignment:
-                                          MainAxisAlignment.spaceAround,
+                                      MainAxisAlignment.spaceAround,
                                       children: <Widget>[
-                                        Text(_formatNumber(thongSoDien.dataList[0].info.v2V3.replaceAll(',', '')),
-                                            style: TextStyle(
-                                                color: Colors.grey[800],
-                                                fontSize: 17)),
-                                        RichText(
-                                          text: WidgetSpan(
-                                            child: Container(
-                                              width: 60,
-                                              padding: EdgeInsets.all(6),
-                                              decoration: BoxDecoration(
-                                                  borderRadius:
-                                                      BorderRadius.circular(4),
-                                                  color: Color(0xFF555555)),
-                                              child: Text(
-                                                "v2-v3",
-                                                textAlign: TextAlign.center,
-                                                style: TextStyle(
-                                                  fontWeight: FontWeight.w500,
-                                                  color: Colors.white,
+                                        Expanded(
+                                          flex: 1,
+                                          child: Container(
+                                            padding: new EdgeInsets.only(left: 50),
+                                            child: Align(
+                                              alignment: Alignment.centerLeft,
+                                              child: Text(_formatNumber(thongSoDien.dataList[0].info.v2V3.replaceAll(',', '')),
+                                                  style: TextStyle(
+                                                      color: Colors.grey[800],
+                                                      fontSize: 17)),
+                                            ),
+                                          ),
+                                        ),
+
+                                        Expanded(
+                                          flex: 1,
+                                          child: Container(
+                                            // padding: new EdgeInsets.only(right: 10),
+                                            child: Align(
+                                              alignment: Alignment.center,
+                                              child: RichText(
+                                                text: WidgetSpan(
+                                                  child: Container(
+                                                    width: 60,
+                                                    padding: EdgeInsets.all(6),
+                                                    decoration: BoxDecoration(
+                                                        borderRadius:
+                                                        BorderRadius.circular(4),
+                                                        color: Color(0xFF555555)),
+                                                    child: Text(
+                                                      "v2-v3",
+                                                      textAlign: TextAlign.center,
+                                                      style: TextStyle(
+                                                        fontWeight: FontWeight.w500,
+                                                        color: Colors.white,
+                                                      ),
+                                                    ),
+                                                  ),
                                                 ),
                                               ),
                                             ),
                                           ),
                                         ),
+
+
                                       ],
                                     ),
                                   ),
@@ -581,32 +644,53 @@ class _DetailDienNangState extends State<DetailDienNangPage> {
                                     margin: const EdgeInsets.only(top: 10.0),
                                     child: Row(
                                       mainAxisAlignment:
-                                          MainAxisAlignment.spaceAround,
+                                      MainAxisAlignment.spaceAround,
                                       children: <Widget>[
-                                        Text(_formatNumber(thongSoDien.dataList[0].info.v2N.replaceAll(',', '')),
-                                            style: TextStyle(
-                                                color: Colors.grey[800],
-                                                fontSize: 17)),
-                                        RichText(
-                                          text: WidgetSpan(
-                                            child: Container(
-                                              width: 60,
-                                              padding: EdgeInsets.all(6),
-                                              decoration: BoxDecoration(
-                                                  borderRadius:
-                                                      BorderRadius.circular(4),
-                                                  color: Color(0xFF555555)),
-                                              child: Text(
-                                                "v2-n",
-                                                textAlign: TextAlign.center,
-                                                style: TextStyle(
-                                                  fontWeight: FontWeight.w500,
-                                                  color: Colors.white,
+                                        Expanded(
+                                          flex: 1,
+                                          child: Container(
+                                            padding: new EdgeInsets.only(left: 50),
+                                            child: Align(
+                                              alignment: Alignment.centerLeft,
+                                              child: Text(_formatNumber(thongSoDien.dataList[0].info.v2N.replaceAll(',', '')),
+                                                  style: TextStyle(
+                                                      color: Colors.grey[800],
+                                                      fontSize: 17)),
+                                            ),
+                                          ),
+                                        ),
+
+                                        Expanded(
+                                          flex: 1,
+                                          child: Container(
+                                            // padding: new EdgeInsets.only(right: 10),
+                                            child: Align(
+                                              alignment: Alignment.center,
+                                              child: RichText(
+                                                text: WidgetSpan(
+                                                  child: Container(
+                                                    width: 60,
+                                                    padding: EdgeInsets.all(6),
+                                                    decoration: BoxDecoration(
+                                                        borderRadius:
+                                                        BorderRadius.circular(4),
+                                                        color: Color(0xFF555555)),
+                                                    child: Text(
+                                                      "v2-n",
+                                                      textAlign: TextAlign.center,
+                                                      style: TextStyle(
+                                                        fontWeight: FontWeight.w500,
+                                                        color: Colors.white,
+                                                      ),
+                                                    ),
+                                                  ),
                                                 ),
                                               ),
                                             ),
                                           ),
                                         ),
+
+
                                       ],
                                     ),
                                   ),
@@ -614,32 +698,53 @@ class _DetailDienNangState extends State<DetailDienNangPage> {
                                     margin: const EdgeInsets.only(top: 10.0),
                                     child: Row(
                                       mainAxisAlignment:
-                                          MainAxisAlignment.spaceAround,
+                                      MainAxisAlignment.spaceAround,
                                       children: <Widget>[
-                                        Text(_formatNumber(thongSoDien.dataList[0].info.v3V1.replaceAll(',', '')),
-                                            style: TextStyle(
-                                                color: Colors.grey[800],
-                                                fontSize: 17)),
-                                        RichText(
-                                          text: WidgetSpan(
-                                            child: Container(
-                                              width: 60,
-                                              padding: EdgeInsets.all(6),
-                                              decoration: BoxDecoration(
-                                                  borderRadius:
-                                                      BorderRadius.circular(4),
-                                                  color: Color(0xFF555555)),
-                                              child: Text(
-                                                "v3-v1",
-                                                textAlign: TextAlign.center,
-                                                style: TextStyle(
-                                                  fontWeight: FontWeight.w500,
-                                                  color: Colors.white,
+                                        Expanded(
+                                          flex: 1,
+                                          child: Container(
+                                            padding: new EdgeInsets.only(left: 50),
+                                            child: Align(
+                                              alignment: Alignment.centerLeft,
+                                              child: Text(_formatNumber(thongSoDien.dataList[0].info.v3V1.replaceAll(',', '')),
+                                                  style: TextStyle(
+                                                      color: Colors.grey[800],
+                                                      fontSize: 17)),
+                                            ),
+                                          ),
+                                        ),
+
+                                        Expanded(
+                                          flex: 1,
+                                          child: Container(
+                                            // padding: new EdgeInsets.only(right: 10),
+                                            child: Align(
+                                              alignment: Alignment.center,
+                                              child: RichText(
+                                                text: WidgetSpan(
+                                                  child: Container(
+                                                    width: 60,
+                                                    padding: EdgeInsets.all(6),
+                                                    decoration: BoxDecoration(
+                                                        borderRadius:
+                                                        BorderRadius.circular(4),
+                                                        color: Color(0xFF555555)),
+                                                    child: Text(
+                                                      "v3-v1",
+                                                      textAlign: TextAlign.center,
+                                                      style: TextStyle(
+                                                        fontWeight: FontWeight.w500,
+                                                        color: Colors.white,
+                                                      ),
+                                                    ),
+                                                  ),
                                                 ),
                                               ),
                                             ),
                                           ),
                                         ),
+
+
                                       ],
                                     ),
                                   ),
@@ -647,32 +752,53 @@ class _DetailDienNangState extends State<DetailDienNangPage> {
                                     margin: const EdgeInsets.only(top: 10.0),
                                     child: Row(
                                       mainAxisAlignment:
-                                          MainAxisAlignment.spaceAround,
+                                      MainAxisAlignment.spaceAround,
                                       children: <Widget>[
-                                        Text(_formatNumber(thongSoDien.dataList[0].info.v3N.replaceAll(',', '')),
-                                            style: TextStyle(
-                                                color: Colors.grey[800],
-                                                fontSize: 17)),
-                                        RichText(
-                                          text: WidgetSpan(
-                                            child: Container(
-                                              width: 60,
-                                              padding: EdgeInsets.all(6),
-                                              decoration: BoxDecoration(
-                                                  borderRadius:
-                                                      BorderRadius.circular(4),
-                                                  color: Color(0xFF555555)),
-                                              child: Text(
-                                                "v3-n",
-                                                textAlign: TextAlign.center,
-                                                style: TextStyle(
-                                                  fontWeight: FontWeight.w500,
-                                                  color: Colors.white,
+                                        Expanded(
+                                          flex: 1,
+                                          child: Container(
+                                            padding: new EdgeInsets.only(left: 50),
+                                            child: Align(
+                                              alignment: Alignment.centerLeft,
+                                              child: Text(_formatNumber(thongSoDien.dataList[0].info.v3N.replaceAll(',', '')),
+                                                  style: TextStyle(
+                                                      color: Colors.grey[800],
+                                                      fontSize: 17)),
+                                            ),
+                                          ),
+                                        ),
+
+                                        Expanded(
+                                          flex: 1,
+                                          child: Container(
+                                            // padding: new EdgeInsets.only(right: 10),
+                                            child: Align(
+                                              alignment: Alignment.center,
+                                              child: RichText(
+                                                text: WidgetSpan(
+                                                  child: Container(
+                                                    width: 60,
+                                                    padding: EdgeInsets.all(6),
+                                                    decoration: BoxDecoration(
+                                                        borderRadius:
+                                                        BorderRadius.circular(4),
+                                                        color: Color(0xFF555555)),
+                                                    child: Text(
+                                                      "v3-n",
+                                                      textAlign: TextAlign.center,
+                                                      style: TextStyle(
+                                                        fontWeight: FontWeight.w500,
+                                                        color: Colors.white,
+                                                      ),
+                                                    ),
+                                                  ),
                                                 ),
                                               ),
                                             ),
                                           ),
                                         ),
+
+
                                       ],
                                     ),
                                   ),
@@ -680,32 +806,53 @@ class _DetailDienNangState extends State<DetailDienNangPage> {
                                     margin: const EdgeInsets.only(top: 10.0),
                                     child: Row(
                                       mainAxisAlignment:
-                                          MainAxisAlignment.spaceAround,
+                                      MainAxisAlignment.spaceAround,
                                       children: <Widget>[
-                                        Text(_formatNumber(thongSoDien.dataList[0].info.vN.replaceAll(',', '')),
-                                            style: TextStyle(
-                                                color: Colors.grey[800],
-                                                fontSize: 17)),
-                                        RichText(
-                                          text: WidgetSpan(
-                                            child: Container(
-                                              width: 60,
-                                              padding: EdgeInsets.all(6),
-                                              decoration: BoxDecoration(
-                                                  borderRadius:
-                                                      BorderRadius.circular(4),
-                                                  color: Color(0xFF555555)),
-                                              child: Text(
-                                                "v-n",
-                                                textAlign: TextAlign.center,
-                                                style: TextStyle(
-                                                  fontWeight: FontWeight.w500,
-                                                  color: Colors.white,
+                                        Expanded(
+                                          flex: 1,
+                                          child: Container(
+                                            padding: new EdgeInsets.only(left: 50),
+                                            child: Align(
+                                              alignment: Alignment.centerLeft,
+                                              child: Text(_formatNumber(thongSoDien.dataList[0].info.vN.replaceAll(',', '')),
+                                                  style: TextStyle(
+                                                      color: Colors.grey[800],
+                                                      fontSize: 17)),
+                                            ),
+                                          ),
+                                        ),
+
+                                        Expanded(
+                                          flex: 1,
+                                          child: Container(
+                                            // padding: new EdgeInsets.only(right: 10),
+                                            child: Align(
+                                              alignment: Alignment.center,
+                                              child: RichText(
+                                                text: WidgetSpan(
+                                                  child: Container(
+                                                    width: 60,
+                                                    padding: EdgeInsets.all(6),
+                                                    decoration: BoxDecoration(
+                                                        borderRadius:
+                                                        BorderRadius.circular(4),
+                                                        color: Color(0xFF555555)),
+                                                    child: Text(
+                                                      "v-n",
+                                                      textAlign: TextAlign.center,
+                                                      style: TextStyle(
+                                                        fontWeight: FontWeight.w500,
+                                                        color: Colors.white,
+                                                      ),
+                                                    ),
+                                                  ),
                                                 ),
                                               ),
                                             ),
                                           ),
                                         ),
+
+
                                       ],
                                     ),
                                   ),
@@ -713,32 +860,53 @@ class _DetailDienNangState extends State<DetailDienNangPage> {
                                     margin: const EdgeInsets.only(top: 10.0),
                                     child: Row(
                                       mainAxisAlignment:
-                                          MainAxisAlignment.spaceAround,
+                                      MainAxisAlignment.spaceAround,
                                       children: <Widget>[
-                                        Text(_formatNumber(thongSoDien.dataList[0].info.a1.replaceAll(',', '')),
-                                            style: TextStyle(
-                                                color: Colors.grey[800],
-                                                fontSize: 17)),
-                                        RichText(
-                                          text: WidgetSpan(
-                                            child: Container(
-                                              width: 60,
-                                              padding: EdgeInsets.all(6),
-                                              decoration: BoxDecoration(
-                                                  borderRadius:
-                                                      BorderRadius.circular(4),
-                                                  color: Color(0xFF555555)),
-                                              child: Text(
-                                                "a1",
-                                                textAlign: TextAlign.center,
-                                                style: TextStyle(
-                                                  fontWeight: FontWeight.w500,
-                                                  color: Colors.white,
+                                        Expanded(
+                                          flex: 1,
+                                          child: Container(
+                                            padding: new EdgeInsets.only(left: 50),
+                                            child: Align(
+                                              alignment: Alignment.centerLeft,
+                                              child: Text(_formatNumber(thongSoDien.dataList[0].info.a1.replaceAll(',', '')),
+                                                  style: TextStyle(
+                                                      color: Colors.grey[800],
+                                                      fontSize: 17)),
+                                            ),
+                                          ),
+                                        ),
+
+                                        Expanded(
+                                          flex: 1,
+                                          child: Container(
+                                            // padding: new EdgeInsets.only(right: 10),
+                                            child: Align(
+                                              alignment: Alignment.center,
+                                              child: RichText(
+                                                text: WidgetSpan(
+                                                  child: Container(
+                                                    width: 60,
+                                                    padding: EdgeInsets.all(6),
+                                                    decoration: BoxDecoration(
+                                                        borderRadius:
+                                                        BorderRadius.circular(4),
+                                                        color: Color(0xFF555555)),
+                                                    child: Text(
+                                                      "a1",
+                                                      textAlign: TextAlign.center,
+                                                      style: TextStyle(
+                                                        fontWeight: FontWeight.w500,
+                                                        color: Colors.white,
+                                                      ),
+                                                    ),
+                                                  ),
                                                 ),
                                               ),
                                             ),
                                           ),
                                         ),
+
+
                                       ],
                                     ),
                                   ),
@@ -746,32 +914,53 @@ class _DetailDienNangState extends State<DetailDienNangPage> {
                                     margin: const EdgeInsets.only(top: 10.0),
                                     child: Row(
                                       mainAxisAlignment:
-                                          MainAxisAlignment.spaceAround,
+                                      MainAxisAlignment.spaceAround,
                                       children: <Widget>[
-                                        Text(_formatNumber(thongSoDien.dataList[0].info.a2.replaceAll(',', '')),
-                                            style: TextStyle(
-                                                color: Colors.grey[800],
-                                                fontSize: 17)),
-                                        RichText(
-                                          text: WidgetSpan(
-                                            child: Container(
-                                              width: 60,
-                                              padding: EdgeInsets.all(6),
-                                              decoration: BoxDecoration(
-                                                  borderRadius:
-                                                      BorderRadius.circular(4),
-                                                  color: Color(0xFF555555)),
-                                              child: Text(
-                                                "a2",
-                                                textAlign: TextAlign.center,
-                                                style: TextStyle(
-                                                  fontWeight: FontWeight.w500,
-                                                  color: Colors.white,
+                                        Expanded(
+                                          flex: 1,
+                                          child: Container(
+                                            padding: new EdgeInsets.only(left: 50),
+                                            child: Align(
+                                              alignment: Alignment.centerLeft,
+                                              child: Text(_formatNumber(thongSoDien.dataList[0].info.a2.replaceAll(',', '')),
+                                                  style: TextStyle(
+                                                      color: Colors.grey[800],
+                                                      fontSize: 17)),
+                                            ),
+                                          ),
+                                        ),
+
+                                        Expanded(
+                                          flex: 1,
+                                          child: Container(
+                                            // padding: new EdgeInsets.only(right: 10),
+                                            child: Align(
+                                              alignment: Alignment.center,
+                                              child: RichText(
+                                                text: WidgetSpan(
+                                                  child: Container(
+                                                    width: 60,
+                                                    padding: EdgeInsets.all(6),
+                                                    decoration: BoxDecoration(
+                                                        borderRadius:
+                                                        BorderRadius.circular(4),
+                                                        color: Color(0xFF555555)),
+                                                    child: Text(
+                                                      "a2",
+                                                      textAlign: TextAlign.center,
+                                                      style: TextStyle(
+                                                        fontWeight: FontWeight.w500,
+                                                        color: Colors.white,
+                                                      ),
+                                                    ),
+                                                  ),
                                                 ),
                                               ),
                                             ),
                                           ),
                                         ),
+
+
                                       ],
                                     ),
                                   ),
@@ -779,32 +968,53 @@ class _DetailDienNangState extends State<DetailDienNangPage> {
                                     margin: const EdgeInsets.only(top: 10.0),
                                     child: Row(
                                       mainAxisAlignment:
-                                          MainAxisAlignment.spaceAround,
+                                      MainAxisAlignment.spaceAround,
                                       children: <Widget>[
-                                        Text(_formatNumber(thongSoDien.dataList[0].info.a3.replaceAll(',', '')),
-                                            style: TextStyle(
-                                                color: Colors.grey[800],
-                                                fontSize: 17)),
-                                        RichText(
-                                          text: WidgetSpan(
-                                            child: Container(
-                                              width: 60,
-                                              padding: EdgeInsets.all(6),
-                                              decoration: BoxDecoration(
-                                                  borderRadius:
-                                                      BorderRadius.circular(4),
-                                                  color: Color(0xFF555555)),
-                                              child: Text(
-                                                "a3",
-                                                textAlign: TextAlign.center,
-                                                style: TextStyle(
-                                                  fontWeight: FontWeight.w500,
-                                                  color: Colors.white,
+                                        Expanded(
+                                          flex: 1,
+                                          child: Container(
+                                            padding: new EdgeInsets.only(left: 50),
+                                            child: Align(
+                                              alignment: Alignment.centerLeft,
+                                              child: Text(_formatNumber(thongSoDien.dataList[0].info.a3.replaceAll(',', '')),
+                                                  style: TextStyle(
+                                                      color: Colors.grey[800],
+                                                      fontSize: 17)),
+                                            ),
+                                          ),
+                                        ),
+
+                                        Expanded(
+                                          flex: 1,
+                                          child: Container(
+                                            // padding: new EdgeInsets.only(right: 10),
+                                            child: Align(
+                                              alignment: Alignment.center,
+                                              child: RichText(
+                                                text: WidgetSpan(
+                                                  child: Container(
+                                                    width: 60,
+                                                    padding: EdgeInsets.all(6),
+                                                    decoration: BoxDecoration(
+                                                        borderRadius:
+                                                        BorderRadius.circular(4),
+                                                        color: Color(0xFF555555)),
+                                                    child: Text(
+                                                      "a3",
+                                                      textAlign: TextAlign.center,
+                                                      style: TextStyle(
+                                                        fontWeight: FontWeight.w500,
+                                                        color: Colors.white,
+                                                      ),
+                                                    ),
+                                                  ),
                                                 ),
                                               ),
                                             ),
                                           ),
                                         ),
+
+
                                       ],
                                     ),
                                   ),
@@ -812,32 +1022,53 @@ class _DetailDienNangState extends State<DetailDienNangPage> {
                                     margin: const EdgeInsets.only(top: 10.0),
                                     child: Row(
                                       mainAxisAlignment:
-                                          MainAxisAlignment.spaceAround,
+                                      MainAxisAlignment.spaceAround,
                                       children: <Widget>[
-                                        Text(_formatNumber(thongSoDien.dataList[0].info.an.replaceAll(',', '')),
-                                            style: TextStyle(
-                                                color: Colors.grey[800],
-                                                fontSize: 17)),
-                                        RichText(
-                                          text: WidgetSpan(
-                                            child: Container(
-                                              width: 60,
-                                              padding: EdgeInsets.all(6),
-                                              decoration: BoxDecoration(
-                                                  borderRadius:
-                                                      BorderRadius.circular(4),
-                                                  color: Color(0xFF555555)),
-                                              child: Text(
-                                                "an",
-                                                textAlign: TextAlign.center,
-                                                style: TextStyle(
-                                                  fontWeight: FontWeight.w500,
-                                                  color: Colors.white,
+                                        Expanded(
+                                          flex: 1,
+                                          child: Container(
+                                            padding: new EdgeInsets.only(left: 50),
+                                            child: Align(
+                                              alignment: Alignment.centerLeft,
+                                              child: Text(_formatNumber(thongSoDien.dataList[0].info.an.replaceAll(',', '')),
+                                                  style: TextStyle(
+                                                      color: Colors.grey[800],
+                                                      fontSize: 17)),
+                                            ),
+                                          ),
+                                        ),
+
+                                        Expanded(
+                                          flex: 1,
+                                          child: Container(
+                                            // padding: new EdgeInsets.only(right: 10),
+                                            child: Align(
+                                              alignment: Alignment.center,
+                                              child: RichText(
+                                                text: WidgetSpan(
+                                                  child: Container(
+                                                    width: 60,
+                                                    padding: EdgeInsets.all(6),
+                                                    decoration: BoxDecoration(
+                                                        borderRadius:
+                                                        BorderRadius.circular(4),
+                                                        color: Color(0xFF555555)),
+                                                    child: Text(
+                                                      "an",
+                                                      textAlign: TextAlign.center,
+                                                      style: TextStyle(
+                                                        fontWeight: FontWeight.w500,
+                                                        color: Colors.white,
+                                                      ),
+                                                    ),
+                                                  ),
                                                 ),
                                               ),
                                             ),
                                           ),
                                         ),
+
+
                                       ],
                                     ),
                                   ),
@@ -845,32 +1076,53 @@ class _DetailDienNangState extends State<DetailDienNangPage> {
                                     margin: const EdgeInsets.only(top: 10.0),
                                     child: Row(
                                       mainAxisAlignment:
-                                          MainAxisAlignment.spaceAround,
+                                      MainAxisAlignment.spaceAround,
                                       children: <Widget>[
-                                        Text(_formatNumber(thongSoDien.dataList[0].info.hz.replaceAll(',', '')),
-                                            style: TextStyle(
-                                                color: Colors.grey[800],
-                                                fontSize: 17)),
-                                        RichText(
-                                          text: WidgetSpan(
-                                            child: Container(
-                                              width: 60,
-                                              padding: EdgeInsets.all(6),
-                                              decoration: BoxDecoration(
-                                                  borderRadius:
-                                                      BorderRadius.circular(4),
-                                                  color: Color(0xFF555555)),
-                                              child: Text(
-                                                "hz",
-                                                textAlign: TextAlign.center,
-                                                style: TextStyle(
-                                                  fontWeight: FontWeight.w500,
-                                                  color: Colors.white,
+                                        Expanded(
+                                          flex: 1,
+                                          child: Container(
+                                            padding: new EdgeInsets.only(left: 50),
+                                            child: Align(
+                                              alignment: Alignment.centerLeft,
+                                              child: Text(_formatNumber(thongSoDien.dataList[0].info.hz.replaceAll(',', '')),
+                                                  style: TextStyle(
+                                                      color: Colors.grey[800],
+                                                      fontSize: 17)),
+                                            ),
+                                          ),
+                                        ),
+
+                                        Expanded(
+                                          flex: 1,
+                                          child: Container(
+                                            // padding: new EdgeInsets.only(right: 10),
+                                            child: Align(
+                                              alignment: Alignment.center,
+                                              child: RichText(
+                                                text: WidgetSpan(
+                                                  child: Container(
+                                                    width: 60,
+                                                    padding: EdgeInsets.all(6),
+                                                    decoration: BoxDecoration(
+                                                        borderRadius:
+                                                        BorderRadius.circular(4),
+                                                        color: Color(0xFF555555)),
+                                                    child: Text(
+                                                      "hz",
+                                                      textAlign: TextAlign.center,
+                                                      style: TextStyle(
+                                                        fontWeight: FontWeight.w500,
+                                                        color: Colors.white,
+                                                      ),
+                                                    ),
+                                                  ),
                                                 ),
                                               ),
                                             ),
                                           ),
                                         ),
+
+
                                       ],
                                     ),
                                   ),
@@ -878,32 +1130,53 @@ class _DetailDienNangState extends State<DetailDienNangPage> {
                                     margin: const EdgeInsets.only(top: 10.0),
                                     child: Row(
                                       mainAxisAlignment:
-                                          MainAxisAlignment.spaceAround,
+                                      MainAxisAlignment.spaceAround,
                                       children: <Widget>[
-                                        Text(_formatNumber(thongSoDien.dataList[0].info.cosp.replaceAll(',', '')),
-                                            style: TextStyle(
-                                                color: Colors.grey[800],
-                                                fontSize: 17)),
-                                        RichText(
-                                          text: WidgetSpan(
-                                            child: Container(
-                                              width: 60,
-                                              padding: EdgeInsets.all(6),
-                                              decoration: BoxDecoration(
-                                                  borderRadius:
-                                                      BorderRadius.circular(4),
-                                                  color: Color(0xFF555555)),
-                                              child: Text(
-                                                "cosp",
-                                                textAlign: TextAlign.center,
-                                                style: TextStyle(
-                                                  fontWeight: FontWeight.w500,
-                                                  color: Colors.white,
+                                        Expanded(
+                                          flex: 1,
+                                          child: Container(
+                                            padding: new EdgeInsets.only(left: 50),
+                                            child: Align(
+                                              alignment: Alignment.centerLeft,
+                                              child: Text(_formatNumber(thongSoDien.dataList[0].info.cosp.replaceAll(',', '')),
+                                                  style: TextStyle(
+                                                      color: Colors.grey[800],
+                                                      fontSize: 17)),
+                                            ),
+                                          ),
+                                        ),
+
+                                        Expanded(
+                                          flex: 1,
+                                          child: Container(
+                                            // padding: new EdgeInsets.only(right: 10),
+                                            child: Align(
+                                              alignment: Alignment.center,
+                                              child: RichText(
+                                                text: WidgetSpan(
+                                                  child: Container(
+                                                    width: 60,
+                                                    padding: EdgeInsets.all(6),
+                                                    decoration: BoxDecoration(
+                                                        borderRadius:
+                                                        BorderRadius.circular(4),
+                                                        color: Color(0xFF555555)),
+                                                    child: Text(
+                                                      "cosp",
+                                                      textAlign: TextAlign.center,
+                                                      style: TextStyle(
+                                                        fontWeight: FontWeight.w500,
+                                                        color: Colors.white,
+                                                      ),
+                                                    ),
+                                                  ),
                                                 ),
                                               ),
                                             ),
                                           ),
                                         ),
+
+
                                       ],
                                     ),
                                   ),
@@ -911,32 +1184,53 @@ class _DetailDienNangState extends State<DetailDienNangPage> {
                                     margin: const EdgeInsets.only(top: 10.0),
                                     child: Row(
                                       mainAxisAlignment:
-                                          MainAxisAlignment.spaceAround,
+                                      MainAxisAlignment.spaceAround,
                                       children: <Widget>[
-                                        Text(_formatNumber(thongSoDien.dataList[0].info.kwh.replaceAll(',', '')),
-                                            style: TextStyle(
-                                                color: Colors.grey[800],
-                                                fontSize: 17)),
-                                        RichText(
-                                          text: WidgetSpan(
-                                            child: Container(
-                                              width: 60,
-                                              padding: EdgeInsets.all(6),
-                                              decoration: BoxDecoration(
-                                                  borderRadius:
-                                                      BorderRadius.circular(4),
-                                                  color: Color(0xFF555555)),
-                                              child: Text(
-                                                "kwh",
-                                                textAlign: TextAlign.center,
-                                                style: TextStyle(
-                                                  fontWeight: FontWeight.w500,
-                                                  color: Colors.white,
+                                        Expanded(
+                                          flex: 1,
+                                          child: Container(
+                                            padding: new EdgeInsets.only(left: 50),
+                                            child: Align(
+                                              alignment: Alignment.centerLeft,
+                                              child: Text(_formatNumber(thongSoDien.dataList[0].info.kwh.replaceAll(',', '')),
+                                                  style: TextStyle(
+                                                      color: Colors.grey[800],
+                                                      fontSize: 17)),
+                                            ),
+                                          ),
+                                        ),
+
+                                        Expanded(
+                                          flex: 1,
+                                          child: Container(
+                                            // padding: new EdgeInsets.only(right: 10),
+                                            child: Align(
+                                              alignment: Alignment.center,
+                                              child: RichText(
+                                                text: WidgetSpan(
+                                                  child: Container(
+                                                    width: 60,
+                                                    padding: EdgeInsets.all(6),
+                                                    decoration: BoxDecoration(
+                                                        borderRadius:
+                                                        BorderRadius.circular(4),
+                                                        color: Color(0xFF555555)),
+                                                    child: Text(
+                                                      "kwh",
+                                                      textAlign: TextAlign.center,
+                                                      style: TextStyle(
+                                                        fontWeight: FontWeight.w500,
+                                                        color: Colors.white,
+                                                      ),
+                                                    ),
+                                                  ),
                                                 ),
                                               ),
                                             ),
                                           ),
                                         ),
+
+
                                       ],
                                     ),
                                   ),
@@ -944,32 +1238,53 @@ class _DetailDienNangState extends State<DetailDienNangPage> {
                                     margin: const EdgeInsets.only(top: 10.0),
                                     child: Row(
                                       mainAxisAlignment:
-                                          MainAxisAlignment.spaceAround,
+                                      MainAxisAlignment.spaceAround,
                                       children: <Widget>[
-                                        Text(_formatNumber(thongSoDien.dataList[0].info.kvarh.replaceAll(',', '')),
-                                            style: TextStyle(
-                                                color: Colors.grey[800],
-                                                fontSize: 17)),
-                                        RichText(
-                                          text: WidgetSpan(
-                                            child: Container(
-                                              width: 60,
-                                              padding: EdgeInsets.all(6),
-                                              decoration: BoxDecoration(
-                                                  borderRadius:
-                                                      BorderRadius.circular(4),
-                                                  color: Color(0xFF555555)),
-                                              child: Text(
-                                                "kvarh",
-                                                textAlign: TextAlign.center,
-                                                style: TextStyle(
-                                                  fontWeight: FontWeight.w500,
-                                                  color: Colors.white,
+                                        Expanded(
+                                          flex: 1,
+                                          child: Container(
+                                            padding: new EdgeInsets.only(left: 50),
+                                            child: Align(
+                                              alignment: Alignment.centerLeft,
+                                              child: Text(_formatNumber(thongSoDien.dataList[0].info.kvarh.replaceAll(',', '')),
+                                                  style: TextStyle(
+                                                      color: Colors.grey[800],
+                                                      fontSize: 17)),
+                                            ),
+                                          ),
+                                        ),
+
+                                        Expanded(
+                                          flex: 1,
+                                          child: Container(
+                                            // padding: new EdgeInsets.only(right: 10),
+                                            child: Align(
+                                              alignment: Alignment.center,
+                                              child: RichText(
+                                                text: WidgetSpan(
+                                                  child: Container(
+                                                    width: 60,
+                                                    padding: EdgeInsets.all(6),
+                                                    decoration: BoxDecoration(
+                                                        borderRadius:
+                                                        BorderRadius.circular(4),
+                                                        color: Color(0xFF555555)),
+                                                    child: Text(
+                                                      "kvarh",
+                                                      textAlign: TextAlign.center,
+                                                      style: TextStyle(
+                                                        fontWeight: FontWeight.w500,
+                                                        color: Colors.white,
+                                                      ),
+                                                    ),
+                                                  ),
                                                 ),
                                               ),
                                             ),
                                           ),
                                         ),
+
+
                                       ],
                                     ),
                                   ),
@@ -977,32 +1292,53 @@ class _DetailDienNangState extends State<DetailDienNangPage> {
                                     margin: const EdgeInsets.only(top: 10.0),
                                     child: Row(
                                       mainAxisAlignment:
-                                          MainAxisAlignment.spaceAround,
+                                      MainAxisAlignment.spaceAround,
                                       children: <Widget>[
-                                        Text(_formatNumber(thongSoDien.dataList[0].info.kvah.replaceAll(',', '')),
-                                            style: TextStyle(
-                                                color: Colors.grey[800],
-                                                fontSize: 17)),
-                                        RichText(
-                                          text: WidgetSpan(
-                                            child: Container(
-                                              width: 60,
-                                              padding: EdgeInsets.all(6),
-                                              decoration: BoxDecoration(
-                                                  borderRadius:
-                                                      BorderRadius.circular(4),
-                                                  color: Color(0xFF555555)),
-                                              child: Text(
-                                                "kvah",
-                                                textAlign: TextAlign.center,
-                                                style: TextStyle(
-                                                  fontWeight: FontWeight.w500,
-                                                  color: Colors.white,
+                                        Expanded(
+                                          flex: 1,
+                                          child: Container(
+                                            padding: new EdgeInsets.only(left: 50),
+                                            child: Align(
+                                              alignment: Alignment.centerLeft,
+                                              child: Text(_formatNumber(thongSoDien.dataList[0].info.kvah.replaceAll(',', '')),
+                                                  style: TextStyle(
+                                                      color: Colors.grey[800],
+                                                      fontSize: 17)),
+                                            ),
+                                          ),
+                                        ),
+
+                                        Expanded(
+                                          flex: 1,
+                                          child: Container(
+                                            // padding: new EdgeInsets.only(right: 10),
+                                            child: Align(
+                                              alignment: Alignment.center,
+                                              child: RichText(
+                                                text: WidgetSpan(
+                                                  child: Container(
+                                                    width: 60,
+                                                    padding: EdgeInsets.all(6),
+                                                    decoration: BoxDecoration(
+                                                        borderRadius:
+                                                        BorderRadius.circular(4),
+                                                        color: Color(0xFF555555)),
+                                                    child: Text(
+                                                      "kvah",
+                                                      textAlign: TextAlign.center,
+                                                      style: TextStyle(
+                                                        fontWeight: FontWeight.w500,
+                                                        color: Colors.white,
+                                                      ),
+                                                    ),
+                                                  ),
                                                 ),
                                               ),
                                             ),
                                           ),
                                         ),
+
+
                                       ],
                                     ),
                                   ),
@@ -1010,35 +1346,57 @@ class _DetailDienNangState extends State<DetailDienNangPage> {
                                     margin: const EdgeInsets.only(top: 10.0),
                                     child: Row(
                                       mainAxisAlignment:
-                                          MainAxisAlignment.spaceAround,
+                                      MainAxisAlignment.spaceAround,
                                       children: <Widget>[
-                                        Text(_formatNumber(thongSoDien.dataList[0].info.thd.replaceAll(',', '')),
-                                            style: TextStyle(
-                                                color: Colors.grey[800],
-                                                fontSize: 17)),
-                                        RichText(
-                                          text: WidgetSpan(
-                                            child: Container(
-                                              width: 60,
-                                              padding: EdgeInsets.all(6),
-                                              decoration: BoxDecoration(
-                                                  borderRadius:
-                                                      BorderRadius.circular(4),
-                                                  color: Color(0xFF555555)),
-                                              child: Text(
-                                                "thd",
-                                                textAlign: TextAlign.center,
-                                                style: TextStyle(
-                                                  fontWeight: FontWeight.w500,
-                                                  color: Colors.white,
+                                        Expanded(
+                                          flex: 1,
+                                          child: Container(
+                                            padding: new EdgeInsets.only(left: 50),
+                                            child: Align(
+                                              alignment: Alignment.centerLeft,
+                                              child: Text(_formatNumber(thongSoDien.dataList[0].info.thd.replaceAll(',', '')),
+                                                  style: TextStyle(
+                                                      color: Colors.grey[800],
+                                                      fontSize: 17)),
+                                            ),
+                                          ),
+                                        ),
+
+                                        Expanded(
+                                          flex: 1,
+                                          child: Container(
+                                            // padding: new EdgeInsets.only(right: 10),
+                                            child: Align(
+                                              alignment: Alignment.center,
+                                              child: RichText(
+                                                text: WidgetSpan(
+                                                  child: Container(
+                                                    width: 60,
+                                                    padding: EdgeInsets.all(6),
+                                                    decoration: BoxDecoration(
+                                                        borderRadius:
+                                                        BorderRadius.circular(4),
+                                                        color: Color(0xFF555555)),
+                                                    child: Text(
+                                                      "thd",
+                                                      textAlign: TextAlign.center,
+                                                      style: TextStyle(
+                                                        fontWeight: FontWeight.w500,
+                                                        color: Colors.white,
+                                                      ),
+                                                    ),
+                                                  ),
                                                 ),
                                               ),
                                             ),
                                           ),
                                         ),
+
+
                                       ],
                                     ),
                                   ),
+
                                 ]),
                           ),
                         ],
@@ -1241,36 +1599,58 @@ class _DetailDienNangState extends State<DetailDienNangPage> {
                                       ],
                                     ),
                                   ),
+
                                   Container(
                                     margin: const EdgeInsets.only(top: 10.0),
                                     child: Row(
                                       mainAxisAlignment:
-                                          MainAxisAlignment.spaceAround,
+                                      MainAxisAlignment.spaceAround,
                                       children: <Widget>[
-                                        Text(_formatNumber(thongSoDien.dataList[1].info.kwhDay.replaceAll(',', '')),
-                                            style: TextStyle(
-                                                color: Colors.grey[800],
-                                                fontSize: 17)),
-                                        RichText(
-                                          text: WidgetSpan(
-                                            child: Container(
-                                              width: 100,
-                                              padding: EdgeInsets.all(6),
-                                              decoration: BoxDecoration(
-                                                  borderRadius:
-                                                      BorderRadius.circular(4),
-                                                  color: Color(0xFF555555)),
-                                              child: Text(
-                                                "kwh-day",
-                                                textAlign: TextAlign.center,
-                                                style: TextStyle(
-                                                  fontWeight: FontWeight.w500,
-                                                  color: Colors.white,
+                                        Expanded(
+                                          flex: 1,
+                                          child: Container(
+                                            padding: new EdgeInsets.only(left: 50),
+                                            child: Align(
+                                              alignment: Alignment.centerLeft,
+                                              child: Text(_formatNumber(thongSoDien.dataList[1].info.kwhDay.replaceAll(',', '')),
+                                                  style: TextStyle(
+                                                      color: Colors.grey[800],
+                                                      fontSize: 17)),
+                                            ),
+                                          ),
+                                        ),
+
+                                        Expanded(
+                                          flex: 1,
+                                          child: Container(
+                                            // padding: new EdgeInsets.only(right: 10),
+                                            child: Align(
+                                              alignment: Alignment.center,
+                                              child: RichText(
+                                                text: WidgetSpan(
+                                                  child: Container(
+                                                    width: 100,
+                                                    padding: EdgeInsets.all(6),
+                                                    decoration: BoxDecoration(
+                                                        borderRadius:
+                                                        BorderRadius.circular(4),
+                                                        color: Color(0xFF555555)),
+                                                    child: Text(
+                                                      "kwh-day",
+                                                      textAlign: TextAlign.center,
+                                                      style: TextStyle(
+                                                        fontWeight: FontWeight.w500,
+                                                        color: Colors.white,
+                                                      ),
+                                                    ),
+                                                  ),
                                                 ),
                                               ),
                                             ),
                                           ),
                                         ),
+
+
                                       ],
                                     ),
                                   ),
@@ -1278,32 +1658,53 @@ class _DetailDienNangState extends State<DetailDienNangPage> {
                                     margin: const EdgeInsets.only(top: 10.0),
                                     child: Row(
                                       mainAxisAlignment:
-                                          MainAxisAlignment.spaceAround,
+                                      MainAxisAlignment.spaceAround,
                                       children: <Widget>[
-                                        Text(_formatNumber(thongSoDien.dataList[1].info.kvarhDay.replaceAll(',', '')),
-                                            style: TextStyle(
-                                                color: Colors.grey[800],
-                                                fontSize: 17)),
-                                        RichText(
-                                          text: WidgetSpan(
-                                            child: Container(
-                                              width: 100,
-                                              padding: EdgeInsets.all(6),
-                                              decoration: BoxDecoration(
-                                                  borderRadius:
-                                                      BorderRadius.circular(4),
-                                                  color: Color(0xFF555555)),
-                                              child: Text(
-                                                "kvarh-day",
-                                                textAlign: TextAlign.center,
-                                                style: TextStyle(
-                                                  fontWeight: FontWeight.w500,
-                                                  color: Colors.white,
+                                        Expanded(
+                                          flex: 1,
+                                          child: Container(
+                                            padding: new EdgeInsets.only(left: 50),
+                                            child: Align(
+                                              alignment: Alignment.centerLeft,
+                                              child: Text(_formatNumber(thongSoDien.dataList[1].info.kvarhDay.replaceAll(',', '')),
+                                                  style: TextStyle(
+                                                      color: Colors.grey[800],
+                                                      fontSize: 17)),
+                                            ),
+                                          ),
+                                        ),
+
+                                        Expanded(
+                                          flex: 1,
+                                          child: Container(
+                                            // padding: new EdgeInsets.only(right: 10),
+                                            child: Align(
+                                              alignment: Alignment.center,
+                                              child: RichText(
+                                                text: WidgetSpan(
+                                                  child: Container(
+                                                    width: 100,
+                                                    padding: EdgeInsets.all(6),
+                                                    decoration: BoxDecoration(
+                                                        borderRadius:
+                                                        BorderRadius.circular(4),
+                                                        color: Color(0xFF555555)),
+                                                    child: Text(
+                                                      "kvarh-day",
+                                                      textAlign: TextAlign.center,
+                                                      style: TextStyle(
+                                                        fontWeight: FontWeight.w500,
+                                                        color: Colors.white,
+                                                      ),
+                                                    ),
+                                                  ),
                                                 ),
                                               ),
                                             ),
                                           ),
                                         ),
+
+
                                       ],
                                     ),
                                   ),
@@ -1311,32 +1712,53 @@ class _DetailDienNangState extends State<DetailDienNangPage> {
                                     margin: const EdgeInsets.only(top: 10.0),
                                     child: Row(
                                       mainAxisAlignment:
-                                          MainAxisAlignment.spaceAround,
+                                      MainAxisAlignment.spaceAround,
                                       children: <Widget>[
-                                        Text(_formatNumber(thongSoDien.dataList[1].info.kwhMonth.replaceAll(',', '')),
-                                            style: TextStyle(
-                                                color: Colors.grey[800],
-                                                fontSize: 17)),
-                                        RichText(
-                                          text: WidgetSpan(
-                                            child: Container(
-                                              width: 100,
-                                              padding: EdgeInsets.all(6),
-                                              decoration: BoxDecoration(
-                                                  borderRadius:
-                                                      BorderRadius.circular(4),
-                                                  color: Color(0xFF555555)),
-                                              child: Text(
-                                                "kwh-month",
-                                                textAlign: TextAlign.center,
-                                                style: TextStyle(
-                                                  fontWeight: FontWeight.w500,
-                                                  color: Colors.white,
+                                        Expanded(
+                                          flex: 1,
+                                          child: Container(
+                                            padding: new EdgeInsets.only(left: 50),
+                                            child: Align(
+                                              alignment: Alignment.centerLeft,
+                                              child: Text(_formatNumber(thongSoDien.dataList[1].info.kwhMonth.replaceAll(',', '')),
+                                                  style: TextStyle(
+                                                      color: Colors.grey[800],
+                                                      fontSize: 17)),
+                                            ),
+                                          ),
+                                        ),
+
+                                        Expanded(
+                                          flex: 1,
+                                          child: Container(
+                                            // padding: new EdgeInsets.only(right: 10),
+                                            child: Align(
+                                              alignment: Alignment.center,
+                                              child: RichText(
+                                                text: WidgetSpan(
+                                                  child: Container(
+                                                    width: 100,
+                                                    padding: EdgeInsets.all(6),
+                                                    decoration: BoxDecoration(
+                                                        borderRadius:
+                                                        BorderRadius.circular(4),
+                                                        color: Color(0xFF555555)),
+                                                    child: Text(
+                                                      "kwh-month",
+                                                      textAlign: TextAlign.center,
+                                                      style: TextStyle(
+                                                        fontWeight: FontWeight.w500,
+                                                        color: Colors.white,
+                                                      ),
+                                                    ),
+                                                  ),
                                                 ),
                                               ),
                                             ),
                                           ),
                                         ),
+
+
                                       ],
                                     ),
                                   ),
@@ -1344,32 +1766,53 @@ class _DetailDienNangState extends State<DetailDienNangPage> {
                                     margin: const EdgeInsets.only(top: 10.0),
                                     child: Row(
                                       mainAxisAlignment:
-                                          MainAxisAlignment.spaceAround,
+                                      MainAxisAlignment.spaceAround,
                                       children: <Widget>[
-                                        Text(_formatNumber(thongSoDien.dataList[1].info.kvarhMonth.replaceAll(',', '')),
-                                            style: TextStyle(
-                                                color: Colors.grey[800],
-                                                fontSize: 17)),
-                                        RichText(
-                                          text: WidgetSpan(
-                                            child: Container(
-                                              width: 100,
-                                              padding: EdgeInsets.all(6),
-                                              decoration: BoxDecoration(
-                                                  borderRadius:
-                                                      BorderRadius.circular(4),
-                                                  color: Color(0xFF555555)),
-                                              child: Text(
-                                                "kvarh-month",
-                                                textAlign: TextAlign.center,
-                                                style: TextStyle(
-                                                  fontWeight: FontWeight.w500,
-                                                  color: Colors.white,
+                                        Expanded(
+                                          flex: 1,
+                                          child: Container(
+                                            padding: new EdgeInsets.only(left: 50),
+                                            child: Align(
+                                              alignment: Alignment.centerLeft,
+                                              child: Text(_formatNumber(thongSoDien.dataList[1].info.kvarhMonth.replaceAll(',', '')),
+                                                  style: TextStyle(
+                                                      color: Colors.grey[800],
+                                                      fontSize: 17)),
+                                            ),
+                                          ),
+                                        ),
+
+                                        Expanded(
+                                          flex: 1,
+                                          child: Container(
+                                            // padding: new EdgeInsets.only(right: 10),
+                                            child: Align(
+                                              alignment: Alignment.center,
+                                              child: RichText(
+                                                text: WidgetSpan(
+                                                  child: Container(
+                                                    width: 100,
+                                                    padding: EdgeInsets.all(6),
+                                                    decoration: BoxDecoration(
+                                                        borderRadius:
+                                                        BorderRadius.circular(4),
+                                                        color: Color(0xFF555555)),
+                                                    child: Text(
+                                                      "kvarh-month",
+                                                      textAlign: TextAlign.center,
+                                                      style: TextStyle(
+                                                        fontWeight: FontWeight.w500,
+                                                        color: Colors.white,
+                                                      ),
+                                                    ),
+                                                  ),
                                                 ),
                                               ),
                                             ),
                                           ),
                                         ),
+
+
                                       ],
                                     ),
                                   ),
@@ -1377,32 +1820,53 @@ class _DetailDienNangState extends State<DetailDienNangPage> {
                                     margin: const EdgeInsets.only(top: 10.0),
                                     child: Row(
                                       mainAxisAlignment:
-                                          MainAxisAlignment.spaceAround,
+                                      MainAxisAlignment.spaceAround,
                                       children: <Widget>[
-                                        Text(_formatNumber(thongSoDien.dataList[1].info.kwhYear.replaceAll(',', '')),
-                                            style: TextStyle(
-                                                color: Colors.grey[800],
-                                                fontSize: 17)),
-                                        RichText(
-                                          text: WidgetSpan(
-                                            child: Container(
-                                              width: 100,
-                                              padding: EdgeInsets.all(6),
-                                              decoration: BoxDecoration(
-                                                  borderRadius:
-                                                      BorderRadius.circular(4),
-                                                  color: Color(0xFF555555)),
-                                              child: Text(
-                                                "kwh-year",
-                                                textAlign: TextAlign.center,
-                                                style: TextStyle(
-                                                  fontWeight: FontWeight.w500,
-                                                  color: Colors.white,
+                                        Expanded(
+                                          flex: 1,
+                                          child: Container(
+                                            padding: new EdgeInsets.only(left: 50),
+                                            child: Align(
+                                              alignment: Alignment.centerLeft,
+                                              child: Text(_formatNumber(thongSoDien.dataList[1].info.kwhYear.replaceAll(',', '')),
+                                                  style: TextStyle(
+                                                      color: Colors.grey[800],
+                                                      fontSize: 17)),
+                                            ),
+                                          ),
+                                        ),
+
+                                        Expanded(
+                                          flex: 1,
+                                          child: Container(
+                                            // padding: new EdgeInsets.only(right: 10),
+                                            child: Align(
+                                              alignment: Alignment.center,
+                                              child: RichText(
+                                                text: WidgetSpan(
+                                                  child: Container(
+                                                    width: 100,
+                                                    padding: EdgeInsets.all(6),
+                                                    decoration: BoxDecoration(
+                                                        borderRadius:
+                                                        BorderRadius.circular(4),
+                                                        color: Color(0xFF555555)),
+                                                    child: Text(
+                                                      "kwh-year",
+                                                      textAlign: TextAlign.center,
+                                                      style: TextStyle(
+                                                        fontWeight: FontWeight.w500,
+                                                        color: Colors.white,
+                                                      ),
+                                                    ),
+                                                  ),
                                                 ),
                                               ),
                                             ),
                                           ),
                                         ),
+
+
                                       ],
                                     ),
                                   ),
@@ -1410,32 +1874,53 @@ class _DetailDienNangState extends State<DetailDienNangPage> {
                                     margin: const EdgeInsets.only(top: 10.0),
                                     child: Row(
                                       mainAxisAlignment:
-                                          MainAxisAlignment.spaceAround,
+                                      MainAxisAlignment.spaceAround,
                                       children: <Widget>[
-                                        Text(_formatNumber(thongSoDien.dataList[1].info.kvarhYear.replaceAll(',', '')),
-                                            style: TextStyle(
-                                                color: Colors.grey[800],
-                                                fontSize: 17)),
-                                        RichText(
-                                          text: WidgetSpan(
-                                            child: Container(
-                                              width: 100,
-                                              padding: EdgeInsets.all(6),
-                                              decoration: BoxDecoration(
-                                                  borderRadius:
-                                                      BorderRadius.circular(4),
-                                                  color: Color(0xFF555555)),
-                                              child: Text(
-                                                "kvarh-year",
-                                                textAlign: TextAlign.center,
-                                                style: TextStyle(
-                                                  fontWeight: FontWeight.w500,
-                                                  color: Colors.white,
+                                        Expanded(
+                                          flex: 1,
+                                          child: Container(
+                                            padding: new EdgeInsets.only(left: 50),
+                                            child: Align(
+                                              alignment: Alignment.centerLeft,
+                                              child: Text(_formatNumber(thongSoDien.dataList[1].info.kvarhYear.replaceAll(',', '')),
+                                                  style: TextStyle(
+                                                      color: Colors.grey[800],
+                                                      fontSize: 17)),
+                                            ),
+                                          ),
+                                        ),
+
+                                        Expanded(
+                                          flex: 1,
+                                          child: Container(
+                                            // padding: new EdgeInsets.only(right: 10),
+                                            child: Align(
+                                              alignment: Alignment.center,
+                                              child: RichText(
+                                                text: WidgetSpan(
+                                                  child: Container(
+                                                    width: 100,
+                                                    padding: EdgeInsets.all(6),
+                                                    decoration: BoxDecoration(
+                                                        borderRadius:
+                                                        BorderRadius.circular(4),
+                                                        color: Color(0xFF555555)),
+                                                    child: Text(
+                                                      "kvarh-year",
+                                                      textAlign: TextAlign.center,
+                                                      style: TextStyle(
+                                                        fontWeight: FontWeight.w500,
+                                                        color: Colors.white,
+                                                      ),
+                                                    ),
+                                                  ),
                                                 ),
                                               ),
                                             ),
                                           ),
                                         ),
+
+
                                       ],
                                     ),
                                   ),
@@ -1443,32 +1928,53 @@ class _DetailDienNangState extends State<DetailDienNangPage> {
                                     margin: const EdgeInsets.only(top: 10.0),
                                     child: Row(
                                       mainAxisAlignment:
-                                          MainAxisAlignment.spaceAround,
+                                      MainAxisAlignment.spaceAround,
                                       children: <Widget>[
-                                        Text(_formatNumber(thongSoDien.dataList[1].info.kwhTotal.replaceAll(',', '')),
-                                            style: TextStyle(
-                                                color: Colors.grey[800],
-                                                fontSize: 17)),
-                                        RichText(
-                                          text: WidgetSpan(
-                                            child: Container(
-                                              width: 100,
-                                              padding: EdgeInsets.all(6),
-                                              decoration: BoxDecoration(
-                                                  borderRadius:
-                                                      BorderRadius.circular(4),
-                                                  color: Color(0xFF555555)),
-                                              child: Text(
-                                                "kwh-total",
-                                                textAlign: TextAlign.center,
-                                                style: TextStyle(
-                                                  fontWeight: FontWeight.w500,
-                                                  color: Colors.white,
+                                        Expanded(
+                                          flex: 1,
+                                          child: Container(
+                                            padding: new EdgeInsets.only(left: 50),
+                                            child: Align(
+                                              alignment: Alignment.centerLeft,
+                                              child: Text(_formatNumber(thongSoDien.dataList[1].info.kwhTotal.replaceAll(',', '')),
+                                                  style: TextStyle(
+                                                      color: Colors.grey[800],
+                                                      fontSize: 17)),
+                                            ),
+                                          ),
+                                        ),
+
+                                        Expanded(
+                                          flex: 1,
+                                          child: Container(
+                                            // padding: new EdgeInsets.only(right: 10),
+                                            child: Align(
+                                              alignment: Alignment.center,
+                                              child: RichText(
+                                                text: WidgetSpan(
+                                                  child: Container(
+                                                    width: 100,
+                                                    padding: EdgeInsets.all(6),
+                                                    decoration: BoxDecoration(
+                                                        borderRadius:
+                                                        BorderRadius.circular(4),
+                                                        color: Color(0xFF555555)),
+                                                    child: Text(
+                                                      "kwh-total",
+                                                      textAlign: TextAlign.center,
+                                                      style: TextStyle(
+                                                        fontWeight: FontWeight.w500,
+                                                        color: Colors.white,
+                                                      ),
+                                                    ),
+                                                  ),
                                                 ),
                                               ),
                                             ),
                                           ),
                                         ),
+
+
                                       ],
                                     ),
                                   ),
@@ -1476,35 +1982,57 @@ class _DetailDienNangState extends State<DetailDienNangPage> {
                                     margin: const EdgeInsets.only(top: 10.0),
                                     child: Row(
                                       mainAxisAlignment:
-                                          MainAxisAlignment.spaceAround,
+                                      MainAxisAlignment.spaceAround,
                                       children: <Widget>[
-                                        Text(_formatNumber(thongSoDien.dataList[1].info.kvarhTotal.replaceAll(',', '')),
-                                            style: TextStyle(
-                                                color: Colors.grey[800],
-                                                fontSize: 17)),
-                                        RichText(
-                                          text: WidgetSpan(
-                                            child: Container(
-                                              width: 100,
-                                              padding: EdgeInsets.all(6),
-                                              decoration: BoxDecoration(
-                                                  borderRadius:
-                                                      BorderRadius.circular(4),
-                                                  color: Color(0xFF555555)),
-                                              child: Text(
-                                                "kvarh-total",
-                                                textAlign: TextAlign.center,
-                                                style: TextStyle(
-                                                  fontWeight: FontWeight.w500,
-                                                  color: Colors.white,
+                                        Expanded(
+                                          flex: 1,
+                                          child: Container(
+                                            padding: new EdgeInsets.only(left: 50),
+                                            child: Align(
+                                              alignment: Alignment.centerLeft,
+                                              child: Text(_formatNumber(thongSoDien.dataList[1].info.kvarhTotal.replaceAll(',', '')),
+                                                  style: TextStyle(
+                                                      color: Colors.grey[800],
+                                                      fontSize: 17)),
+                                            ),
+                                          ),
+                                        ),
+
+                                        Expanded(
+                                          flex: 1,
+                                          child: Container(
+                                            // padding: new EdgeInsets.only(right: 10),
+                                            child: Align(
+                                              alignment: Alignment.center,
+                                              child: RichText(
+                                                text: WidgetSpan(
+                                                  child: Container(
+                                                    width: 100,
+                                                    padding: EdgeInsets.all(6),
+                                                    decoration: BoxDecoration(
+                                                        borderRadius:
+                                                        BorderRadius.circular(4),
+                                                        color: Color(0xFF555555)),
+                                                    child: Text(
+                                                      "kvarh-total",
+                                                      textAlign: TextAlign.center,
+                                                      style: TextStyle(
+                                                        fontWeight: FontWeight.w500,
+                                                        color: Colors.white,
+                                                      ),
+                                                    ),
+                                                  ),
                                                 ),
                                               ),
                                             ),
                                           ),
                                         ),
+
+
                                       ],
                                     ),
                                   ),
+
                                 ]),
                           ),
                         ],
