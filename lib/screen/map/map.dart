@@ -46,11 +46,25 @@ class _MapPageState extends State {
   }
 
   loadBound() async {
-    final GoogleMapController controller = await _controller.future;
-    Future.delayed(
-        Duration(milliseconds: 200),
-        () => controller.animateCamera(
-            CameraUpdate.newLatLngBounds(boundsFromLatLngList(_list), 1)));
+    if (_list.length == 1) {
+      final GoogleMapController controller =
+      await _controller.future;
+      controller.animateCamera(CameraUpdate.newCameraPosition(
+        CameraPosition(
+            target: LatLng(
+                double.parse(listFactoryLocal[0].langtitude),
+                double.parse(listFactoryLocal[0].longtitude)),
+            zoom: 15.0),
+      ));
+    } else {
+      final GoogleMapController controller = await _controller.future;
+      Future.delayed(
+          Duration(milliseconds: 200),
+              () =>
+              controller.animateCamera(
+                  CameraUpdate.newLatLngBounds(
+                      boundsFromLatLngList(_list), 1)));
+    }
   }
 
   @override
