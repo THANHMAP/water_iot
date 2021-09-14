@@ -411,8 +411,7 @@ class _DetailSensorState extends State<DetailSensorPage> {
         });
       }
       if (value.statusCode == 200) {
-        DateTime now = DateTime.now();
-        updateStatus = DateFormat('dd-mm-yyyy kk:mm:ss').format(now);
+        updateStatus = DateFormat('dd-MM-yyyy kk:mm:ss').format(DateTime.now());
         listDataSensor = value.data[positon].dataList;
         if (listDataSensor.length > 0) {
           for (var i = 0; i < listDataSensor.length; i++) {

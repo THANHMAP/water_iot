@@ -1,4 +1,4 @@
-package com.example.water_iot
+package com.pte.water_iot
 
 import io.flutter.embedding.android.FlutterActivity
 
