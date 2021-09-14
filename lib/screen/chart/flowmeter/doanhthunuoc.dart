@@ -140,16 +140,16 @@ class _DoanhThuNuocPageState extends State {
                                       Expanded(
                                         flex: 50,
                                         child: Container(
-                                          margin: new EdgeInsets.symmetric(
-                                              horizontal: 35.0),
-                                          child: Text(
-                                            "Lưu Lượng Đầu Vào",
-                                            textAlign: TextAlign.left,
-                                            style: TextStyle(
-                                              color: textDashboardColor,
-                                              fontFamily: 'OpenSans',
-                                              fontSize: 20.0,
-                                              fontWeight: FontWeight.bold,
+                                          child: Center(
+                                            child: Text(
+                                              "Lưu Lượng Đầu Vào",
+                                              textAlign: TextAlign.left,
+                                              style: TextStyle(
+                                                color: textDashboardColor,
+                                                fontFamily: 'OpenSans',
+                                                fontSize: 20.0,
+                                                fontWeight: FontWeight.bold,
+                                              ),
                                             ),
                                           ),
                                           // child: Center(
@@ -219,16 +219,16 @@ class _DoanhThuNuocPageState extends State {
                                       Expanded(
                                         flex: 50,
                                         child: Container(
-                                          margin: new EdgeInsets.symmetric(
-                                              horizontal: 40.0),
-                                          child: Text(
-                                            "Lưu Lượng Hao Phí",
-                                            textAlign: TextAlign.left,
-                                            style: TextStyle(
-                                              color: textDashboardColor,
-                                              fontFamily: 'OpenSans',
-                                              fontSize: 20.0,
-                                              fontWeight: FontWeight.bold,
+                                          child: Center(
+                                            child: Text(
+                                              "Lưu Lượng Hao Phí",
+                                              textAlign: TextAlign.left,
+                                              style: TextStyle(
+                                                color: textDashboardColor,
+                                                fontFamily: 'OpenSans',
+                                                fontSize: 20.0,
+                                                fontWeight: FontWeight.bold,
+                                              ),
                                             ),
                                           ),
                                           // child: Center(
@@ -302,16 +302,16 @@ class _DoanhThuNuocPageState extends State {
                                       Expanded(
                                         flex: 50,
                                         child: Container(
-                                          margin: new EdgeInsets.symmetric(
-                                              horizontal: 35.0),
-                                          child: Text(
-                                            "Lưu Lượng Bán Ra",
-                                            textAlign: TextAlign.left,
-                                            style: TextStyle(
-                                              color: textDashboardColor,
-                                              fontFamily: 'OpenSans',
-                                              fontSize: 20.0,
-                                              fontWeight: FontWeight.bold,
+                                          child: Center(
+                                            child: Text(
+                                              "Lưu Lượng Bán Ra",
+                                              textAlign: TextAlign.left,
+                                              style: TextStyle(
+                                                color: textDashboardColor,
+                                                fontFamily: 'OpenSans',
+                                                fontSize: 20.0,
+                                                fontWeight: FontWeight.bold,
+                                              ),
                                             ),
                                           ),
                                           // child: Center(

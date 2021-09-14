@@ -133,16 +133,16 @@ class _DienNangState extends State {
                                       Expanded(
                                         flex: 50,
                                         child: Container(
-                                          margin: new EdgeInsets.symmetric(
-                                              horizontal: 40.0),
-                                          child: Text(
-                                            "Thông Số Điện",
-                                            textAlign: TextAlign.left,
-                                            style: TextStyle(
-                                              color: textDashboardColor,
-                                              fontFamily: 'OpenSans',
-                                              fontSize: 20.0,
-                                              fontWeight: FontWeight.bold,
+                                          child: Center(
+                                            child: Text(
+                                              "Thông Số Điện",
+                                              textAlign: TextAlign.left,
+                                              style: TextStyle(
+                                                color: textDashboardColor,
+                                                fontFamily: 'OpenSans',
+                                                fontSize: 20.0,
+                                                fontWeight: FontWeight.bold,
+                                              ),
                                             ),
                                           ),
                                           // child: Center(
@@ -174,7 +174,7 @@ class _DienNangState extends State {
                           InkWell(
                             child: Container(
                               width: double.infinity,
-                              height: 65,
+                              height: 70,
                               padding: EdgeInsets.symmetric(
                                   vertical: 10, horizontal: 20),
                               margin: EdgeInsets.symmetric(
@@ -212,16 +212,16 @@ class _DienNangState extends State {
                                       Expanded(
                                         flex: 50,
                                         child: Container(
-                                          margin: new EdgeInsets.symmetric(
-                                              horizontal: 10.0),
-                                          child: Text(
-                                            "Tổng Điện Năng Tiêu Thụ",
-                                            textAlign: TextAlign.left,
-                                            style: TextStyle(
-                                              color: textDashboardColor,
-                                              fontFamily: 'OpenSans',
-                                              fontSize: 20.0,
-                                              fontWeight: FontWeight.bold,
+                                          child: Center(
+                                            child: Text(
+                                              "Tổng Điện Năng Tiêu Thụ",
+                                              textAlign: TextAlign.center,
+                                              style: TextStyle(
+                                                color: textDashboardColor,
+                                                fontFamily: 'OpenSans',
+                                                fontSize: 20.0,
+                                                fontWeight: FontWeight.bold,
+                                              ),
                                             ),
                                           ),
                                           // child: Center(
@@ -295,16 +295,16 @@ class _DienNangState extends State {
                                       Expanded(
                                         flex: 60,
                                         child: Container(
-                                          margin: new EdgeInsets.symmetric(
-                                              horizontal: 20.0),
-                                          child: Text(
-                                            "Điện Năng Tiêu Thụ",
-                                            textAlign: TextAlign.center,
-                                            style: TextStyle(
-                                              color: textDashboardColor,
-                                              fontFamily: 'OpenSans',
-                                              fontSize: 20.0,
-                                              fontWeight: FontWeight.bold,
+                                          child: Center(
+                                            child: Text(
+                                              "Điện Năng Tiêu Thụ",
+                                              textAlign: TextAlign.center,
+                                              style: TextStyle(
+                                                color: textDashboardColor,
+                                                fontFamily: 'OpenSans',
+                                                fontSize: 20.0,
+                                                fontWeight: FontWeight.bold,
+                                              ),
                                             ),
                                           ),
                                           // child: Center(

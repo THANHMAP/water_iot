@@ -150,14 +150,15 @@ class _MotorState extends State<MotorPage> {
                                       Expanded(
                                         flex: 55,
                                         child: Container(
-                                          margin: new EdgeInsets.symmetric(horizontal: 40.0),
-                                          child: Text(
-                                            "RAW STATION",
-                                            style: TextStyle(
-                                              color: textDashboardColor,
-                                              fontFamily: 'OpenSans',
-                                              fontSize: 20.0,
-                                              fontWeight: FontWeight.bold,
+                                          child: Center(
+                                            child: Text(
+                                              "RAW STATION",
+                                              style: TextStyle(
+                                                color: textDashboardColor,
+                                                fontFamily: 'OpenSans',
+                                                fontSize: 20.0,
+                                                fontWeight: FontWeight.bold,
+                                              ),
                                             ),
                                           ),
                                           // child: Center(
@@ -222,14 +223,15 @@ class _MotorState extends State<MotorPage> {
                                       Expanded(
                                         flex: 55,
                                         child: Container(
-                                          margin: new EdgeInsets.symmetric(horizontal: 40.0),
-                                          child: Text(
-                                            'PROCESS STATION',
-                                            style: TextStyle(
-                                              color: textDashboardColor,
-                                              fontFamily: 'OpenSans',
-                                              fontSize: 20.0,
-                                              fontWeight: FontWeight.bold,
+                                          child: Center(
+                                            child: Text(
+                                              'PROCESS STATION',
+                                              style: TextStyle(
+                                                color: textDashboardColor,
+                                                fontFamily: 'OpenSans',
+                                                fontSize: 20.0,
+                                                fontWeight: FontWeight.bold,
+                                              ),
                                             ),
                                           ),
                                           // child: Center(
@@ -297,14 +299,15 @@ class _MotorState extends State<MotorPage> {
                                       Expanded(
                                         flex: 55,
                                         child: Container(
-                                          margin: new EdgeInsets.symmetric(horizontal: 35.0),
-                                          child: Text(
-                                            'CHEMICAL STATION',
-                                            style: TextStyle(
-                                              color: textDashboardColor,
-                                              fontFamily: 'OpenSans',
-                                              fontSize: 20.0,
-                                              fontWeight: FontWeight.bold,
+                                          child: Center(
+                                            child: Text(
+                                              'CHEMICAL STATION',
+                                              style: TextStyle(
+                                                color: textDashboardColor,
+                                                fontFamily: 'OpenSans',
+                                                fontSize: 20.0,
+                                                fontWeight: FontWeight.bold,
+                                              ),
                                             ),
                                           ),
                                           // child: Center(
@@ -372,14 +375,15 @@ class _MotorState extends State<MotorPage> {
                                       Expanded(
                                         flex: 55,
                                         child: Container(
-                                          margin: new EdgeInsets.symmetric(horizontal: 35.0),
-                                          child: Text(
-                                            'SLUDGE STATION',
-                                            style: TextStyle(
-                                              color: textDashboardColor,
-                                              fontFamily: 'OpenSans',
-                                              fontSize: 20.0,
-                                              fontWeight: FontWeight.bold,
+                                          child: Center(
+                                            child: Text(
+                                              'SLUDGE STATION',
+                                              style: TextStyle(
+                                                color: textDashboardColor,
+                                                fontFamily: 'OpenSans',
+                                                fontSize: 20.0,
+                                                fontWeight: FontWeight.bold,
+                                              ),
                                             ),
                                           ),
                                           // child: Center(
@@ -447,14 +451,15 @@ class _MotorState extends State<MotorPage> {
                                       Expanded(
                                         flex: 55,
                                         child: Container(
-                                          margin: new EdgeInsets.symmetric(horizontal: 35.0),
-                                          child: Text(
-                                            'SUPPLY STATION',
-                                            style: TextStyle(
-                                              color: textDashboardColor,
-                                              fontFamily: 'OpenSans',
-                                              fontSize: 20.0,
-                                              fontWeight: FontWeight.bold,
+                                          child: Center(
+                                            child: Text(
+                                              'SUPPLY STATION',
+                                              style: TextStyle(
+                                                color: textDashboardColor,
+                                                fontFamily: 'OpenSans',
+                                                fontSize: 20.0,
+                                                fontWeight: FontWeight.bold,
+                                              ),
                                             ),
                                           ),
                                           // child: Center(
