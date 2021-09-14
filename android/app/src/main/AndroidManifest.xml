@@ -5,7 +5,7 @@
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
    <application
-        android:label="PTE Water"
+        android:label="PTE"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"
@@ -43,6 +43,6 @@
             android:name="flutterEmbedding"
             android:value="2" />
        <meta-data android:name="com.google.android.geo.API_KEY"
-           android:value="AIzaSyBx7T_zombxKkHF2mvQ7NuiC4FVwsqJTJ0"/>
+           android:value="AIzaSyAgvsqMW_dtZyf-gFW31P7MS5bzKFKpykQ"/>
     </application>
 </manifest>
