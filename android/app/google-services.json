@@ -9,7 +9,7 @@
       "client_info": {
         "mobilesdk_app_id": "1:78228555286:android:d08886e7c42da390375737",
         "android_client_info": {
-          "package_name": "com.pte.water_iot"
+          "package_name": "com.phucthinh.pte"
         }
       },
       "oauth_client": [
@@ -17,7 +17,7 @@
           "client_id": "78228555286-hppiv2ml386c2vrvta59j3juldi3jl6p.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.pte.water_iot",
+            "package_name": "com.phucthinh.pte",
             "certificate_hash": "93e86691ba53d4c10b12328ca876cc3de2d3b75c"
           }
         },

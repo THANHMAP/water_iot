@@ -1,4 +1,4 @@
-package com.pte.water_iot
+package com.phucthinh.pte
 
 import io.flutter.embedding.android.FlutterActivity
 
