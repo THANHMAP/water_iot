@@ -1,6 +1,7 @@
 class AppUrl {
   static const String baseURL = "https://www.ptewater.com/admin/api/v1";
   static const String login = baseURL + "/user/login";
+  static const String sign_up = baseURL + "/user/signup";
   static const String list_factory = baseURL + "/factory/list";
   static const String list_factory_detail = baseURL + "/factory/detail";
   static const String change_password = baseURL + "/user/change-password";

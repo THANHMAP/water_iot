@@ -16,12 +16,12 @@ import '../../ProgressHUD.dart';
 import '../../SharedPref.dart';
 import '../../constants.dart';
 
-class LoginPage extends StatefulWidget {
+class SignUpPage extends StatefulWidget {
   @override
-  _LoginPageState createState() => _LoginPageState();
+  _SignupPageState createState() => _SignupPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _SignupPageState extends State<SignUpPage> {
   bool hidePassword = true;
   bool isApiCallProcess = false;
   GlobalKey<FormState> globalFormKey = GlobalKey<FormState>();
@@ -73,7 +73,7 @@ class _LoginPageState extends State<LoginPage> {
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: <Widget>[
                               Text(
-                                'Đăng Nhập',
+                                'Đăng Ký',
                                 style: TextStyle(
                                   color: Colors.white,
                                   fontFamily: 'OpenSans',
@@ -89,7 +89,7 @@ class _LoginPageState extends State<LoginPage> {
                           padding: EdgeInsets.symmetric(
                               vertical: 20, horizontal: 20),
                           margin:
-                              EdgeInsets.symmetric(vertical: 0, horizontal: 20),
+                          EdgeInsets.symmetric(vertical: 0, horizontal: 20),
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(20),
                             color: Theme.of(context).primaryColor,
@@ -106,61 +106,16 @@ class _LoginPageState extends State<LoginPage> {
                             key: globalFormKey,
                             child: Column(
                               children: <Widget>[
-                                new Row(
-                                  children: <Widget>[
-                                    SizedBox(width: 5),
-                                    Image.asset(
-                                      "assets/images/logo.png",
-                                      height: 50,
-                                      width: 50,
-                                      fit: BoxFit.cover,
-                                    ),
-                                    SizedBox(width: 15),
-                                    Expanded(
-                                      child: Container(
-                                        child: Text(
-                                          'Đăng Nhập Vào Bảng Điều Khiển',
-                                          style: TextStyle(
-                                            color: mTexHeadLoginColor,
-                                            fontFamily: 'OpenSans',
-                                            fontSize: 18.0,
-                                            fontWeight: FontWeight.bold,
-                                          ),
-                                        ),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                                // SizedBox(height: 20),
-                                // new TextFormField(
-                                //   onTap: _requestIpFocus,
-                                //   focusNode: _focusIpNode,
-                                //   initialValue: "197.168.0.12",
-                                //   style: TextStyle(
-                                //       color: borderFocusEdittextColor),
-                                //   keyboardType: TextInputType.text,
-                                //   onSaved: (input) =>
-                                //       loginRequestModel.ip = input,
-                                //   validator: (input) => !input.contains('.')
-                                //       ? "Ip should be valid"
-                                //       : null,
-                                //   decoration: new InputDecoration(
-                                //     hintText: "IP nhà máy",
-                                //     hintStyle: TextStyle(
-                                //         color: _focusIpNode.hasFocus
-                                //             ? borderFocusEdittextColor
-                                //             : borderEdittextColor),
-                                //     enabledBorder: UnderlineInputBorder(
-                                //         borderSide: BorderSide(
-                                //             color: borderEdittextColor)),
-                                //     focusedBorder: UnderlineInputBorder(
-                                //         borderSide: BorderSide(
-                                //             color: borderFocusEdittextColor)),
-                                //     // prefixIcon: Icon(
-                                //     //   Icons.email,
-                                //     //   color: Theme.of(context).accentColor,
-                                //     // ),
-                                //   ),
+                                // new Row(
+                                //   children: <Widget>[
+                                //     SizedBox(width: 5),
+                                //     Image.asset(
+                                //       "assets/images/logo.png",
+                                //       height: 50,
+                                //       width: 50,
+                                //       fit: BoxFit.cover,
+                                //     ),
+                                //   ],
                                 // ),
                                 SizedBox(height: 20),
                                 new TextFormField(
@@ -170,12 +125,12 @@ class _LoginPageState extends State<LoginPage> {
                                       color: borderFocusEdittextColor),
                                   keyboardType: TextInputType.emailAddress,
                                   onSaved: (input) =>
-                                      loginRequestModel.username = input,
+                                  loginRequestModel.username = input,
                                   validator: (input) => !input.contains('')
                                       ? "Email Id should be valid"
                                       : null,
                                   decoration: new InputDecoration(
-                                    hintText: "Tên đăng nhập",
+                                    hintText: "Email",
                                     hintStyle: TextStyle(
                                         color: _focusUserNode.hasFocus
                                             ? borderFocusEdittextColor
@@ -196,7 +151,7 @@ class _LoginPageState extends State<LoginPage> {
                                       color: borderFocusEdittextColor),
                                   keyboardType: TextInputType.text,
                                   onSaved: (input) =>
-                                      loginRequestModel.password = input,
+                                  loginRequestModel.password = input,
                                   validator: (input) => input.length < 3
                                       ? "Password should be more than 3 characters"
                                       : null,
@@ -215,17 +170,6 @@ class _LoginPageState extends State<LoginPage> {
                                             color: borderFocusEdittextColor)),
                                   ),
                                 ),
-                                SizedBox(height: 40),
-                                // ignore: deprecated_member_use
-                                Text(
-                                  'Forgot password?',
-                                  style: TextStyle(
-                                    color: borderEdittextColor,
-                                    fontFamily: 'OpenSans',
-                                    fontSize: 15.0,
-                                    fontWeight: FontWeight.normal,
-                                  ),
-                                ),
                                 SizedBox(height: 50),
                                 FlatButton(
                                   padding: EdgeInsets.symmetric(
@@ -242,7 +186,7 @@ class _LoginPageState extends State<LoginPage> {
 
                                       APIService apiService = new APIService();
                                       apiService
-                                          .login(loginRequestModel)
+                                          .signUp(loginRequestModel.username, loginRequestModel.password)
                                           .then((value) {
                                         if (value != null) {
                                           setState(() {
@@ -250,39 +194,10 @@ class _LoginPageState extends State<LoginPage> {
                                           });
 
                                           if (value.statusCode == 200) {
-                                            saveUserInfo(value.data);
-                                            if (value.data.accessToken !=
-                                                null) {
-                                              var screen;
-                                              Group group =
-                                                  value.data.group.first;
-                                              if (group.code ==
-                                                  "super_admin_app") {
-                                                screen = '/customer';
-                                              } else if (group.code ==
-                                                  "admin") {
-                                                customerId = value.data.customer.id.toString();
-                                                screen = '/factoryAdmin';
-                                              } else if (group.code ==
-                                                  "viewer") {
-                                                customerId = value.data.customer.id.toString();
-                                                screen = '/factoryAdmin';
-                                              }
-                                              else if (group.code ==
-                                                  "admin_factory") {
-                                                customerId = value.data.customer.id.toString();
-                                                screen = '/factoryAdmin';
-                                              }
-                                              Navigator.pushNamed(context, screen);
-                                              final snackBar = SnackBar(
-                                                  content:
-                                                      Text("Login Successful"));
-                                              scaffoldKey.currentState
-                                                  .showSnackBar(snackBar);
-                                            }
+                                            Navigator.pushNamed(context, '/login');
                                           } else {
                                             final snackBar = SnackBar(
-                                                content: Text(value.message));
+                                                content: Text("Lỗi"));
                                             scaffoldKey.currentState
                                                 .showSnackBar(snackBar);
                                           }
@@ -303,22 +218,6 @@ class _LoginPageState extends State<LoginPage> {
                                     }
                                   },
                                   child: Text(
-                                    "Đăng nhập",
-                                    style: TextStyle(color: Colors.white),
-                                  ),
-                                  color: loginButtonColor,
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(10.0),
-                                  ),
-                                ),
-                                SizedBox(height: 20),
-                                FlatButton(
-                                  padding: EdgeInsets.symmetric(
-                                      vertical: 17, horizontal: 110),
-                                  onPressed: () {
-                                    Navigator.pushNamed(context, '/signup');
-                                  },
-                                  child: Text(
                                     "Đăng ký",
                                     style: TextStyle(color: Colors.white),
                                   ),
@@ -327,7 +226,7 @@ class _LoginPageState extends State<LoginPage> {
                                     borderRadius: BorderRadius.circular(10.0),
                                   ),
                                 ),
-                                SizedBox(height: 15),
+
                               ],
                             ),
                           ),

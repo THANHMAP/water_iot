@@ -35,6 +35,17 @@ class APIService {
     }
   }
 
+  Future<http.Response> signUp(String email, String password) async {
+    String url = AppUrl.sign_up;
+    try {
+      final response =
+      await http.post(Uri.parse(url), body: {'customer_id': '1', 'email': email, 'password': password, 'password_confirmation': password});
+      return response;
+    } on SocketException catch (e) {
+      throw Exception('Failed');
+    }
+  }
+
   Future<FactoryResponseModel> getListFactory(String token) async {
     String url = AppUrl.list_factory;
     try {

@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:water_iot/screen/customer/customer.dart';
 import 'package:water_iot/screen/factory/factory_admin.dart';
 import 'package:water_iot/screen/login/login.dart';
+import 'package:water_iot/screen/signup/signup.dart';
 import 'package:water_iot/test.dart';
 import 'screen/splash/splash_screen.dart';
 
@@ -50,10 +51,8 @@ class MyApp extends StatelessWidget {
         '/login': (context) =>LoginPage(),
         '/factoryAdmin': (context) =>FactoryAminPage(),
         '/customer': (context) =>CustomerPage(),
+        '/signup': (context) =>SignUpPage(),
       },
-      // home: TestPage(),
-      // home: MainPage(),
-      // home:Factory()
     );
   }
 }
