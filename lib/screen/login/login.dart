@@ -311,7 +311,7 @@ class _LoginPageState extends State<LoginPage> {
                                     borderRadius: BorderRadius.circular(10.0),
                                   ),
                                 ),
-                                SizedBox(height: 20),
+                             /*   SizedBox(height: 20),
                                 FlatButton(
                                   padding: EdgeInsets.symmetric(
                                       vertical: 17, horizontal: 110),
@@ -326,7 +326,7 @@ class _LoginPageState extends State<LoginPage> {
                                   shape: RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(10.0),
                                   ),
-                                ),
+                                ),*/
                                 SizedBox(height: 15),
                               ],
                             ),
